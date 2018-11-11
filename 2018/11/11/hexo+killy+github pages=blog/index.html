@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="Build up personal blog with node, hexo, killy and deploy it on Github.This post will show you how to build up a personal blog by node and hexo. The theme used in this case is killy. Laterly the blog">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-11T05:03:44.320Z">
+<meta property="og:updated_time" content="2018-11-11T08:39:05.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mia&#39;s Blog">
 <meta name="twitter:description" content="Build up personal blog with node, hexo, killy and deploy it on Github.This post will show you how to build up a personal blog by node and hexo. The theme used in this case is killy. Laterly the blog">
@@ -48,10 +48,10 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Mia</a></h1>
+		  <h1 class="header-author"><a href="/">Mia Feng</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">Je marche lentement, mais je ne pas recule jamais.</p>
@@ -69,15 +69,15 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">Posters</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Projects</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About</a>
     			
             
 		</nav>
@@ -87,10 +87,6 @@
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -108,10 +104,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Mia</h1>
+			  <h1 class="header-author js-header-author">Mia Feng</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Je marche lentement, mais je ne pas recule jamais.<i class="icon icon-quo-right"></i></p>
@@ -130,10 +126,6 @@
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -166,7 +158,6 @@
       
         <hr>
 <h2 id="Build-up-personal-blog-with-node-hexo-killy-and-deploy-it-on-Github"><a href="#Build-up-personal-blog-with-node-hexo-killy-and-deploy-it-on-Github" class="headerlink" title="Build up personal blog with node, hexo, killy and deploy it on Github."></a>Build up personal blog with node, hexo, killy and deploy it on Github.</h2><p>This post will show you how to build up a personal blog by node and hexo. The theme used in this case is killy. Laterly the blog will be hosted on Github. </p>
-<p>[^_^]: # Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you have to install tools:</p>
 <ul>
 <li><p>node.js+npm,</p>
@@ -177,7 +168,8 @@
 <li>an account of Github,</li>
 </ul>
 <p>and configure the ssh-key on your device.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install-hexo"><a href="#Install-hexo" class="headerlink" title="Install hexo"></a>Install hexo</h3><p>Create a local directory on your device, such as I </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
@@ -280,7 +272,7 @@
   
   
     <a href="/2018/11/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,7 +315,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Mia
+    		&copy; 2018 Mia Feng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -377,15 +369,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">Posters</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Projects</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About</a></li>
       
         
     </ul>
