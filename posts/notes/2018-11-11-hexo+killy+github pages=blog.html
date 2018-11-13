@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="This post will show you how to build up a personal blog by node and hexo. The theme used in this case is killy. Laterly the blog will be hosted on Github.  PreliminariesBefore starting, you need to pr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-13T10:36:55.909Z">
+<meta property="og:updated_time" content="2018-11-13T10:58:06.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build up personal blog">
 <meta name="twitter:description" content="This post will show you how to build up a personal blog by node and hexo. The theme used in this case is killy. Laterly the blog will be hosted on Github.  PreliminariesBefore starting, you need to pr">
@@ -220,7 +220,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://skaudrey.github.io/" target="_blank" rel="noopener">https://skaudrey.github.io/</a>.</p>
-<h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><h3 id="generate-catalogue-for-each-posts"><a href="#generate-catalogue-for-each-posts" class="headerlink" title="generate catalogue for each posts"></a>generate catalogue for each posts</h3><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thanks for <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger’s sharing</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten’s demo</a>.</p>
+<h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><p>New a folder under the “source” directory, I named it assets. I also new the “img” folder for pictures. Put you avatar picture here. Then reconfigure the _config.yml file beneath theme “yilia”‘s folder, which looks like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /assets/img/avatar.jpg</span><br></pre></td></tr></table></figure>
+<h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the same name file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  about: about</span><br><span class="line">  notes: notes</span><br><span class="line">  projects: projects</span><br><span class="line">  papers: papers</span><br><span class="line">  talks: talks</span><br><span class="line">  meetings: meetings</span><br></pre></td></tr></table></figure>
+<p>Each pair of it can be different, it is just a mapping, such as you can define a map like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  parole: talks</span><br><span class="line">  关于我: about</span><br></pre></td></tr></table></figure>
+<h3 id="change-the-naming-rule-of-a-new-post"><a href="#change-the-naming-rule-of-a-new-post" class="headerlink" title="change the naming rule of a new post"></a>change the naming rule of a new post</h3><p>The default naming rule of hexo is YYYY/MM/DD/post name, which leads to a hyper-link without html suffix. I change it as html. It can be accomplished by configure the _config.yml in root directory, again.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:category/:year-:month-:day-:title.html</span><br></pre></td></tr></table></figure>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>You can debug it locally by </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>, which is convinient before deployment.</p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thanks for <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger’s sharing</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten’s demo</a>.</p>
 
       
 
@@ -306,7 +317,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preliminaries"><span class="toc-number">1.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-blog"><span class="toc-number">2.</span> <span class="toc-text">Build blog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-hexo-and-npm-environment"><span class="toc-number">2.1.</span> <span class="toc-text">Configure hexo and npm environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link-hexo-with-Github"><span class="toc-number">2.2.</span> <span class="toc-text">Link hexo with Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#see-your-pages"><span class="toc-number"></span> <span class="toc-text">see your pages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Customization"><span class="toc-number">1.</span> <span class="toc-text">Customization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-your-avatar"><span class="toc-number">1.1.</span> <span class="toc-text">upload your avatar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate-catalogue-for-each-posts"><span class="toc-number">1.2.</span> <span class="toc-text">generate catalogue for each posts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Acknowledgement"><span class="toc-number"></span> <span class="toc-text">Acknowledgement</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preliminaries"><span class="toc-number">1.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-blog"><span class="toc-number">2.</span> <span class="toc-text">Build blog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configure-hexo-and-npm-environment"><span class="toc-number">2.1.</span> <span class="toc-text">Configure hexo and npm environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link-hexo-with-Github"><span class="toc-number">2.2.</span> <span class="toc-text">Link hexo with Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">2.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">2.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#see-your-pages"><span class="toc-number"></span> <span class="toc-text">see your pages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Customization"><span class="toc-number">1.</span> <span class="toc-text">Customization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-your-avatar"><span class="toc-number">1.1.</span> <span class="toc-text">upload your avatar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classify-your-posts-by-categories-rather-than-tags-in-default"><span class="toc-number">1.2.</span> <span class="toc-text">classify your posts by categories rather than tags in default</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#change-the-naming-rule-of-a-new-post"><span class="toc-number">1.3.</span> <span class="toc-text">change the naming rule of a new post</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number"></span> <span class="toc-text">Tips</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Acknowledgement"><span class="toc-number"></span> <span class="toc-text">Acknowledgement</span></a>
                     </li></div>
                 </span>
             </div>
@@ -438,14 +449,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hyper-spectrum</a>
               </li>
              
@@ -455,6 +458,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">

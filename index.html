@@ -378,7 +378,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin’s summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning. </p>
-<p>Check for more details.</p>
+<p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>
 
       
 
@@ -475,7 +475,7 @@
 </ul>
 <p>which causes a trouble while processing them.</p>
 <p>This talk shows why they are high correlation and also sparse, and kernel PCA for compressing them are also tested.</p>
-<p>Check for more details.</p>
+<p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slide</a> for more details.</p>
 
       
 
@@ -680,7 +680,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://skaudrey.github.io/" target="_blank" rel="noopener">https://skaudrey.github.io/</a>.</p>
-<h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><h3 id="generate-catalogue-for-each-posts"><a href="#generate-catalogue-for-each-posts" class="headerlink" title="generate catalogue for each posts"></a>generate catalogue for each posts</h3><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thanks for <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger’s sharing</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten’s demo</a>.</p>
+<h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><p>New a folder under the “source” directory, I named it assets. I also new the “img” folder for pictures. Put you avatar picture here. Then reconfigure the _config.yml file beneath theme “yilia”‘s folder, which looks like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /assets/img/avatar.jpg</span><br></pre></td></tr></table></figure>
+<h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the same name file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  about: about</span><br><span class="line">  notes: notes</span><br><span class="line">  projects: projects</span><br><span class="line">  papers: papers</span><br><span class="line">  talks: talks</span><br><span class="line">  meetings: meetings</span><br></pre></td></tr></table></figure>
+<p>Each pair of it can be different, it is just a mapping, such as you can define a map like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  parole: talks</span><br><span class="line">  关于我: about</span><br></pre></td></tr></table></figure>
+<h3 id="change-the-naming-rule-of-a-new-post"><a href="#change-the-naming-rule-of-a-new-post" class="headerlink" title="change the naming rule of a new post"></a>change the naming rule of a new post</h3><p>The default naming rule of hexo is YYYY/MM/DD/post name, which leads to a hyper-link without html suffix. I change it as html. It can be accomplished by configure the _config.yml in root directory, again.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:category/:year-:month-:day-:title.html</span><br></pre></td></tr></table></figure>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>You can debug it locally by </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>, which is convinient before deployment.</p>
+<h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thanks for <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger’s sharing</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten’s demo</a>.</p>
 
       
 
@@ -927,14 +938,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hyper-spectrum</a>
               </li>
              
@@ -944,6 +947,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
