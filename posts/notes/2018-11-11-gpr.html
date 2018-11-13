@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Discussion about Data Assimilation and Machine Learning. | Mia&#39;s Blog</title>
+  <title>Weather processes interpolation based on GPR | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and stat">
-<meta name="keywords" content="talks">
+  <meta name="description" content="This project aims at interpolating wind fields. The main idea of it is multi anisotropy kernel, which could extract multi-scale dependencies of weather processes. Weather processes with and without cy">
+<meta name="keywords" content="research,projects">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Discussion about Data Assimilation and Machine Learning.">
-<meta property="og:url" content="http://yoursite.com/2018/11/12/da+talk/index.html">
+<meta property="og:title" content="Weather processes interpolation based on GPR">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2018-11-11-gpr.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and stat">
+<meta property="og:description" content="This project aims at interpolating wind fields. The main idea of it is multi anisotropy kernel, which could extract multi-scale dependencies of weather processes. Weather processes with and without cy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-13T07:35:03.980Z">
+<meta property="og:updated_time" content="2018-11-13T09:30:43.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Discussion about Data Assimilation and Machine Learning.">
-<meta name="twitter:description" content="Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and stat">
+<meta name="twitter:title" content="Weather processes interpolation based on GPR">
+<meta name="twitter:description" content="This project aims at interpolating wind fields. The main idea of it is multi anisotropy kernel, which could extract multi-scale dependencies of weather processes. Weather processes with and without cy">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -60,7 +60,7 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/2018/11/10/about/">about</a></li>
+				<li><a href="/2018-11-10-about.html">about</a></li>
 	        
 				<li><a href="/tags/notes/">notes</a></li>
 	        
@@ -150,7 +150,7 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/2018/11/10/about/">about</a></li>
+					<li style="width: 16.666666666666668%"><a href="/2018-11-10-about.html">about</a></li>
 		        
 					<li style="width: 16.666666666666668%"><a href="/tags/notes/">notes</a></li>
 		        
@@ -175,29 +175,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-da+talk" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-gpr" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Discussion about Data Assimilation and Machine Learning.
+      Weather processes interpolation based on GPR
     </h1>
   
 
         
-        <a href="/2018/11/12/da+talk/" class="archive-article-date">
-  	<time datetime="2018-11-12T07:04:51.094Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-12</time>
+        <a href="/posts/notes/2018-11-11-gpr.html" class="archive-article-date">
+  	<time datetime="2018-11-11T15:40:18.625Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin’s summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning. </p>
-<p>Check for more details.</p>
-
+        <p>This project aims at interpolating wind fields. The main idea of it is multi anisotropy kernel, which could extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, two interpolation methods are proposed. Check <a href="http://www.mdpi.com/2073-4433/9/5/194/pdf" target="_blank" rel="noopener">paper</a> for more information. Codes are available <a href="https://github.com/skaudrey/gpml" target="_blank" rel="noopener">here</a>.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.
+</code></pre><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.
+</code></pre>
       
 
       
@@ -210,13 +211,28 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">talks</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">research</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">projects</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -229,18 +245,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/13/harbin/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/talks/2018-11-12-hyp+talk.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          The summer school held in Harbin, Augu. 2017.
+          Infrared Hyper-spectrtum Data Introduction and kernel PCA compression.
         
       </div>
     </a>
   
   
-    <a href="/2018/11/12/hyp+talk/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Infrared Hyper-spectrtum Data Introduction and kernel PCA compression.</div>
+    <a href="/posts/notes/2018-11-11-hexo+killy+github pages=blog.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Build up personal blog</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -259,6 +275,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">1.</span> <span class="toc-text">Reference</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Acknowledgement"><span class="toc-number">2.</span> <span class="toc-text">Acknowledgement</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -370,6 +399,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">about</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">research</a>
               </li>
              
@@ -379,10 +412,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">meetings</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">posts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,7 +498,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">I&#39;m a master student in NUDT.&lt;br /&gt;  I love reading, exercising and cooking. &lt;br /&gt; Science fictions, mystery novels are my favorite.</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">I&#39;m a master student in NUDT.&lt;br /&gt;  I love reading, exercising and cooking. &lt;br /&gt; Science fictions, detective novels are my favorite.</div>
   	  	
     	</section>
     
