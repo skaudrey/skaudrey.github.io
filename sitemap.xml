@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/meetings/2018-11-13-microsoft.html</loc>
+    
+    <lastmod>2018-11-13T14:35:12.601Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/meetings/2018-11-13-harbin.html</loc>
     
-    <lastmod>2018-11-13T14:24:31.447Z</lastmod>
+    <lastmod>2018-11-13T14:26:34.272Z</lastmod>
     
   </url>
   
