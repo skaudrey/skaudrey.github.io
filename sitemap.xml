@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/life/2018-11-13-plants.html</loc>
+    
+    <lastmod>2018-11-13T15:10:14.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/life/2018-11-13-yummy.html</loc>
+    
+    <lastmod>2018-11-13T15:07:55.649Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/life/2018-11-13-yoga.html</loc>
+    
+    <lastmod>2018-11-13T15:01:52.885Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%80%E5%A4%A9.html</loc>
+    
+    <lastmod>2018-11-13T14:47:40.666Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/meetings/2018-11-13-microsoft.html</loc>
     
     <lastmod>2018-11-13T14:35:12.601Z</lastmod>
@@ -26,13 +54,6 @@
     <loc>http://yoursite.com/posts/feelings/2018-11-13-Psychology.html</loc>
     
     <lastmod>2018-11-13T13:34:23.781Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%80%E5%A4%A9.html</loc>
-    
-    <lastmod>2018-11-13T13:32:11.784Z</lastmod>
     
   </url>
   
