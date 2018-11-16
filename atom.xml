@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-16T02:53:23.762Z</updated>
+  <updated>2018-11-16T04:17:21.583Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/posts/life/2018-11-13-plants.html"/>
     <id>http://yoursite.com/posts/life/2018-11-13-plants.html</id>
     <published>2018-11-13T14:58:56.670Z</published>
-    <updated>2018-11-16T02:53:23.762Z</updated>
+    <updated>2018-11-16T04:17:21.583Z</updated>
     
-    <content type="html"><![CDATA[<p>The sunflower I planted died of lacking of sunshines. Feel sorry for that.</p><center class="half"><br>    <img src="/assets/img/sunflower/0.jpg" width="100"><br>    <img src="/assets/img/sunflower/1.jpg" width="100"><br></center><br><center class="half"><br>    <img src="/assets/img/sunflower/2.jpg" width="100"><br>    <img src="/assets/img/sunflower/3.jpg" width="100"><br></center><br><center class="half"><br>    <img src="/assets/img/sunflower/4.jpg" width="100"><br>    <img src="/assets/img/sunflower/5.jpg" width="100"><br></center><br><center class="half"><br>    <img src="/assets/img/sunflower/6.jpg" width="100"><br>    <img src="/assets/img/sunflower/7.jpg" width="100"><br></center>]]></content>
+    <content type="html"><![CDATA[<p>The sunflower I planted died of lacking of sunshines. Feel sorry for that.</p><div align="center"><br>    <img src="/assets/img/sunflower/0.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/1.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/2.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/3.jpg" height="100" width="100"><br></div><div align="center"><br>    <img src="/assets/img/sunflower/4.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/5.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/6.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/7.jpg" height="100" width="100"><br></div>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;The sunflower I planted died of lacking of sunshines. Feel sorry for that.&lt;/p&gt;
-&lt;center class=&quot;half&quot;&gt;&lt;br&gt;    &lt;img src=&quot;/assets/img/sunflow
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;    &lt;img src=&quot;/assets/img/sunflowe
       
     
     </summary>
@@ -47,9 +47,9 @@
     <link href="http://yoursite.com/posts/life/2018-11-13-yummy.html"/>
     <id>http://yoursite.com/posts/life/2018-11-13-yummy.html</id>
     <published>2018-11-13T14:58:43.666Z</published>
-    <updated>2018-11-16T04:05:27.654Z</updated>
+    <updated>2018-11-16T04:15:36.849Z</updated>
     
-    <content type="html"><![CDATA[<p>The food shown below can all be done by micrawave oven.</p><p>The collections of noodles.</p><center figure="" class="helf"><br>    <img src="/assets/img/cooking/meituan/noodles1.jpg" width="100"><br>    <img src="/assets/img/cooking/meituan/noodles2.jpg" width="100"><br></center><br><center figure="" class="helf"><br>    <img src="/assets/img/cooking/meituan/noodles3.jpg" width="100"><br>    <img src="/assets/img/cooking/meituan/noodles4.jpg" width="100"><br></center><br><br>Cookies made by oats, eggs and milk.<br><center><br>    <img src="/assets/img/cooking/meituan/cookies.jpg" width="100"><br></center><p>Curry with baked banana and streamed egg custard.</p><center class="half"><br>    <img src="/assets/img/cooking/meituan/curry.jpg" width="100"><br>    <img src="/assets/img/cooking/meituan/egg.jpg" width="100"><br></center><p>Toast</p><center><br>    <img src="/assets/img/cooking/meituan/bread.jpg" width="100"><br></center><p>Handmade yogurt</p><center><br>    <img src="/assets/img/cooking/yogurt.jpg" width="100"><br></center>]]></content>
+    <content type="html"><![CDATA[<p>The food shown below can all be done by micrawave oven.</p><p>The collections of noodles.</p><div align="center"><br><img src="/assets/img/cooking/meituan/noodles1.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles2.jpg" height="100" width="100"><br><img src="/assets/img/cooking/meituan/noodles3.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles4.jpg" height="100" width="100"><br><br> </div><br>—<br><br>Cookies made by oats, eggs and milk.<br><center><br>    <img src="/assets/img/cooking/meituan/cookies.jpg" width="100"><br></center><br><br>Curry with baked banana and streamed egg custard.<br><div align="center"><br>    <img src="/assets/img/cooking/meituan/curry.jpg" height="100" width="100"><br><br>    <img src="/assets/img/cooking/meituan/egg.jpg" height="100" width="100"><br><br></div><p>Toast</p><center><br>    <img src="/assets/img/cooking/meituan/bread.jpg" width="100"><br></center><p>Handmade yogurt</p><center><br>    <img src="/assets/img/cooking/yogurt.jpg" width="100"><br></center>]]></content>
     
     <summary type="html">
     
@@ -57,7 +57,7 @@
       
         &lt;p&gt;The food shown below can all be done by micrawave oven.&lt;/p&gt;
 &lt;p&gt;The collections of noodles.&lt;/p&gt;
-&lt;center figure=&quot;&quot; class=&quot;helf&quot;&gt;&lt;br&gt;    &lt;im
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;/assets/
       
     
     </summary>
