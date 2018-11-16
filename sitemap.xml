@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%80%E5%A4%A9.html</loc>
+    
+    <lastmod>2018-11-16T06:01:07.226Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/life/2018-11-13-plants.html</loc>
     
     <lastmod>2018-11-16T04:17:21.583Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/posts/life/2018-11-13-yoga.html</loc>
     
     <lastmod>2018-11-16T02:53:19.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%80%E5%A4%A9.html</loc>
-    
-    <lastmod>2018-11-15T13:25:24.050Z</lastmod>
     
   </url>
   
