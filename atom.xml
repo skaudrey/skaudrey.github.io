@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-16T11:44:45.843Z</updated>
+  <updated>2018-11-16T13:19:43.972Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The naive implementation of some popular machine learning algorithms.</title>
+    <link href="http://yoursite.com/posts/projects/2018-11-16-ml-implement.html"/>
+    <id>http://yoursite.com/posts/projects/2018-11-16-ml-implement.html</id>
+    <published>2018-11-16T13:08:29.550Z</published>
+    <updated>2018-11-16T13:19:43.972Z</updated>
+    
+    <content type="html"><![CDATA[<p>The naive implementation of some M.L. algorithms, which will be updated continuously.</p><p>The algorithms that have been implemented are listed as follows:</p><ul><li>Logistic Regression,</li><li>SVM solved by SMO,</li><li>K-Means，</li><li>GMM solved by EM,</li><li>Perceptron，</li><li>Naive Bayes,</li><li>LeNet-Keras，</li><li>MLP-Numpy solved with BP,</li><li>MCMC sampling.</li></ul><p>Codes are available <a href="https://github.com/skaudrey/ml_algorithm" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;The naive implementation of some M.L. algorithms, which will be updated continuously.&lt;/p&gt;
+&lt;p&gt;The algorithms that have been implemented ar
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
+    
+      <category term="naive" scheme="http://yoursite.com/tags/naive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HCR--Compress and Resonstruct hyper-spectral data.</title>
+    <link href="http://yoursite.com/posts/projects/2018-11-16-hcr.html"/>
+    <id>http://yoursite.com/posts/projects/2018-11-16-hcr.html</id>
+    <published>2018-11-16T13:03:20.182Z</published>
+    <updated>2018-11-16T13:05:07.267Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project compresses and reconstructs infrared hyperspectrum data. The network proposed is named HCR, aka Hyper-spectrum compression and reconstruction. The size of infrared hyperspectrum data are so big that they are overload for current computing resources. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p><p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness value are gridded so that one value at specific location is taken as a color value at this pixel. After normalizing with batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p><p>Carrying on IASI data, the RMSE of this new method was 5 smaller than that of principle component analysis (PCA) at least in the same compression ratio. The compression kernels code tempetature information and reconstruct it. During reconstruction, the kernels’ weights for likewise data are similar.</p><p>Codes are available <a href="https://github.com/skaudrey/hyp" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project compresses and reconstructs infrared hyperspectrum data. The network proposed is named HCR, aka Hyper-spectrum compression a
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
+    
+      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cloud denoise of infrared hyper-spectral data based on logistic.</title>
+    <link href="http://yoursite.com/posts/projects/2018-11-16-lr.html"/>
+    <id>http://yoursite.com/posts/projects/2018-11-16-lr.html</id>
+    <published>2018-11-16T13:01:11.668Z</published>
+    <updated>2018-11-16T13:04:05.743Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT). There are 8461 channels in it, which can detect atmosphere vertically in details. However, as clouds covers target objects, and they exist in more than 90% IFOVs, mostly corresponding IFOVs are contaminated by clouds’ brightness temperature. Cloudy IFOVs have to be kicked off in order to get clean data.</p><p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, the cloudy IFOVs are classified by logistic regression.</p><p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting the IFOVs of sea, while the result of land’s IFOVs was far from it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p><p>Codes are available <a href="https://github.com/skaudrey/cloud" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are cover
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
+    
+      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
+    
+      <category term="denoise" scheme="http://yoursite.com/tags/denoise/"/>
+    
+  </entry>
   
   <entry>
     <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression.</title>

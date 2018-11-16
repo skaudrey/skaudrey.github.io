@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/projects/2018-11-16-ml-implement.html</loc>
+    
+    <lastmod>2018-11-16T13:19:43.972Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2018-11-16-hcr.html</loc>
+    
+    <lastmod>2018-11-16T13:05:07.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2018-11-16-lr.html</loc>
+    
+    <lastmod>2018-11-16T13:04:05.743Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html</loc>
     
     <lastmod>2018-11-16T11:44:45.843Z</lastmod>
