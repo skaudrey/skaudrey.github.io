@@ -65,13 +65,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
-    
       <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
     
       <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
     
   </entry>
   
@@ -96,13 +96,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
-    
-      <category term="denoise" scheme="http://yoursite.com/tags/denoise/"/>
-    
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
       <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
+    
+      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
+    
+      <category term="denoise" scheme="http://yoursite.com/tags/denoise/"/>
     
   </entry>
   
