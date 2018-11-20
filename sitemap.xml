@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2018-11-18-comp-neuroscience-course-week1.html</loc>
+    
+    <lastmod>2018-11-20T07:09:50.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/meetings/2018-11-13-microsoft.html</loc>
     
     <lastmod>2018-11-18T03:59:34.183Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/posts/talks/2018-11-12-hyp+talk.html</loc>
     
     <lastmod>2018-11-18T03:40:39.386Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2018-11-18-comp-neuroscience-course-week1.html</loc>
-    
-    <lastmod>2018-11-18T02:56:53.758Z</lastmod>
     
   </url>
   
