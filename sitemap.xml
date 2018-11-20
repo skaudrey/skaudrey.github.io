@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2018-11-11-hexo+killy+github%20pages=blog.html</loc>
+    
+    <lastmod>2018-11-20T07:48:42.240Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/feelings/2018-11-13-%E5%85%8B%E9%87%8C%E6%96%AF%E5%A4%9A%E5%A4%AB.html</loc>
     
     <lastmod>2018-11-20T07:33:47.632Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://yoursite.com/posts/life/2018-11-13-yummy.html</loc>
     
     <lastmod>2018-11-20T07:31:33.701Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2018-11-11-hexo+killy+github%20pages=blog.html</loc>
-    
-    <lastmod>2018-11-20T07:31:22.160Z</lastmod>
     
   </url>
   
