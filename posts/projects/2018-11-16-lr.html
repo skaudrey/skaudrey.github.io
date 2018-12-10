@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Cloud denoise of infrared hyper-spectral data based on logistic. | Mia&#39;s Blog</title>
+  <title>Clouds detection of infrared hyperspectral data based on logistic. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellit">
-<meta name="keywords" content="hyper-spectrum,infrared,logistic,denoise">
+  <meta name="description" content="This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs">
+<meta name="keywords" content="infrared,hyperspectral,logistic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cloud denoise of infrared hyper-spectral data based on logistic.">
+<meta property="og:title" content="Clouds detection of infrared hyperspectral data based on logistic.">
 <meta property="og:url" content="http://yoursite.com/posts/projects/2018-11-16-lr.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellit">
+<meta property="og:description" content="This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-16T13:04:05.743Z">
+<meta property="og:updated_time" content="2018-12-10T13:17:56.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cloud denoise of infrared hyper-spectral data based on logistic.">
-<meta name="twitter:description" content="This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellit">
+<meta name="twitter:title" content="Clouds detection of infrared hyperspectral data based on logistic.">
+<meta name="twitter:description" content="This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -188,7 +188,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Cloud denoise of infrared hyper-spectral data based on logistic.
+      Clouds detection of infrared hyperspectral data based on logistic.
     </h1>
   
 
@@ -201,9 +201,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT). There are 8461 channels in it, which can detect atmosphere vertically in details. However, as clouds covers target objects, and they exist in more than 90% IFOVs, mostly corresponding IFOVs are contaminated by clouds’ brightness temperature. Cloudy IFOVs have to be kicked off in order to get clean data.</p>
-<p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, the cloudy IFOVs are classified by logistic regression.</p>
-<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting the IFOVs of sea, while the result of land’s IFOVs was far from it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
+        <p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p>
+<p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p>
+<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
 <p>Codes are available <a href="https://github.com/skaudrey/cloud" target="_blank" rel="noopener">here</a>.</p>
 
       
@@ -218,19 +218,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hyper-spectrum</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logistic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">denoise</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logistic</a>
         		</li>
       		
 		</ul>
@@ -264,7 +260,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HCR--Compress and Resonstruct hyper-spectral data.
+          HCR--Compress and Resonstruct Hyperspectral Data.
         
       </div>
     </a>
@@ -422,6 +418,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
@@ -438,26 +450,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hyper-spectrum</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -470,47 +462,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">trendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +486,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">denoise</a>
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>

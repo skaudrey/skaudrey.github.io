@@ -291,7 +291,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This week is going to the encoding method and codes of neurons.<br>
+        <p>This week is going to the encoding methods and codes of neurons.<br>
         
           <a class="article-more-a" href="/posts/notes/2018-11-22-comp-neuroscience-course-week2.html#more">more >></a>
         
@@ -378,9 +378,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Computational Neuroscience is a course given by on coursera. </p>
+        <p>Computational Neuroscience is a course released by coursera. </p>
 <h2 id="Computational-models-for-understanding-brains"><a href="#Computational-models-for-understanding-brains" class="headerlink" title="Computational models for understanding brains"></a>Computational models for understanding brains</h2><ul>
-<li>Descriptive models–<strong>what</strong><br>  How do neurons respond to external stimuli and descibe it quantitatively.</li>
+<li>Descriptive models–<strong>what</strong><br>  How do neurons respond to external stimuli and descibe the respondings quantitatively.</li>
 <li>Mechanistic models–<strong>how</strong><br>  Simulate a single neuron and a network of neurons’ behaviors. </li>
 <li>Interpretive models–<strong>why</strong><br>  The latent computational principles of brain.
         
@@ -469,7 +469,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The naive implementation of some M.L. algorithms, which will be updated continuously.</p>
+        <p>Naive implementations of some M.L. algorithms, which are updated continuously.</p>
 <p>The algorithms that have been implemented are listed as follows:</p>
 <ul>
 <li>Logistic Regression,</li>
@@ -554,7 +554,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/projects/2018-11-16-hcr.html">HCR--Compress and Resonstruct hyper-spectral data.</a>
+      <a class="article-title" href="/posts/projects/2018-11-16-hcr.html">HCR--Compress and Resonstruct Hyperspectral Data.</a>
     </h1>
   
 
@@ -567,9 +567,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This project compresses and reconstructs infrared hyperspectrum data. The network proposed is named HCR, aka Hyper-spectrum compression and reconstruction. The size of infrared hyperspectrum data are so big that they are overloaden for current computing resources. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
-<p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness value are gridded so that one value at specific location is taken as a color value at this pixel. After normalizing with batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
-<p>Carrying on IASI data, the RMSE of this new method was 5 smaller than that of principle component analysis (PCA) at least in the same compression ratio. The compression kernels code tempetature information and reconstruct it. During reconstruction, the kernels’ weights for likewise data are similar.</p>
+        <p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
+<p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
+<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p>
 <p>Codes are available <a href="https://github.com/skaudrey/hyp" target="_blank" rel="noopener">here</a>.</p>
 
       
@@ -584,10 +584,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hyper-spectrum</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cnn</a>
         		</li>
       		 
@@ -597,6 +593,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
         		</li>
       		
 		</ul>
@@ -650,7 +650,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/projects/2018-11-16-lr.html">Cloud denoise of infrared hyper-spectral data based on logistic.</a>
+      <a class="article-title" href="/posts/projects/2018-11-16-lr.html">Clouds detection of infrared hyperspectral data based on logistic.</a>
     </h1>
   
 
@@ -663,9 +663,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This project distinguishes whether infrared atmospheric sounding interferometer’s (IASI’s) instantaneous fields of view (IFOVs) are covered by clouds or not. IASI is an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT). There are 8461 channels in it, which can detect atmosphere vertically in details. However, as clouds covers target objects, and they exist in more than 90% IFOVs, mostly corresponding IFOVs are contaminated by clouds’ brightness temperature. Cloudy IFOVs have to be kicked off in order to get clean data.</p>
-<p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, the cloudy IFOVs are classified by logistic regression.</p>
-<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting the IFOVs of sea, while the result of land’s IFOVs was far from it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
+        <p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p>
+<p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p>
+<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
 <p>Codes are available <a href="https://github.com/skaudrey/cloud" target="_blank" rel="noopener">here</a>.</p>
 
       
@@ -680,19 +680,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hyper-spectrum</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logistic</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">denoise</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">logistic</a>
         		</li>
       		
 		</ul>
@@ -759,7 +755,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>It is a talk about the multivariate interpolation models for wind fileds, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html" target="_blank" rel="noopener">projects’ introduction </a> and <a href="https://github.com/skaudrey/gpml/" target="_blank" rel="noopener">github</a> for more details.</p>
+        <p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html" target="_blank" rel="noopener">projects’ introduction </a> and <a href="https://github.com/skaudrey/gpml/" target="_blank" rel="noopener">github</a> for more details.</p>
 <p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>
 
       
@@ -845,7 +841,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The sunflower I planted died of lacking sunshine. I miss him, hope you won’t make the mistake I made, and settle him outdoors. One day he will smile to you.<br>
+        <p>The sunflower I planted died of lacking sunshine. I miss it, hope you won’t make the mistake I made, do settle it outdoors.<br>
         
           <a class="article-more-a" href="/posts/life/2018-11-13-plants.html#more">more >></a>
         
@@ -928,7 +924,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Hope it can help save your thinking time for what to eat and enjoy a healthy diet.<br>
+        <p>Hope it can help save your searching time for what to eat and enjoy a healthy diet. Be careful when you boil eggs, they may blow up.<br>
         
           <a class="article-more-a" href="/posts/life/2018-11-13-yummy.html#more">more >></a>
         
@@ -1181,6 +1177,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
@@ -1197,26 +1209,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hyper-spectrum</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1229,47 +1221,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">trendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,11 +1245,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">denoise</a>
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-20T07:48:42.240Z">
+<meta property="og:updated_time" content="2018-12-10T07:21:55.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build up personal blog">
 <meta name="twitter:description" content="This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.">
@@ -202,7 +202,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.<br><a id="more"></a></p>
-<h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need to prepare:</p>
+<h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need:</p>
 <ul>
 <li><p>node.js+npm,</p>
 <p>  Get node.js from <a href="https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fnodejs" target="_blank" rel="noopener">here</a>. Check <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="noopener">here</a> for more info about node.</p>
@@ -215,8 +215,8 @@
 <li>an account of Github,</li>
 </ul>
 <p>and configure the ssh-key on your device.</p>
-<h2 id="Build-blog"><a href="#Build-blog" class="headerlink" title="Build blog"></a>Build blog</h2><h3 id="Initialize-hexo-with-hexo"><a href="#Initialize-hexo-with-hexo" class="headerlink" title="Initialize hexo with hexo"></a>Initialize hexo with hexo</h3><p>Create a local folder as your root directory, such as “blog”, and go to the directory in your terminal.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure></p>
-<p>Then initialize this directory with npm and hexo.</p>
+<h2 id="Build-blog"><a href="#Build-blog" class="headerlink" title="Build blog"></a>Build blog</h2><h3 id="Initialize-hexo-with-hexo"><a href="#Initialize-hexo-with-hexo" class="headerlink" title="Initialize hexo with hexo"></a>Initialize hexo with hexo</h3><p>Create a local folder as your root directory, such as “blog”, and go to the directory in your terminal and initialize it by hexo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure></p>
+<p>Then initialize this directory with npm.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <h3 id="Link-hexo-with-Github"><a href="#Link-hexo-with-Github" class="headerlink" title="Link hexo with Github"></a>Link hexo with Github</h3><p>Set deployment tool,</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hex-deployer-git --save</span><br></pre></td></tr></table></figure>
@@ -225,26 +225,26 @@
 <p>Change the deployment in file “_config.yml” like:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy: </span><br><span class="line">    <span class="built_in">type</span>: git </span><br><span class="line">    repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
 <p>Tips: The name of your hosting repository should be “[githubname].github.io”, such as “jack.github.io”. And mind the blankspaces while rewriting file “_config.yml”.</p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p>Do it before you push it to Github.</p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p>Do it before you push it on Github.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://skaudrey.github.io/" target="_blank" rel="noopener">https://skaudrey.github.io/</a>.</p>
+<h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://jack.github.io/" target="_blank" rel="noopener">https://jack.github.io/</a>.</p>
 <h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h3><p>I picked theme yilia. Configuration should be done as bellow:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 <p>Change the default theme defined in “_config.yml” under root directory.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
 <h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><p>New a folder under the “source” directory, I named it assets. I also new the “img” folder for pictures. Put you avatar picture here. Then reconfigure the _config.yml file beneath theme “yilia”‘s folder, which is:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /assets/img/avatar.jpg</span><br></pre></td></tr></table></figure>
-<h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the same name file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p>
+<h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  about: about</span><br><span class="line">  notes: notes</span><br><span class="line">  projects: projects</span><br><span class="line">  papers: papers</span><br><span class="line">  talks: talks</span><br><span class="line">  meetings: meetings</span><br></pre></td></tr></table></figure>
-<p>Each pair of it can be different, it is just a mapping, such as you can define a map like this:</p>
+<p>Each pair of it can be different, it is just a mapping, such as:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  parole: talks</span><br><span class="line">  关于我: about</span><br></pre></td></tr></table></figure>
 <h3 id="change-the-naming-rule-of-a-new-post"><a href="#change-the-naming-rule-of-a-new-post" class="headerlink" title="change the naming rule of a new post"></a>change the naming rule of a new post</h3><p>The default naming rule of hexo is YYYY/MM/DD/[post name], which leads to a hyper-link without html suffix. I change it as html. It can be accomplished by configure the _config.yml in root directory.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:category/:year-:month-:day-:title.html</span><br></pre></td></tr></table></figure>
 <h3 id="Truncate-the-post-in-home-list-when-it-is-too-long"><a href="#Truncate-the-post-in-home-list-when-it-is-too-long" class="headerlink" title="Truncate the post in home list when it is too long."></a>Truncate the post in home list when it is too long.</h3><p>You need to add</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
-<p>at the location you want to trucate in a post. And confiure the __config.yml_ in under themes’ folder.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章太长，截断按钮文字</span></span><br><span class="line">excerpt_link: <span class="string">"more"</span></span><br></pre></td></tr></table></figure>
+<p>after where you want to trucate in a post. And confiure the __config.yml_ under themes’ folder.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The truncate signal while post is too long.</span></span><br><span class="line">excerpt_link: <span class="string">"more"</span></span><br></pre></td></tr></table></figure>
 <h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>You can debug pages locally by </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <p>, which is convenient before deployment.</p>
@@ -458,6 +458,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
@@ -474,26 +490,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hyper-spectrum</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -506,47 +502,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">trendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +526,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">denoise</a>
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>
