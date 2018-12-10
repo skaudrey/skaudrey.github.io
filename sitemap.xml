@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/talks/2018-12-10-mlutility+talk.html</loc>
+    
+    <lastmod>2018-12-10T02:06:51.998Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html</loc>
+    
+    <lastmod>2018-12-10T01:53:29.031Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2018-11-22-comp-neuroscience-course-week2.html</loc>
     
     <lastmod>2018-11-22T05:51:41.580Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>http://yoursite.com/posts/talks/2018-11-12-da+talk.html</loc>
     
     <lastmod>2018-11-17T08:19:04.531Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html</loc>
-    
-    <lastmod>2018-11-17T08:19:01.289Z</lastmod>
     
   </url>
   

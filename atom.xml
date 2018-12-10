@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-22T05:51:41.580Z</updated>
+  <updated>2018-12-10T02:06:51.998Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2018-12-10-mlutility+talk.html"/>
+    <id>http://yoursite.com/posts/talks/2018-12-10-mlutility+talk.html</id>
+    <published>2018-12-10T01:58:34.251Z</published>
+    <updated>2018-12-10T02:06:51.998Z</updated>
+    
+    <content type="html"><![CDATA[<p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p><p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my l
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
+    
+      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
+    
+      <category term="Data assimilation" scheme="http://yoursite.com/tags/Data-assimilation/"/>
+    
+  </entry>
   
   <entry>
     <title>Week 2, Neural Encoding, Computational Neuroscience, Rajesh Rao, University of Washington</title>
@@ -117,13 +146,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
+      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
+    
       <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
     
       <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
     
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
     
   </entry>
   
@@ -148,9 +177,9 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
       <category term="hyper-spectrum" scheme="http://yoursite.com/tags/hyper-spectrum/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
       <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
     
@@ -163,7 +192,7 @@
     <link href="http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html"/>
     <id>http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html</id>
     <published>2018-11-16T11:34:18.548Z</published>
-    <updated>2018-11-17T08:19:01.289Z</updated>
+    <updated>2018-12-10T01:53:29.031Z</updated>
     
     <content type="html"><![CDATA[<p>It is a talk about the multivariate interpolation models for wind fileds, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html" target="_blank" rel="noopener">projects’ introduction </a> and <a href="https://github.com/skaudrey/gpml/" target="_blank" rel="noopener">github</a> for more details.</p><p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>]]></content>
     
