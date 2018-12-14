@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Mia&#39;s Blog</title>
   <icon>https://www.gravatar.com/avatar/f644d7619a1de0e46fa49f8fc4d8b38d</icon>
-  <subtitle>Je marche lentement, mais je ne pas recule jamais.</subtitle>
+  <subtitle>Je marche lentement, mais je ne recule jamais.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -146,13 +146,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
-    
-      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
-    
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
       <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
+    
+      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
     
   </entry>
   
@@ -177,11 +177,11 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
+      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
+    
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
       <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
     
   </entry>
   
