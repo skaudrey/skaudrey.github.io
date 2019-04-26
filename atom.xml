@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-10T02:06:51.998Z</updated>
+  <updated>2019-04-26T09:57:19.835Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,328 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2018-12-10-mlutility+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2018-12-10-mlutility+talk.html</id>
-    <published>2018-12-10T01:58:34.251Z</published>
-    <updated>2018-12-10T02:06:51.998Z</updated>
+    <title>Build up personal blog</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-hexo+killy+github%20pages=blog.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-hexo+killy+github pages=blog.html</id>
+    <published>2019-04-26T09:57:19.834Z</published>
+    <updated>2019-04-26T09:57:19.835Z</updated>
     
-    <content type="html"><![CDATA[<p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p><p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my l
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
-    
-      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
-    
-      <category term="Data assimilation" scheme="http://yoursite.com/tags/Data-assimilation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Week 2, Neural Encoding, Computational Neuroscience, Rajesh Rao, University of Washington</title>
-    <link href="http://yoursite.com/posts/notes/2018-11-22-comp-neuroscience-course-week2.html"/>
-    <id>http://yoursite.com/posts/notes/2018-11-22-comp-neuroscience-course-week2.html</id>
-    <published>2018-11-22T03:26:44.212Z</published>
-    <updated>2018-12-10T02:49:52.514Z</updated>
-    
-    <content type="html"><![CDATA[<p>This week is going to the encoding methods and codes of neurons.<br><a id="more"></a></p><h2 id="The-Neural-Code-and-Neural-Encoding"><a href="#The-Neural-Code-and-Neural-Encoding" class="headerlink" title="The Neural Code and Neural Encoding"></a>The Neural Code and Neural Encoding</h2><h3 id="The-methods-for-observing"><a href="#The-methods-for-observing" class="headerlink" title="The methods for observing"></a>The methods for observing</h3><ul><li>Both fMRI and EEG can describe brain’s activities, but they cannot show what a single neuron does. EEG is faster than fMRI.</li><li>Electrode arrays, calcium imaging can read out the neural codes. </li><li>Patch clamp looks inside single cells.</li></ul><h3 id="How-to-understand-neurons’-activities"><a href="#How-to-understand-neurons’-activities" class="headerlink" title="How to understand neurons’ activities?"></a>How to understand neurons’ activities?</h3><ul><li>Encoding: how does a stimulus cause a pattern of responses, such as building quasi-mechanistic models</li><li>Decoding: What do these responses tell us about the stimulus?</li></ul><h3 id="What-you-think-you-are-looking-at-can-shape-what-you-actually-see"><a href="#What-you-think-you-are-looking-at-can-shape-what-you-actually-see" class="headerlink" title="What you think you are looking at can shape what you actually see."></a>What you think you are looking at can shape what you actually see.</h3><h3 id="quiz"><a href="#quiz" class="headerlink" title="quiz"></a>quiz</h3><p>1.In a raster plot such as the one just shown, in which a short experiment is repeated many times, what does a vertical structuring of the dots at one point in time indicate?</p><ul><li><p>The cell fires very consistently at that time (with respect to each iteration of the stimulus).–<strong>correct</strong></p><p>  A vertical bar in the raster plot indicates a strong response, meaning that one cell fires very reliably at a particular time during the stimulus presentation, and suggesting that the cell is responding to the particular feature of the stimulus that occurs at that time. Weaker responses are represented by thin red bars (where the cell fires during some iterations but not others). As such, a weak response indicates that there is something about the feature (orientation of a bar of light in the video for example) that the cell likes, but is not the feature it responds to best (the orientation is off by a few degrees from what the cell prefers, for example).</p></li></ul><ul><li>Many neurons fire together at that time.</li></ul><ul><li>The cell fires many action potentials at that time.</li></ul><ul><li>Only a single neuron fires at that time.</li></ul><p>2.If the stimulus in question is an audio recording of someone speaking a certain syllable, which of the following could be an appropriate choice of stimulus parameter?</p><ul><li><p>The average amplitude of the signal. –<strong>correct</strong> </p><p>  In general there are a multitude of different stimulus parameters that could affect a neuron’s response. Part of designing a good experiment involves picking a natural set of parameters to investigate while holding all others as constant as possible. With neurons in lower cortical areas, it is often relatively easy to figure out what parameters are important (e.g., the location of a spot of light for a neuron in LGN). In higher cortical areas, however, it can be quite difficult to understand exactly what parameter of a stimulus a neuron is tuned to.</p></li></ul><ul><li><p>The relative amplitude of two frequency components in the signal. –<strong>correct</strong> </p><p>  In general there are a multitude of different stimulus parameters that could affect a neuron’s response. Part of designing a good experiment involves picking a natural set of parameters to investigate while holding all others as constant as possible. With neurons in lower cortical areas, it is often relatively easy to figure out what parameters are important (e.g., the location of a spot of light for a neuron in LGN). In higher cortical areas, however, it can be quite difficult to understand exactly what parameter of a stimulus a neuron is tuned to.</p></li></ul><ul><li>The luminance of an array of pixels.</li><li>The orientation of a bar of light.</li></ul><h1 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a>Terminologies</h1><ul><li>functional maganetic resonance imaging (fMRI)：<a href="https://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging" target="_blank" rel="noopener">功能核磁共振成像</a></li><li>electroencephalo-graph (EEG): <a href="https://en.wikipedia.org/wiki/Electroencephalography" target="_blank" rel="noopener">脑电图描记器</a></li><li>patch clamp: <a href="https://en.wikipedia.org/wiki/Patch_clamp" target="_blank" rel="noopener">膜片钳</a></li><li>retina: 视网膜</li><li>pupil: 瞳孔</li><li>iris: 虹膜</li><li>lens: 晶状体</li><li>sclera: 巩膜 </li><li>cornea: 角膜</li><li>retinal ganglion cells: 视网膜神经节细胞</li><li></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need:</p><ul><li><p>node.js+npm,</p><p>  Get node.js from <a href="https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fnodejs" target="_blank" rel="noopener">here</a>. Check <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="noopener">here</a> for more info about node.</p></li><li><p>hexo,<br>  Install by npm:</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li><li><p>git,</p></li><li>an account of Github,</li></ul><p>and configure the ssh-key on your device.</p><h2 id="Build-blog"><a href="#Build-blog" class="headerlink" title="Build blog"></a>Build blog</h2><h3 id="Initialize-hexo-with-hexo"><a href="#Initialize-hexo-with-hexo" class="headerlink" title="Initialize hexo with hexo"></a>Initialize hexo with hexo</h3><p>Create a local folder as your root directory, such as “blog”, and go to the directory in your terminal and initialize it by hexo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure></p><p>Then initialize this directory with npm.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="Link-hexo-with-Github"><a href="#Link-hexo-with-Github" class="headerlink" title="Link hexo with Github"></a>Link hexo with Github</h3><p>Set deployment tool,</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>and initialize the remote repository for your blog on Github.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add *</span><br><span class="line">$ git commit -m <span class="string">"init commit"</span></span><br></pre></td></tr></table></figure><p>Change the deployment in file “_config.yml” like:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy: </span><br><span class="line">    <span class="built_in">type</span>: git </span><br><span class="line">    repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure><p>Tips: The name of your hosting repository should be “[githubname].github.io”, such as “jack.github.io”. And mind the blankspaces while rewriting file “_config.yml”.</p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p>Do it before you push it on Github.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://jack.github.io/" target="_blank" rel="noopener">https://jack.github.io/</a>.</p><h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h3><p>I picked theme yilia. Configuration should be done as bellow:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure><p>Change the default theme defined in “_config.yml” under root directory.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><p>New a folder under the “source” directory, I named it assets. I also new the “img” folder for pictures. Put you avatar picture here. Then reconfigure the _config.yml file beneath theme “yilia”‘s folder, which is:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /assets/img/avatar.jpg</span><br></pre></td></tr></table></figure><h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  about: about</span><br><span class="line">  notes: notes</span><br><span class="line">  projects: projects</span><br><span class="line">  papers: papers</span><br><span class="line">  talks: talks</span><br><span class="line">  meetings: meetings</span><br></pre></td></tr></table></figure><p>Each pair of it can be different, it is just a mapping, such as:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  parole: talks</span><br><span class="line">  关于我: about</span><br></pre></td></tr></table></figure><h3 id="change-the-naming-rule-of-a-new-post"><a href="#change-the-naming-rule-of-a-new-post" class="headerlink" title="change the naming rule of a new post"></a>change the naming rule of a new post</h3><p>The default naming rule of hexo is YYYY/MM/DD/[post name], which leads to a hyper-link without html suffix. I change it as html. It can be accomplished by configure the _config.yml in root directory.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:category/:year-:month-:day-:title.html</span><br></pre></td></tr></table></figure><h3 id="Truncate-the-post-in-home-list-when-it-is-too-long"><a href="#Truncate-the-post-in-home-list-when-it-is-too-long" class="headerlink" title="Truncate the post in home list when it is too long."></a>Truncate the post in home list when it is too long.</h3><p>You need to add</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure><p>after where you want to trucate in a post. And confiure the __config.yml_ under themes’ folder.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The truncate signal while post is too long.</span></span><br><span class="line">excerpt_link: <span class="string">"more"</span></span><br></pre></td></tr></table></figure><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>You can debug pages locally by </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><p>, which is convenient before deployment.</p><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten</a>.</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;This week is going to the encoding methods and codes of neurons.&lt;br&gt;
+      &lt;p&gt;This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.&lt;br&gt;
     
     </summary>
     
       <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
     
     
-      <category term="neuro" scheme="http://yoursite.com/tags/neuro/"/>
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
-      <category term="course" scheme="http://yoursite.com/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Week 1, Introduction &amp; Basic Neurobiology, Computational Neuroscience, Rajesh Rao, University of Washington</title>
-    <link href="http://yoursite.com/posts/notes/2018-11-18-comp-neuroscience-course-week1.html"/>
-    <id>http://yoursite.com/posts/notes/2018-11-18-comp-neuroscience-course-week1.html</id>
-    <published>2018-11-18T02:49:03.982Z</published>
-    <updated>2018-12-10T07:06:55.298Z</updated>
-    
-    <content type="html"><![CDATA[<p>Computational Neuroscience is a course released by coursera. </p><h2 id="Computational-models-for-understanding-brains"><a href="#Computational-models-for-understanding-brains" class="headerlink" title="Computational models for understanding brains"></a>Computational models for understanding brains</h2><ul><li>Descriptive models–<strong>what</strong><br>  How do neurons respond to external stimuli and descibe the respondings quantitatively.</li><li>Mechanistic models–<strong>how</strong><br>  Simulate a single neuron and a network of neurons’ behaviors. </li><li>Interpretive models–<strong>why</strong><br>  The latent computational principles of brain.<a id="more"></a><h2 id="What-is-Computational-Neuroscience"><a href="#What-is-Computational-Neuroscience" class="headerlink" title="What is Computational Neuroscience?"></a>What is Computational Neuroscience?</h2>Explain in computational terms how brains generate behaviors.</li></ul><h2 id="Receptive-models"><a href="#Receptive-models" class="headerlink" title="Receptive models"></a>Receptive models</h2><p>Receptive fields: response a neuron, specific propertities of a sensory stimulus that generating a strong response from the cell.</p><h3 id="Descriptive-models"><a href="#Descriptive-models" class="headerlink" title="Descriptive models"></a>Descriptive models</h3><p>On-Center Off-Surround Receptive Field,<br>Off-Center On Surround Receptive Field.</p><h3 id="Mechanistic-models"><a href="#Mechanistic-models" class="headerlink" title="Mechanistic models"></a>Mechanistic models</h3><p>How are these oriented receptive fields obtained from center-surround receptive fields? How do receptive fields use the neural circuity of the visual cortex?<br>A controversial model: Center-surround LGN RFs are displaced along preferred orientation of V1 Cell. But it doesn’t explain the recurrent circulus in V1 cell.</p><p>Efficient Coding Hypothesis: represent an image in the most efficient way.</p><p><em>The ways of coding an image efficiently: Sparse Coding, ICA, predictive coding.</em></p><p>The brain may try to find <strong>faithful and efficient representations</strong> of an animal’s natural environment.</p><h2 id="Neurons-Synapses-and-Brain-Regions"><a href="#Neurons-Synapses-and-Brain-Regions" class="headerlink" title="Neurons, Synapses, and Brain Regions"></a>Neurons, Synapses, and Brain Regions</h2><p>Most are taught in your biological class in senior high school.</p><ul><li>Ionic channels are the ones influen a neuron’s electricity personality. The ionic channels are gated:<ul><li>Voltage-gated</li><li>Chemically-gated</li><li>Mechanically-gated</li></ul></li><li>The consequences of opening or closing voltage-gated channels:<ul><li>open: depolarization, if strong enough, it will cause a spike or “action potential”.</li><li>close: hyperpolarization</li></ul></li><li>The action potential of all neurons are same, they act in different ways just because of voltage.</li><li>Myelin enable fast long-range spike communication.</li></ul><h2 id="Synapses"><a href="#Synapses" class="headerlink" title="Synapses"></a>Synapses</h2><ul><li>types: Electrical synapses (gap junctions) and chemical synapses (neurotransmitters)</li><li>Chemical synapses are suggested for learning and memory by adjusting the amount of realeased molecules. Excitatory or inhibitory synapses can increase or decrease postsynaptic membrane potential. </li><li>Synaptic plasticity: useful for inference</li><li>Long term potentiation (LTP) and long term depression (LTD) : lasts for hours or days. They are sensible to <strong>spike timing</strong>, which is really important for <strong>learning sequences thus to make predictions</strong>.</li></ul><h2 id="Nerve-systems"><a href="#Nerve-systems" class="headerlink" title="Nerve systems"></a>Nerve systems</h2><ul><li>Cerebral cortex has 6 layers cortexes. The output an input come from different cortexes.</li></ul><h1 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a>Terminologies</h1><ul><li>Lateral Geniculate Nucleus (LGN): 外侧膝状体核</li><li>Primary Visual Cortex (V1): 初级视皮层</li><li>synapses: 突触</li><li>dendrites: 树突</li><li>axon: 轴突</li><li>pyramidal cells: 锥体细胞</li><li>optic tectum: 视顶盖</li><li>cerebellum: 小脑</li><li>lipid: 脂质</li><li>cell membrane：细胞膜</li><li>lipid bilay：脂质二重层</li><li>ionic pump: 离子泵</li><li>钠离子：sodion</li><li>氯离子：chloridion</li><li>钾离子：potassium ion</li><li>hyperpolarization: 过极化</li><li>depolarization: 去极化</li><li>oligodendrocytes: 少突细胞</li><li>glial cells: 神经胶质细胞</li><li>myelination: 髓鞘形成</li><li>Node of Ranvier: 郎氏结</li><li>saltatory conductio： 跳跃式传导</li><li>neurotransmitters: 神经递质</li><li>synaptic clef: 突出间隙</li><li>postsynaptic membrane potential: 突触后膜电位</li><li>Glutamate: 谷氨酸钠</li><li>excitatory postsynaptic potential: EPSP</li><li>synaptic plasticity： 突触可塑性</li><li>hippocampus: 海马体</li><li>long term potentiation (LTP)</li><li>Human Brain Project: in Europe</li><li>Peripheral Nervous System (PNS): 周围神经系统</li><li>Central Nervous System （CNS): 中心神经系统</li><li>spinal cord: 脊髓</li><li>afferent: 传入神经</li><li>efferent: 传出神经</li><li>smooth muscles: 平滑肌</li><li>glands: 腺体</li><li>respiratory rate: 呼吸速率</li><li>reflex arc: 反射弧</li><li>hindbrain: 后脑</li><li>Medulla Oblongata: 延髓</li><li>pons: 脑桥</li><li>cerebellum: 小脑</li><li>sense of equilibrium: 平衡感</li><li>Thalamus: 丘脑</li><li>Nuclei: 原子核</li><li>hypothalamus: 下丘脑</li><li>cerebrum: 大脑</li><li>basal ganglia: 基底核</li><li>amygdala: 杏仁核</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Computational Neuroscience is a course released by coursera. &lt;/p&gt;
-&lt;h2 id=&quot;Computational-models-for-understanding-brains&quot;&gt;&lt;a href=&quot;#Computational-models-for-understanding-brains&quot; class=&quot;headerlink&quot; title=&quot;Computational models for understanding brains&quot;&gt;&lt;/a&gt;Computational models for understanding brains&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Descriptive models–&lt;strong&gt;what&lt;/strong&gt;&lt;br&gt;  How do neurons respond to external stimuli and descibe the respondings quantitatively.&lt;/li&gt;
-&lt;li&gt;Mechanistic models–&lt;strong&gt;how&lt;/strong&gt;&lt;br&gt;  Simulate a single neuron and a network of neurons’ behaviors. &lt;/li&gt;
-&lt;li&gt;Interpretive models–&lt;strong&gt;why&lt;/strong&gt;&lt;br&gt;  The latent computational principles of brain.
-    
-    </summary>
-    
-      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
-    
-    
-      <category term="neuro" scheme="http://yoursite.com/tags/neuro/"/>
-    
-      <category term="course" scheme="http://yoursite.com/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The naive implementation of some popular machine learning algorithms.</title>
-    <link href="http://yoursite.com/posts/projects/2018-11-16-ml-implement.html"/>
-    <id>http://yoursite.com/posts/projects/2018-11-16-ml-implement.html</id>
-    <published>2018-11-16T13:08:29.550Z</published>
-    <updated>2018-12-10T12:57:29.894Z</updated>
-    
-    <content type="html"><![CDATA[<p>Naive implementations of some M.L. algorithms, which are updated continuously.</p><p>The algorithms that have been implemented are listed as follows:</p><ul><li>Logistic Regression,</li><li>SVM solved by SMO,</li><li>K-Means，</li><li>GMM solved by EM,</li><li>Perceptron，</li><li>Naive Bayes,</li><li>LeNet-Keras，</li><li>MLP-Numpy solved with BP,</li><li>MCMC sampling.</li></ul><p>Codes are available <a href="https://github.com/skaudrey/ml_algorithm" target="_blank" rel="noopener">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Naive implementations of some M.L. algorithms, which are updated continuously.&lt;/p&gt;
-&lt;p&gt;The algorithms that have been implemented are liste
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
-    
-      <category term="naive" scheme="http://yoursite.com/tags/naive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HCR--Compress and Resonstruct Hyperspectral Data.</title>
-    <link href="http://yoursite.com/posts/projects/2018-11-16-hcr.html"/>
-    <id>http://yoursite.com/posts/projects/2018-11-16-hcr.html</id>
-    <published>2018-11-16T13:03:20.182Z</published>
-    <updated>2018-12-10T12:45:24.780Z</updated>
-    
-    <content type="html"><![CDATA[<p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p><p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p><p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p><p>Codes are available <a href="https://github.com/skaudrey/hyp" target="_blank" rel="noopener">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression an
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
-    
-      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
-    
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clouds detection of infrared hyperspectral data based on logistic.</title>
-    <link href="http://yoursite.com/posts/projects/2018-11-16-lr.html"/>
-    <id>http://yoursite.com/posts/projects/2018-11-16-lr.html</id>
-    <published>2018-11-16T13:01:11.668Z</published>
-    <updated>2018-12-10T13:17:56.421Z</updated>
-    
-    <content type="html"><![CDATA[<p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p><p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p><p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p><p>Codes are available <a href="https://github.com/skaudrey/cloud" target="_blank" rel="noopener">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed 
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html"/>
-    <id>http://yoursite.com/posts/talks/2018-11-16-gpr-talk.html</id>
-    <published>2018-11-16T11:34:18.548Z</published>
-    <updated>2018-12-10T02:45:55.677Z</updated>
-    
-    <content type="html"><![CDATA[<p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html" target="_blank" rel="noopener">projects’ introduction </a> and <a href="https://github.com/skaudrey/gpml/" target="_blank" rel="noopener">github</a> for more details.</p><p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check th
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
-    
-      <category term="interpolation" scheme="http://yoursite.com/tags/interpolation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Plants diary</title>
-    <link href="http://yoursite.com/posts/life/2018-11-13-plants.html"/>
-    <id>http://yoursite.com/posts/life/2018-11-13-plants.html</id>
-    <published>2018-11-13T14:58:56.670Z</published>
-    <updated>2018-12-10T07:57:06.838Z</updated>
-    
-    <content type="html"><![CDATA[<p>The sunflower I planted died of lacking sunshine. I miss it, hope you won’t make the mistake I made, do settle it outdoors.<br><a id="more"></a></p><div align="center"><br>    <img src="/assets/img/sunflower/0.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/1.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/2.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/3.jpg" height="100" width="100"><br></div><div align="center"><br>    <img src="/assets/img/sunflower/4.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/5.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/6.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/7.jpg" height="100" width="100"><br></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The sunflower I planted died of lacking sunshine. I miss it, hope you won’t make the mistake I made, do settle it outdoors.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="plants" scheme="http://yoursite.com/tags/plants/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Yummy food</title>
-    <link href="http://yoursite.com/posts/life/2018-11-13-yummy.html"/>
-    <id>http://yoursite.com/posts/life/2018-11-13-yummy.html</id>
-    <published>2018-11-13T14:58:43.666Z</published>
-    <updated>2018-12-10T07:59:32.715Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hope it can help save your searching time for what to eat and enjoy a healthy diet. Be careful when you boil eggs, they may blow up.<br><a id="more"></a></p><h1 id="Dishes-made-by-microwave-ovens"><a href="#Dishes-made-by-microwave-ovens" class="headerlink" title="Dishes made by microwave ovens"></a>Dishes made by microwave ovens</h1><p>The food shown below can all be done by microwave ovens.</p><h2 id="Noodles"><a href="#Noodles" class="headerlink" title="Noodles"></a>Noodles</h2><p>You need a big plate, some water, and vermicelli.</p><div align="center"><br><img src="/assets/img/cooking/meituan/noodles1.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles2.jpg" height="100" width="100"><br><img src="/assets/img/cooking/meituan/noodles3.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles4.jpg" height="100" width="100"><br><br> </div><h2 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h2><p>Made by oats, eggs and milk. Both side of cookies should be baked.</p><center><br>    <img src="/assets/img/cooking/meituan/cookies.jpg" width="100"><br></center><h2 id="Curry"><a href="#Curry" class="headerlink" title="Curry"></a>Curry</h2><p>Crush roast potatoes in a baggie. After mixed it with curry blocks, and some hot water, bake for about 5 minutes.</p><div align="center"><br>    <img src="/assets/img/cooking/meituan/curry.jpg" height="100" width="100"><br><br>    <img src="/assets/img/cooking/meituan/egg.jpg" height="100" width="100"><br><br></div><h2 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h2><p>3 minutes on high fire is sufficient.  </p><center><br>    <img src="/assets/img/cooking/meituan/bread.jpg" width="100"><br></center><h2 id="Handmade-yogurt"><a href="#Handmade-yogurt" class="headerlink" title="Handmade yogurt"></a>Handmade yogurt</h2><p>Yogurt machine, milk and freeze-dried yogurt starter such as Yogurtmet.</p><center><br>    <img src="/assets/img/cooking/yogurt.jpg" width="100"><br></center>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hope it can help save your searching time for what to eat and enjoy a healthy diet. Be careful when you boil eggs, they may blow up.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="food" scheme="http://yoursite.com/tags/food/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Yoga</title>
-    <link href="http://yoursite.com/posts/life/2018-11-13-yoga.html"/>
-    <id>http://yoursite.com/posts/life/2018-11-13-yoga.html</id>
-    <published>2018-11-13T14:58:20.807Z</published>
-    <updated>2018-11-16T02:53:19.970Z</updated>
-    
-    <content type="html"><![CDATA[<p>Bing~ My equipments.</p><center><br>    <img src="/assets/img/yoga.jpg" width="100"><br></center>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Bing~ My equipments.&lt;/p&gt;
-&lt;center&gt;&lt;br&gt;    &lt;img src=&quot;/assets/img/yoga.jpg&quot; width=&quot;100&quot;&gt;&lt;br&gt;&lt;/center&gt;
-      
-    
-    </summary>
-    
-      <category term="life" scheme="http://yoursite.com/categories/life/"/>
-    
-    
-      <category term="yoga" scheme="http://yoursite.com/tags/yoga/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Computing in the 21th Century &amp; Asia Faculty Summit held by Microsoft, Nov., 2018.</title>
-    <link href="http://yoursite.com/posts/meetings/2018-11-13-microsoft.html"/>
-    <id>http://yoursite.com/posts/meetings/2018-11-13-microsoft.html</id>
-    <published>2018-11-13T14:29:23.487Z</published>
-    <updated>2018-12-10T08:53:47.779Z</updated>
-    
-    <content type="html"><![CDATA[<p>This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is <a href="https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda" target="_blank" rel="noopener">here</a>.</p><p>Babysitting AI and computational neuroscience impressed me a lot.<br><a id="more"></a></p><h1 id="computing-neuroscience-robots-with-feelings"><a href="#computing-neuroscience-robots-with-feelings" class="headerlink" title="computing neuroscience: robots with feelings."></a>computing neuroscience: robots with feelings.</h1><p>Prof. Lenore Blue’s keynote is about computational neuroscience. They try to let robots feel pain, and to simulate the long and short term encoding happening in our brains.</p><p>What she talked reminds me of something I had read before.</p><p>According to the book <em>Psychology</em> written by Daniel Schacter, our brains do encode information into long and short codes, and the short form is possibly trasformed into a long one. Even though we don’t mean to encode or memorize something sometimes, encoding still occurs unconsciously. </p><p>Reviewing is one useful way for recalling these information. Moreover, if you are in the similar environment in which you encoded the codes before, you will have higher possibility to recall it. However, the <strong>encoding error</strong> happend during reviewing is more, and that’s why a detective should try to get full information while inquiring evidences from witnesses at the 1st time.</p><p>Also, our brains are more sensible to pictorial information compared with text information. So, if you try to make each thing you want to keep code as a photo, you can boost the capability of memorizing. </p><h1 id="Yoshu-Bengio-Beyond-i-i-d-and-babysitting-AI"><a href="#Yoshu-Bengio-Beyond-i-i-d-and-babysitting-AI" class="headerlink" title="Yoshu Bengio: Beyond i.i.d. and babysitting AI"></a>Yoshu Bengio: Beyond i.i.d. and babysitting AI</h1><p>One of the basic assumption that makes generation possible is independent identically distributed assumption. However, influenced by observing equipments, imbalanced samples and others, the distributions of training data and test data are not always the same. Hence, Prof. Bengio’s team proposed that all data are sampled from the same system rather than same distribution. As for weather of two different seasons, data desciping them are sampled from the same atmospheric circulation system, but they don’t distribute identically. Bengio said they tend to initialize this system with diversed initial conditions, and the result of this distribution will be taken as what the data set follows. It makes sense.</p><p><em>One thing that troubles me is, how can I model the system and figure out the initial conditions? For things with obvious physical rules, it is easy, and even the model’s codes are open-acssessed online. What if the one I don’t know? How to make this idea works in common situations?</em> </p><p>CNN is renowned as its power in representation learning, which encodes a variety of information into vectors. Our brains also work like this. Nontheless, what they learn are supervised, and the utility of binary network, the simplification of network structure all demostrate that the captured information are redundant. The model learned is fragile, too. After adding some noises into an image, even though the image dosen’t change visually for us humans, model can not tell what it is as before. It all comes from the uncontrolling unsupervision. Babysitting AI aims at modeling with environmental information and other information, so that leading AI models.</p><h1 id="Andrew-C-Yao-The-Advent-of-Quantum-Computing"><a href="#Andrew-C-Yao-The-Advent-of-Quantum-Computing" class="headerlink" title="Andrew C. Yao: The Advent of Quantum Computing"></a>Andrew C. Yao: The Advent of Quantum Computing</h1><p>The quantum computing will offer exponential speedup for crypto-code breaking, simulation of quantum physical systems, simulation of materials, chemistry, and biology, nonlinear optimization, ML and AI. It will break through the bottleneck of computing.</p><p>Its implementation is like crystallography. In terms of crystallography, you take an X-ray photo for a crystal and then compute its structure. For quantum computing, instead of taking a real photo, you just need to collect a polynomial number of sample points. By wave-particle duality, this single photo can recreate the raw image probabilistically.  </p><p>According to Andrew, dimond qubits are in the highest possibility to be used in our laptops.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is &lt;a href=&quot;https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Babysitting AI and computational neuroscience impressed me a lot.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
-    
-    
-      <category term="applications" scheme="http://yoursite.com/tags/applications/"/>
-    
-      <category term="tendency" scheme="http://yoursite.com/tags/tendency/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>克里斯多夫</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-%E5%85%8B%E9%87%8C%E6%96%AF%E5%A4%9A%E5%A4%AB.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-克里斯多夫.html</id>
-    <published>2018-11-13T13:00:22.181Z</published>
-    <updated>2018-12-10T07:33:53.106Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;开始以为是贝多芬的传记，读了才知道这只是一个贝多芬式的英雄。他冲动粗暴，却又单纯细腻。他坚强勇敢，却也孤独求爱。他多情，却也专情。他是那样的渴望被爱、被理解，所以总是轻易的爱上对他主动示好的人。但是，开始的他，对友情的了解只止于书本和个人的坚持。他盼着有人爱他如他爱他。而他，一旦爱人。必是要付出所有的。在遇到奥里维和葛拉齐亚之前，他是那样的孤独与骄傲。但是，真正遇到了朋友之后，他选择了妥协，奥里维、葛拉齐亚都有他所不认同的小性格，可他又何尝不是呢。可是，遇到了心爱的朋友、情人，日子必定是平稳乐观，有所寄托的。他漫长的旅途，似乎到达了终点。但是，巨人的旅程，注定是不会止步的。上帝会催促他开始下一段人生经历。<br><a id="more"></a></p><p>&#160; &#160; &#160; &#160;奥里维因为他轻易的参与了革命，发生意外而离世。葛拉齐亚虽然爱他，却也因为种种顾虑，一拖再拖，最终抱憾而终。他生命中的每一个人，都教会他一些事情。他从开始的揉不得沙子，到后来的求同存异，即使形式有了变化，但那内蕴的德意志精神、习得的法兰西性格，一直都在。他一直严格的要求自己，即使犯了错，也会勇敢的去纠正，而不是逃避，放任自处。</p><p>&#160; &#160; &#160; &#160;英雄，不是永于不败之地、高高在上的神者。而是挣扎于世俗的洪流，时刻自省、不轻易随波逐流、常怀赤子之心的试错者。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;开始以为是贝多芬的传记，读了才知道这只是一个贝多芬式的英雄。他冲动粗暴，却又单纯细腻。他坚强勇敢，却也孤独求爱。他多情，却也专情。他是那样的渴望被爱、被理解，所以总是轻易的爱上对他主动示好的人。但是，开始的他，对友情的了解只止于书本和个人的坚持。他盼着有人爱他如他爱他。而他，一旦爱人。必是要付出所有的。在遇到奥里维和葛拉齐亚之前，他是那样的孤独与骄傲。但是，真正遇到了朋友之后，他选择了妥协，奥里维、葛拉齐亚都有他所不认同的小性格，可他又何尝不是呢。可是，遇到了心爱的朋友、情人，日子必定是平稳乐观，有所寄托的。他漫长的旅途，似乎到达了终点。但是，巨人的旅程，注定是不会止步的。上帝会催促他开始下一段人生经历。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
-    
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
-    
-      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>苏菲的世界</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-苏菲的世界.html</id>
-    <published>2018-11-13T12:56:26.548Z</published>
-    <updated>2018-12-10T07:40:50.636Z</updated>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-苏菲的世界.html</id>
+    <published>2019-04-26T06:31:37.290Z</published>
+    <updated>2018-12-10T07:40:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;全书的脑洞还是挺大的。因为一些暗示，我曾一度怀疑结局会不会向类盗梦空间或者多重人格发展，但是没有，最终，苏菲和他的哲学老师逃离到了另一个世界。</p><p>&#160; &#160; &#160; &#160;我是谁？宇宙是什么？存在的意义是什么？小时候看到《星际宝贝》中对蝴蝶效应的演示，以后每一次面临重大的选择时，脑海中总会浮现出那样的画面。会害怕，如果，我选错了怎么办？那会是一步错，步步错了啊。但，又会想，这样无数所谓的机缘巧合拼凑起来，也许就是生命的本质？每一个看起来轻飘飘的选择，都足以令你的人生方向产生重大的转折。生命是流动的水，需要持续不断的导引，才能顺利汇入大海。仰望星空，需与脚踏实地并举。<br><a id="more"></a><br>&#160; &#160; &#160; &#160;我们，因为对未来的不确定性感到恐慌，却也暗暗为这种不确定性而庆幸。一眼望到头的生活，未免无趣。Jack吸引Rose，可能就来自于他对生命中那些未知的热爱吧。因为这些未知与不确定，我们才会竭尽力气去追寻，去体会、去热爱、去证明自己的存在，去追寻存在的意义。意识到生命的短暂，不是要我们放弃挣扎，而是需要我们珍惜，珍惜自由的意志，珍惜独立的感官，最大限度的体悟生命的美好。</p><p>&#160; &#160; &#160; &#160;生命，不该是一世人劳苦奔忙有何益，到头来终究需把眼儿闭。而是一世人欣悦奔忙体悟勤，时时感总是噙笑眉梢喜。</p>]]></content>
     
@@ -361,65 +68,11 @@
   </entry>
   
   <entry>
-    <title>Psychology——Daniel Schacter</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-Psychology.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-Psychology.html</id>
-    <published>2018-11-13T12:54:36.417Z</published>
-    <updated>2018-12-10T07:39:12.763Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;开始读前，以为只是从心理学的基础架构方面进行阐述。但是，收获却超预期：<br><a id="more"></a></p><ol><li><p>定量分析方法</p><p>&#160; &#160; &#160; &#160;作者所阐述的定量分析方法、实验中控制组与对照组的严格设定，说明了任何一门学科都需要严谨的分析手段，从而进一步分析相关研究。</p></li><li><p>心理的产生如此复杂，我们对其知之甚少。</p><p>&#160; &#160; &#160; &#160;基于生理学的解释，目前仍停留在较浅的层面。神经心理学、行为心理学等等，都还有很长的路要走。</p></li><li><p>了解了一些心理障碍的成因之后，可以减少对其的偏见。</p><p>&#160; &#160; &#160; &#160;心理障碍其实是一个普遍现象，每个人的一生中，总会有一些心理障碍的时期（比如抑郁），只不过个人的严重程度不同。很多障碍，只要有合适的环境引导，完全是可以恢复的。即使无法恢复，也可能可以找到适合的职业，有所建树。所以，未来关于障碍的治疗，是否不是简单的将其边缘化，而是提供适合的环境，让他们意识到自己的价值？当然，这还有很长远的道路要走。</p></li><li><p>到底什么是疾病？</p><p>&#160; &#160; &#160; &#160;异于常人不应该作为疾病的唯一判据，这也许会抹杀个人的特性。临床上的分析，也许更多的应该关注心理上的疏导，而非简单的确定病症，贴上标签，然后利用手术结果，使得个人同一化（比如切除额叶）。更多的时候，病患康复的压力来源于社交环境而非生理。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;开始读前，以为只是从心理学的基础架构方面进行阐述。但是，收获却超预期：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
-    
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
-    
-      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三体</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%89%E4%BD%93.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-三体.html</id>
-    <published>2018-11-13T12:50:46.995Z</published>
-    <updated>2018-12-10T07:37:09.426Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;三体，一个chaotic system。</p><p>&#160; &#160; &#160; &#160;书的第一部以三体问题求解为切入点，展现了因为chaotic而在恒纪元与乱纪元中艰难求生的异星世界。因为寂静的春天所引发的思考，对人类劣根性的失望，我们，弹星者，天真的将未来交给了异星之神。然而，神之爱，只存在于天堂。宇宙是黑暗森林，文明的延续法则，在于保护自己，排除异己。天真将人类暴露于猎人的视线中。为了自保，人类使用威慑论，以同归于尽为要挟使三体的侵略搁置。但是，因为弹星的尝试，两个文明还是招至了毁灭。清理者的维度攻击，伤敌而自损。没有一个文明可以逃脱。</p><p>&#160; &#160; &#160; &#160;如果说第一部的关注点只在boss，那接下来两部则是对宇宙观，道德观的审视。<br><a id="more"></a></p><p>&#160; &#160; &#160; &#160;宇宙观。宇宙的初态是什么？降维至零再从大爆炸中诞生多维是否可行？星际穿越中展示的四维就已经令人瞠目，超维，又会是怎样？大多数人，无暇欣赏那浅淡的光芒。我们，在宇宙尺度下，可能比一粒质子还小。宇宙怎样，在我们太过虚空。也许是饕餮潜伏，开门后的一瞥，就已让人胆寒。也许处处柳暗花明，任我们放肆探索奥义……</p><p>&#160; &#160; &#160; &#160;道德观。不处于相应的环境中，我们永远不知道自己的可怕。想象中的自己，与真实的自己，总是存在着差距。新宇宙观下的新道德观、新物种，与母星物种相去甚远。母星人类对他们的批判，按相应环境来考虑，又似乎只是站着说话。当处于对应的环境中，没有人可以保证能做的比他们好。奥斯维辛、南京、广岛，没有谁可以作为正义的代言者批判他人。杀人，是事实。与其站在道德的制高点挑剔他人，倒不如以最低点为始给予希冀。性善或者性恶，只是起点，后天的引导才是关键。己所不欲勿施于人，自省思齐。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;三体，一个chaotic system。&lt;/p&gt;
-&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;书的第一部以三体问题求解为切入点，展现了因为chaotic而在恒纪元与乱纪元中艰难求生的异星世界。因为寂静的春天所引发的思考，对人类劣根性的失望，我们，弹星者，天真的将未来交给了异星之神。然而，神之爱，只存在于天堂。宇宙是黑暗森林，文明的延续法则，在于保护自己，排除异己。天真将人类暴露于猎人的视线中。为了自保，人类使用威慑论，以同归于尽为要挟使三体的侵略搁置。但是，因为弹星的尝试，两个文明还是招至了毁灭。清理者的维度攻击，伤敌而自损。没有一个文明可以逃脱。&lt;/p&gt;
-&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;如果说第一部的关注点只在boss，那接下来两部则是对宇宙观，道德观的审视。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
-    
-    
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
-      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
-    
-      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
-    
-  </entry>
-  
-  <entry>
     <title>嫌疑人X的献身</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-%E5%AB%8C%E7%96%91%E4%BA%BAX%E7%9A%84%E7%8C%AE%E8%BA%AB.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-嫌疑人X的献身.html</id>
-    <published>2018-11-13T12:47:56.008Z</published>
-    <updated>2018-12-10T13:21:30.416Z</updated>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-%E5%AB%8C%E7%96%91%E4%BA%BAX%E7%9A%84%E7%8C%AE%E8%BA%AB.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-嫌疑人X的献身.html</id>
+    <published>2019-04-26T06:31:37.230Z</published>
+    <updated>2018-12-10T13:21:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;总的来说，电影比小说的矛盾更为突出，最后的爆发点也更合情合理。虽然林心如的声音让人有点跳戏。   </p><p>&#160; &#160; &#160; &#160;不过，电影里面,石神将爱情视为最高行为准则，小说里的石神则更真实一些。他也有常人的怯懦，会怕自己坚持不下去，无法保护好静子。杀人，是为了给自己破釜沉舟的勇气。自己从一开始就万劫不复，入狱也是理所应当。没有感情的选择(杀人)，和太过情感充沛的选择(杀人)，都将面对极端结果的考验。要么大获全胜，要么满盘皆输。没有几个人有这样的勇气。石神的破釜沉舟，倒也是在理的行为了。但是，人心，不只是合乎逻辑的选择。理性与感性的平衡点，才是它的基准。静子没有按他所想，幸福的走下去，就是最好的说明。</p>]]></content>
     
@@ -445,11 +98,65 @@
   </entry>
   
   <entry>
+    <title>克里斯多夫</title>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-%E5%85%8B%E9%87%8C%E6%96%AF%E5%A4%9A%E5%A4%AB.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-克里斯多夫.html</id>
+    <published>2019-04-26T06:31:37.170Z</published>
+    <updated>2018-12-10T07:33:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;开始以为是贝多芬的传记，读了才知道这只是一个贝多芬式的英雄。他冲动粗暴，却又单纯细腻。他坚强勇敢，却也孤独求爱。他多情，却也专情。他是那样的渴望被爱、被理解，所以总是轻易的爱上对他主动示好的人。但是，开始的他，对友情的了解只止于书本和个人的坚持。他盼着有人爱他如他爱他。而他，一旦爱人。必是要付出所有的。在遇到奥里维和葛拉齐亚之前，他是那样的孤独与骄傲。但是，真正遇到了朋友之后，他选择了妥协，奥里维、葛拉齐亚都有他所不认同的小性格，可他又何尝不是呢。可是，遇到了心爱的朋友、情人，日子必定是平稳乐观，有所寄托的。他漫长的旅途，似乎到达了终点。但是，巨人的旅程，注定是不会止步的。上帝会催促他开始下一段人生经历。<br><a id="more"></a></p><p>&#160; &#160; &#160; &#160;奥里维因为他轻易的参与了革命，发生意外而离世。葛拉齐亚虽然爱他，却也因为种种顾虑，一拖再拖，最终抱憾而终。他生命中的每一个人，都教会他一些事情。他从开始的揉不得沙子，到后来的求同存异，即使形式有了变化，但那内蕴的德意志精神、习得的法兰西性格，一直都在。他一直严格的要求自己，即使犯了错，也会勇敢的去纠正，而不是逃避，放任自处。</p><p>&#160; &#160; &#160; &#160;英雄，不是永于不败之地、高高在上的神者。而是挣扎于世俗的洪流，时刻自省、不轻易随波逐流、常怀赤子之心的试错者。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;开始以为是贝多芬的传记，读了才知道这只是一个贝多芬式的英雄。他冲动粗暴，却又单纯细腻。他坚强勇敢，却也孤独求爱。他多情，却也专情。他是那样的渴望被爱、被理解，所以总是轻易的爱上对他主动示好的人。但是，开始的他，对友情的了解只止于书本和个人的坚持。他盼着有人爱他如他爱他。而他，一旦爱人。必是要付出所有的。在遇到奥里维和葛拉齐亚之前，他是那样的孤独与骄傲。但是，真正遇到了朋友之后，他选择了妥协，奥里维、葛拉齐亚都有他所不认同的小性格，可他又何尝不是呢。可是，遇到了心爱的朋友、情人，日子必定是平稳乐观，有所寄托的。他漫长的旅途，似乎到达了终点。但是，巨人的旅程，注定是不会止步的。上帝会催促他开始下一段人生经历。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
+    
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
+    
+      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三体</title>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-%E4%B8%89%E4%BD%93.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-三体.html</id>
+    <published>2019-04-26T06:31:37.110Z</published>
+    <updated>2018-12-10T07:37:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;三体，一个chaotic system。</p><p>&#160; &#160; &#160; &#160;书的第一部以三体问题求解为切入点，展现了因为chaotic而在恒纪元与乱纪元中艰难求生的异星世界。因为寂静的春天所引发的思考，对人类劣根性的失望，我们，弹星者，天真的将未来交给了异星之神。然而，神之爱，只存在于天堂。宇宙是黑暗森林，文明的延续法则，在于保护自己，排除异己。天真将人类暴露于猎人的视线中。为了自保，人类使用威慑论，以同归于尽为要挟使三体的侵略搁置。但是，因为弹星的尝试，两个文明还是招至了毁灭。清理者的维度攻击，伤敌而自损。没有一个文明可以逃脱。</p><p>&#160; &#160; &#160; &#160;如果说第一部的关注点只在boss，那接下来两部则是对宇宙观，道德观的审视。<br><a id="more"></a></p><p>&#160; &#160; &#160; &#160;宇宙观。宇宙的初态是什么？降维至零再从大爆炸中诞生多维是否可行？星际穿越中展示的四维就已经令人瞠目，超维，又会是怎样？大多数人，无暇欣赏那浅淡的光芒。我们，在宇宙尺度下，可能比一粒质子还小。宇宙怎样，在我们太过虚空。也许是饕餮潜伏，开门后的一瞥，就已让人胆寒。也许处处柳暗花明，任我们放肆探索奥义……</p><p>&#160; &#160; &#160; &#160;道德观。不处于相应的环境中，我们永远不知道自己的可怕。想象中的自己，与真实的自己，总是存在着差距。新宇宙观下的新道德观、新物种，与母星物种相去甚远。母星人类对他们的批判，按相应环境来考虑，又似乎只是站着说话。当处于对应的环境中，没有人可以保证能做的比他们好。奥斯维辛、南京、广岛，没有谁可以作为正义的代言者批判他人。杀人，是事实。与其站在道德的制高点挑剔他人，倒不如以最低点为始给予希冀。性善或者性恶，只是起点，后天的引导才是关键。己所不欲勿施于人，自省思齐。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;三体，一个chaotic system。&lt;/p&gt;
+&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;书的第一部以三体问题求解为切入点，展现了因为chaotic而在恒纪元与乱纪元中艰难求生的异星世界。因为寂静的春天所引发的思考，对人类劣根性的失望，我们，弹星者，天真的将未来交给了异星之神。然而，神之爱，只存在于天堂。宇宙是黑暗森林，文明的延续法则，在于保护自己，排除异己。天真将人类暴露于猎人的视线中。为了自保，人类使用威慑论，以同归于尽为要挟使三体的侵略搁置。但是，因为弹星的尝试，两个文明还是招至了毁灭。清理者的维度攻击，伤敌而自损。没有一个文明可以逃脱。&lt;/p&gt;
+&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;如果说第一部的关注点只在boss，那接下来两部则是对宇宙观，道德观的审视。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
+    
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
+    
+      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一天</title>
-    <link href="http://yoursite.com/posts/feelings/2018-11-13-%E4%B8%80%E5%A4%A9.html"/>
-    <id>http://yoursite.com/posts/feelings/2018-11-13-一天.html</id>
-    <published>2018-11-13T12:07:25.807Z</published>
-    <updated>2018-12-10T07:51:45.008Z</updated>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-%E4%B8%80%E5%A4%A9.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-一天.html</id>
+    <published>2019-04-26T06:31:37.050Z</published>
+    <updated>2018-12-10T07:51:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>The book <em>one day</em> is also adapted for film, which is starred by Anne Hathaway.</p><h1 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h1><h2 id="大学刚刚毕业的Emma的彷徨"><a href="#大学刚刚毕业的Emma的彷徨" class="headerlink" title="大学刚刚毕业的Emma的彷徨"></a>大学刚刚毕业的Emma的彷徨</h2><p><em>&#160; &#160; &#160; &#160;天已转凉，她感到丝丝寒意，打起了冷战。那是不期而至的颤抖，带着焦虑穿过整个脊柱，强烈到让她不由得停下脚步。是对未来的恐惧吧，她想，二十二岁的她站在其中，面对那间邋遢的公寓，不知所措。挫败感再次袭来。</em></p><p><em>&#160; &#160; &#160; &#160;“你想过怎样的生活？”总有人用这样或那样的方式问她这个问题，没完没了。老师、父母、凌晨三点时的朋友们。但它从未像现在这版迫切困扰着她，可她依旧在迷茫。未来已在咫尺之遥，那些也许将是空空洞洞虚度的一天又一天，会愈来愈令人生畏，愈发不可知。她要如何去充实。</em></p><p><em>&#160; &#160; &#160; &#160;她再次抬起脚步，往南朝着蒙德走去。“把你的每一天都当做最后一天来过”，虽是陈词滥调，谁又真有精力做得到？要是天下雨，要是你情绪不好呢？太不现实，尽力而为吧，勇敢大胆些，尽我所能的去改变，不是整个世界，而是你周遭的小世界。走出去，带着你的热情，带着打字机，在某个领域……奋斗。用艺术改变人生，珍惜朋友，坚守原则，热情，充实，好好的生活。体验新事物，懂得珍惜，感受爱与被爱。</em></p><p><em>&#160; &#160; &#160; &#160;纵然开端不是很好，但这些基本的道理她懂。刚刚对心爱的人说再见，感觉也不比耸耸肩来得艰难。</em><br><a id="more"></a></p><h2 id="与Dexter终成眷属后的淡然"><a href="#与Dexter终成眷属后的淡然" class="headerlink" title="与Dexter终成眷属后的淡然"></a>与Dexter终成眷属后的淡然</h2><p><em>&#160; &#160; &#160; &#160;三十八岁了，要是还在指望用一首歌、一本书或是一部电影改变人生，岂不荒唐！不，一切都平淡了，沉静了，生活的背景音乐已变成了安然，知足而又亲昵的轻唱，再也没有刺激的起起落落。朋友圈子则在今后的五年、十年、二十年也不见得会变。如果不出意外，他们想必是不会一夜暴富或破产，健康也该还能享受一阵子。一切都定格了：中年，中间阶层，比上不足比下有余的小幸福。</em></p><p><em>&#160; &#160; &#160; &#160;最后，她爱着一个人，也确信为对方所爱。如果有人问艾玛，她和丈夫怎么相遇的，她会说：“我们一起长大的”。</em></p><h1 id="有感"><a href="#有感" class="headerlink" title="有感"></a>有感</h1><p>&#160; &#160; &#160; &#160;合卷，又一次发现作者想告诉我们的更多。</p><p>&#160; &#160; &#160; &#160;初看是安妮海瑟薇的电影，俊男美女的搭配，温馨的爱情故事，让我以为它讲述的只是两个人之间互相扶持，最终认识到自己是彼此的归宿的浪漫情节。可，书中更多的，还有青年、中年的彷徨迷茫，对自我认知的日日自省。这不是油纸伞与丁香姑娘的情节，而是对自我的问询。</p><p>&#160; &#160; &#160; &#160;两人都是不甘的，Emma不甘成为一个平庸的人；Dxter不愿走父母设定好的道路。两人都有过迷失，Emma接受了自己并不喜欢的男人的追求指望着日久出亲情，迫于工作的压力和猎奇的补偿心理而与校长不清不楚。Dexter以纸醉金迷的生活来标新立异，从而自命不凡，虽然内心深处怯懦依旧。</p><p>&#160; &#160; &#160; &#160;Dexter是不如Emma坚强的，他欣赏着Emma身上，他不曾有过的执着。Emma曾盲目的崇拜着Dexter，一个帅气多金的美少年，又怎会不抓住自认是丑小鸭的芳心？好的是，两人兜兜转转，终究是没有走散的。他们互相学习，终于到了一个平衡点。</p>]]></content>
     
@@ -475,43 +182,115 @@
   </entry>
   
   <entry>
-    <title>The summer school held in Harbin, Aug. 2017.</title>
-    <link href="http://yoursite.com/posts/meetings/2018-11-13-harbin.html"/>
-    <id>http://yoursite.com/posts/meetings/2018-11-13-harbin.html</id>
-    <published>2018-11-13T07:07:40.562Z</published>
-    <updated>2018-12-10T07:55:00.437Z</updated>
+    <title>Yummy food</title>
+    <link href="http://yoursite.com/posts/life/2019-04-26-yummy.html"/>
+    <id>http://yoursite.com/posts/life/2019-04-26-yummy.html</id>
+    <published>2019-04-26T06:31:36.980Z</published>
+    <updated>2018-12-10T07:59:34.000Z</updated>
     
-    <content type="html"><![CDATA[<p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do" target="_blank" rel="noopener">here</a> for more info. I gave a talk to the students in my lab after returning, <a href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html" target="_blank" rel="noopener">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.<br><a id="more"></a><br>The themes given by those professors are listed below.</p><ul><li><p>Prof. Francois</p><p>  Research Area：Variational data assimilation (VAR), especially 4DVAR.</p><p>  Keynotes：The direvation of adjoint models, sensitivity analysis and the introduction of image assimilation. See the <a href="/assets/notes/harbin/François meeting minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jordan</p><p>  Research Area：Statistical Learning</p><p>  Keynotes: Summarize popular machine learning algorithms, and prove the convergence etc. See the <a href="/assets/notes/harbin/Jordan meeting minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jurgen</p><p>Research Area：AI, DL</p><p>Keynotes: The introduction of utilizing AI. Check more from his <a href="http://people.idsia.ch/~juergen/" target="_blank" rel="noopener">home page</a>.</p></li><li><p>Prof. Ma</p><p>  Research Area：Compression sensing.</p><p>  Keynotes: The introduction of compression sensing and its applications.</p></li><li><p>Prof. Cai</p><p>  Research Area：Statistical inference.</p><p>  Keynotes: Statistical inference in high-dimensions. No slides, the minutes file is <a href="/assets/notes/harbin/Tony meeting minutes.pdf">here</a>.</p></li></ul><p>Slides and records are available in the <a href="https://pan.baidu.com/s/1jGj07koiMIV-MOf17N_jeg" target="_blank" rel="noopener">baidu network disk</a> with password 6o2x. Enjoy yourself.</p>]]></content>
+    <content type="html"><![CDATA[<p>Hope it can help save your searching time for what to eat and enjoy a healthy diet. Be careful when you boil eggs, they may blow up.<br><a id="more"></a></p><h1 id="Dishes-made-by-microwave-ovens"><a href="#Dishes-made-by-microwave-ovens" class="headerlink" title="Dishes made by microwave ovens"></a>Dishes made by microwave ovens</h1><p>The food shown below can all be done by microwave ovens.</p><h2 id="Noodles"><a href="#Noodles" class="headerlink" title="Noodles"></a>Noodles</h2><p>You need a big plate, some water, and vermicelli.</p><div align="center"><br><img src="/assets/img/cooking/meituan/noodles1.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles2.jpg" height="100" width="100"><br><img src="/assets/img/cooking/meituan/noodles3.jpg" height="100" width="100"><br><br><img src="/assets/img/cooking/meituan/noodles4.jpg" height="100" width="100"><br><br> </div><h2 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h2><p>Made by oats, eggs and milk. Both side of cookies should be baked.</p><center><br>    <img src="/assets/img/cooking/meituan/cookies.jpg" width="100"><br></center><h2 id="Curry"><a href="#Curry" class="headerlink" title="Curry"></a>Curry</h2><p>Crush roast potatoes in a baggie. After mixed it with curry blocks, and some hot water, bake for about 5 minutes.</p><div align="center"><br>    <img src="/assets/img/cooking/meituan/curry.jpg" height="100" width="100"><br><br>    <img src="/assets/img/cooking/meituan/egg.jpg" height="100" width="100"><br><br></div><h2 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h2><p>3 minutes on high fire is sufficient.  </p><center><br>    <img src="/assets/img/cooking/meituan/bread.jpg" width="100"><br></center><h2 id="Handmade-yogurt"><a href="#Handmade-yogurt" class="headerlink" title="Handmade yogurt"></a>Handmade yogurt</h2><p>Yogurt machine, milk and freeze-dried yogurt starter such as Yogurtmet.</p><center><br>    <img src="/assets/img/cooking/yogurt.jpg" width="100"><br></center>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check &lt;a href=&quot;http://mss2017.hit.edu.cn/showSubjectDominWebSite.do&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; for more info. I gave a talk to the students in my lab after returning, &lt;a href=&quot;https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.&lt;br&gt;
+      &lt;p&gt;Hope it can help save your searching time for what to eat and enjoy a healthy diet. Be careful when you boil eggs, they may blow up.&lt;br&gt;
     
     </summary>
     
-      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
     
     
-      <category term="summer school" scheme="http://yoursite.com/tags/summer-school/"/>
-    
-      <category term="mathematics" scheme="http://yoursite.com/tags/mathematics/"/>
+      <category term="food" scheme="http://yoursite.com/tags/food/"/>
     
   </entry>
   
   <entry>
-    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
-    <link href="http://yoursite.com/posts/talks/2018-11-12-da+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2018-11-12-da+talk.html</id>
-    <published>2018-11-12T07:04:51.094Z</published>
-    <updated>2018-11-17T08:19:04.531Z</updated>
+    <title>Yoga</title>
+    <link href="http://yoursite.com/posts/life/2019-04-26-yoga.html"/>
+    <id>http://yoursite.com/posts/life/2019-04-26-yoga.html</id>
+    <published>2019-04-26T06:31:36.940Z</published>
+    <updated>2018-11-16T02:53:20.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin’s summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning. </p><p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>]]></content>
+    <content type="html"><![CDATA[<p>Bing~ My equipments.</p><center><br>    <img src="/assets/img/yoga.jpg" width="100"><br></center>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it
+        &lt;p&gt;Bing~ My equipments.&lt;/p&gt;
+&lt;center&gt;&lt;br&gt;    &lt;img src=&quot;/assets/img/yoga.jpg&quot; width=&quot;100&quot;&gt;&lt;br&gt;&lt;/center&gt;
+      
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+    
+      <category term="yoga" scheme="http://yoursite.com/tags/yoga/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Psychology——Daniel Schacter</title>
+    <link href="http://yoursite.com/posts/feelings/2019-04-26-Psychology.html"/>
+    <id>http://yoursite.com/posts/feelings/2019-04-26-Psychology.html</id>
+    <published>2019-04-26T06:31:36.860Z</published>
+    <updated>2018-12-10T07:39:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;开始读前，以为只是从心理学的基础架构方面进行阐述。但是，收获却超预期：<br><a id="more"></a></p><ol><li><p>定量分析方法</p><p>&#160; &#160; &#160; &#160;作者所阐述的定量分析方法、实验中控制组与对照组的严格设定，说明了任何一门学科都需要严谨的分析手段，从而进一步分析相关研究。</p></li><li><p>心理的产生如此复杂，我们对其知之甚少。</p><p>&#160; &#160; &#160; &#160;基于生理学的解释，目前仍停留在较浅的层面。神经心理学、行为心理学等等，都还有很长的路要走。</p></li><li><p>了解了一些心理障碍的成因之后，可以减少对其的偏见。</p><p>&#160; &#160; &#160; &#160;心理障碍其实是一个普遍现象，每个人的一生中，总会有一些心理障碍的时期（比如抑郁），只不过个人的严重程度不同。很多障碍，只要有合适的环境引导，完全是可以恢复的。即使无法恢复，也可能可以找到适合的职业，有所建树。所以，未来关于障碍的治疗，是否不是简单的将其边缘化，而是提供适合的环境，让他们意识到自己的价值？当然，这还有很长远的道路要走。</p></li><li><p>到底什么是疾病？</p><p>&#160; &#160; &#160; &#160;异于常人不应该作为疾病的唯一判据，这也许会抹杀个人的特性。临床上的分析，也许更多的应该关注心理上的疏导，而非简单的确定病症，贴上标签，然后利用手术结果，使得个人同一化（比如切除额叶）。更多的时候，病患康复的压力来源于社交环境而非生理。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;开始读前，以为只是从心理学的基础架构方面进行阐述。但是，收获却超预期：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="feelings" scheme="http://yoursite.com/categories/feelings/"/>
+    
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="digest" scheme="http://yoursite.com/tags/digest/"/>
+    
+      <category term="feelings" scheme="http://yoursite.com/tags/feelings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Plants diary</title>
+    <link href="http://yoursite.com/posts/life/2019-04-26-plants.html"/>
+    <id>http://yoursite.com/posts/life/2019-04-26-plants.html</id>
+    <published>2019-04-26T06:31:36.810Z</published>
+    <updated>2018-12-10T07:57:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>The sunflower I planted died of lacking sunshine. I miss it, hope you won’t make the mistake I made, do settle it outdoors.<br><a id="more"></a></p><div align="center"><br>    <img src="/assets/img/sunflower/0.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/1.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/2.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/3.jpg" height="100" width="100"><br></div><div align="center"><br>    <img src="/assets/img/sunflower/4.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/5.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/6.jpg" height="100" width="100"><br>    <img src="/assets/img/sunflower/7.jpg" height="100" width="100"><br></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The sunflower I planted died of lacking sunshine. I miss it, hope you won’t make the mistake I made, do settle it outdoors.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+    
+      <category term="plants" scheme="http://yoursite.com/tags/plants/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2019-04-26-mlutility+talk.html"/>
+    <id>http://yoursite.com/posts/talks/2019-04-26-mlutility+talk.html</id>
+    <published>2019-04-26T06:31:36.740Z</published>
+    <updated>2018-12-10T02:06:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p><p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my l
       
     
     </summary>
@@ -519,18 +298,102 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
+    
+      <category term="Data assimilation" scheme="http://yoursite.com/tags/Data-assimilation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The naive implementation of some popular machine learning algorithms.</title>
+    <link href="http://yoursite.com/posts/projects/2019-04-26-ml-implement.html"/>
+    <id>http://yoursite.com/posts/projects/2019-04-26-ml-implement.html</id>
+    <published>2019-04-26T06:31:36.680Z</published>
+    <updated>2018-12-10T12:57:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Naive implementations of some M.L. algorithms, which are updated continuously.</p><p>The algorithms that have been implemented are listed as follows:</p><ul><li>Logistic Regression,</li><li>SVM solved by SMO,</li><li>K-Means，</li><li>GMM solved by EM,</li><li>Perceptron，</li><li>Naive Bayes,</li><li>LeNet-Keras，</li><li>MLP-Numpy solved with BP,</li><li>MCMC sampling.</li></ul><p>Codes are available <a href="https://github.com/skaudrey/ml_algorithm" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Naive implementations of some M.L. algorithms, which are updated continuously.&lt;/p&gt;
+&lt;p&gt;The algorithms that have been implemented are liste
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
+    
+      <category term="naive" scheme="http://yoursite.com/tags/naive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Computing in the 21th Century &amp; Asia Faculty Summit held by Microsoft, Nov., 2018.</title>
+    <link href="http://yoursite.com/posts/meetings/2019-04-26-microsoft.html"/>
+    <id>http://yoursite.com/posts/meetings/2019-04-26-microsoft.html</id>
+    <published>2019-04-26T06:31:36.600Z</published>
+    <updated>2018-12-10T08:53:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is <a href="https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda" target="_blank" rel="noopener">here</a>.</p><p>Babysitting AI and computational neuroscience impressed me a lot.<br><a id="more"></a></p><h1 id="computing-neuroscience-robots-with-feelings"><a href="#computing-neuroscience-robots-with-feelings" class="headerlink" title="computing neuroscience: robots with feelings."></a>computing neuroscience: robots with feelings.</h1><p>Prof. Lenore Blue’s keynote is about computational neuroscience. They try to let robots feel pain, and to simulate the long and short term encoding happening in our brains.</p><p>What she talked reminds me of something I had read before.</p><p>According to the book <em>Psychology</em> written by Daniel Schacter, our brains do encode information into long and short codes, and the short form is possibly trasformed into a long one. Even though we don’t mean to encode or memorize something sometimes, encoding still occurs unconsciously. </p><p>Reviewing is one useful way for recalling these information. Moreover, if you are in the similar environment in which you encoded the codes before, you will have higher possibility to recall it. However, the <strong>encoding error</strong> happend during reviewing is more, and that’s why a detective should try to get full information while inquiring evidences from witnesses at the 1st time.</p><p>Also, our brains are more sensible to pictorial information compared with text information. So, if you try to make each thing you want to keep code as a photo, you can boost the capability of memorizing. </p><h1 id="Yoshu-Bengio-Beyond-i-i-d-and-babysitting-AI"><a href="#Yoshu-Bengio-Beyond-i-i-d-and-babysitting-AI" class="headerlink" title="Yoshu Bengio: Beyond i.i.d. and babysitting AI"></a>Yoshu Bengio: Beyond i.i.d. and babysitting AI</h1><p>One of the basic assumption that makes generation possible is independent identically distributed assumption. However, influenced by observing equipments, imbalanced samples and others, the distributions of training data and test data are not always the same. Hence, Prof. Bengio’s team proposed that all data are sampled from the same system rather than same distribution. As for weather of two different seasons, data desciping them are sampled from the same atmospheric circulation system, but they don’t distribute identically. Bengio said they tend to initialize this system with diversed initial conditions, and the result of this distribution will be taken as what the data set follows. It makes sense.</p><p><em>One thing that troubles me is, how can I model the system and figure out the initial conditions? For things with obvious physical rules, it is easy, and even the model’s codes are open-acssessed online. What if the one I don’t know? How to make this idea works in common situations?</em> </p><p>CNN is renowned as its power in representation learning, which encodes a variety of information into vectors. Our brains also work like this. Nontheless, what they learn are supervised, and the utility of binary network, the simplification of network structure all demostrate that the captured information are redundant. The model learned is fragile, too. After adding some noises into an image, even though the image dosen’t change visually for us humans, model can not tell what it is as before. It all comes from the uncontrolling unsupervision. Babysitting AI aims at modeling with environmental information and other information, so that leading AI models.</p><h1 id="Andrew-C-Yao-The-Advent-of-Quantum-Computing"><a href="#Andrew-C-Yao-The-Advent-of-Quantum-Computing" class="headerlink" title="Andrew C. Yao: The Advent of Quantum Computing"></a>Andrew C. Yao: The Advent of Quantum Computing</h1><p>The quantum computing will offer exponential speedup for crypto-code breaking, simulation of quantum physical systems, simulation of materials, chemistry, and biology, nonlinear optimization, ML and AI. It will break through the bottleneck of computing.</p><p>Its implementation is like crystallography. In terms of crystallography, you take an X-ray photo for a crystal and then compute its structure. For quantum computing, instead of taking a real photo, you just need to collect a polynomial number of sample points. By wave-particle duality, this single photo can recreate the raw image probabilistically.  </p><p>According to Andrew, dimond qubits are in the highest possibility to be used in our laptops.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is &lt;a href=&quot;https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Babysitting AI and computational neuroscience impressed me a lot.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
+    
+    
+      <category term="applications" scheme="http://yoursite.com/tags/applications/"/>
+    
+      <category term="tendency" scheme="http://yoursite.com/tags/tendency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Clouds detection of infrared hyperspectral data based on logistic.</title>
+    <link href="http://yoursite.com/posts/projects/2019-04-26-lr.html"/>
+    <id>http://yoursite.com/posts/projects/2019-04-26-lr.html</id>
+    <published>2019-04-26T06:31:36.540Z</published>
+    <updated>2018-12-10T13:17:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p><p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p><p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p><p>Codes are available <a href="https://github.com/skaudrey/cloud" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed 
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
     
   </entry>
   
   <entry>
     <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2018-11-12-hyp+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2018-11-12-hyp+talk.html</id>
-    <published>2018-11-12T06:07:39.753Z</published>
-    <updated>2018-12-10T08:01:03.814Z</updated>
+    <link href="http://yoursite.com/posts/talks/2019-04-26-hyp+talk.html"/>
+    <id>http://yoursite.com/posts/talks/2019-04-26-hyp+talk.html</id>
+    <published>2019-04-26T06:31:36.470Z</published>
+    <updated>2018-12-10T08:01:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:</p><ul><li>high spectral correlation,</li><li>high spatial correlation,</li><li>and sparsity,</li></ul><p>and they casue a trouble during processing.<br><a id="more"></a><br>This talk explained why they are highly correlated but also sparse. Kernel PCA for compressing was also tested.</p><p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slides</a> for more details.</p>]]></content>
     
@@ -558,11 +421,66 @@
   </entry>
   
   <entry>
+    <title>HCR--Compress and Resonstruct Hyperspectral Data.</title>
+    <link href="http://yoursite.com/posts/projects/2019-04-26-hcr.html"/>
+    <id>http://yoursite.com/posts/projects/2019-04-26-hcr.html</id>
+    <published>2019-04-26T06:31:36.340Z</published>
+    <updated>2018-12-10T12:45:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p><p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p><p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p><p>Codes are available <a href="https://github.com/skaudrey/hyp" target="_blank" rel="noopener">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression an
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
+    
+      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The summer school held in Harbin, Aug. 2017.</title>
+    <link href="http://yoursite.com/posts/meetings/2019-04-26-harbin.html"/>
+    <id>http://yoursite.com/posts/meetings/2019-04-26-harbin.html</id>
+    <published>2019-04-26T06:31:36.280Z</published>
+    <updated>2018-12-10T07:55:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do" target="_blank" rel="noopener">here</a> for more info. I gave a talk to the students in my lab after returning, <a href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html" target="_blank" rel="noopener">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.<br><a id="more"></a><br>The themes given by those professors are listed below.</p><ul><li><p>Prof. Francois</p><p>  Research Area：Variational data assimilation (VAR), especially 4DVAR.</p><p>  Keynotes：The direvation of adjoint models, sensitivity analysis and the introduction of image assimilation. See the <a href="/assets/notes/harbin/François meeting minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jordan</p><p>  Research Area：Statistical Learning</p><p>  Keynotes: Summarize popular machine learning algorithms, and prove the convergence etc. See the <a href="/assets/notes/harbin/Jordan meeting minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jurgen</p><p>Research Area：AI, DL</p><p>Keynotes: The introduction of utilizing AI. Check more from his <a href="http://people.idsia.ch/~juergen/" target="_blank" rel="noopener">home page</a>.</p></li><li><p>Prof. Ma</p><p>  Research Area：Compression sensing.</p><p>  Keynotes: The introduction of compression sensing and its applications.</p></li><li><p>Prof. Cai</p><p>  Research Area：Statistical inference.</p><p>  Keynotes: Statistical inference in high-dimensions. No slides, the minutes file is <a href="/assets/notes/harbin/Tony meeting minutes.pdf">here</a>.</p></li></ul><p>Slides and records are available in the <a href="https://pan.baidu.com/s/1jGj07koiMIV-MOf17N_jeg" target="_blank" rel="noopener">baidu network disk</a> with password 6o2x. Enjoy yourself.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check &lt;a href=&quot;http://mss2017.hit.edu.cn/showSubjectDominWebSite.do&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; for more info. I gave a talk to the students in my lab after returning, &lt;a href=&quot;https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
+    
+    
+      <category term="summer school" scheme="http://yoursite.com/tags/summer-school/"/>
+    
+      <category term="mathematics" scheme="http://yoursite.com/tags/mathematics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Weather processes interpolation based on GPR</title>
-    <link href="http://yoursite.com/posts/projects/2018-11-11-gpr.html"/>
-    <id>http://yoursite.com/posts/projects/2018-11-11-gpr.html</id>
-    <published>2018-11-11T15:40:18.625Z</published>
-    <updated>2018-12-10T08:55:57.235Z</updated>
+    <link href="http://yoursite.com/posts/projects/2019-04-26-gpr.html"/>
+    <id>http://yoursite.com/posts/projects/2019-04-26-gpr.html</id>
+    <published>2019-04-26T06:31:36.190Z</published>
+    <updated>2018-12-10T08:55:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, and two interpolation methods are proposed. Check <a href="http://www.mdpi.com/2073-4433/9/5/194/pdf" target="_blank" rel="noopener">paper</a> for more information. Codes are available <a href="https://github.com/skaudrey/gpml" target="_blank" rel="noopener">here</a>.</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.</code></pre><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.</code></pre>]]></content>
     
@@ -583,35 +501,117 @@
   </entry>
   
   <entry>
-    <title>Build up personal blog</title>
-    <link href="http://yoursite.com/posts/notes/2018-11-11-hexo+killy+github%20pages=blog.html"/>
-    <id>http://yoursite.com/posts/notes/2018-11-11-hexo+killy+github pages=blog.html</id>
-    <published>2018-11-11T02:25:04.286Z</published>
-    <updated>2018-12-10T07:21:55.933Z</updated>
+    <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2019-04-26-gpr-talk.html"/>
+    <id>http://yoursite.com/posts/talks/2019-04-26-gpr-talk.html</id>
+    <published>2019-04-26T06:31:36.130Z</published>
+    <updated>2018-12-10T02:45:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need:</p><ul><li><p>node.js+npm,</p><p>  Get node.js from <a href="https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fnodejs" target="_blank" rel="noopener">here</a>. Check <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="noopener">here</a> for more info about node.</p></li><li><p>hexo,<br>  Install by npm:</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li><li><p>git,</p></li><li>an account of Github,</li></ul><p>and configure the ssh-key on your device.</p><h2 id="Build-blog"><a href="#Build-blog" class="headerlink" title="Build blog"></a>Build blog</h2><h3 id="Initialize-hexo-with-hexo"><a href="#Initialize-hexo-with-hexo" class="headerlink" title="Initialize hexo with hexo"></a>Initialize hexo with hexo</h3><p>Create a local folder as your root directory, such as “blog”, and go to the directory in your terminal and initialize it by hexo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure></p><p>Then initialize this directory with npm.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="Link-hexo-with-Github"><a href="#Link-hexo-with-Github" class="headerlink" title="Link hexo with Github"></a>Link hexo with Github</h3><p>Set deployment tool,</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hex-deployer-git --save</span><br></pre></td></tr></table></figure><p>and initialize the remote repository for your blog on Github.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git add *</span><br><span class="line">$ git commit -m <span class="string">"init commit"</span></span><br></pre></td></tr></table></figure><p>Change the deployment in file “_config.yml” like:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy: </span><br><span class="line">    <span class="built_in">type</span>: git </span><br><span class="line">    repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure><p>Tips: The name of your hosting repository should be “[githubname].github.io”, such as “jack.github.io”. And mind the blankspaces while rewriting file “_config.yml”.</p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p>Do it before you push it on Github.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><h1 id="see-your-pages"><a href="#see-your-pages" class="headerlink" title="see your pages"></a>see your pages</h1><p>Click https://[githubname].github.io/, such as <a href="https://jack.github.io/" target="_blank" rel="noopener">https://jack.github.io/</a>.</p><h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><h3 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h3><p>I picked theme yilia. Configuration should be done as bellow:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure><p>Change the default theme defined in “_config.yml” under root directory.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure><h3 id="upload-your-avatar"><a href="#upload-your-avatar" class="headerlink" title="upload your avatar"></a>upload your avatar</h3><p>New a folder under the “source” directory, I named it assets. I also new the “img” folder for pictures. Put you avatar picture here. Then reconfigure the _config.yml file beneath theme “yilia”‘s folder, which is:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: /assets/img/avatar.jpg</span><br></pre></td></tr></table></figure><h3 id="classify-your-posts-by-categories-rather-than-tags-in-default"><a href="#classify-your-posts-by-categories-rather-than-tags-in-default" class="headerlink" title="classify your posts by categories rather than tags in default"></a>classify your posts by categories rather than tags in default</h3><p>Now take your eye away from file “_config.yml” under theme yilia, open the file “_config.yml” under the root directory of your blog. You need to configure category_map, for instance,</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  about: about</span><br><span class="line">  notes: notes</span><br><span class="line">  projects: projects</span><br><span class="line">  papers: papers</span><br><span class="line">  talks: talks</span><br><span class="line">  meetings: meetings</span><br></pre></td></tr></table></figure><p>Each pair of it can be different, it is just a mapping, such as:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">category_map:</span><br><span class="line">  parole: talks</span><br><span class="line">  关于我: about</span><br></pre></td></tr></table></figure><h3 id="change-the-naming-rule-of-a-new-post"><a href="#change-the-naming-rule-of-a-new-post" class="headerlink" title="change the naming rule of a new post"></a>change the naming rule of a new post</h3><p>The default naming rule of hexo is YYYY/MM/DD/[post name], which leads to a hyper-link without html suffix. I change it as html. It can be accomplished by configure the _config.yml in root directory.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:category/:year-:month-:day-:title.html</span><br></pre></td></tr></table></figure><h3 id="Truncate-the-post-in-home-list-when-it-is-too-long"><a href="#Truncate-the-post-in-home-list-when-it-is-too-long" class="headerlink" title="Truncate the post in home list when it is too long."></a>Truncate the post in home list when it is too long.</h3><p>You need to add</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure><p>after where you want to trucate in a post. And confiure the __config.yml_ under themes’ folder.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The truncate signal while post is too long.</span></span><br><span class="line">excerpt_link: <span class="string">"more"</span></span><br></pre></td></tr></table></figure><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>You can debug pages locally by </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><p>, which is convenient before deployment.</p><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://www.cnblogs.com/wumz/p/8030244.html" target="_blank" rel="noopener">Mauger</a>, and <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">litten</a>.</p>]]></content>
+    <content type="html"><![CDATA[<p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html" target="_blank" rel="noopener">projects’ introduction </a> and <a href="https://github.com/skaudrey/gpml/" target="_blank" rel="noopener">github</a> for more details.</p><p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;This post will show you how to build up a personal blog by node and hexo. Killy is responsible for building static pages. Laterly the blog will be hosted on Github.&lt;br&gt;
+      
+      
+        &lt;p&gt;This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check th
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
+    
+      <category term="interpolation" scheme="http://yoursite.com/tags/interpolation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
+    <link href="http://yoursite.com/posts/talks/2019-04-26-da+talk.html"/>
+    <id>http://yoursite.com/posts/talks/2019-04-26-da+talk.html</id>
+    <published>2019-04-26T06:31:36.080Z</published>
+    <updated>2018-11-17T08:19:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin’s summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning. </p><p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Week 2, Neural Encoding, Computational Neuroscience, Rajesh Rao, University of Washington</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-comp-neuroscience-course-week2.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-comp-neuroscience-course-week2.html</id>
+    <published>2019-04-26T06:31:35.940Z</published>
+    <updated>2018-12-10T02:49:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This week is going to the encoding methods and codes of neurons.<br><a id="more"></a></p><h2 id="The-Neural-Code-and-Neural-Encoding"><a href="#The-Neural-Code-and-Neural-Encoding" class="headerlink" title="The Neural Code and Neural Encoding"></a>The Neural Code and Neural Encoding</h2><h3 id="The-methods-for-observing"><a href="#The-methods-for-observing" class="headerlink" title="The methods for observing"></a>The methods for observing</h3><ul><li>Both fMRI and EEG can describe brain’s activities, but they cannot show what a single neuron does. EEG is faster than fMRI.</li><li>Electrode arrays, calcium imaging can read out the neural codes. </li><li>Patch clamp looks inside single cells.</li></ul><h3 id="How-to-understand-neurons’-activities"><a href="#How-to-understand-neurons’-activities" class="headerlink" title="How to understand neurons’ activities?"></a>How to understand neurons’ activities?</h3><ul><li>Encoding: how does a stimulus cause a pattern of responses, such as building quasi-mechanistic models</li><li>Decoding: What do these responses tell us about the stimulus?</li></ul><h3 id="What-you-think-you-are-looking-at-can-shape-what-you-actually-see"><a href="#What-you-think-you-are-looking-at-can-shape-what-you-actually-see" class="headerlink" title="What you think you are looking at can shape what you actually see."></a>What you think you are looking at can shape what you actually see.</h3><h3 id="quiz"><a href="#quiz" class="headerlink" title="quiz"></a>quiz</h3><p>1.In a raster plot such as the one just shown, in which a short experiment is repeated many times, what does a vertical structuring of the dots at one point in time indicate?</p><ul><li><p>The cell fires very consistently at that time (with respect to each iteration of the stimulus).–<strong>correct</strong></p><p>  A vertical bar in the raster plot indicates a strong response, meaning that one cell fires very reliably at a particular time during the stimulus presentation, and suggesting that the cell is responding to the particular feature of the stimulus that occurs at that time. Weaker responses are represented by thin red bars (where the cell fires during some iterations but not others). As such, a weak response indicates that there is something about the feature (orientation of a bar of light in the video for example) that the cell likes, but is not the feature it responds to best (the orientation is off by a few degrees from what the cell prefers, for example).</p></li></ul><ul><li>Many neurons fire together at that time.</li></ul><ul><li>The cell fires many action potentials at that time.</li></ul><ul><li>Only a single neuron fires at that time.</li></ul><p>2.If the stimulus in question is an audio recording of someone speaking a certain syllable, which of the following could be an appropriate choice of stimulus parameter?</p><ul><li><p>The average amplitude of the signal. –<strong>correct</strong> </p><p>  In general there are a multitude of different stimulus parameters that could affect a neuron’s response. Part of designing a good experiment involves picking a natural set of parameters to investigate while holding all others as constant as possible. With neurons in lower cortical areas, it is often relatively easy to figure out what parameters are important (e.g., the location of a spot of light for a neuron in LGN). In higher cortical areas, however, it can be quite difficult to understand exactly what parameter of a stimulus a neuron is tuned to.</p></li></ul><ul><li><p>The relative amplitude of two frequency components in the signal. –<strong>correct</strong> </p><p>  In general there are a multitude of different stimulus parameters that could affect a neuron’s response. Part of designing a good experiment involves picking a natural set of parameters to investigate while holding all others as constant as possible. With neurons in lower cortical areas, it is often relatively easy to figure out what parameters are important (e.g., the location of a spot of light for a neuron in LGN). In higher cortical areas, however, it can be quite difficult to understand exactly what parameter of a stimulus a neuron is tuned to.</p></li></ul><ul><li>The luminance of an array of pixels.</li><li>The orientation of a bar of light.</li></ul><h1 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a>Terminologies</h1><ul><li>functional maganetic resonance imaging (fMRI)：<a href="https://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging" target="_blank" rel="noopener">功能核磁共振成像</a></li><li>electroencephalo-graph (EEG): <a href="https://en.wikipedia.org/wiki/Electroencephalography" target="_blank" rel="noopener">脑电图描记器</a></li><li>patch clamp: <a href="https://en.wikipedia.org/wiki/Patch_clamp" target="_blank" rel="noopener">膜片钳</a></li><li>retina: 视网膜</li><li>pupil: 瞳孔</li><li>iris: 虹膜</li><li>lens: 晶状体</li><li>sclera: 巩膜 </li><li>cornea: 角膜</li><li>retinal ganglion cells: 视网膜神经节细胞</li><li></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This week is going to the encoding methods and codes of neurons.&lt;br&gt;
     
     </summary>
     
       <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="neuro" scheme="http://yoursite.com/tags/neuro/"/>
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="course" scheme="http://yoursite.com/tags/course/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Week 1, Introduction &amp; Basic Neurobiology, Computational Neuroscience, Rajesh Rao, University of Washington</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-comp-neuroscience-course-week1.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-comp-neuroscience-course-week1.html</id>
+    <published>2019-04-26T06:31:35.100Z</published>
+    <updated>2018-12-10T07:06:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Computational Neuroscience is a course released by coursera. </p><h2 id="Computational-models-for-understanding-brains"><a href="#Computational-models-for-understanding-brains" class="headerlink" title="Computational models for understanding brains"></a>Computational models for understanding brains</h2><ul><li>Descriptive models–<strong>what</strong><br>  How do neurons respond to external stimuli and descibe the respondings quantitatively.</li><li>Mechanistic models–<strong>how</strong><br>  Simulate a single neuron and a network of neurons’ behaviors. </li><li>Interpretive models–<strong>why</strong><br>  The latent computational principles of brain.<a id="more"></a><h2 id="What-is-Computational-Neuroscience"><a href="#What-is-Computational-Neuroscience" class="headerlink" title="What is Computational Neuroscience?"></a>What is Computational Neuroscience?</h2>Explain in computational terms how brains generate behaviors.</li></ul><h2 id="Receptive-models"><a href="#Receptive-models" class="headerlink" title="Receptive models"></a>Receptive models</h2><p>Receptive fields: response a neuron, specific propertities of a sensory stimulus that generating a strong response from the cell.</p><h3 id="Descriptive-models"><a href="#Descriptive-models" class="headerlink" title="Descriptive models"></a>Descriptive models</h3><p>On-Center Off-Surround Receptive Field,<br>Off-Center On Surround Receptive Field.</p><h3 id="Mechanistic-models"><a href="#Mechanistic-models" class="headerlink" title="Mechanistic models"></a>Mechanistic models</h3><p>How are these oriented receptive fields obtained from center-surround receptive fields? How do receptive fields use the neural circuity of the visual cortex?<br>A controversial model: Center-surround LGN RFs are displaced along preferred orientation of V1 Cell. But it doesn’t explain the recurrent circulus in V1 cell.</p><p>Efficient Coding Hypothesis: represent an image in the most efficient way.</p><p><em>The ways of coding an image efficiently: Sparse Coding, ICA, predictive coding.</em></p><p>The brain may try to find <strong>faithful and efficient representations</strong> of an animal’s natural environment.</p><h2 id="Neurons-Synapses-and-Brain-Regions"><a href="#Neurons-Synapses-and-Brain-Regions" class="headerlink" title="Neurons, Synapses, and Brain Regions"></a>Neurons, Synapses, and Brain Regions</h2><p>Most are taught in your biological class in senior high school.</p><ul><li>Ionic channels are the ones influen a neuron’s electricity personality. The ionic channels are gated:<ul><li>Voltage-gated</li><li>Chemically-gated</li><li>Mechanically-gated</li></ul></li><li>The consequences of opening or closing voltage-gated channels:<ul><li>open: depolarization, if strong enough, it will cause a spike or “action potential”.</li><li>close: hyperpolarization</li></ul></li><li>The action potential of all neurons are same, they act in different ways just because of voltage.</li><li>Myelin enable fast long-range spike communication.</li></ul><h2 id="Synapses"><a href="#Synapses" class="headerlink" title="Synapses"></a>Synapses</h2><ul><li>types: Electrical synapses (gap junctions) and chemical synapses (neurotransmitters)</li><li>Chemical synapses are suggested for learning and memory by adjusting the amount of realeased molecules. Excitatory or inhibitory synapses can increase or decrease postsynaptic membrane potential. </li><li>Synaptic plasticity: useful for inference</li><li>Long term potentiation (LTP) and long term depression (LTD) : lasts for hours or days. They are sensible to <strong>spike timing</strong>, which is really important for <strong>learning sequences thus to make predictions</strong>.</li></ul><h2 id="Nerve-systems"><a href="#Nerve-systems" class="headerlink" title="Nerve systems"></a>Nerve systems</h2><ul><li>Cerebral cortex has 6 layers cortexes. The output an input come from different cortexes.</li></ul><h1 id="Terminologies"><a href="#Terminologies" class="headerlink" title="Terminologies"></a>Terminologies</h1><ul><li>Lateral Geniculate Nucleus (LGN): 外侧膝状体核</li><li>Primary Visual Cortex (V1): 初级视皮层</li><li>synapses: 突触</li><li>dendrites: 树突</li><li>axon: 轴突</li><li>pyramidal cells: 锥体细胞</li><li>optic tectum: 视顶盖</li><li>cerebellum: 小脑</li><li>lipid: 脂质</li><li>cell membrane：细胞膜</li><li>lipid bilay：脂质二重层</li><li>ionic pump: 离子泵</li><li>钠离子：sodion</li><li>氯离子：chloridion</li><li>钾离子：potassium ion</li><li>hyperpolarization: 过极化</li><li>depolarization: 去极化</li><li>oligodendrocytes: 少突细胞</li><li>glial cells: 神经胶质细胞</li><li>myelination: 髓鞘形成</li><li>Node of Ranvier: 郎氏结</li><li>saltatory conductio： 跳跃式传导</li><li>neurotransmitters: 神经递质</li><li>synaptic clef: 突出间隙</li><li>postsynaptic membrane potential: 突触后膜电位</li><li>Glutamate: 谷氨酸钠</li><li>excitatory postsynaptic potential: EPSP</li><li>synaptic plasticity： 突触可塑性</li><li>hippocampus: 海马体</li><li>long term potentiation (LTP)</li><li>Human Brain Project: in Europe</li><li>Peripheral Nervous System (PNS): 周围神经系统</li><li>Central Nervous System （CNS): 中心神经系统</li><li>spinal cord: 脊髓</li><li>afferent: 传入神经</li><li>efferent: 传出神经</li><li>smooth muscles: 平滑肌</li><li>glands: 腺体</li><li>respiratory rate: 呼吸速率</li><li>reflex arc: 反射弧</li><li>hindbrain: 后脑</li><li>Medulla Oblongata: 延髓</li><li>pons: 脑桥</li><li>cerebellum: 小脑</li><li>sense of equilibrium: 平衡感</li><li>Thalamus: 丘脑</li><li>Nuclei: 原子核</li><li>hypothalamus: 下丘脑</li><li>cerebrum: 大脑</li><li>basal ganglia: 基底核</li><li>amygdala: 杏仁核</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Computational Neuroscience is a course released by coursera. &lt;/p&gt;
+&lt;h2 id=&quot;Computational-models-for-understanding-brains&quot;&gt;&lt;a href=&quot;#Computational-models-for-understanding-brains&quot; class=&quot;headerlink&quot; title=&quot;Computational models for understanding brains&quot;&gt;&lt;/a&gt;Computational models for understanding brains&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Descriptive models–&lt;strong&gt;what&lt;/strong&gt;&lt;br&gt;  How do neurons respond to external stimuli and descibe the respondings quantitatively.&lt;/li&gt;
+&lt;li&gt;Mechanistic models–&lt;strong&gt;how&lt;/strong&gt;&lt;br&gt;  Simulate a single neuron and a network of neurons’ behaviors. &lt;/li&gt;
+&lt;li&gt;Interpretive models–&lt;strong&gt;why&lt;/strong&gt;&lt;br&gt;  The latent computational principles of brain.
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="neuro" scheme="http://yoursite.com/tags/neuro/"/>
+    
+      <category term="course" scheme="http://yoursite.com/tags/course/"/>
     
   </entry>
   
   <entry>
     <title>About</title>
-    <link href="http://yoursite.com/posts/uncategorized/2018-11-10-about.html"/>
-    <id>http://yoursite.com/posts/uncategorized/2018-11-10-about.html</id>
-    <published>2018-11-10T13:19:49.492Z</published>
-    <updated>2018-12-10T12:53:07.164Z</updated>
+    <link href="http://yoursite.com/posts/uncategorized/2019-04-26-about.html"/>
+    <id>http://yoursite.com/posts/uncategorized/2019-04-26-about.html</id>
+    <published>2019-04-26T06:31:35.080Z</published>
+    <updated>2018-12-10T12:53:08.000Z</updated>
     
     <content type="html"><![CDATA[<font size="4"><br>Welcome to Mia Feng’s Blog!<br><br>I’m a final year Master student in Machine Learning at the National University of Defense Techonology in Changsha City, China. I’m interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.<br><br>I’ve studied Computer Science and Technology at the National University of Defense Techonology, China and at Wuhan University, China. During my studies, I’ve processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks.<br><br>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf" target="_blank" rel="noopener">resume</a> for more information.<br><br></font><p><br> </p>]]></content>
     
