@@ -203,22 +203,14 @@
       
         <p>Recently I processed some data detected by AGRI, a sensor loaded on FY-4 Satellite, which was launched by China. Fourteen channels designed for AGRI observe almost half of the earth in minutes. However, because AGRI is an imager, data generated hy it need positioning.</p>
 <p>There are two ways for positioning, one is querying the lookup table given by <a href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3" target="_blank" rel="noopener">NSMC</a>, the other is calculating by <a href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3" target="_blank" rel="noopener">formulas</a>.</p>
-<p>However, there are some errors in the files given by NSMC, I wrote this note in case others will meet the same trouble I got these days.</p>
-<h2 id="Querying-the-lookup-table"><a href="#Querying-the-lookup-table" class="headerlink" title="Querying the lookup table."></a>Querying the lookup table.</h2><p>There are two errors in the files.</p>
-<ul>
-<li>The first 8 bytes denote latitude, and the next 8 bytes are reserved for longitude.</li>
-<li>The data are stored as little-endian data.<center><br>  <img src="/assets/img/FY4-AGRI/lookup.png" width="400"><br></center>
-
-</li>
-</ul>
-<h2 id="Calculating-by-formulas"><a href="#Calculating-by-formulas" class="headerlink" title="Calculating by formulas"></a>Calculating by formulas</h2><p>The formulas are OK, but the constant variable $\lambda_D$ should be measured in rad before being used.</p>
-<center><br>    <img src="/assets/img/FY4-AGRI/formulas.png" width="400"><br></center>
-
-
+<p>However, there are some errors in the files given by NSMC, I wrote this note in case others will meet the same trouble I got these days.<br>
+        
+          <a class="article-more-a" href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html#more">more >></a>
+        
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -1214,42 +1206,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
@@ -1258,11 +1214,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,15 +1234,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1291,6 +1255,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>
