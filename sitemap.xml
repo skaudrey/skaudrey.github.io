@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</loc>
+    
+    <lastmod>2019-04-26T10:50:18.851Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-04-26-hexo+killy+github%20pages=blog.html</loc>
     
     <lastmod>2019-04-26T09:57:19.835Z</lastmod>
