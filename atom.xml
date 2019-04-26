@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-26T10:51:57.846Z</updated>
+  <updated>2019-04-26T15:26:43.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>&#39;Cornell_notes_tex_templates&#39;</title>
+    <title>Positioning Data of FY4 AGRI.</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-FY4-AGRI-Calibration.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-FY4-AGRI-Calibration.html</id>
+    <published>2019-04-26T10:53:05.000Z</published>
+    <updated>2019-04-26T15:26:43.870Z</updated>
+    
+    <content type="html"><![CDATA[<p>Recently I processed some data detected by AGRI, a sensor loaded on FY-4 Satellite, which was launched by China. Fourteen channels designed for AGRI observe almost half of the earth in minutes. However, because AGRI is an imager, data generated hy it need positioning.</p><p>There are two ways for positioning, one is querying the lookup table given by <a href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3" target="_blank" rel="noopener">NSMC</a>, the other is calculating by <a href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3" target="_blank" rel="noopener">formulas</a>.</p><p>However, there are some errors in the files given by NSMC, I wrote this note in case others will meet the same trouble I got these days.</p><h2 id="Querying-the-lookup-table"><a href="#Querying-the-lookup-table" class="headerlink" title="Querying the lookup table."></a>Querying the lookup table.</h2><p>There are two errors in the files.</p><ul><li>The first 8 bytes denote latitude, and the next 8 bytes are reserved for longitude.</li><li>The data are stored as little-endian data.<center><br>  <img src="/assets/img/FY4-AGRI/lookup.png" width="400"><br></center></li></ul><h2 id="Calculating-by-formulas"><a href="#Calculating-by-formulas" class="headerlink" title="Calculating by formulas"></a>Calculating by formulas</h2><p>The formulas are OK, but the constant variable $\lambda_D$ should be measured in rad before being used.</p><center><br>    <img src="/assets/img/FY4-AGRI/formulas.png" width="400"><br></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Recently I processed some data detected by AGRI, a sensor loaded on FY-4 Satellite, which was launched by China. Fourteen channels design
+      
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+      <category term="Sensor" scheme="http://yoursite.com/tags/Sensor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Tex Template of Cornell Notes</title>
     <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
     <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
     <published>2019-04-26T10:21:35.000Z</published>
-    <updated>2019-04-26T10:51:57.846Z</updated>
+    <updated>2019-04-26T15:01:50.200Z</updated>
     
     <content type="html"><![CDATA[<p>I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need install</p><ul><li>CTex</li></ul><h2 id="Install-missed-packages-of-CTex"><a href="#Install-missed-packages-of-CTex" class="headerlink" title="Install missed packages of CTex"></a>Install missed packages of CTex</h2><h3 id="Download-the-required-packages"><a href="#Download-the-required-packages" class="headerlink" title="Download the required packages"></a>Download the required packages</h3><p>Search <a href="https://www.ctan.org/pkg" target="_blank" rel="noopener">here</a>.</p><h3 id="Unzip-and-compile-manually-if-needed"><a href="#Unzip-and-compile-manually-if-needed" class="headerlink" title="Unzip and compile manually if needed."></a>Unzip and compile manually if needed.</h3><p>Unzip the downloaded file and jump to the directory after unzip. If need compile, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  pdflatex ***.ins</span><br></pre></td></tr></table></figure></p><p>Tips: The name of your hosting repository should be “[githubname].github.io”, such as “jack.github.io”. And mind the blankspaces while rewriting file “_config.yml”.</p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Copy the compiled file folder to the CTex path: ~/CTex/CTex/tex/latex</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ texhash --admin</span><br></pre></td></tr></table></figure><p>The notes will be generated like this:</p><center><br>    <img src="/assets/img/CornellNotes.png" width="400"><br></center><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://blog.csdn.net/Myriad_Dreamin/article/details/83384110" target="_blank" rel="noopener">this blog</a>.</p><h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>Tex file can be found <a href="https://github.com/skaudrey/skaudrey.github.io/tree/master/assets/notes/Cornell" target="_blank" rel="noopener">here</a></p>]]></content>
     
