@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-19T08:01:10.223Z</updated>
+  <updated>2019-05-19T08:08:26.850Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html"/>
     <id>http://yoursite.com/posts/notes/2019-05-19-notes-faster rcnn.html</id>
     <published>2019-05-19T03:17:12.000Z</published>
-    <updated>2019-05-19T08:01:10.223Z</updated>
+    <updated>2019-05-19T08:08:26.850Z</updated>
     
-    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $ k = scale * ratios $,</li><li>The number of anchor boxes for one feature layer (which has $W<em>H$ grids), will get $ W</em>H*k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but rescaled by $k$ regressors.   </li></ul><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
+    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li><li>The number of anchor boxes for one feature layer (which has $W\timesH$ grids), will get $ W\times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but rescaled by $k$ regressors.   </li></ul><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
     
     <summary type="html">
     
@@ -113,6 +113,28 @@
   </entry>
   
   <entry>
+    <title>A Tex Template of Cornell Notes</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
+    <published>2019-04-26T10:21:35.000Z</published>
+    <updated>2019-04-26T15:34:08.233Z</updated>
+    
+    <content type="html"><![CDATA[<p>I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need install</p><ul><li>CTex</li></ul><h2 id="Install-missed-packages-of-CTex"><a href="#Install-missed-packages-of-CTex" class="headerlink" title="Install missed packages of CTex"></a>Install missed packages of CTex</h2><h3 id="Download-the-required-packages"><a href="#Download-the-required-packages" class="headerlink" title="Download the required packages"></a>Download the required packages</h3><p>Search <a href="https://www.ctan.org/pkg" target="_blank" rel="noopener">here</a>.</p><h3 id="Unzip-and-compile-manually-if-needed"><a href="#Unzip-and-compile-manually-if-needed" class="headerlink" title="Unzip and compile manually if needed."></a>Unzip and compile manually if needed.</h3><p>Unzip the downloaded file and jump to the directory after unzip. If need compile, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  pdflatex ***.ins</span><br></pre></td></tr></table></figure></p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Copy the compiled file folder to the CTex path: ~/CTex/CTex/tex/latex</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ texhash --admin</span><br></pre></td></tr></table></figure><p>The notes will be generated like this:</p><center><br>    <img src="/assets/img/CornellNotes.png" width="400"><br></center><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://blog.csdn.net/Myriad_Dreamin/article/details/83384110" target="_blank" rel="noopener">this blog</a>.</p><h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>Tex file can be found <a href="https://github.com/skaudrey/skaudrey.github.io/tree/master/assets/notes/Cornell" target="_blank" rel="noopener">here</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>U-NET</title>
     <link href="http://yoursite.com/posts/notes/2019-04-26-U-NET.html"/>
     <id>http://yoursite.com/posts/notes/2019-04-26-U-NET.html</id>
@@ -146,28 +168,6 @@
     <summary type="html">
     
       &lt;p&gt;I wrote this post for keeping some understanding of the paper &lt;a href=&quot;https://arxiv.org/pdf/1609.02907.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
-    
-    
-      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>A Tex Template of Cornell Notes</title>
-    <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
-    <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
-    <published>2019-04-26T10:21:35.000Z</published>
-    <updated>2019-04-26T15:34:08.233Z</updated>
-    
-    <content type="html"><![CDATA[<p>I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need install</p><ul><li>CTex</li></ul><h2 id="Install-missed-packages-of-CTex"><a href="#Install-missed-packages-of-CTex" class="headerlink" title="Install missed packages of CTex"></a>Install missed packages of CTex</h2><h3 id="Download-the-required-packages"><a href="#Download-the-required-packages" class="headerlink" title="Download the required packages"></a>Download the required packages</h3><p>Search <a href="https://www.ctan.org/pkg" target="_blank" rel="noopener">here</a>.</p><h3 id="Unzip-and-compile-manually-if-needed"><a href="#Unzip-and-compile-manually-if-needed" class="headerlink" title="Unzip and compile manually if needed."></a>Unzip and compile manually if needed.</h3><p>Unzip the downloaded file and jump to the directory after unzip. If need compile, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  pdflatex ***.ins</span><br></pre></td></tr></table></figure></p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Copy the compiled file folder to the CTex path: ~/CTex/CTex/tex/latex</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ texhash --admin</span><br></pre></td></tr></table></figure><p>The notes will be generated like this:</p><center><br>    <img src="/assets/img/CornellNotes.png" width="400"><br></center><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://blog.csdn.net/Myriad_Dreamin/article/details/83384110" target="_blank" rel="noopener">this blog</a>.</p><h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>Tex file can be found <a href="https://github.com/skaudrey/skaudrey.github.io/tree/master/assets/notes/Cornell" target="_blank" rel="noopener">here</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.&lt;br&gt;
     
     </summary>
     
