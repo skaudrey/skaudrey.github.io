@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-19T08:08:26.850Z</updated>
+  <updated>2019-05-19T08:10:16.013Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html"/>
     <id>http://yoursite.com/posts/notes/2019-05-19-notes-faster rcnn.html</id>
     <published>2019-05-19T03:17:12.000Z</published>
-    <updated>2019-05-19T08:08:26.850Z</updated>
+    <updated>2019-05-19T08:10:16.013Z</updated>
     
-    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li><li>The number of anchor boxes for one feature layer (which has $W\timesH$ grids), will get $ W\times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but rescaled by $k$ regressors.   </li></ul><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
+    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li><li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but rescaled by $k$ regressors.   </li></ul><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
     
     <summary type="html">
     
