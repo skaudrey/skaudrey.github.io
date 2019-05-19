@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018. | Mia&#39;s Blog</title>
+  <title>Faster RCNN | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk woul">
-<meta name="keywords" content="ML,AI,Data assimilation">
+  <meta name="description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
+<meta name="keywords" content="notes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.">
-<meta property="og:url" content="http://yoursite.com/posts/talks/2019-04-26-mlutility+talk.html">
+<meta property="og:title" content="Faster RCNN">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2019-05-19-notes-faster rcnn.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk woul">
+<meta property="og:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-10T02:06:52.000Z">
+<meta property="og:updated_time" content="2019-05-19T03:52:42.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.">
-<meta name="twitter:description" content="This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk woul">
+<meta name="twitter:title" content="Faster RCNN">
+<meta name="twitter:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -181,28 +181,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mlutility+talk" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-notes-faster rcnn" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.
+      Faster RCNN
     </h1>
   
 
         
-        <a href="/posts/talks/2019-04-26-mlutility+talk.html" class="archive-article-date">
-  	<time datetime="2019-04-26T06:31:36.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
+        <a href="/posts/notes/2019-05-19-notes-faster rcnn.html" class="archive-article-date">
+  	<time datetime="2019-05-19T03:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p>
-<p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>
+        <p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p>
+<a id="more"></a>
+<h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul>
+<li>The number of anchor boxes for one anchor target $k = #scale * # ratios$,</li>
+<li>The number of anchor boxes for one feature layer (which has W<em>H grids), will get $W</em>H*k$ anchor boxes. </li>
+</ul>
+<p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
+<p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
+<p>After those approximation, it is input into the whole network with features.    </p>
+<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p>
+<p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>
 
       
 
@@ -216,15 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Data assimilation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
         		</li>
       		
 		</ul>
@@ -236,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
         		</li>
       		
 		</ul>
@@ -254,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/life/2019-04-26-plants.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Plants diary
-        
-      </div>
-    </a>
   
-  
-    <a href="/posts/projects/2019-04-26-ml-implement.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">The naive implementation of some popular machine learning algorithms.</div>
+    <a href="/posts/notes/2019-05-19-EnglishTranslation.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">English Translation</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -284,6 +276,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">1.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Some numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">1.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
