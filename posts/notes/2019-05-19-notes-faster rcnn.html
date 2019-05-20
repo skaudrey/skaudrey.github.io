@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T08:10:16.013Z">
+<meta property="og:updated_time" content="2019-05-19T09:04:14.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Faster RCNN">
 <meta name="twitter:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
@@ -206,10 +206,15 @@
 <h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul>
 <li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li>
 <li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li>
-<li>Not like the ROI method, the size of features are fixed, but rescaled by $k$ regressors.   </li>
+<li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by $k$ regressors.</li>
 </ul>
-<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p>
-<p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul>
+<li>The top-ranked RPN proposals are accurate.</li>
+<li>NMS does not harm the detection mAP and may reduce false alarms.   </li>
+</ul>
+<h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul>
+<li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li>
+</ul>
 
       
 
@@ -253,9 +258,18 @@
   
 <nav id="article-nav">
   
+    <a href="/posts/notes/2019-05-20-EnglishTranslation.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          English Translation
+        
+      </div>
+    </a>
   
-    <a href="/posts/notes/2019-05-19-EnglishTranslation.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">English Translation</div>
+  
+    <a href="/posts/feelings/2019-04-27-上帝掷骰子吗.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">上帝掷骰子吗：量子物理史话</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -282,7 +296,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">1.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Some numbers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">1.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">1.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">2.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">2.1.</span> <span class="toc-text">prove</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-using-it-processing-typhoon-data"><span class="toc-number">2.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -394,18 +408,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -415,6 +417,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">feelings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -435,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,15 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,15 +516,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
               </li>
              
               <li class="article-tag-list-item">
