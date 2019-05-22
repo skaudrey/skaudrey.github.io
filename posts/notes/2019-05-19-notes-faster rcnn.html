@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T09:04:14.178Z">
+<meta property="og:updated_time" content="2019-05-21T04:03:55.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Faster RCNN">
 <meta name="twitter:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
@@ -210,9 +210,9 @@
 </ul>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul>
 <li>The top-ranked RPN proposals are accurate.</li>
-<li>NMS does not harm the detection mAP and may reduce false alarms.   </li>
+<li>NMS does not harm the detection mAP and may reduce false alarms.</li>
 </ul>
-<h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul>
+<h2 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h2><h3 id="Add-loss"><a href="#Add-loss" class="headerlink" title="Add loss"></a>Add loss</h3><h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul>
 <li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li>
 </ul>
 
@@ -258,7 +258,7 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2019-05-21-EnglishTranslation.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/notes/2019-05-22-EnglishTranslation.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -296,7 +296,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">1.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">2.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">2.1.</span> <span class="toc-text">prove</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-using-it-processing-typhoon-data"><span class="toc-number">2.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">1.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">1.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">2.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">2.1.</span> <span class="toc-text">prove</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Construct"><span class="toc-number">3.</span> <span class="toc-text">Construct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-loss"><span class="toc-number">3.1.</span> <span class="toc-text">Add loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-using-it-processing-typhoon-data"><span class="toc-number">3.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -408,11 +408,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,6 +428,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
@@ -440,11 +448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,26 +461,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,19 +476,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,15 +516,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
               </li>
              
               <li class="article-tag-list-item">
