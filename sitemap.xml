@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-24-EnglishTranslation.html</loc>
+    
+    <lastmod>2019-05-24T01:12:02.963Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</loc>
     
     <lastmod>2019-05-23T10:09:41.019Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://yoursite.com/posts/notes/2019-05-23-notes-statistics-classification.html</loc>
     
     <lastmod>2019-05-23T08:45:58.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-05-23-EnglishTranslation.html</loc>
-    
-    <lastmod>2019-05-22T23:28:44.533Z</lastmod>
     
   </url>
   
