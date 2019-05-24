@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="I wrote this post for keeping some understanding of the paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-24T09:06:42.579Z">
+<meta property="og:updated_time" content="2019-05-24T09:32:44.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understand and debug the codes of GCN proposed by Thomas N. Kipf">
 <meta name="twitter:description" content="I wrote this post for keeping some understanding of the paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
@@ -218,8 +218,8 @@
 <p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
 <p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
 <p>After those approximation, it is input into the whole network with features.    </p>
-<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p>
-<script type="math/tex; mode=display">Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)</script>
+<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.<br><span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$$</span><!-- Has MathJax --></p>
+
       
 
       
@@ -262,18 +262,18 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2019-04-26-Cornell-notes-tex-templates.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          A Tex Template of Cornell Notes
+          Positioning Data of FY4 AGRI.
         
       </div>
     </a>
   
   
-    <a href="/posts/notes/2019-04-26-hexo+killy+github pages=blog.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Build up personal blog</div>
+    <a href="/posts/notes/2019-04-26-Cornell-notes-tex-templates.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">A Tex Template of Cornell Notes</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -436,18 +436,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -460,11 +448,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,11 +476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,6 +508,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -524,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
@@ -536,19 +548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>
