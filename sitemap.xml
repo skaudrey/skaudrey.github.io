@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</loc>
+    
+    <lastmod>2019-05-24T04:34:03.061Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</loc>
     
     <lastmod>2019-05-24T04:23:55.821Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html</loc>
     
     <lastmod>2019-05-23T09:05:56.754Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</loc>
-    
-    <lastmod>2019-05-23T09:03:24.543Z</lastmod>
     
   </url>
   
