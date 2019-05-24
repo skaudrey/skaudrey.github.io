@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="The notes of paper U-Net: Convolutional Networks for Biomedical Image Segmentation.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-23T10:09:41.019Z">
+<meta property="og:updated_time" content="2019-05-24T04:23:55.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UNet proposed by Olaf Ronneberger etc.">
 <meta name="twitter:description" content="The notes of paper U-Net: Convolutional Networks for Biomedical Image Segmentation.">
@@ -221,19 +221,16 @@
 </li>
 </ul>
 <h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="For-what"><a href="#For-what" class="headerlink" title="For what?"></a>For what?</h3><p>Cells segmentation.</p>
-<h3 id="Framework-of-Methods"><a href="#Framework-of-Methods" class="headerlink" title="Framework of Methods"></a>Framework of Methods</h3><p>Convolution2D + deconvolution (upsampling 2D)</p>
+<h3 id="Framework-of-Methods"><a href="#Framework-of-Methods" class="headerlink" title="Framework of Methods"></a>Framework of Methods</h3><p>Convolution2D + deconvolution (upsampling 2D). The output of one downsampling layer is contracted as part of the input of the corresponding symmetric upsampling layer.   </p>
 <h3 id="Novelty"><a href="#Novelty" class="headerlink" title="Novelty"></a>Novelty</h3><ul>
-<li>data augmentation randomly elastic deformations:</li>
+<li>data augmentation randomly elastic deformations: shift, rotation, gray value, random elastic deformations are the most important</li>
 <li>replace pooling by upsampling.</li>
 <li>No fully connection layers.</li>
 <li>weighted the loss of touching objects (cells).</li>
-<li></li>
 </ul>
-<p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
-<p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
-<p>After those approximation, it is input into the whole network with features.    </p>
-<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p>
-<p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>
+<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><h3 id="weighted-map-to-segment-overlapped-cells"><a href="#weighted-map-to-segment-overlapped-cells" class="headerlink" title="weighted map to segment overlapped cells"></a>weighted map to segment overlapped cells</h3><p>According to the paper, they pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels. </p>
+<h3 id="data-augmentation"><a href="#data-augmentation" class="headerlink" title="data augmentation"></a>data augmentation</h3><p>Smooth deformations using random displacements vectors on a coarse 3 by 3 grid. The displacements are sampled from a Gaussian distribution with 10 pixels standard deviation. Per-pixel displacements are then computed using bicubic interpolation.</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>The main idea in abstract are contracted NNs and data augmentation so that the new NNs can get reasonable results by fewer images.</p>
 
       
 
@@ -315,7 +312,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question-classification-in-pixel-level-and-thus-image-segmentation"><span class="toc-number">1.</span> <span class="toc-text">Big Question: classification in pixel level and thus image segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-what"><span class="toc-number">2.1.</span> <span class="toc-text">For what?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Framework-of-Methods"><span class="toc-number">2.2.</span> <span class="toc-text">Framework of Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Novelty"><span class="toc-number">2.3.</span> <span class="toc-text">Novelty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">2.4.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question-classification-in-pixel-level-and-thus-image-segmentation"><span class="toc-number">1.</span> <span class="toc-text">Big Question: classification in pixel level and thus image segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-what"><span class="toc-number">2.1.</span> <span class="toc-text">For what?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Framework-of-Methods"><span class="toc-number">2.2.</span> <span class="toc-text">Framework of Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Novelty"><span class="toc-number">2.3.</span> <span class="toc-text">Novelty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Details"><span class="toc-number">3.</span> <span class="toc-text">Details</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weighted-map-to-segment-overlapped-cells"><span class="toc-number">3.1.</span> <span class="toc-text">weighted map to segment overlapped cells</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-augmentation"><span class="toc-number">3.2.</span> <span class="toc-text">data augmentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">4.</span> <span class="toc-text">Abstract</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -431,11 +428,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,6 +456,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -467,11 +472,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,31 +504,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,6 +516,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
@@ -543,15 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
               </li>
             
             <div class="clearfix"></div>
