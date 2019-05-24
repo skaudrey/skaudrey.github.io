@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="I wrote this post for keeping some understanding of the paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-30T01:55:53.297Z">
+<meta property="og:updated_time" content="2019-05-23T09:03:24.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understand and debug the codes of GCN proposed by Thomas N. Kipf">
 <meta name="twitter:description" content="I wrote this post for keeping some understanding of the paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
@@ -203,6 +203,17 @@
       
         <p>I wrote this post for keeping some understanding of the paper <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p>
 <a id="more"></a>
+<h2 id="Big-Question-semi-supervised-classification-of-graph-data"><a href="#Big-Question-semi-supervised-classification-of-graph-data" class="headerlink" title="Big Question: semi-supervised classification of graph data"></a>Big Question: semi-supervised classification of graph data</h2><ul>
+<li>reason<ul>
+<li>computation effective: semi-supervision</li>
+<li>the complex of graphs, the information of nodes and edges are not structural information.</li>
+</ul>
+</li>
+<li>background<ul>
+<li>the improvement of GCNs: spectral GCNs</li>
+</ul>
+</li>
+</ul>
 <h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p>
 <p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
 <p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
@@ -290,7 +301,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-points"><span class="toc-number">1.</span> <span class="toc-text">Key points</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-approximation-of-spectral-graph-convolution"><span class="toc-number">1.1.</span> <span class="toc-text">The approximation of spectral graph convolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">1.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question-semi-supervised-classification-of-graph-data"><span class="toc-number">1.</span> <span class="toc-text">Big Question: semi-supervised classification of graph data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-points"><span class="toc-number">2.</span> <span class="toc-text">Key points</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-approximation-of-spectral-graph-convolution"><span class="toc-number">2.1.</span> <span class="toc-text">The approximation of spectral graph convolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">2.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -402,11 +413,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -422,7 +437,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,14 +461,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
@@ -458,35 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +485,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,15 +521,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plants</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">food</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
             
             <div class="clearfix"></div>

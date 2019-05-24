@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</loc>
+    
+    <lastmod>2019-05-23T10:09:41.019Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html</loc>
+    
+    <lastmod>2019-05-23T09:05:56.754Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</loc>
+    
+    <lastmod>2019-05-23T09:03:24.543Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-23-notes-statistics-classification.html</loc>
+    
+    <lastmod>2019-05-23T08:45:58.119Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-05-23-EnglishTranslation.html</loc>
     
     <lastmod>2019-05-22T23:28:44.533Z</lastmod>
@@ -9,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html</loc>
-    
-    <lastmod>2019-05-21T04:03:55.556Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2019-04-26-U-NET.html</loc>
     
     <lastmod>2019-05-13T09:37:57.334Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</loc>
-    
-    <lastmod>2019-04-30T01:55:53.297Z</lastmod>
     
   </url>
   

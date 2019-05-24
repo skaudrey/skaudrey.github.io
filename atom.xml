@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-22T23:28:44.533Z</updated>
+  <updated>2019-05-23T10:09:41.019Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UNet proposed by Olaf Ronneberger etc.</title>
+    <link href="http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html"/>
+    <id>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</id>
+    <published>2019-05-23T09:18:21.000Z</published>
+    <updated>2019-05-23T10:09:41.019Z</updated>
+    
+    <content type="html"><![CDATA[<p>The notes of paper <a href="https://arxiv.org/abs/1505.04597v1" target="_blank" rel="noopener">U-Net: Convolutional Networks for Biomedical Image Segmentation</a>.</p><a id="more"></a><h2 id="Big-Question-classification-in-pixel-level-and-thus-image-segmentation"><a href="#Big-Question-classification-in-pixel-level-and-thus-image-segmentation" class="headerlink" title="Big Question: classification in pixel level and thus image segmentation"></a>Big Question: classification in pixel level and thus image segmentation</h2><h3 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h3><ul><li>single label for a image is not enough to support segmentation.<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3></li><li>why focus on it<ul><li>biomedical images: like cells segmentation.<br>Add: also appropriate for other entity segmentation</li></ul></li><li>how have been done:<ul><li>the development of deeper CNNs</li><li>using CNNs segmenting electron microscopy images</li></ul></li><li>what have been missed:<ul><li>computation efficiency and redundancy: slow cause every patch require a running of network; patch overlapping</li><li>difficult trade-off for localization and the usage of context.</li></ul></li></ul><h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="For-what"><a href="#For-what" class="headerlink" title="For what?"></a>For what?</h3><p>Cells segmentation.</p><h3 id="Framework-of-Methods"><a href="#Framework-of-Methods" class="headerlink" title="Framework of Methods"></a>Framework of Methods</h3><p>Convolution2D + deconvolution (upsampling 2D)</p><h3 id="Novelty"><a href="#Novelty" class="headerlink" title="Novelty"></a>Novelty</h3><ul><li>data augmentation randomly elastic deformations:</li><li>replace pooling by upsampling.</li><li>No fully connection layers.</li><li>weighted the loss of touching objects (cells).</li><li></li></ul><p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p><p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p><p>After those approximation, it is input into the whole network with features.    </p><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The notes of paper &lt;a href=&quot;https://arxiv.org/abs/1505.04597v1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;U-Net: Convolutional Networks for Biomedical Image Segmentation&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Some ideas of statistics.</title>
+    <link href="http://yoursite.com/posts/notes/2019-05-23-notes-statistics-classification.html"/>
+    <id>http://yoursite.com/posts/notes/2019-05-23-notes-statistics-classification.html</id>
+    <published>2019-05-23T07:51:02.000Z</published>
+    <updated>2019-05-23T08:45:58.119Z</updated>
+    
+    <content type="html"><![CDATA[<p>Just a summary of the branches of statistics. The raw materials are <a href="https://explorable.com/branches-of-statistics?gid=1589" target="_blank" rel="noopener">here</a></p><a id="more"></a><h2 id="Branches"><a href="#Branches" class="headerlink" title="Branches"></a>Branches</h2><h3 id="Descriptive-Statistics"><a href="#Descriptive-Statistics" class="headerlink" title="Descriptive Statistics"></a>Descriptive Statistics</h3><ul><li>the presentation and collection of data</li><li>end up with describing the trends and results of data rather than interpreting them or draw a conclusion, see examples <a href="https://explorable.com/descriptive-statistics" target="_blank" rel="noopener">here</a>.</li><li>e.g.: central tendency (mean, median, mode etc.); data distribution; corresponding standard deviation; graphs like histograms etc.</li></ul><h3 id="Inferential-Statistics"><a href="#Inferential-Statistics" class="headerlink" title="Inferential Statistics"></a>Inferential Statistics</h3><ul><li>draw a conclusion from the results shown by descriptive results which are observed from reasonably designed experiments.</li><li>the next step of descriptive statistics.</li><li>do not manipulate your data.</li><li>always coming with generalization. To get a better generalization, be caution while picking control group, especially pay attention to time of sampling, data size and representative capacity. To avoid severe error, one must consider precision and recall both.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Just a summary of the branches of statistics. The raw materials are &lt;a href=&quot;https://explorable.com/branches-of-statistics?gid=1589&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
   
   <entry>
     <title>English Translation</title>
@@ -43,9 +87,9 @@
     <link href="http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html"/>
     <id>http://yoursite.com/posts/notes/2019-05-19-notes-faster rcnn.html</id>
     <published>2019-05-19T03:17:12.000Z</published>
-    <updated>2019-05-21T04:03:55.556Z</updated>
+    <updated>2019-05-23T09:05:56.754Z</updated>
     
-    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li><li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by $k$ regressors.</li></ul><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul><li>The top-ranked RPN proposals are accurate.</li><li>NMS does not harm the detection mAP and may reduce false alarms.</li></ul><h2 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h2><h3 id="Add-loss"><a href="#Add-loss" class="headerlink" title="Add loss"></a>Add loss</h3><h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul><li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p><a id="more"></a><h2 id="Big-Question"><a href="#Big-Question" class="headerlink" title="Big Question"></a>Big Question</h2><h3 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h3><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul><li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li><li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li><li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by $k$ regressors.</li></ul><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul><li>The top-ranked RPN proposals are accurate.</li><li>NMS does not harm the detection mAP and may reduce false alarms.</li></ul><h2 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h2><h3 id="Add-loss"><a href="#Add-loss" class="headerlink" title="Add loss"></a>Add loss</h3><h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul><li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li></ul>]]></content>
     
     <summary type="html">
     
@@ -139,9 +183,9 @@
     <link href="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html"/>
     <id>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</id>
     <published>2019-04-26T10:21:35.000Z</published>
-    <updated>2019-04-30T01:55:53.297Z</updated>
+    <updated>2019-05-23T09:03:24.543Z</updated>
     
-    <content type="html"><![CDATA[<p>I wrote this post for keeping some understanding of the paper <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p><a id="more"></a><h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p><p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p><p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p><p>After those approximation, it is input into the whole network with features.    </p><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
+    <content type="html"><![CDATA[<p>I wrote this post for keeping some understanding of the paper <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p><a id="more"></a><h2 id="Big-Question-semi-supervised-classification-of-graph-data"><a href="#Big-Question-semi-supervised-classification-of-graph-data" class="headerlink" title="Big Question: semi-supervised classification of graph data"></a>Big Question: semi-supervised classification of graph data</h2><ul><li>reason<ul><li>computation effective: semi-supervision</li><li>the complex of graphs, the information of nodes and edges are not structural information.</li></ul></li><li>background<ul><li>the improvement of GCNs: spectral GCNs</li></ul></li></ul><h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p><p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p><p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p><p>After those approximation, it is input into the whole network with features.    </p><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.</p><p>$$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$$</p>]]></content>
     
     <summary type="html">
     
@@ -542,11 +586,11 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
       <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
     
       <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
   </entry>
   
@@ -603,13 +647,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
-    
-      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
     
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
+    
+      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
     
   </entry>
   
