@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-25-EnglishTranslation.html</loc>
+    
+    <lastmod>2019-05-25T01:22:00.550Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-05-24-gnn.html</loc>
+    
+    <lastmod>2019-05-24T10:36:26.477Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html</loc>
     
     <lastmod>2019-05-24T09:39:00.385Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</loc>
     
     <lastmod>2019-05-24T04:23:55.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-05-24-EnglishTranslation.html</loc>
-    
-    <lastmod>2019-05-24T01:12:02.963Z</lastmod>
     
   </url>
   
