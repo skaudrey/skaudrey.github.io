@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLML.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLCapacity.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLEA.png">
-<meta property="og:updated_time" content="2019-06-01T04:56:49.311Z">
+<meta property="og:updated_time" content="2019-06-01T05:14:49.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rl-intro">
 <meta name="twitter:description" content="This post is built to list an introduction of reinforce learning. Why RL?The difference between supervised learning and RL task directed from fixed data sets vs goal directed learning from interaction">
@@ -268,16 +268,21 @@
 <h3 id="The-elements-of-RL"><a href="#The-elements-of-RL" class="headerlink" title="The elements of RL"></a>The elements of RL</h3><ul>
 <li><p>Policy: agent’s behaviour function, mostly is a PDF mapping state to action</p>
 <ul>
-<li>Deterministic policy   <span>$$a = \phi\left(S\right)$$</span><!-- Has MathJax --></li>
-<li>Stochastic policy  <span>$$\phi\left(a|S\right)=\mathcal{P}\left(A_t=a|S_t=s\right)$$</span><!-- Has MathJax -->
+<li>Deterministic policy   <span>$$a = \pi\left(S\right)$$</span><!-- Has MathJax --></li>
+<li>Stochastic policy  <span>$$\pi\left(a|S\right)=\mathbb{P}\left(A_t=a|S_t=s\right)$$</span><!-- Has MathJax -->
 </li>
 </ul>
 </li>
-<li><p>Value function: how good is each state and/or action: reward</p>
-  <span>$$v_{\phi}\left(s\right)=\mathcal{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots\right)$$</span><!-- Has MathJax -->
-<p>  Mostly, to make algorithm converge, for a final state you will be rewarded 0, and others non-final state are rewarded as a minus value.</p>
+<li><p>Value function: how good is each state and/or actio, the scalar value is also named reward.</p>
+  <span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax -->
+<p>  Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.</p>
 </li>
-<li>Model: agent’s representation of the environment: models in assimilation<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-decision-process-—-to-simplify"><a href="#Markov-decision-process-—-to-simplify" class="headerlink" title="Markov decision process — to simplify"></a>Markov decision process — to simplify</h3></li>
+<li>Model: agent’s representation of the environment, they can be modeled by TKinter, gym etc.<ul>
+<li>e.g.: models in assimilation, maze  <span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
+\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s\&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
+<li>unknown environment can be stimulated by sampling<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-decision-process-—-to-simplify"><a href="#Markov-decision-process-—-to-simplify" class="headerlink" title="Markov decision process — to simplify"></a>Markov decision process — to simplify</h3></li>
+</ul>
+</li>
 </ul>
 <h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h4 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h4>
       
@@ -496,6 +501,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -508,23 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,11 +533,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,35 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,7 +589,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,11 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">food</a>
+                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yoga</a>
+                <a href="javascript:void(0)" class="js-tag color5">food</a>
               </li>
             
             <div class="clearfix"></div>
