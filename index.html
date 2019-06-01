@@ -284,7 +284,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This post is built to list an introduction of reinforce learning.</p>
+        <p>This post is built to list an introduction of reinforce learning, mainly based on the slides given by David Silver.</p>
 <h2 id="Why-RL"><a href="#Why-RL" class="headerlink" title="Why RL?"></a>Why RL?</h2><h3 id="The-difference-between-supervised-learning-and-RL"><a href="#The-difference-between-supervised-learning-and-RL" class="headerlink" title="The difference between supervised learning and RL"></a>The difference between supervised learning and RL</h3><ul>
 <li>task directed from fixed data sets vs goal directed learning from interaction</li>
 <li>characteristics: <ul>
@@ -326,55 +326,72 @@
 
 </li>
 </ul>
-<h2 id="What’s-RL"><a href="#What’s-RL" class="headerlink" title="What’s RL?"></a>What’s RL?</h2><h3 id="The-agent-environment-interaction"><a href="#The-agent-environment-interaction" class="headerlink" title="The agent-environment interaction"></a>The agent-environment interaction</h3><p><center>
+<h2 id="What’s-RL"><a href="#What’s-RL" class="headerlink" title="What’s RL?"></a>What’s RL?</h2><h3 id="The-agent-environment-interaction"><a href="#The-agent-environment-interaction" class="headerlink" title="The agent-environment interaction"></a>The agent-environment interaction</h3><center>
     <img src="/assets/img/RLIntro/RLEA.png" width="300" "="">
-</center></p>
-<ul>
-<li>At each step t the agent:<ul>
-<li>Executes action at</li>
-<li>Transform to state St</li>
-<li>Receives scalar reward rt</li>
-</ul>
-</li>
-<li>The environment:<ul>
-<li>Receives action at</li>
-<li>Transform to state St</li>
-<li>Emits scalar reward rt+1</li>
-</ul>
-</li>
-<li>t increments at env. step</li>
-</ul>
-<h3 id="The-elements-of-RL"><a href="#The-elements-of-RL" class="headerlink" title="The elements of RL"></a>The elements of RL</h3><ul>
-<li><p>Policy: agent’s behaviour function, mostly is a PDF mapping state to action</p>
-<ul>
-<li>Deterministic policy   <span>$$a = \pi\left(S\right)$$</span><!-- Has MathJax --></li>
-<li>Stochastic policy  <span>$$\pi\left(a|S\right)=\mathbb{P}\left(A_t=a|S_t=s\right)$$</span><!-- Has MathJax -->
-</li>
-</ul>
-</li>
-<li><p>Value function: how good is each state and/or action, the scalar value is also named reward.</p>
-  <span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax -->
-<p>  Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.</p>
-</li>
-<li>Model: agent’s representation of the environment, they can be modeled by TKinter, gym etc.<ul>
-<li>e.g.: models in assimilation, maze  <span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
-\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
-<li>unknown environment can be stimulated by sampling<h3 id="Classification-of-RL"><a href="#Classification-of-RL" class="headerlink" title="Classification of RL"></a>Classification of RL</h3><h4 id="What-you-want"><a href="#What-you-want" class="headerlink" title="What you want"></a>What you want</h4></li>
-</ul>
-</li>
-<li>Value Based: No Policy (Implicit), Value Function</li>
-<li>Policy Based: Policy, No Value Function</li>
-<li>Actor Critic: Policy, Value Function<h4 id="What-you-knew"><a href="#What-you-knew" class="headerlink" title="What you knew"></a>What you knew</h4></li>
-<li>Model-free: Policy and/or Value Function, No Model</li>
-<li>Model-based: Policy and/or Value Function, Model</li>
-</ul>
-<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-process-—-to-simplify"><a href="#Markov-process-—-to-simplify" class="headerlink" title="Markov process — to simplify"></a>Markov process — to simplify</h3><h4 id="Markov-Process"><a href="#Markov-Process" class="headerlink" title="Markov Process"></a>Markov Process</h4><span>$$\mathbb{P}\left(S_{t+1}\right)=\mathbb{P}\left(S_{t+1}|S_1,\cdots,S_t\right)\\
+</center>
+* At each step t the agent:
+    * Executes action at
+    * Transform to state St
+    * Receives scalar reward rt
+* The environment:
+    * Receives action at
+    * Transform to state St
+    * Emits scalar reward rt+1
+* t increments at env. step
+
+### The elements of RL
+* Policy: agent's behaviour function, mostly is a PDF mapping state to action
+    * Deterministic policy 
+        <span>$$a = \pi\left(S\right)$$</span><!-- Has MathJax -->
+    * Stochastic policy
+        <span>$$\pi\left(a|S\right)=\mathbb{P}\left(A_t=a|S_t=s\right)$$</span><!-- Has MathJax -->
+
+* Value function: how good is each state and/or action, the scalar value is also named reward.
+    <span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax -->
+    Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.
+* Model: agent's representation of the environment, they can be modeled by TKinter, gym etc.
+    * e.g.: models in assimilation, maze
+        <span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
+\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax -->
+    * unknown environment can be stimulated by sampling
+### Classification of RL
+#### What you want
+* Value Based: No Policy (Implicit), Value Function
+* Policy Based: Policy, No Value Function
+* Actor Critic: Policy, Value Function
+#### What you knew
+* Model-free: Policy and/or Value Function, No Model
+* Model-based: Policy and/or Value Function, Model
+
+## How to RL?
+### Markov process -- to simplify
+#### Markov Process
+<span>$$\mathbb{P}\left(S_{t+1}\right)=\mathbb{P}\left(S_{t+1}|S_1,\cdots,S_t\right)\\
 \mathcal{P}_{ss&apos;}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s\right)$$</span><!-- Has MathJax -->
-<h4 id="Markov-Rewarded-Process"><a href="#Markov-Rewarded-Process" class="headerlink" title="Markov Rewarded Process"></a>Markov Rewarded Process</h4><span>$\langleS,\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
-<p>solve the reward from state at time t to the final state.<br><span>$v\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)$</span><!-- Has MathJax --></p>
-<h4 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h4><span>$\langleS,\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
-<p>Sequential decision making.</p>
-<h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h3 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h3>
+
+#### Markov Rewarded Process
+<span>$\langleS,\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+solve the reward from state at time t to the final state, which can be also solved by adding immediate reward and discounted value of successor state.
+<span>$v\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)=\mathbb{E}\left(R_{t+1}+\gamma v\left(S_{t+1}|S_t=s\right)\right)$</span><!-- Has MathJax -->
+#### Markov Decision Process
+<span>$\langleS,\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+Sequential decision making.
+* state-value function
+<span>$v_{\pi}\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)$</span><!-- Has MathJax -->
+* action-value function
+<span>$q_{\pi}\left(s,a\right)=\mathbb{E}_{\pi}\left(G_t|S_t=s,A_t=a\right)$</span><!-- Has MathJax -->
+### Value？Policy？
+#### Policy Iteration
+<center>
+    <img src="/assets/img/RLIntro/policyitr.png" width="300" "="">
+</center>
+
+<h4 id="Value-Iteration"><a href="#Value-Iteration" class="headerlink" title="Value Iteration"></a>Value Iteration</h4><center>
+    <img src="/assets/img/RLIntro/valueitr.png" width="300" "="">
+</center>
+
+
+
       
 
       
@@ -1217,6 +1234,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -1226,10 +1247,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">feelings</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,18 +1286,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1293,11 +1298,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,19 +1330,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1334,10 +1355,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">food</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
             
             <div class="clearfix"></div>
