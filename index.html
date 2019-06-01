@@ -352,18 +352,29 @@
 </li>
 </ul>
 </li>
-<li><p>Value function: how good is each state and/or actio, the scalar value is also named reward.</p>
+<li><p>Value function: how good is each state and/or action, the scalar value is also named reward.</p>
   <span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax -->
 <p>  Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.</p>
 </li>
 <li>Model: agent’s representation of the environment, they can be modeled by TKinter, gym etc.<ul>
 <li>e.g.: models in assimilation, maze  <span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
-\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s\&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
-<li>unknown environment can be stimulated by sampling<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-decision-process-—-to-simplify"><a href="#Markov-decision-process-—-to-simplify" class="headerlink" title="Markov decision process — to simplify"></a>Markov decision process — to simplify</h3></li>
+\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
+<li>unknown environment can be stimulated by sampling<h3 id="Classification-of-RL"><a href="#Classification-of-RL" class="headerlink" title="Classification of RL"></a>Classification of RL</h3><h4 id="What-you-want"><a href="#What-you-want" class="headerlink" title="What you want"></a>What you want</h4></li>
 </ul>
 </li>
+<li>Value Based: No Policy (Implicit), Value Function</li>
+<li>Policy Based: Policy, No Value Function</li>
+<li>Actor Critic: Policy, Value Function<h4 id="What-you-knew"><a href="#What-you-knew" class="headerlink" title="What you knew"></a>What you knew</h4></li>
+<li>Model-free: Policy and/or Value Function, No Model</li>
+<li>Model-based: Policy and/or Value Function, Model</li>
 </ul>
-<h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h4 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h4>
+<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-process-—-to-simplify"><a href="#Markov-process-—-to-simplify" class="headerlink" title="Markov process — to simplify"></a>Markov process — to simplify</h3><h4 id="Markov-Process"><a href="#Markov-Process" class="headerlink" title="Markov Process"></a>Markov Process</h4><span>$$\mathbb{P}\left(S_{t+1}\right)=\mathbb{P}\left(S_{t+1}|S_1,\cdots,S_t\right)\\
+\mathcal{P}_{ss&apos;}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s\right)$$</span><!-- Has MathJax -->
+<h4 id="Markov-Rewarded-Process"><a href="#Markov-Rewarded-Process" class="headerlink" title="Markov Rewarded Process"></a>Markov Rewarded Process</h4><span>$\langleS,\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+<p>solve the reward from state at time t to the final state.<br><span>$v\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)$</span><!-- Has MathJax --></p>
+<h4 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h4><span>$\langleS,\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+<p>Sequential decision making.</p>
+<h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h3 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h3>
       
 
       
@@ -1206,10 +1217,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -1223,6 +1230,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1258,6 +1269,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1267,10 +1290,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,31 +1309,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,6 +1334,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">food</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
             
             <div class="clearfix"></div>

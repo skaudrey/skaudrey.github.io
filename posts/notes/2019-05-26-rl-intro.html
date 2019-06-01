@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLML.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLCapacity.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLEA.png">
-<meta property="og:updated_time" content="2019-06-01T05:14:49.508Z">
+<meta property="og:updated_time" content="2019-06-01T05:41:02.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rl-intro">
 <meta name="twitter:description" content="This post is built to list an introduction of reinforce learning. Why RL?The difference between supervised learning and RL task directed from fixed data sets vs goal directed learning from interaction">
@@ -273,18 +273,29 @@
 </li>
 </ul>
 </li>
-<li><p>Value function: how good is each state and/or actio, the scalar value is also named reward.</p>
+<li><p>Value function: how good is each state and/or action, the scalar value is also named reward.</p>
   <span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax -->
 <p>  Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.</p>
 </li>
 <li>Model: agent’s representation of the environment, they can be modeled by TKinter, gym etc.<ul>
 <li>e.g.: models in assimilation, maze  <span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
-\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s\&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
-<li>unknown environment can be stimulated by sampling<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-decision-process-—-to-simplify"><a href="#Markov-decision-process-—-to-simplify" class="headerlink" title="Markov decision process — to simplify"></a>Markov decision process — to simplify</h3></li>
+\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></li>
+<li>unknown environment can be stimulated by sampling<h3 id="Classification-of-RL"><a href="#Classification-of-RL" class="headerlink" title="Classification of RL"></a>Classification of RL</h3><h4 id="What-you-want"><a href="#What-you-want" class="headerlink" title="What you want"></a>What you want</h4></li>
 </ul>
 </li>
+<li>Value Based: No Policy (Implicit), Value Function</li>
+<li>Policy Based: Policy, No Value Function</li>
+<li>Actor Critic: Policy, Value Function<h4 id="What-you-knew"><a href="#What-you-knew" class="headerlink" title="What you knew"></a>What you knew</h4></li>
+<li>Model-free: Policy and/or Value Function, No Model</li>
+<li>Model-based: Policy and/or Value Function, Model</li>
 </ul>
-<h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h4 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h4>
+<h2 id="How-to-RL"><a href="#How-to-RL" class="headerlink" title="How to RL?"></a>How to RL?</h2><h3 id="Markov-process-—-to-simplify"><a href="#Markov-process-—-to-simplify" class="headerlink" title="Markov process — to simplify"></a>Markov process — to simplify</h3><h4 id="Markov-Process"><a href="#Markov-Process" class="headerlink" title="Markov Process"></a>Markov Process</h4><span>$$\mathbb{P}\left(S_{t+1}\right)=\mathbb{P}\left(S_{t+1}|S_1,\cdots,S_t\right)\\
+\mathcal{P}_{ss&apos;}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s\right)$$</span><!-- Has MathJax -->
+<h4 id="Markov-Rewarded-Process"><a href="#Markov-Rewarded-Process" class="headerlink" title="Markov Rewarded Process"></a>Markov Rewarded Process</h4><span>$\langleS,\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+<p>solve the reward from state at time t to the final state.<br><span>$v\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)$</span><!-- Has MathJax --></p>
+<h4 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h4><span>$\langleS,\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
+<p>Sequential decision making.</p>
+<h3 id="Action？Value？Policy？"><a href="#Action？Value？Policy？" class="headerlink" title="Action？Value？Policy？"></a>Action？Value？Policy？</h3><h3 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h3>
       
 
       
@@ -365,7 +376,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-RL"><span class="toc-number">1.</span> <span class="toc-text">Why RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-difference-between-supervised-learning-and-RL"><span class="toc-number">1.1.</span> <span class="toc-text">The difference between supervised learning and RL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-capacity-of-RL"><span class="toc-number">1.2.</span> <span class="toc-text">The capacity of RL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s-RL"><span class="toc-number">2.</span> <span class="toc-text">What’s RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-agent-environment-interaction"><span class="toc-number">2.1.</span> <span class="toc-text">The agent-environment interaction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-elements-of-RL"><span class="toc-number">2.2.</span> <span class="toc-text">The elements of RL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-RL"><span class="toc-number">3.</span> <span class="toc-text">How to RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Markov-decision-process-—-to-simplify"><span class="toc-number">3.1.</span> <span class="toc-text">Markov decision process — to simplify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action？Value？Policy？"><span class="toc-number">3.2.</span> <span class="toc-text">Action？Value？Policy？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Value"><span class="toc-number">3.2.1.</span> <span class="toc-text">Value</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-RL"><span class="toc-number">1.</span> <span class="toc-text">Why RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-difference-between-supervised-learning-and-RL"><span class="toc-number">1.1.</span> <span class="toc-text">The difference between supervised learning and RL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-capacity-of-RL"><span class="toc-number">1.2.</span> <span class="toc-text">The capacity of RL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s-RL"><span class="toc-number">2.</span> <span class="toc-text">What’s RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-agent-environment-interaction"><span class="toc-number">2.1.</span> <span class="toc-text">The agent-environment interaction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-elements-of-RL"><span class="toc-number">2.2.</span> <span class="toc-text">The elements of RL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Classification-of-RL"><span class="toc-number">2.3.</span> <span class="toc-text">Classification of RL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-you-want"><span class="toc-number">2.3.1.</span> <span class="toc-text">What you want</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-you-knew"><span class="toc-number">2.3.2.</span> <span class="toc-text">What you knew</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-RL"><span class="toc-number">3.</span> <span class="toc-text">How to RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Markov-process-—-to-simplify"><span class="toc-number">3.1.</span> <span class="toc-text">Markov process — to simplify</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Markov-Process"><span class="toc-number">3.1.1.</span> <span class="toc-text">Markov Process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Markov-Rewarded-Process"><span class="toc-number">3.1.2.</span> <span class="toc-text">Markov Rewarded Process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Markov-Decision-Process"><span class="toc-number">3.1.3.</span> <span class="toc-text">Markov Decision Process</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action？Value？Policy？"><span class="toc-number">3.2.</span> <span class="toc-text">Action？Value？Policy？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Value"><span class="toc-number">3.3.</span> <span class="toc-text">Value</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -505,10 +516,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -522,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,6 +568,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -566,10 +589,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,31 +608,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,6 +633,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">food</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
             
             <div class="clearfix"></div>
