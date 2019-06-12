@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/uncategorized/2019-06-13-about.html</loc>
+    
+    <lastmod>2019-06-12T22:58:24.236Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-06-13-EnglishTranslation.html</loc>
     
     <lastmod>2019-06-12T22:52:57.977Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/posts/projects/2019-04-26-ml-implement.html</loc>
     
     <lastmod>2018-12-10T12:57:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/uncategorized/2019-04-26-about.html</loc>
-    
-    <lastmod>2018-12-10T12:53:08.000Z</lastmod>
     
   </url>
   

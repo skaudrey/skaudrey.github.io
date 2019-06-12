@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-12T22:52:57.977Z</updated>
+  <updated>2019-06-12T22:58:24.236Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>About</title>
+    <link href="http://yoursite.com/posts/uncategorized/2019-06-13-about.html"/>
+    <id>http://yoursite.com/posts/uncategorized/2019-06-13-about.html</id>
+    <published>2019-06-12T22:58:24.235Z</published>
+    <updated>2019-06-12T22:58:24.236Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to Mia Feng’s Blog! </p><p>I’m a final year Master student in Machine Learning at the National University of Defense Techonology in Changsha City, China. I’m interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.</p><p>I’ve studied Computer Science and Technology at the National University of Defense Techonology, China and at Wuhan University, China. During my studies, I’ve processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks. </p><p>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf" target="_blank" rel="noopener">resume</a> for more information.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to Mia Feng’s Blog! &lt;/p&gt;
+&lt;p&gt;I’m a final year Master student in Machine Learning at the National University of Defense Techonology
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>English Translation</title>
@@ -837,30 +859,6 @@
       <category term="neuro" scheme="http://yoursite.com/tags/neuro/"/>
     
       <category term="course" scheme="http://yoursite.com/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About</title>
-    <link href="http://yoursite.com/posts/uncategorized/2019-04-26-about.html"/>
-    <id>http://yoursite.com/posts/uncategorized/2019-04-26-about.html</id>
-    <published>2019-04-26T06:31:35.080Z</published>
-    <updated>2018-12-10T12:53:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<font size="4">Welcome to Mia Feng's Blog! I'm a final year Master student in Machine Learning at the National University of Defense Techonology in Changsha City, China. I'm interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.I've studied Computer Science and Technology at the National University of Defense Techonology, China and at Wuhan University, China. During my studies, I've processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks. Have a look at my [resume](https://github.com/skaudrey/cv/blob/master/cv.pdf) for more information.</font><p><br> </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;font size=&quot;4&quot;&gt;
-Welcome to Mia Feng&#39;s Blog! 
-
-I&#39;m a final year Master student in Machine Learning at the National University of Defense Tech
-      
-    
-    </summary>
-    
     
   </entry>
   
