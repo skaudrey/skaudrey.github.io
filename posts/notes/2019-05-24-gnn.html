@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="This post is built to list the generation and improvement of graph neural networks.  Why Use Non-euclidean data: Irregular. Each graph has a variable size of unordered nodes and each node in a graph h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T10:55:06.618Z">
+<meta property="og:updated_time" content="2019-06-14T10:59:45.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gnn">
 <meta name="twitter:description" content="This post is built to list the generation and improvement of graph neural networks.  Why Use Non-euclidean data: Irregular. Each graph has a variable size of unordered nodes and each node in a graph h">
@@ -211,16 +211,27 @@
 <ul>
 <li><a href="https://www.researchgate.net/publication/4202380_A_new_model_for_earning_in_raph_domains" target="_blank" rel="noopener">A new model for learning in graph domains</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/4773279" target="_blank" rel="noopener">Neural network for graphs: A contextual constructive approach</a></li>
-<li><a href="https://persagen.com/files/misc/scarselli2009graph.pdf" target="_blank" rel="noopener">The graph neural network model</a><h3 id="Go-to-GNNs"><a href="#Go-to-GNNs" class="headerlink" title="Go to GNNs"></a>Go to GNNs</h3><h4 id="Spectral-based-Graph"><a href="#Spectral-based-Graph" class="headerlink" title="Spectral-based Graph"></a>Spectral-based Graph</h4>difficult to parallel or scale to large graphs</li>
+<li><a href="https://persagen.com/files/misc/scarselli2009graph.pdf" target="_blank" rel="noopener">The graph neural network model</a><h3 id="Go-to-GNNs"><a href="#Go-to-GNNs" class="headerlink" title="Go to GNNs"></a>Go to GNNs</h3><h4 id="Spectral-based-Graph"><a href="#Spectral-based-Graph" class="headerlink" title="Spectral-based Graph"></a>Spectral-based Graph</h4>difficult to parallel or scale to large graphs,cause they need to load the whole graph into the memory.<br>relies on eigen-decomposition of the Laplacian matrix.</li>
 <li>Spectral GNN, <a href="https://arxiv.org/pdf/1312.6203v3.pdf" target="_blank" rel="noopener">Spectral networks and locally connected networks on graphs</a></li>
 <li>ChebNet, <a href="https://arxiv.org/pdf/1606.09375.pdf" target="_blank" rel="noopener">Convolutional neural networks on graphs with fast localized spectral filtering</a></li>
 <li>1st ChebNet, <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">Semi-supervised classification with graph convolutional networks</a><br>localized in space, but the computation requirement grow exponentially, to reduce it, sampling methods are proposed. See <a href="https://arxiv.org/pdf/1801.10247.pdf" target="_blank" rel="noopener">FASTGCN</a>, <a href="https://arxiv.org/pdf/1710.10568.pdf" target="_blank" rel="noopener">reduce variance</a> and <a href="https://arxiv.org/pdf/1809.05343v1.pdf" target="_blank" rel="noopener">adaptive sampling</a> for details.</li>
+<li>AGCN, calculate a pairwise distance of nodes to construct a residual graph, see <a href="https://arxiv.org/pdf/1801.03226.pdf" target="_blank" rel="noopener">Adaptive Graph Convolutional Neural Networks</a> for details.</li>
 </ul>
 <h4 id="Spatial-based-Graph-Convolution"><a href="#Spatial-based-Graph-Convolution" class="headerlink" title="Spatial-based Graph Convolution"></a>Spatial-based Graph Convolution</h4><ul>
 <li><a href="https://arxiv.org/pdf/1706.02216.pdf" target="_blank" rel="noopener">Inductive representation learning on large graphs</a></li>
 <li><a href="https://arxiv.org/pdf/1611.08402.pdf" target="_blank" rel="noopener">Geometric deep learning on graphs and manifolds using mixture model cnns</a></li>
 <li><a href="https://arxiv.org/pdf/1605.05273.pdf" target="_blank" rel="noopener">Learning convolutional neural networks for graphs</a></li>
-<li><a href="https://arxiv.org/abs/1808.03965" target="_blank" rel="noopener">Large-scale learnable graph convolutional networks</a><br>[1],[4] used sampling strategy<h4 id="Pooling-module"><a href="#Pooling-module" class="headerlink" title="Pooling module"></a>Pooling module</h4></li>
+<li><a href="https://arxiv.org/abs/1808.03965" target="_blank" rel="noopener">Large-scale learnable graph convolutional networks</a><br>[1],[4] used sampling strategy<br>the common way is to stack multiple graph convolution layer together.<h5 id="Recurrent-based-Spatial-GCNs"><a href="#Recurrent-based-Spatial-GCNs" class="headerlink" title="Recurrent-based Spatial GCNs"></a>Recurrent-based Spatial GCNs</h5>update a node’s representation recursively until a stable fixed point is reached</li>
+<li>GNNs, <a href="https://persagen.com/files/misc/scarselli2009graph.pdf" target="_blank" rel="noopener">The graph neural network model</a></li>
+<li>GGNNs, used GRU, <a href="https://www.aclweb.org/anthology/D14-1179" target="_blank" rel="noopener">Learning phrase representations using rnn encoder-decoder for statistical machine translation</a></li>
+<li>Stochastic Steady-state Embedding (SSE), updates the node latent representations stochastically in an asynchronous fashion, <a href="http://proceedings.mlr.press/v80/dai18a/dai18a.pdf" target="_blank" rel="noopener">Learning steady-states of iterative algorithms over graphs</a></li>
+</ul>
+<h5 id="Composition-based-Spatial-GCNs"><a href="#Composition-based-Spatial-GCNs" class="headerlink" title="Composition-based Spatial GCNs"></a>Composition-based Spatial GCNs</h5><ul>
+<li>Message Passing Neural Networks (MPNNs), <a href="https://arxiv.org/pdf/1704.01212.pdf" target="_blank" rel="noopener">Neural Message Passing for Quantum Chemistry</a></li>
+<li>GraphSage, <a href="https://papers.nips.cc/paper/6703-inductive-representation-learning-on-large-graphs.pdf" target="_blank" rel="noopener">Inductive representation learning on large graphs</a></li>
+<li></li>
+</ul>
+<h4 id="Pooling-module"><a href="#Pooling-module" class="headerlink" title="Pooling module"></a>Pooling module</h4><ul>
 <li><a href="https://arxiv.org/pdf/1606.09375.pdf" target="_blank" rel="noopener">Convolutional neural networks on graphs with fast localized spectral filtering</a></li>
 <li><a href="https://arxiv.org/pdf/1506.05163.pdf" target="_blank" rel="noopener">Deep convolutional networks on graph-structured data</a></li>
 <li><a href="https://www.cse.wustl.edu/~muhan/papers/AAAI_2018_DGCNN.pdf" target="_blank" rel="noopener">An end-to-end deep learning architecture for graph classification</a></li>
@@ -366,7 +377,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Use"><span class="toc-number">1.</span> <span class="toc-text">Why Use</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-lines"><span class="toc-number">2.</span> <span class="toc-text">Basic lines</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#History"><span class="toc-number">2.1.</span> <span class="toc-text">History</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-proposal-of-GNNs"><span class="toc-number">2.1.1.</span> <span class="toc-text">The proposal of GNNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-to-GNNs"><span class="toc-number">2.1.2.</span> <span class="toc-text">Go to GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spectral-based-Graph"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">Spectral-based Graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spatial-based-Graph-Convolution"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">Spatial-based Graph Convolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pooling-module"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">Pooling module</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-attention-networks"><span class="toc-number">2.1.3.</span> <span class="toc-text">Graph attention networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Autoencoders"><span class="toc-number">2.1.4.</span> <span class="toc-text">Graph Autoencoders</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Generative-Networks"><span class="toc-number">2.1.5.</span> <span class="toc-text">Graph Generative Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Spatial-Temporal-Networks"><span class="toc-number">2.1.6.</span> <span class="toc-text">Graph Spatial-Temporal Networks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-Methodologies-—-Graph-Embedding"><span class="toc-number">2.2.</span> <span class="toc-text">Main Methodologies — Graph Embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-Factorization"><span class="toc-number">2.2.1.</span> <span class="toc-text">Matrix Factorization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-Walks"><span class="toc-number">2.2.2.</span> <span class="toc-text">Random Walks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Learning"><span class="toc-number">2.2.3.</span> <span class="toc-text">Deep Learning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Classification"><span class="toc-number">2.3.</span> <span class="toc-text">Classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Potential-usages"><span class="toc-number">2.4.</span> <span class="toc-text">Potential usages</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Papers"><span class="toc-number">3.</span> <span class="toc-text">Papers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#others"><span class="toc-number">3.2.</span> <span class="toc-text">others</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Are-Graph-Neural-Networks-Miscalibrated"><span class="toc-number">3.2.1.</span> <span class="toc-text">Are Graph Neural Networks Miscalibrated?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Estimating-Node-Importance-in-Knowledge-Graphs-Using-Graph-Neural-Networks"><span class="toc-number">3.2.2.</span> <span class="toc-text">Estimating Node Importance in Knowledge Graphs Using Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Understanding-attention-in-graph-neural-networks"><span class="toc-number">3.2.3.</span> <span class="toc-text">Understanding attention in graph neural networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Are-Graph-Neural-Networks-Miscalibrated-1"><span class="toc-number">3.2.4.</span> <span class="toc-text">Are Graph Neural Networks Miscalibrated?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Convolutional-Networks-with-EigenPooling"><span class="toc-number">3.2.5.</span> <span class="toc-text">Graph Convolutional Networks with EigenPooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PAN-Path-Integral-Based-Convolution-for-Deep-Graph-Neural-Networks"><span class="toc-number">3.2.6.</span> <span class="toc-text">PAN: Path Integral Based Convolution for Deep Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attacking-Graph-based-Classification-via-Manipulating-the-Graph-Structure"><span class="toc-number">3.2.7.</span> <span class="toc-text">Attacking Graph-based Classification via Manipulating the Graph Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-learning-in-bioinformatics-introduction-application-and-perspective-in-big-data-era"><span class="toc-number">3.2.8.</span> <span class="toc-text">Deep learning in bioinformatics: introduction, application, and perspective in big data era</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constant-Time-Graph-Neural-Networks"><span class="toc-number">3.2.9.</span> <span class="toc-text">Constant Time Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Comprehensive-Survey-on-Graph-Neural-Networks"><span class="toc-number">3.2.10.</span> <span class="toc-text">A Comprehensive Survey on Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Transformation-Policy-Network-for-Chemical-Reaction-Prediction"><span class="toc-number">3.2.11.</span> <span class="toc-text">Graph Transformation Policy Network for Chemical Reaction Prediction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contextualized-Non-local-Neural-Networks-for-Sequence-Learning"><span class="toc-number">3.2.12.</span> <span class="toc-text">Contextualized Non-local Neural Networks for Sequence Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automated-Theorem-Proving-in-Intuitionistic-Propositional-Logic-by-Deep-Reinforcement-Learning"><span class="toc-number">3.2.13.</span> <span class="toc-text">Automated Theorem Proving in Intuitionistic Propositional Logic by Deep Reinforcement Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pileup-mitigation-at-the-Large-Hadron-Collider-with-Graph-Neural-Networks"><span class="toc-number">3.2.14.</span> <span class="toc-text">Pileup mitigation at the Large Hadron Collider with Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Weisfeiler-and-Leman-Go-Neural-Higher-order-Graph-Neural-Networks"><span class="toc-number">3.2.15.</span> <span class="toc-text">Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multitask-Learning-on-Graph-Neural-Networks-Learning-Multiple-Graph-Centrality-Measures-with-a-Unified-Network"><span class="toc-number">3.2.16.</span> <span class="toc-text">Multitask Learning on Graph Neural Networks - Learning Multiple Graph Centrality Measures with a Unified Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Meta-GNN-On-Few-shot-Node-Classification-in-Graph-Meta-learning"><span class="toc-number">3.2.17.</span> <span class="toc-text">Meta-GNN: On Few-shot Node Classification in Graph Meta-learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MR-GNN-Multi-Resolution-and-Dual-Graph-Neural-Network-for-Predicting-Structured-Entity-Interactions"><span class="toc-number">3.2.18.</span> <span class="toc-text">MR-GNN: Multi-Resolution and Dual Graph Neural Network for Predicting Structured Entity Interactions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Revisiting-Graph-Neural-Networks-All-We-Have-is-Low-Pass-Filters"><span class="toc-number">3.2.19.</span> <span class="toc-text">Revisiting Graph Neural Networks: All We Have is Low-Pass Filters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-hop-Reading-Comprehension-across-Multiple-Documents-by-Reasoning-over-Heterogeneous-Graphs"><span class="toc-number">3.2.20.</span> <span class="toc-text">Multi-hop Reading Comprehension across Multiple Documents by Reasoning over Heterogeneous Graphs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPC-A-Benchmark-Data-Set-for-Learning-with-Graph-Structured-Data"><span class="toc-number">3.2.21.</span> <span class="toc-text">IPC: A Benchmark Data Set for Learning with Graph-Structured Data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Datasets"><span class="toc-number">4.</span> <span class="toc-text">Datasets</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Use"><span class="toc-number">1.</span> <span class="toc-text">Why Use</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-lines"><span class="toc-number">2.</span> <span class="toc-text">Basic lines</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#History"><span class="toc-number">2.1.</span> <span class="toc-text">History</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-proposal-of-GNNs"><span class="toc-number">2.1.1.</span> <span class="toc-text">The proposal of GNNs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-to-GNNs"><span class="toc-number">2.1.2.</span> <span class="toc-text">Go to GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spectral-based-Graph"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">Spectral-based Graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spatial-based-Graph-Convolution"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">Spatial-based Graph Convolution</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Recurrent-based-Spatial-GCNs"><span class="toc-number">2.1.2.2.1.</span> <span class="toc-text">Recurrent-based Spatial GCNs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Composition-based-Spatial-GCNs"><span class="toc-number">2.1.2.2.2.</span> <span class="toc-text">Composition-based Spatial GCNs</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pooling-module"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">Pooling module</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-attention-networks"><span class="toc-number">2.1.3.</span> <span class="toc-text">Graph attention networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Autoencoders"><span class="toc-number">2.1.4.</span> <span class="toc-text">Graph Autoencoders</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Generative-Networks"><span class="toc-number">2.1.5.</span> <span class="toc-text">Graph Generative Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Spatial-Temporal-Networks"><span class="toc-number">2.1.6.</span> <span class="toc-text">Graph Spatial-Temporal Networks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-Methodologies-—-Graph-Embedding"><span class="toc-number">2.2.</span> <span class="toc-text">Main Methodologies — Graph Embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-Factorization"><span class="toc-number">2.2.1.</span> <span class="toc-text">Matrix Factorization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-Walks"><span class="toc-number">2.2.2.</span> <span class="toc-text">Random Walks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Learning"><span class="toc-number">2.2.3.</span> <span class="toc-text">Deep Learning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Classification"><span class="toc-number">2.3.</span> <span class="toc-text">Classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Potential-usages"><span class="toc-number">2.4.</span> <span class="toc-text">Potential usages</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Papers"><span class="toc-number">3.</span> <span class="toc-text">Papers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#others"><span class="toc-number">3.2.</span> <span class="toc-text">others</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Are-Graph-Neural-Networks-Miscalibrated"><span class="toc-number">3.2.1.</span> <span class="toc-text">Are Graph Neural Networks Miscalibrated?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Estimating-Node-Importance-in-Knowledge-Graphs-Using-Graph-Neural-Networks"><span class="toc-number">3.2.2.</span> <span class="toc-text">Estimating Node Importance in Knowledge Graphs Using Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Understanding-attention-in-graph-neural-networks"><span class="toc-number">3.2.3.</span> <span class="toc-text">Understanding attention in graph neural networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Are-Graph-Neural-Networks-Miscalibrated-1"><span class="toc-number">3.2.4.</span> <span class="toc-text">Are Graph Neural Networks Miscalibrated?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Convolutional-Networks-with-EigenPooling"><span class="toc-number">3.2.5.</span> <span class="toc-text">Graph Convolutional Networks with EigenPooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PAN-Path-Integral-Based-Convolution-for-Deep-Graph-Neural-Networks"><span class="toc-number">3.2.6.</span> <span class="toc-text">PAN: Path Integral Based Convolution for Deep Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attacking-Graph-based-Classification-via-Manipulating-the-Graph-Structure"><span class="toc-number">3.2.7.</span> <span class="toc-text">Attacking Graph-based Classification via Manipulating the Graph Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-learning-in-bioinformatics-introduction-application-and-perspective-in-big-data-era"><span class="toc-number">3.2.8.</span> <span class="toc-text">Deep learning in bioinformatics: introduction, application, and perspective in big data era</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constant-Time-Graph-Neural-Networks"><span class="toc-number">3.2.9.</span> <span class="toc-text">Constant Time Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Comprehensive-Survey-on-Graph-Neural-Networks"><span class="toc-number">3.2.10.</span> <span class="toc-text">A Comprehensive Survey on Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Transformation-Policy-Network-for-Chemical-Reaction-Prediction"><span class="toc-number">3.2.11.</span> <span class="toc-text">Graph Transformation Policy Network for Chemical Reaction Prediction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contextualized-Non-local-Neural-Networks-for-Sequence-Learning"><span class="toc-number">3.2.12.</span> <span class="toc-text">Contextualized Non-local Neural Networks for Sequence Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Automated-Theorem-Proving-in-Intuitionistic-Propositional-Logic-by-Deep-Reinforcement-Learning"><span class="toc-number">3.2.13.</span> <span class="toc-text">Automated Theorem Proving in Intuitionistic Propositional Logic by Deep Reinforcement Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pileup-mitigation-at-the-Large-Hadron-Collider-with-Graph-Neural-Networks"><span class="toc-number">3.2.14.</span> <span class="toc-text">Pileup mitigation at the Large Hadron Collider with Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Weisfeiler-and-Leman-Go-Neural-Higher-order-Graph-Neural-Networks"><span class="toc-number">3.2.15.</span> <span class="toc-text">Weisfeiler and Leman Go Neural: Higher-order Graph Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multitask-Learning-on-Graph-Neural-Networks-Learning-Multiple-Graph-Centrality-Measures-with-a-Unified-Network"><span class="toc-number">3.2.16.</span> <span class="toc-text">Multitask Learning on Graph Neural Networks - Learning Multiple Graph Centrality Measures with a Unified Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Meta-GNN-On-Few-shot-Node-Classification-in-Graph-Meta-learning"><span class="toc-number">3.2.17.</span> <span class="toc-text">Meta-GNN: On Few-shot Node Classification in Graph Meta-learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MR-GNN-Multi-Resolution-and-Dual-Graph-Neural-Network-for-Predicting-Structured-Entity-Interactions"><span class="toc-number">3.2.18.</span> <span class="toc-text">MR-GNN: Multi-Resolution and Dual Graph Neural Network for Predicting Structured Entity Interactions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Revisiting-Graph-Neural-Networks-All-We-Have-is-Low-Pass-Filters"><span class="toc-number">3.2.19.</span> <span class="toc-text">Revisiting Graph Neural Networks: All We Have is Low-Pass Filters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-hop-Reading-Comprehension-across-Multiple-Documents-by-Reasoning-over-Heterogeneous-Graphs"><span class="toc-number">3.2.20.</span> <span class="toc-text">Multi-hop Reading Comprehension across Multiple Documents by Reasoning over Heterogeneous Graphs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPC-A-Benchmark-Data-Set-for-Learning-with-Graph-Structured-Data"><span class="toc-number">3.2.21.</span> <span class="toc-text">IPC: A Benchmark Data Set for Learning with Graph-Structured Data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Datasets"><span class="toc-number">4.</span> <span class="toc-text">Datasets</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -510,26 +521,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">course</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -542,6 +533,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">neuro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">course</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
@@ -550,11 +565,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,19 +593,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,11 +605,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,7 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plants</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,7 +633,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color2">plants</a>
               </li>
              
               <li class="article-tag-list-item">
