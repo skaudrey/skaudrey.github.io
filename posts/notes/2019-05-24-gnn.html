@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="This post is built to list the generation and improvement of graph neural networks.  Why Use Non-euclidean data: Irregular. Each graph has a variable size of unordered nodes and each node in a graph h">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-15T09:19:37.112Z">
+<meta property="og:updated_time" content="2019-06-16T08:23:19.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gnn">
 <meta name="twitter:description" content="This post is built to list the generation and improvement of graph neural networks.  Why Use Non-euclidean data: Irregular. Each graph has a variable size of unordered nodes and each node in a graph h">
@@ -238,29 +238,31 @@
 <li><a href="https://www.cse.wustl.edu/~muhan/papers/AAAI_2018_DGCNN.pdf" target="_blank" rel="noopener">An end-to-end deep learning architecture for graph classification</a></li>
 <li>DIFFPOOL pools nodes hierarchically by learning a cluster assignment matrix in each layer to get a cluster embedding, which can be combined with any standard GCN module, <a href="https://arxiv.org/pdf/1806.08804.pdf" target="_blank" rel="noopener">Hierarchical graph representation learning with differentiable pooling</a></li>
 </ul>
-<h3 id="Graph-attention-networks"><a href="#Graph-attention-networks" class="headerlink" title="Graph attention networks"></a>Graph attention networks</h3><p>sequence-based tasks</p>
+<h3 id="Graph-attention-networks"><a href="#Graph-attention-networks" class="headerlink" title="Graph attention networks"></a>Graph attention networks</h3><p>For sequence-based tasks, in total, assigning attention weights to different neighbors when aggregating feature information, ensembling multiple models according to attention weights, and using attention weights to guide random walks.</p>
 <ul>
-<li><a href="https://arxiv.org/pdf/1710.10903.pdf" target="_blank" rel="noopener">Graph attention networks</a></li>
-<li><a href="https://arxiv.org/pdf/1803.07294.pdf" target="_blank" rel="noopener">Gaan: Gated attention networks for learning on large and spatiotemporal graphs</a></li>
-<li><a href="http://ryanrossi.com/pubs/KDD18-graph-attention-model.pdf" target="_blank" rel="noopener">Graph classification using structural attention</a></li>
-<li><a href="https://arxiv.org/pdf/1710.09599.pdf" target="_blank" rel="noopener">Watch your step: Learning node embeddings via graph attention</a><h3 id="Graph-Autoencoders"><a href="#Graph-Autoencoders" class="headerlink" title="Graph Autoencoders"></a>Graph Autoencoders</h3></li>
-<li><a href="https://pdfs.semanticscholar.org/1a37/f07606d60df365d74752857e8ce909f700b3.pdf" target="_blank" rel="noopener">Deep neural networks for learning graph representations</a></li>
-<li><a href="https://www.kdd.org/kdd2016/papers/files/rfp0191-wangAemb.pdf" target="_blank" rel="noopener">Structural deep network embedding</a></li>
-<li><a href="https://arxiv.org/pdf/1611.07308.pdf" target="_blank" rel="noopener">Variational graph auto-encoders</a></li>
-<li><a href="https://shiruipan.github.io/pdf/CIKM-17-Wang.pdf" target="_blank" rel="noopener">Mgae: Marginalized graph autoencoder for graph clustering</a></li>
-<li><a href="https://www.ijcai.org/proceedings/2018/0362.pdf" target="_blank" rel="noopener">Adversarially regularized graph autoencoder for graph embedding</a></li>
-<li><a href="https://www.kdd.org/kdd2018/accepted-papers/view/learning-deep-network-representations-with-adversarially-regularized-autoen" target="_blank" rel="noopener">Learning deep network representations with adversarially regularized autoencoders</a></li>
-<li><a href="http://pengcui.thumedialab.com/papers/NE-RegularEquivalence.pdf" target="_blank" rel="noopener">Deep recursive network embedding with regular equivalence</a><h3 id="Graph-Generative-Networks"><a href="#Graph-Generative-Networks" class="headerlink" title="Graph Generative Networks"></a>Graph Generative Networks</h3></li>
-<li><a href="https://arxiv.org/pdf/1802.08773.pdf" target="_blank" rel="noopener">Graphrnn: A deep generative model for graphs</a></li>
-<li><a href="https://arxiv.org/pdf/1803.03324.pdf" target="_blank" rel="noopener">Learning deep generative models of graphs</a></li>
-<li><a href="https://arxiv.org/pdf/1805.11973.pdf" target="_blank" rel="noopener">Molgan: An implicit generative model for small molecular graphs</a></li>
-<li><a href="https://arxiv.org/pdf/1803.00816.pdf" target="_blank" rel="noopener">Net-gan: Generating graphs via random walks</a></li>
-<li><a href="https://arxiv.org/pdf/1809.02630.pdf" target="_blank" rel="noopener">Constrained generation of semantically valid graphs via regularizing variational autoencoders</a><h3 id="Graph-Spatial-Temporal-Networks"><a href="#Graph-Spatial-Temporal-Networks" class="headerlink" title="Graph Spatial-Temporal Networks"></a>Graph Spatial-Temporal Networks</h3></li>
-<li><a href="https://arxiv.org/pdf/1612.07659.pdf" target="_blank" rel="noopener">Structured sequence modeling with graph convolutional recurrent networks</a></li>
-<li><a href="https://arxiv.org/pdf/1707.01926.pdf" target="_blank" rel="noopener">Diffusion convolutional recurrent neural network: Data-driven traffic forecasting</a></li>
+<li><a href="https://arxiv.org/pdf/1710.10903.pdf" target="_blank" rel="noopener">Graph attention networks</a>, (GAT), multi-head weights.</li>
+<li><a href="https://arxiv.org/pdf/1803.07294.pdf" target="_blank" rel="noopener">Gaan: Gated attention networks for learning on large and spatiotemporal graphs</a>， also use multi-head, but it use a self attention mechanism to compute a different head for each head.</li>
+<li><a href="http://ryanrossi.com/pubs/KDD18-graph-attention-model.pdf" target="_blank" rel="noopener">Graph classification using structural attention</a>, Graph Attention Model (GAM), adaptively visiting a sequence of important nodes. </li>
+<li><a href="https://arxiv.org/pdf/1710.09599.pdf" target="_blank" rel="noopener">Watch your step: Learning node embeddings via graph attention</a>, factorize the co-occurrence matrix with differentiable attention weights.<h3 id="Graph-Autoencoders"><a href="#Graph-Autoencoders" class="headerlink" title="Graph Autoencoders"></a>Graph Autoencoders</h3>had to handle the problem caused by the sparsity of adjacency matrix. </li>
+<li><a href="https://pdfs.semanticscholar.org/1a37/f07606d60df365d74752857e8ce909f700b3.pdf" target="_blank" rel="noopener">Deep neural networks for learning graph representations</a>, uses the stacked denoising auto-encoders to reconstruct PPMI matrix.</li>
+<li><a href="https://www.kdd.org/kdd2016/papers/files/rfp0191-wangAemb.pdf" target="_blank" rel="noopener">Structural deep network embedding</a>, preserve nodes first-order proximity (drive representations of adjacent nodes close to each other) and second-order proximity (a node’s neighbourhood information) jointly.</li>
+<li><a href="https://arxiv.org/pdf/1611.07308.pdf" target="_blank" rel="noopener">Variational graph auto-encoders</a>, Graph Auto-Encoder (GAE), combined with GCN firstly. </li>
+<li><a href="https://shiruipan.github.io/pdf/CIKM-17-Wang.pdf" target="_blank" rel="noopener">Mgae: Marginalized graph autoencoder for graph clustering</a>, reconstruct node’s hidden state.</li>
+<li><a href="https://www.ijcai.org/proceedings/2018/0362.pdf" target="_blank" rel="noopener">Adversarially regularized graph autoencoder for graph embedding</a>, using GANs to regularize the graph auto-encoders, recover adjacency matrix.</li>
+<li><a href="https://www.kdd.org/kdd2018/accepted-papers/view/learning-deep-network-representations-with-adversarially-regularized-autoen" target="_blank" rel="noopener">Learning deep network representations with adversarially regularized autoencoders</a>, recover node sequences rather than adjacency matrix.</li>
+<li><a href="http://pengcui.thumedialab.com/papers/NE-RegularEquivalence.pdf" target="_blank" rel="noopener">Deep recursive network embedding with regular equivalence</a><h3 id="Graph-Generative-Networks"><a href="#Graph-Generative-Networks" class="headerlink" title="Graph Generative Networks"></a>Graph Generative Networks</h3>Not scalable to large graphs.</li>
+<li><a href="https://arxiv.org/pdf/1802.08773.pdf" target="_blank" rel="noopener">Graphrnn: A deep generative model for graphs</a>, graph-level RNN + node-level RNN, use breadth-first-search (BFS) to sequence the nodes and Bernoulli assumption for edge generation.</li>
+<li><a href="https://arxiv.org/pdf/1803.03324.pdf" target="_blank" rel="noopener">Learning deep generative models of graphs</a>, utilize spatial-based GCNs to obtain a hidden representation of an existing graph.</li>
+<li><a href="https://arxiv.org/pdf/1805.11973.pdf" target="_blank" rel="noopener">Molgan: An implicit generative model for small molecular graphs</a>, RL+GAN+GCN</li>
+<li><a href="https://arxiv.org/pdf/1803.00816.pdf" target="_blank" rel="noopener">Net-gan: Generating graphs via random walks</a>, combines LSTM with Wasserstein GAN to generate graphs from a random-walk-based approach. As for random walk, see <a href="http://leogrady.net/wp-content/uploads/2017/01/grady2004multilabel.pdf" target="_blank" rel="noopener">here</a>.</li>
+<li><p><a href="https://arxiv.org/pdf/1809.02630.pdf" target="_blank" rel="noopener">Constrained generation of semantically valid graphs via regularizing variational autoencoders</a></p>
+<h3 id="Graph-Spatial-Temporal-Networks"><a href="#Graph-Spatial-Temporal-Networks" class="headerlink" title="Graph Spatial-Temporal Networks"></a>Graph Spatial-Temporal Networks</h3></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07659.pdf" target="_blank" rel="noopener">Structured sequence modeling with graph convolutional recurrent networks</a></p>
+</li>
+<li><a href="https://arxiv.org/pdf/1707.01926.pdf" target="_blank" rel="noopener">Diffusion convolutional recurrent neural network: Data-driven traffic forecasting</a>, can work forwardly or backwardly.</li>
 <li><a href="https://arxiv.org/pdf/1709.04875.pdf" target="_blank" rel="noopener">Spatio-temporal graph convolutional networks: A deep learning framework for traffic forecasting</a></li>
-<li><a href="https://arxiv.org/pdf/1801.07455.pdf" target="_blank" rel="noopener">Spatial temporal graph convolutional networks for skeleton-based action recognition</a></li>
-<li><a href="https://arxiv.org/pdf/1511.05298.pdf" target="_blank" rel="noopener">Structural-rnn: Deep learning on spatio-temporal graphs</a></li>
+<li><a href="https://arxiv.org/pdf/1801.07455.pdf" target="_blank" rel="noopener">Spatial temporal graph convolutional networks for skeleton-based action recognition</a>, extend the temporal flow as graph edges, and then assign each a label to each edge.</li>
+<li><a href="https://arxiv.org/pdf/1511.05298.pdf" target="_blank" rel="noopener">Structural-rnn: Deep learning on spatio-temporal graphs</a>, aims at predicting nodes’ labels at each time, has nodeRNN and edgeRNN, and split nodes and edges into semantic groups.</li>
 </ul>
 <h2 id="Main-Methodologies-—-Graph-Embedding"><a href="#Main-Methodologies-—-Graph-Embedding" class="headerlink" title="Main Methodologies — Graph Embedding"></a>Main Methodologies — Graph Embedding</h2><h3 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h3><ul>
 <li><a href="https://www.ijcai.org/proceedings/2018/0493.pdf" target="_blank" rel="noopener">Discrete network embedding</a></li>
@@ -540,6 +542,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -560,10 +566,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -580,14 +582,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -601,6 +595,30 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,27 +642,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
