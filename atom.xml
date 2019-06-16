@@ -227,28 +227,6 @@
   </entry>
   
   <entry>
-    <title>Understand and debug the codes of GCN proposed by Thomas N. Kipf</title>
-    <link href="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html"/>
-    <id>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</id>
-    <published>2019-04-26T10:21:35.000Z</published>
-    <updated>2019-05-24T09:36:46.443Z</updated>
-    
-    <content type="html"><![CDATA[<p>I wrote this post for keeping some understanding of the paper <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p><a id="more"></a><h2 id="Big-Question-semi-supervised-classification-of-graph-data"><a href="#Big-Question-semi-supervised-classification-of-graph-data" class="headerlink" title="Big Question: semi-supervised classification of graph data"></a>Big Question: semi-supervised classification of graph data</h2><ul><li>reason<ul><li>computation effective: semi-supervision</li><li>the complex of graphs, the information of nodes and edges are not structural information.</li></ul></li><li>background<ul><li>the improvement of GCNs: spectral GCNs</li></ul></li></ul><h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p><p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p><p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p><p>After those approximation, it is input into the whole network with features.    </p><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.<br><span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$</span><!-- Has MathJax --></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I wrote this post for keeping some understanding of the paper &lt;a href=&quot;https://arxiv.org/pdf/1609.02907.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
-    
-    
-      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
     <title>A Tex Template of Cornell Notes</title>
     <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
     <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
@@ -260,6 +238,28 @@
     <summary type="html">
     
       &lt;p&gt;I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Understand and debug the codes of GCN proposed by Thomas N. Kipf</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</id>
+    <published>2019-04-26T10:21:35.000Z</published>
+    <updated>2019-05-24T09:36:46.443Z</updated>
+    
+    <content type="html"><![CDATA[<p>I wrote this post for keeping some understanding of the paper <a href="https://arxiv.org/pdf/1609.02907.pdf" target="_blank" rel="noopener">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p><a id="more"></a><h2 id="Big-Question-semi-supervised-classification-of-graph-data"><a href="#Big-Question-semi-supervised-classification-of-graph-data" class="headerlink" title="Big Question: semi-supervised classification of graph data"></a>Big Question: semi-supervised classification of graph data</h2><ul><li>reason<ul><li>computation effective: semi-supervision</li><li>the complex of graphs, the information of nodes and edges are not structural information.</li></ul></li><li>background<ul><li>the improvement of GCNs: spectral GCNs</li></ul></li></ul><h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p><p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p><p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p><p>After those approximation, it is input into the whole network with features.    </p><h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.<br><span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$</span><!-- Has MathJax --></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I wrote this post for keeping some understanding of the paper &lt;a href=&quot;https://arxiv.org/pdf/1609.02907.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
