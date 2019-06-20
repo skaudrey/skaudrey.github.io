@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-06-20-readingdigest.html</loc>
+    
+    <lastmod>2019-06-20T07:40:25.634Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-06-20-EnglishTranslation.html</loc>
+    
+    <lastmod>2019-06-20T07:33:18.639Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-06-19-rules.html</loc>
     
     <lastmod>2019-06-19T02:28:01.011Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/posts/notes/2019-05-24-gnn.html</loc>
     
     <lastmod>2019-06-19T01:06:11.185Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-06-19-EnglishTranslation.html</loc>
-    
-    <lastmod>2019-06-18T23:15:25.112Z</lastmod>
     
   </url>
   
