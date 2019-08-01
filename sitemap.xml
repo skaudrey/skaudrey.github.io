@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/talks/2019-08-01-gan+rs+talk.html</loc>
+    
+    <lastmod>2019-08-01T05:25:37.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-06-19-theorem.html</loc>
+    
+    <lastmod>2019-08-01T05:22:58.103Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-07-15-EnglishTranslation.html</loc>
     
     <lastmod>2019-07-15T00:38:44.438Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://yoursite.com/posts/uncategorized/2019-06-20-%E6%95%B0%E5%AD%A6%EF%BC%8C%E5%86%85%E5%AE%B9%E6%96%B9%E6%B3%95%E6%84%8F%E4%B9%89.html</loc>
     
     <lastmod>2019-06-20T09:33:10.547Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-06-19-rules.html</loc>
-    
-    <lastmod>2019-06-19T02:28:01.011Z</lastmod>
     
   </url>
   
