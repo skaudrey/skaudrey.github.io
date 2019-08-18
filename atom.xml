@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-01T05:25:37.178Z</updated>
+  <updated>2019-08-18T15:07:05.524Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</title>
-    <link href="http://yoursite.com/posts/talks/2019-08-01-gan+rs+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-08-01-gan+rs+talk.html</id>
-    <published>2019-08-01T05:25:37.177Z</published>
-    <updated>2019-08-01T05:25:37.178Z</updated>
+    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
+    <link href="http://yoursite.com/posts/talks/2019-08-18-notes-fourier-GCN.html"/>
+    <id>http://yoursite.com/posts/talks/2019-08-18-notes-fourier-GCN.html</id>
+    <published>2019-08-18T15:07:05.523Z</published>
+    <updated>2019-08-18T15:07:05.524Z</updated>
     
-    <content type="html"><![CDATA[<p>Some works using GANs handle the problems in remote sensing. </p><p>Check <a href="/assets/slides/GAN/GANRS.pdf">slide</a> for more details.</p>]]></content>
+    <content type="html"><![CDATA[<p>Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution. </p><p>Check <a href="/assets/slides/notes/GCN/fourier-GCN.pdf">slides</a> for more details.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution. &lt;/p&gt;
+&lt;p&gt;Check &lt;a hre
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</title>
+    <link href="http://yoursite.com/posts/talks/2019-08-18-gan+rs+talk.html"/>
+    <id>http://yoursite.com/posts/talks/2019-08-18-gan+rs+talk.html</id>
+    <published>2019-08-18T14:16:24.132Z</published>
+    <updated>2019-08-18T14:16:24.132Z</updated>
+    
+    <content type="html"><![CDATA[<p>Some works using GANs handle the problems in remote sensing. </p><p>Check <a href="/assets/slides/GAN/GANRS.pdf">slide</a> for more details.``</p>]]></content>
     
     <summary type="html">
     
@@ -326,28 +354,6 @@
   </entry>
   
   <entry>
-    <title>A Tex Template of Cornell Notes</title>
-    <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
-    <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
-    <published>2019-04-26T10:21:35.000Z</published>
-    <updated>2019-04-26T15:34:08.233Z</updated>
-    
-    <content type="html"><![CDATA[<p>I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need install</p><ul><li>CTex</li></ul><h2 id="Install-missed-packages-of-CTex"><a href="#Install-missed-packages-of-CTex" class="headerlink" title="Install missed packages of CTex"></a>Install missed packages of CTex</h2><h3 id="Download-the-required-packages"><a href="#Download-the-required-packages" class="headerlink" title="Download the required packages"></a>Download the required packages</h3><p>Search <a href="https://www.ctan.org/pkg" target="_blank" rel="noopener">here</a>.</p><h3 id="Unzip-and-compile-manually-if-needed"><a href="#Unzip-and-compile-manually-if-needed" class="headerlink" title="Unzip and compile manually if needed."></a>Unzip and compile manually if needed.</h3><p>Unzip the downloaded file and jump to the directory after unzip. If need compile, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  pdflatex ***.ins</span><br></pre></td></tr></table></figure></p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Copy the compiled file folder to the CTex path: ~/CTex/CTex/tex/latex</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ texhash --admin</span><br></pre></td></tr></table></figure><p>The notes will be generated like this:</p><center>    <img src="/assets/img/CornellNotes.png" width="400"></center><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://blog.csdn.net/Myriad_Dreamin/article/details/83384110" target="_blank" rel="noopener">this blog</a>.</p><h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>Tex file can be found <a href="https://github.com/skaudrey/skaudrey.github.io/tree/master/assets/notes/Cornell" target="_blank" rel="noopener">here</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
-    
-    
-      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Understand and debug the codes of GCN proposed by Thomas N. Kipf</title>
     <link href="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html"/>
     <id>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</id>
@@ -359,6 +365,28 @@
     <summary type="html">
     
       &lt;p&gt;I wrote this post for keeping some understanding of the paper &lt;a href=&quot;https://arxiv.org/pdf/1609.02907.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Tex Template of Cornell Notes</title>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-Cornell-notes-tex-templates.html</id>
+    <published>2019-04-26T10:21:35.000Z</published>
+    <updated>2019-04-26T15:34:08.233Z</updated>
+    
+    <content type="html"><![CDATA[<p>I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.<br><a id="more"></a></p><h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>Before starting, you need install</p><ul><li>CTex</li></ul><h2 id="Install-missed-packages-of-CTex"><a href="#Install-missed-packages-of-CTex" class="headerlink" title="Install missed packages of CTex"></a>Install missed packages of CTex</h2><h3 id="Download-the-required-packages"><a href="#Download-the-required-packages" class="headerlink" title="Download the required packages"></a>Download the required packages</h3><p>Search <a href="https://www.ctan.org/pkg" target="_blank" rel="noopener">here</a>.</p><h3 id="Unzip-and-compile-manually-if-needed"><a href="#Unzip-and-compile-manually-if-needed" class="headerlink" title="Unzip and compile manually if needed."></a>Unzip and compile manually if needed.</h3><p>Unzip the downloaded file and jump to the directory after unzip. If need compile, run<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  pdflatex ***.ins</span><br></pre></td></tr></table></figure></p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Copy the compiled file folder to the CTex path: ~/CTex/CTex/tex/latex</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ texhash --admin</span><br></pre></td></tr></table></figure><p>The notes will be generated like this:</p><center>    <img src="/assets/img/CornellNotes.png" width="400"></center><h1 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement"></a>Acknowledgement</h1><p>Thank <a href="https://blog.csdn.net/Myriad_Dreamin/article/details/83384110" target="_blank" rel="noopener">this blog</a>.</p><h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>Tex file can be found <a href="https://github.com/skaudrey/skaudrey.github.io/tree/master/assets/notes/Cornell" target="_blank" rel="noopener">here</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I just found a new method known as Cornell method for keeping notes. To keep notes efficiently, I deploy a tex template on my laptop. There are some packages of tex missed, like tcolorbox, and I fixed these.&lt;br&gt;
     
     </summary>
     
