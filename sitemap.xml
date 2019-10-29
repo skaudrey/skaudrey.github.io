@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2019-06-20-readingdigest.html</loc>
+    
+    <lastmod>2019-10-29T03:56:38.358Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-06-19-theorem.html</loc>
+    
+    <lastmod>2019-10-23T01:00:25.865Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2019-10-05-notes-DAPPER.html</loc>
     
-    <lastmod>2019-10-05T05:07:28.360Z</lastmod>
+    <lastmod>2019-10-05T06:41:35.260Z</lastmod>
     
   </url>
   
@@ -30,23 +44,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/notes/2019-06-19-theorem.html</loc>
-    
-    <lastmod>2019-08-01T05:22:58.103Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2019-07-15-EnglishTranslation.html</loc>
     
     <lastmod>2019-07-15T00:38:44.438Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2019-06-20-readingdigest.html</loc>
-    
-    <lastmod>2019-07-09T04:57:02.010Z</lastmod>
     
   </url>
   
