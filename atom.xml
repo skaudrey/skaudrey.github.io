@@ -231,9 +231,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
       <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
@@ -340,9 +340,9 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
       <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
     
       <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
     
@@ -425,13 +425,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
       <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
     
       <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
     
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
     
   </entry>
   
@@ -533,9 +533,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
-    
       <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
     
   </entry>
   
@@ -582,9 +582,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
       <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
@@ -679,9 +679,9 @@
     </summary>
     
     
-      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
-    
       <category term="book" scheme="http://yoursite.com/tags/book/"/>
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
     
   </entry>
   
@@ -739,9 +739,9 @@
     <link href="http://yoursite.com/posts/uncategorized/2019-06-13-about.html"/>
     <id>http://yoursite.com/posts/uncategorized/2019-06-13-about.html</id>
     <published>2019-06-13T17:02:18.000Z</published>
-    <updated>2020-01-23T22:43:15.058Z</updated>
+    <updated>2020-01-23T22:44:45.908Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to Mia Feng’s Blog! </p><p>I’m doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in Montreal, Canada. I’m interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.</p><p>I got the bachelor degree from Wuhan University, China, and then I did my master at the National University of Defense Techonology, China. During my studies, I’ve processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks. </p><p>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf" target="_blank" rel="noopener">resume</a> for more information.</p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to Mia Feng’s Blog! </p><p>I’m doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in Montreal, Canada. I’m interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.</p><p>I got the bachelor degree from Wuhan University, China, and then I did my master at the National University of Defense Technology, China. During my studies, I’ve processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks. </p><p>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf" target="_blank" rel="noopener">resume</a> for more information.</p>]]></content>
     
     <summary type="html">
     
