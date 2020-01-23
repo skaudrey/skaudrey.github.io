@@ -340,9 +340,9 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
     
       <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
     
@@ -425,13 +425,13 @@
       <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
     
     
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
       <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
     
       <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
     
       <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
     
   </entry>
   
@@ -679,9 +679,9 @@
     </summary>
     
     
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
       <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
     
   </entry>
   
