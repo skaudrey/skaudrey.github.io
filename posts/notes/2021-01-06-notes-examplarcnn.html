@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png">
-<meta property="og:updated_time" content="2021-01-08T04:08:38.232Z">
+<meta property="og:updated_time" content="2021-01-08T20:09:41.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exemplar CNN">
 <meta name="twitter:description" content="Paper Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
@@ -262,26 +262,58 @@
 <li><p>After transformations, the loss for a whole class (augmented by the same seed patch ) can be taken as </p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png" alt="image-20210107162118193" style="zoom:50%;">, notice the 2nd and the 4th can be canceled. </p>
 <ul>
-<li>The 1st term: enforces correct classification of the average representation <span>$\mathbb{E}_\alpha[g(T_\alpha x_i)]$</span><!-- Has MathJax --> for a given input sample</li>
-<li>The 2nd term: a regularizer enforcing all <span>$h(T_\alpha x_i)$</span><!-- Has MathJax --> to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations <span>$T_\alpha$</span><!-- Has MathJax -->, note the convergence to global minimum is listed at appendix.</li>
+<li>The 1st term: enforces correct classification of the average representation <script type="math/tex">\mathbb{E}_\alpha[g(T_\alpha x_i)]</script> for a given input sample</li>
+<li>The 2nd term: a regularizer enforcing all <script type="math/tex">h(T_\alpha x_i)</script>  to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations <script type="math/tex">T_\alpha</script>, note the convergence to global minimum is listed at appendix.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p><strong>Why does it works?</strong></p>
 <ul>
-<li>Previous works mostly focus on modeling the input distribution <span>$p(x)$</span><!-- Has MathJax -->, based on the assumption that a good model of  <span>$p(x)$</span><!-- Has MathJax --> contains information about the category distribution  <span>$p(y|x)$</span><!-- Has MathJax -->.  Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
-<li>Their work  does not directly model the input distribution  <span>$p(x)$</span><!-- Has MathJax -->  but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong> </li>
+<li>Previous works mostly focus on modeling the input distribution <script type="math/tex">p(x)</script>, based on the assumption that a good model of  <script type="math/tex">p(x)</script> contains information about the category distribution  <script type="math/tex">p(y|x)</script>.  Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
+<li>Their work  does not directly model the input distribution  <script type="math/tex">p(x)</script>  but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong> </li>
 <li>However, their work will <strong>fail on color-relied task</strong></li>
 </ul>
 </li>
 </ul>
 <h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h3><ul>
-<li><h3 id="Descriptor-matching"><a href="#Descriptor-matching" class="headerlink" title="Descriptor matching"></a>Descriptor matching</h3></li>
+<li><p>Datasets: <strong>STL-10</strong>, CIFAR-10, Caltech-101 and Caltech-256. report mean and standard deviation </p>
+<p>| Datasets    |                    Resizing                    | Train                                                        | Test                                                       |<br>| —————- | :——————————————————————: | —————————————————————————————— | ————————————————————————————— |<br>| STL-10      |                 64c5-64c5-128f                 | 10 pre-defined folds of the training data                    | fixed test set                                             |<br>| CIFAR-10    | resize from <script type="math/tex">32\times 32</script> to <script type="math/tex">64\times 64</script> | 1. whole training set<br>2. 10 random selections of 400 training samples per class | 1. results on CIFAR-10<br>2. average results on 10 sets. |<br>| Caltech-101 |              to <script type="math/tex">150\times 150</script>              | 30 random samples per class                                  | not more than 50 samples per class                         |<br>| Caltech-256 |               <script type="math/tex">256\times 256</script>                | randomly selected 30 samples per class                       | those except for training                                  |</p>
+</li>
+<li><p>backbones of network</p>
+<p>| Network |       Structure        | Training                                 |<br>| ———- | :——————————: | ———————————————————— |<br>| small   |     64c5-64c5-128f     | 1.5 days, SGD with fixed momentum of 0.9 |<br>| medium  | 64c5-128c5-256c5-512f  | 4 days, SGD with fixed momentum of 0.9   |<br>| large   | 92c5-256c5-512c5-1024f | 9 days, SGD with fixed momentum of 0.9   |</p>
+</li>
+<li><p>Training: learning rate starts at 0.01， then when there was no improvement in validation error, decreased the learning rate by a factor of 3. All networks are trained on one Titan</p>
+</li>
+<li><p>Test features: one-vs-all linear SVM.</p>
+</li>
+<li><p>Summary</p>
+<ul>
+<li>with increasing feature vector dimensionality and number of labeled samples, training an SVM becomes less dependent on the quality of the features</li>
+<li>Relation of <strong>the number of surrogate classes</strong> :  <strong>sampling too many, too similar images for training can even decrease the performance of the learned features</strong>. ( the discriminative loss is no longer reasonable with too many similar surrogate classes.) —&gt; fix: e.g. clustering the output features then do augmentation for clusters and feed these augmented classes as surrogate data</li>
+<li>Relation of <strong>the number of samples per surrogate class</strong> :  around 100 samples is sufficient </li>
+<li>Relation of <strong>types of transformations </strong> : each time remove a group of transformations and check how the performance is decreased , e.g. scaling, rotation etc.  Translations, color variations and contrast variations are significantly more important. For the matching task, using blur as an additional transformation improves the performance.</li>
+<li>Relation of <strong>Influence of the dataset  </strong>:  the learned features generalize well to other datasets</li>
+<li>Relation of <strong>Influence of the Network Architecture on Classification Performance</strong>: Classification accuracy generally improves with the network size</li>
+</ul>
+</li>
+</ul>
+<h3 id="Descriptor-matching"><a href="#Descriptor-matching" class="headerlink" title="Descriptor matching"></a>Descriptor matching</h3><ul>
+<li>Task: Matching of interest points </li>
+<li>Datasets: by Mikolajczyk et al., augmented by applying  6 different types of transformations with varying strengths to 16 base images from Flickr. In addition to the transformations used before, also change the lighting and blur .</li>
+<li>Backbones: 64c7s2-128c5-256c5-512f, named as Exemplar-CNN-blur</li>
+<li>Training:  use unlabeled images from Flickr for training</li>
+<li>Test and measurements: prediction is $TP$ if $IOU\ge 0.5$. Compared with SIFT and Alexnet</li>
+<li>Summary<ul>
+<li>Optimum patch size (or layer in CNNs): SIFT is based on normalized finite differences, and thus very robust to blurred edges caused by interpolation. In contrast, for the networks, especially for their lower layers, there is an optimal patch size. They argue that features from higher layers have access to larger receptive fields and, thus, can again benefit from larger patch sizes.</li>
+<li>A loss function that focuses on the invariance properties (rather than class-specific features) required for descriptor matching yields better results.</li>
+<li>Features obtained with the unsupervised training procedure outperform the features from AlexNet on both datasets</li>
+</ul>
+</li>
 </ul>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
 <li>Pretty good on tasks: object classification , descriptor matching </li>
-<li></li>
+<li>emphasizes the value of data augmentation in general and suggests the use of more diverse transformations.</li>
 </ul>
 
       
@@ -491,19 +523,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,7 +539,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +563,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,23 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +611,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,6 +620,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
             
             <div class="clearfix"></div>
