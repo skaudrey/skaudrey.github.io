@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: notes | Mia&#39;s Blog</title>
+  <title>Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Graduate from Wuhan University in 2012, and do my PhD in UdeM since 2020.Currently I have done some researched relates to space-temporal data based on machine learning, including series interpolation,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mia&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/notes/page/2/index.html">
+  <meta name="description" content="Paper Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
+<meta name="keywords" content="notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-06-notes-paper-examplarcnn.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Graduate from Wuhan University in 2012, and do my PhD in UdeM since 2020.Currently I have done some researched relates to space-temporal data based on machine learning, including series interpolation,">
+<meta property="og:description" content="Paper Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png">
+<meta property="og:updated_time" content="2021-01-09T21:02:59.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mia&#39;s Blog">
-<meta name="twitter:description" content="Graduate from Wuhan University in 2012, and do my PhD in UdeM since 2020.Currently I have done some researched relates to space-temporal data based on machine learning, including series interpolation,">
+<meta name="twitter:title" content="Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
+<meta name="twitter:description" content="Paper Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -173,36 +179,150 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-notes-paper-examplarcnn" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2021-01-06-notes-paper-examplarcnn.html" class="archive-article-date">
+  	<time datetime="2021-01-06T16:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Paper <a href="https://arxiv.org/pdf/1406.6909.pdf" target="_blank" rel="noopener">Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</a></p>
+<a id="more"></a>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
+<li>Supervised : labeled data with a specific CNN<ul>
+<li>directly penalizing the derivative of the output with respect to the magnitude of the transformations, but will be sensitive to the magnitude of the applied transformation.</li>
+</ul>
+</li>
+<li>Unsupervised: learning invariant representations <ul>
+<li>Directly modeling the input distribution and are hard for jointly training multiple layers of a CNN<ul>
+<li><strong>autoencoders</strong>:  denoising auto encoders, say reconstruct data from randomly perturbed input samples; or learn representations from videos by  enforcing a temporal slowness constraint on the feature representation learned by a linear autoencoder.</li>
+<li>invariant to local transformations</li>
+</ul>
+</li>
+<li>most aims at regularization of the latent representation</li>
+</ul>
+</li>
+<li>Semi-supervised<ul>
+<li>Regularization supervised algorithms by unlabeled data: self-training, entropy regularization</li>
+</ul>
+</li>
+</ul>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Observations<ul>
+<li>the features learned by one network often generalize to new datasets</li>
+<li>a network can be adapted to a new task by replacing the loss function and possibly the last few layers of the network and fine-tuning it to the new problem</li>
+</ul>
+</li>
+<li>Limitations:<ul>
+<li>the need for huge labeled datasets to be used for the initial supervised training</li>
+<li>the transfer becomes less efficient the more the new task differs from the original training task</li>
+</ul>
+</li>
+</ul>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>a more general extractor using unlabeled data. The extractor should satisfy two requirements: </p>
+<ul>
+<li>there must be at least one feature that is similar for images of the same category $y$ (invariance); </li>
+<li>there must be at least one feature that is sufficiently different for images of different categories (ability to discriminate)</li>
+</ul>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
+<li>creating an auxiliary task + invariant features to transformations</li>
+</ul>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul>
+<li>Do random selected transformation (from  a predefined  family of transformations) for sampled patches (regions containing considerable gradients so that sample a patch with probability proportional to mean squared gradient magnitude within the patch )</li>
+<li>The family of transformations<ul>
+<li>translation </li>
+<li>scaling</li>
+<li>rotation </li>
+<li>contrast: PCA and HSV</li>
+<li>color: works on HSV space</li>
+<li>blur etc.</li>
+</ul>
+</li>
+<li>Before feeding into model, do normalization (subtract the mean of each pixel over the whole resulting dataset)</li>
+<li>Labeling: all transformed patches from the same seed patch are labeled by the same index </li>
+</ul>
+<h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul>
+<li><p>Loss function :</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png" alt="image-20210107155618997" style="zoom:50%;"></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png" alt="image-20210107155854389" style="zoom:30%;"></p>
+<ul>
+<li><p>After transformations, the loss for a whole class (augmented by the same seed patch ) can be taken as </p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png" alt="image-20210107162118193" style="zoom:50%;">, notice the 2nd and the 4th can be canceled. </p>
+<ul>
+<li>The 1st term: enforces correct classification of the average representation <script type="math/tex">\mathbb{E}_\alpha[g(T_\alpha x_i)]</script> for a given input sample</li>
+<li>The 2nd term: a regularizer enforcing all <script type="math/tex">h(T_\alpha x_i)</script>  to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations <script type="math/tex">T_\alpha</script>, note the convergence to global minimum is listed at appendix.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Why does it works?</strong></p>
+<ul>
+<li>Previous works mostly focus on modeling the input distribution <script type="math/tex">p(x)</script>, based on the assumption that a good model of  <script type="math/tex">p(x)</script> contains information about the category distribution  <script type="math/tex">p(y|x)</script>.  Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
+<li>Their work  does not directly model the input distribution  <script type="math/tex">p(x)</script>  but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong> </li>
+<li>However, their work will <strong>fail on color-relied task</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h3><ul>
+<li><p>Datasets: <strong>STL-10</strong>, CIFAR-10, Caltech-101 and Caltech-256. report mean and standard deviation </p>
+<p>| Datasets    |                    Resizing                    | Train                                                        | Test                                                       |<br>| —————- | :——————————————————————: | —————————————————————————————— | ————————————————————————————— |<br>| STL-10      |                 64c5-64c5-128f                 | 10 pre-defined folds of the training data                    | fixed test set                                             |<br>| CIFAR-10    | resize from <script type="math/tex">32\times 32</script> to <script type="math/tex">64\times 64</script> | 1. whole training set<br>2. 10 random selections of 400 training samples per class | 1. results on CIFAR-10<br>2. average results on 10 sets. |<br>| Caltech-101 |              to <script type="math/tex">150\times 150</script>              | 30 random samples per class                                  | not more than 50 samples per class                         |<br>| Caltech-256 |               <script type="math/tex">256\times 256</script>                | randomly selected 30 samples per class                       | those except for training                                  |</p>
+</li>
+<li><p>backbones of network</p>
+<p>| Network |       Structure        | Training                                 |<br>| ———- | :——————————: | ———————————————————— |<br>| small   |     64c5-64c5-128f     | 1.5 days, SGD with fixed momentum of 0.9 |<br>| medium  | 64c5-128c5-256c5-512f  | 4 days, SGD with fixed momentum of 0.9   |<br>| large   | 92c5-256c5-512c5-1024f | 9 days, SGD with fixed momentum of 0.9   |</p>
+</li>
+<li><p>Training: learning rate starts at 0.01， then when there was no improvement in validation error, decreased the learning rate by a factor of 3. All networks are trained on one Titan</p>
+</li>
+<li><p>Test features: one-vs-all linear SVM.</p>
+</li>
+<li><p>Summary</p>
+<ul>
+<li>with increasing feature vector dimensionality and number of labeled samples, training an SVM becomes less dependent on the quality of the features</li>
+<li>Relation of <strong>the number of surrogate classes</strong> :  <strong>sampling too many, too similar images for training can even decrease the performance of the learned features</strong>. ( the discriminative loss is no longer reasonable with too many similar surrogate classes.) —&gt; fix: e.g. clustering the output features then do augmentation for clusters and feed these augmented classes as surrogate data</li>
+<li>Relation of <strong>the number of samples per surrogate class</strong> :  around 100 samples is sufficient </li>
+<li>Relation of <strong>types of transformations </strong> : each time remove a group of transformations and check how the performance is decreased , e.g. scaling, rotation etc.  Translations, color variations and contrast variations are significantly more important. For the matching task, using blur as an additional transformation improves the performance.</li>
+<li>Relation of <strong>Influence of the dataset  </strong>:  the learned features generalize well to other datasets</li>
+<li>Relation of <strong>Influence of the Network Architecture on Classification Performance</strong>: Classification accuracy generally improves with the network size</li>
+</ul>
+</li>
+</ul>
+<h3 id="Descriptor-matching"><a href="#Descriptor-matching" class="headerlink" title="Descriptor matching"></a>Descriptor matching</h3><ul>
+<li>Task: Matching of interest points </li>
+<li>Datasets: by Mikolajczyk et al., augmented by applying  6 different types of transformations with varying strengths to 16 base images from Flickr. In addition to the transformations used before, also change the lighting and blur .</li>
+<li>Backbones: 64c7s2-128c5-256c5-512f, named as Exemplar-CNN-blur</li>
+<li>Training:  use unlabeled images from Flickr for training</li>
+<li>Test and measurements: prediction is $TP$ if $IOU\ge 0.5$. Compared with SIFT and Alexnet</li>
+<li>Summary<ul>
+<li>Optimum patch size (or layer in CNNs): SIFT is based on normalized finite differences, and thus very robust to blurred edges caused by interpolation. In contrast, for the networks, especially for their lower layers, there is an optimal patch size. They argue that features from higher layers have access to larger receptive fields and, thus, can again benefit from larger patch sizes.</li>
+<li>A loss function that focuses on the invariance properties (rather than class-specific features) required for descriptor matching yields better results.</li>
+<li>Features obtained with the unsupervised training procedure outperform the features from AlexNet on both datasets</li>
+</ul>
+</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<li>Pretty good on tasks: object classification , descriptor matching </li>
+<li>emphasizes the value of data augmentation in general and suggests the use of more diverse transformations.</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-05-23-notes-UNet.html" class="archive-article-date">
-  	<time datetime="2019-05-23T21:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-05-23-notes-UNet.html">UNet proposed by Olaf Ronneberger etc.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,7 +334,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -227,269 +347,74 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-05-23-notes-statistics-classification.html" class="archive-article-date">
-  	<time datetime="2019-05-23T19:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/posts/notes/2021-01-08-notes-paper-cv-context.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Paper--Unsupervised Visual Representation Learning by Context Prediction
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/feelings/2020-03-06-霍乱时期的爱情.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">霍乱时期的爱情</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-05-23-notes-statistics-classification.html">Some ideas of statistics.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Classification"><span class="toc-number">4.1.</span> <span class="toc-text">Classification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Descriptor-matching"><span class="toc-number">4.2.</span> <span class="toc-text">Descriptor matching</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-05-19-notes-faster rcnn.html" class="archive-article-date">
-  	<time datetime="2019-05-19T15:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-05-19-notes-faster rcnn.html">Faster RCNN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html" class="archive-article-date">
-  	<time datetime="2019-04-26T22:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html">Positioning Data of FY4 AGRI.</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Sensor</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-04-26-Cornell-notes-tex-templates.html" class="archive-article-date">
-  	<time datetime="2019-04-26T22:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-04-26-Cornell-notes-tex-templates.html">A Tex Template of Cornell Notes</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/notes/2019-04-26-notes-GCN-SemiClassification.html" class="archive-article-date">
-  	<time datetime="2019-04-26T22:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/notes/2019-04-26-notes-GCN-SemiClassification.html">Understand and debug the codes of GCN proposed by Thomas N. Kipf</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/notes/">&laquo; Prev</a><a class="page-number" href="/tags/notes/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -509,6 +434,27 @@
   </div>
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 </footer>
 
     </div>
@@ -516,9 +462,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
