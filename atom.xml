@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-09T21:02:46.064Z</updated>
+  <updated>2021-01-09T21:45:54.356Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Paper--Revisiting Self-Supervised Visual Representation Learning</title>
+    <link href="http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html"/>
+    <id>http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html</id>
+    <published>2021-01-09T21:21:00.000Z</published>
+    <updated>2021-01-09T21:45:54.356Z</updated>
+    
+    <content type="html"><![CDATA[<p>Paper <a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Kolesnikov_Revisiting_Self-Supervised_Visual_Representation_Learning_CVPR_2019_paper.pdf" target="_blank" rel="noopener">Revisiting Self-Supervised Visual Representation Learning</a></p><a id="more"></a><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul><li><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3></li><li><p>Observations</p><ul><li>Expensive labeled data for supervised task</li></ul></li><li>Limitations:<ul><li></li><li>Previous works mostly concentrate on pretext task, but didn’t pay much attention to the choice of backbones etc.</li></ul></li></ul><h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p><strong>An optimal CNN architecture for pretext task</strong></p><h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul><li><h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3></li></ul><h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul><li></li></ul><h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul><li></li><li><p><strong>Why does it works?</strong></p><ul><li></li></ul></li></ul><h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p><div class="table-container"><table><thead><tr><th>Datasets</th><th style="text-align:center">Resizing</th><th>Preprocess</th></tr></thead><tbody><tr><td>ImageNet</td><td style="text-align:center">$150K\sim450K$ total pixels</td><td>1. sample patches at resolution $96\times 96$<br>2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td></tr></tbody></table></div><h3 id="Ability-on-semantic"><a href="#Ability-on-semantic" class="headerlink" title="Ability on semantic"></a>Ability on semantic</h3><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul><li>standard recipes for CNN design do not always translate to self-supervised representation learning</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Paper &lt;a href=&quot;https://openaccess.thecvf.com/content_CVPR_2019/papers/Kolesnikov_Revisiting_Self-Supervised_Visual_Representation_Learning_CVPR_2019_paper.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Revisiting Self-Supervised Visual Representation Learning&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+  </entry>
   
   <entry>
     <title>Paper--Unsupervised Representation Learning by Predicting Image Rotations</title>
