@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Unsupervised Representation Learning by Predicting Image Rotations | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Paper Unsupervised Representation Learning by Predicting Image Rotations Codes here">
-<meta name="keywords" content="notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Unsupervised Representation Learning by Predicting Image Rotations">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-08-notes-paper-rotation-SSL.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="Paper Unsupervised Representation Learning by Predicting Image Rotations Codes here">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109123815.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154626.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154831.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154953.png">
-<meta property="og:updated_time" content="2021-01-09T21:02:46.064Z">
+<meta property="article:published_time" content="2021-01-09T04:11:12.000Z">
+<meta property="article:modified_time" content="2021-01-09T21:02:46.064Z">
+<meta property="article:author" content="Mia Feng">
+<meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Paper--Unsupervised Representation Learning by Predicting Image Rotations">
-<meta name="twitter:description" content="Paper Unsupervised Representation Learning by Predicting Image Rotations Codes here">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
@@ -38,13 +38,13 @@
     #container.show {
       background: #4d4d4d;
     }
-  </style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </style>
   
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -57,10 +57,8 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Mia Feng</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">Je marche lentement, mais je ne recule jamais.</p>
 		
 
 		<nav class="header-menu">
@@ -119,10 +117,8 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Mia Feng</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Je marche lentement, mais je ne recule jamais.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -175,7 +171,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-notes-paper-rotation-SSL" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-notes-paper-rotation-SSL" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -195,8 +191,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a href="https://arxiv.org/pdf/1803.07728.pdf" target="_blank" rel="noopener">Unsupervised Representation Learning by Predicting Image Rotations</a></p>
-<p>Codes <a href="https://github.com/gidariss/FeatureLearningRotNet" target="_blank" rel="noopener">here</a></p>
+        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1803.07728.pdf">Unsupervised Representation Learning by Predicting Image Rotations</a></p>
+<p>Codes <a target="_blank" rel="noopener" href="https://github.com/gidariss/FeatureLearningRotNet">here</a></p>
 <a id="more"></a>
 <h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><p>How to get <strong>a high-level image semantic representation using unlabeled data</strong>  </p>
 <ul>
@@ -218,13 +214,13 @@
 </ul>
 <h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul>
 <li><p>2D image Rotation</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png" alt="image-20210109124726420" style="zoom:40%;"></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png" alt="image-20210109124726420" style="zoom:40%;" /></p>
 <p>| Operations |             Implementation              |<br>| ————— | :——————————————————-: |<br>| +90        |     transpose then flip vertically      |<br>| +180       | flip  vertically then flip horizontally |<br>| +270       |     flip vertically then transpose      |</p>
 </li>
 </ul>
 <h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul>
 <li><p>Loss function:</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109123815.png" alt="image-20210109123815880" style="zoom:45%;">, where $F(\cdot)$ is the predicted probability of the geometric transformation with label $y$ and $\theta$ are the learnable parameters of model $F(\cdot)$, and $g(X_i|y)$ is the transformed image with transformation $y$.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109123815.png" alt="image-20210109123815880" style="zoom:45%;" />, where $F(\cdot)$ is the predicted probability of the geometric transformation with label $y$ and $\theta$ are the learnable parameters of model $F(\cdot)$, and $g(X_i|y)$ is the transformed image with transformation $y$.</p>
 </li>
 <li><p><strong>Why does it works?</strong></p>
 <ul>
@@ -275,13 +271,13 @@
 <li><p>Summary:</p>
 <ul>
 <li><p>ImageNet classification task: surpasses all the other unsupervised methods by a significant margin, narrows the performance gap between unsupervised features and supervised features. </p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154626.png" alt="image-20210109154626599" style="zoom:50%;"></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154626.png" alt="image-20210109154626599" style="zoom:50%;" /></p>
 </li>
 <li><p>Transfer learning evaluation on PASCAL VOC: fine tuning, used weight rescaling proposed by Krahenbuhl et al.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154831.png" alt="image-20210109154831162" style="zoom:60%;"></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154831.png" alt="image-20210109154831162" style="zoom:60%;" /></p>
 </li>
 <li><p>Places classification task: the learnt features are evaluated w.r.t. their generalization on classes that were “unseen” during the unsupervised training phase</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154953.png" alt="image-20210109154952935" style="zoom:50%;"></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154953.png" alt="image-20210109154952935" style="zoom:50%;" /></p>
 </li>
 </ul>
 </li>
@@ -528,10 +524,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -540,15 +532,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,14 +576,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
@@ -596,19 +588,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,13 +610,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -754,7 +750,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 </div>
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+  MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -766,7 +762,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   });
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+<script type="text/javascript" src="{{ src }}">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

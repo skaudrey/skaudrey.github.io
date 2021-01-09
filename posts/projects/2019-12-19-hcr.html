@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HCR--Compress and Resonstruct Hyperspectral Data. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are">
-<meta name="keywords" content="cnn,compress,infrared,hyperspectral">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HCR--Compress and Resonstruct Hyperspectral Data.">
 <meta property="og:url" content="http://yoursite.com/posts/projects/2019-12-19-hcr.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-10T12:45:26.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-12-19T11:46:44.333Z">
+<meta property="article:modified_time" content="2018-12-10T12:45:26.000Z">
+<meta property="article:author" content="Mia Feng">
+<meta property="article:tag" content="cnn">
+<meta property="article:tag" content="compress">
+<meta property="article:tag" content="infrared">
+<meta property="article:tag" content="hyperspectral">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HCR--Compress and Resonstruct Hyperspectral Data.">
-<meta name="twitter:description" content="This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -32,13 +35,13 @@
     #container.show {
       background: #4d4d4d;
     }
-  </style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </style>
   
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -51,10 +54,8 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Mia Feng</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">Je marche lentement, mais je ne recule jamais.</p>
 		
 
 		<nav class="header-menu">
@@ -113,10 +114,8 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Mia Feng</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Je marche lentement, mais je ne recule jamais.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -169,7 +168,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hcr" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-hcr" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -192,7 +191,7 @@
         <p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
 <p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
 <p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p>
-<p>Codes are available <a href="https://github.com/skaudrey/hyp" target="_blank" rel="noopener">here</a>.</p>
+<p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/hyp">here</a>.</p>
 
       
 
@@ -248,7 +247,7 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2019-12-19-hexo+killy+github pages=blog.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/notes/2019-12-19-hexo+killy+github%20pages=blog.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -421,10 +420,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -433,15 +428,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,14 +472,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
@@ -489,19 +484,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,13 +506,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -647,7 +646,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 </div>
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+  MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -659,7 +658,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   });
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+<script type="text/javascript" src="{{ src }}">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
