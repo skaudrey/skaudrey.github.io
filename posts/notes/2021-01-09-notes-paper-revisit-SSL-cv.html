@@ -187,69 +187,54 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Kolesnikov_Revisiting_Self-Supervised_Visual_Representation_Learning_CVPR_2019_paper.pdf">Revisiting Self-Supervised Visual Representation Learning</a></p>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
-<ul>
-<li></li>
-</ul>
-<h3 id="summary">Summary</h3>
-<ul>
-<li>Observations
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
+<li><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3></li>
+<li><p>Observations</p>
 <ul>
 <li>Expensive labeled data for supervised task</li>
-</ul></li>
-<li>Limitations:
-<ul>
-<li></li>
-<li>Previous works mostly concentrate on pretext task, but didn't pay much attention to the choice of backbones etc.</li>
-</ul></li>
 </ul>
-<h2 id="goals">Goals</h2>
-<p><strong>An optimal CNN architecture for pretext task</strong></p>
-<h2 id="how">How?</h2>
-<h3 id="idea">Idea</h3>
-<ul>
+</li>
+<li>Limitations:<ul>
 <li></li>
+<li>Previous works mostly concentrate on pretext task, but didn’t pay much attention to the choice of backbones etc.</li>
 </ul>
-<h3 id="implementation">Implementation</h3>
-<h4 id="data-preparation">Data preparation</h4>
-<ul>
+</li>
+</ul>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p><strong>An optimal CNN architecture for pretext task</strong></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
+<li><h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3></li>
+</ul>
+<h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul>
 <li></li>
 </ul>
-<h4 id="learning-algorithm">Learning algorithm</h4>
-<ul>
+<h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul>
 <li></li>
 <li><p><strong>Why does it works?</strong></p>
 <ul>
 <li></li>
-</ul></li>
 </ul>
-<h2 id="experiments">Experiments</h2>
-<p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
+</li>
+</ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 28%" />
-<col style="width: 63%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Datasets</th>
-<th style="text-align: center;">Resizing</th>
+<th style="text-align:center">Resizing</th>
 <th>Preprocess</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>ImageNet</td>
-<td style="text-align: center;"><span class="math inline">\(150K\sim450K\)</span> total pixels</td>
-<td>1. sample patches at resolution <span class="math inline">\(96\times 96\)</span><br />2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td>
+<td style="text-align:center">$150K\sim450K$ total pixels</td>
+<td>1. sample patches at resolution $96\times 96$<br />2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="ability-on-semantic">Ability on semantic</h3>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
+</div>
+<h3 id="Ability-on-semantic"><a href="#Ability-on-semantic" class="headerlink" title="Ability on semantic"></a>Ability on semantic</h3><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
 <li>standard recipes for CNN design do not always translate to self-supervised representation learning</li>
 </ul>
 
@@ -324,7 +309,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -501,7 +486,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +494,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
