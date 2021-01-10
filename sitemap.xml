@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html</loc>
+    
+    <lastmod>2021-01-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2021-01-08-notes-paper-rotation-SSL.html</loc>
     
     <lastmod>2021-01-10</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://yoursite.com/posts/notes/2021-01-08-notes-paper-cv-context.html</loc>
-    
-    <lastmod>2021-01-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html</loc>
     
     <lastmod>2021-01-09</lastmod>
     
@@ -375,6 +375,27 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/tags/hyperspectral/</loc>
+    <lastmod>2021-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/compression/</loc>
+    <lastmod>2021-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/reconstruction/</loc>
+    <lastmod>2021-01-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/cnn/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
@@ -396,7 +417,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/hyperspectral/</loc>
+    <loc>http://yoursite.com/tags/logistic/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -417,21 +438,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/compression/</loc>
+    <loc>http://yoursite.com/tags/ML/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/reconstruction/</loc>
-    <lastmod>2021-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/logistic/</loc>
+    <loc>http://yoursite.com/tags/naive/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -446,20 +460,6 @@
   
   <url>
     <loc>http://yoursite.com/tags/tendency/</loc>
-    <lastmod>2021-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/ML/</loc>
-    <lastmod>2021-01-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/naive/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
