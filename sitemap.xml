@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/notes/2021-01-08-notes-paper-rotation-SSL.html</loc>
+    
+    <lastmod>2021-01-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2021-01-06-notes-paper-examplarcnn.html</loc>
     
     <lastmod>2021-01-09</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html</loc>
-    
-    <lastmod>2021-01-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2021-01-08-notes-paper-rotation-SSL.html</loc>
     
     <lastmod>2021-01-09</lastmod>
     
@@ -326,7 +326,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/remote-sensing-images/</loc>
+    <loc>http://yoursite.com/tags/data-assimilation/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -340,7 +340,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/data-assimilation/</loc>
+    <loc>http://yoursite.com/tags/remote-sensing-images/</loc>
     <lastmod>2021-01-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
