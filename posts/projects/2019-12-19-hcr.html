@@ -21,9 +21,9 @@
 <meta property="article:modified_time" content="2018-12-10T12:45:26.000Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="hyperspectral">
+<meta property="article:tag" content="infrared">
 <meta property="article:tag" content="cnn">
 <meta property="article:tag" content="compress">
-<meta property="article:tag" content="infrared">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
@@ -192,7 +192,7 @@
       
         <p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
 <p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
-<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p>
+<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels' weights for likewise data are similar.</p>
 <p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/hyp">here</a>.</p>
 
       
@@ -211,15 +211,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cnn</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">compress</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
         		</li>
       		
 		</ul>
@@ -427,6 +427,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
@@ -443,14 +451,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
@@ -460,14 +460,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,22 +475,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -507,11 +483,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +512,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,7 +667,22 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>

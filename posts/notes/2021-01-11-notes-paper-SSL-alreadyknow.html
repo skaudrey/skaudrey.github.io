@@ -8,16 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: machine learning | Mia&#39;s Blog</title>
+  <title>Paper--Predicting What You Already Know Helps, Provable Self-Supervised Learning | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Graduate from Wuhan University in 2012, and do my PhD in UdeM since 2020.Currently I have done some researched relates to space-temporal data based on machine learning, including series interpolation,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mia&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/machine-learning/index.html">
+  <meta name="description" content="Paper Predicting What You Already Know Helps: Provable Self-Supervised Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paper--Predicting What You Already Know Helps, Provable Self-Supervised Learning">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Graduate from Wuhan University in 2012, and do my PhD in UdeM since 2020.Currently I have done some researched relates to space-temporal data based on machine learning, including series interpolation,">
+<meta property="og:description" content="Paper Predicting What You Already Know Helps: Provable Self-Supervised Learning">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-01-11T20:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-11T21:44:40.656Z">
 <meta property="article:author" content="Mia Feng">
+<meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
@@ -164,181 +167,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-notes-paper-SSL-alreadyknow" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Paper--Predicting What You Already Know Helps, Provable Self-Supervised Learning
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html" class="archive-article-date">
+  	<time datetime="2021-01-11T20:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.01064.pdf">Predicting What You Already Know Helps: Provable Self-Supervised Learning</a></p>
+<a id="more"></a>
+<h2 id="why">Why?</h2>
+<h3 id="previous-work">Previous work</h3>
+<ul>
+<li><p>Pretext tasks</p>
+<ul>
+<li><strong>Reconstruct images from corrupted versions or just part it</strong>: including denoising auto-encoders, image inpainting, and split-brain autoencoder</li>
+<li><strong>Using visual common sense</strong>, including predicting rotation angle, relative patch position, recovering color channels, solving jigsaw puzzle games, and discriminating images created from distortion.</li>
+<li><strong>Contrastive learning</strong>: learn representations that <strong>bring similar data points closer</strong> while pushing randomly selected points further away or <strong>maximize a contrastive-based mutual information lower bound</strong> between different views</li>
+<li><strong>Create auxiliary tasks</strong>: The natural ordering or topology of data is also exploited in video-based, graph-based or map-based self-supervised learning. For instance, the pretext task is to determine the correct temporal order for video frames.</li>
+</ul></li>
+<li><p>Theory for self-supervised learning: contrastive learning</p>
+<ul>
+<li>Contrastive learning may not work when conditional independence holds only with additional latent variables</li>
+<li></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Theory</th>
+<th style="text-align: left;">Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption</td>
+<td style="text-align: left;">Not handle approximate conditional independence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text</td>
+<td style="text-align: left;">The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations</td>
+<td style="text-align: left;">No connection made to downstream tasks</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A mutual information maximization view of contrastive learning</td>
+<td style="text-align: left;">Some issues point by paper [45]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Explain negative sampling based methods use the theory of noise contrastive estimation</td>
+<td style="text-align: left;"><strong>guarantees are only asymptotic and not for downstream tasks.</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training</td>
+<td style="text-align: left;">not for downstream task</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Observations
+<ul>
+<li>Forming the pretext tasks:
+<ul>
+<li>Colorization: can be interpreted as <span class="math inline">\(p(X_1,X_2|Y)=p(X_1|Y)\times p(X_2|Y)\)</span>, aka <span class="math inline">\(X_1,X_2\)</span> are independently conditioned on <span class="math inline">\(Y\)</span></li>
+<li>Inpainting: <span class="math inline">\(p(X_1,X_2|Y,Z)=p(X_1|Y,Z)\times p(X_2|Y,Z)\)</span>,aka the inpainted <span class="math inline">\(X_2\)</span> is conditionally independent of <span class="math inline">\(X_2\)</span> (the remainder) given <span class="math inline">\(Y,Z\)</span>.</li>
+</ul></li>
+<li>The only way to solve the pretext task is to first implicitly predict <span class="math inline">\(Y\)</span> and then predict <span class="math inline">\(X_2\)</span> from <span class="math inline">\(Y\)</span></li>
+</ul></li>
+<li>Limitations:
+<ul>
+<li>The underlying principles of self-supervised learning are still mysterious since it is a-priori unclear why predicting what we already know should help.</li>
+</ul></li>
+</ul>
+<h2 id="goals">Goals</h2>
+<p><strong><em>What conceptual connection between pretext and downstream tasks ensures good representations?</em></strong></p>
+<p><strong><em>What is a good way to quantify this?</em></strong></p>
+<h2 id="how">How?</h2>
+<h3 id="idea">Idea</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="data-preparation">Data Preparation</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li></li>
+</ul>
+<h2 id="experiments">Experiments</h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>This paper posits a mechanism based on conditional independence to formalize how solving certain pretext tasks can learn representations that provably decreases the sample complexity of downstream supervised tasks</li>
+<li>Quantify how approximate independence between the components of the pretext task (conditional on the label and latent variables) <strong>allows us to learn representations that can solve the downstream task with drastically reduced sample complexity</strong> by just training a linear layer on top of the learned representation.</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/talks/2019-12-19-notes-fourier-GCN.html" class="archive-article-date">
-  	<time datetime="2019-12-19T11:46:44.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/talks/2019-12-19-notes-fourier-GCN.html">Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data assimilation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/talks/2019-12-19-gan+rs+talk.html" class="archive-article-date">
-  	<time datetime="2019-12-19T11:46:44.306Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Paper--Colorful Image Colorization</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/talks/2019-12-19-gan+rs+talk.html">Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">remote sensing images</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/talks/2019-12-19-da+talk.html" class="archive-article-date">
-  	<time datetime="2019-12-19T11:46:44.289Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/talks/2019-12-19-da+talk.html">Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data assimilation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -357,6 +394,27 @@
   </div>
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 </footer>
 
     </div>
@@ -364,9 +422,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

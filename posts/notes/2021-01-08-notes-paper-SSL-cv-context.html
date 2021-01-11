@@ -8,25 +8,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Paper--Revisiting Self-Supervised Visual Representation Learning | Mia&#39;s Blog</title>
+  <title>Paper--Unsupervised Visual Representation Learning by Context Prediction | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Revisiting Self-Supervised Visual Representation Learning Code here">
+  <meta name="description" content="Paper Unsupervised Visual Representation Learning by Context Prediction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Paper--Revisiting Self-Supervised Visual Representation Learning">
-<meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html">
+<meta property="og:title" content="Paper--Unsupervised Visual Representation Learning by Context Prediction">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-08-notes-paper-SSL-cv-context.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Revisiting Self-Supervised Visual Representation Learning Code here">
+<meta property="og:description" content="Paper Unsupervised Visual Representation Learning by Context Prediction">
 <meta property="og:locale">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110133429.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110151545.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155158.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155830.png">
-<meta property="article:published_time" content="2021-01-09T21:21:00.000Z">
-<meta property="article:modified_time" content="2021-01-10T21:34:16.683Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png">
+<meta property="article:published_time" content="2021-01-08T21:22:12.000Z">
+<meta property="article:modified_time" content="2021-01-09T22:32:57.434Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110133429.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -172,142 +170,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-notes-paper-revisit-SSL-cv" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-notes-paper-SSL-cv-context" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Paper--Revisiting Self-Supervised Visual Representation Learning
+      Paper--Unsupervised Visual Representation Learning by Context Prediction
     </h1>
   
 
         
-        <a href="/posts/notes/2021-01-09-notes-paper-revisit-SSL-cv.html" class="archive-article-date">
-  	<time datetime="2021-01-09T21:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-09</time>
+        <a href="/posts/notes/2021-01-08-notes-paper-SSL-cv-context.html" class="archive-article-date">
+  	<time datetime="2021-01-08T21:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Kolesnikov_Revisiting_Self-Supervised_Visual_Representation_Learning_CVPR_2019_paper.pdf">Revisiting Self-Supervised Visual Representation Learning</a></p>
-<p>Code <a target="_blank" rel="noopener" href="https://github.com/google/revisiting-self-supervised">here</a></p>
+        <p>Paper <a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Doersch_Unsupervised_Visual_Representation_ICCV_2015_paper.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></p>
 <a id="more"></a>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
-<li>robotics: the result of interacting with the world, and the fact that multiple perception modalities simultaneously get sensory inputs are strong signals for pretext</li>
-<li>videos: the synchronized cross-modality stream of audio, video, and potentially subtitles, or of the consistency in the temporal dimension</li>
-<li>image  datasets: <ul>
-<li>Patch-based methods: E.g.: predicting the relative location of image patches; “jigsaw puzzle”</li>
-<li>Image-level classification tasks: <ul>
-<li>RotNet, create class labels by clustering images, image inpaiting, image colorization, split-brain and motion segmentation prediction; </li>
-<li>Enforce structural constraints on the representation space: an equivariance relation to match the sum of multiple tiled representations to a single scaled representation;  predict future patches in via autoregressive predictive coding</li>
-<li>Combining multiple pretext task: E.g. extend the “jigsaw puzzle” task by combining it with colorization and inpainting; Combining the jigsaw puzzle task with clustering-based pseudo labels ( Jigsaw++) ;  make one single neural network learn all of four different SSL methdos in a multi-task setting; combined the selfsupervised loss GANs objective</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Observations<ul>
-<li>Expensive labeled data for supervised task</li>
-</ul>
-</li>
-<li>Limitations:<ul>
-<li>Previous works mostly concentrate on pretext task, but didn’t pay much attention to the choice of backbones etc.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p><strong>An optimal CNN architecture for pretext task</strong>,  investigating the influence of architecture design on the representation quality.</p>
-<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
-<li>a comparison of different self-supervision methods using a unified neural network architecture, but with the goal of combining all these tasks into a single self-supervision task</li>
-</ul>
-<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Family-of-CNNs"><a href="#Family-of-CNNs" class="headerlink" title="Family of CNNs"></a>Family of CNNs</h4><ul>
-<li><p>variants of ResNet:</p>
+<h2 id="why">Why?</h2>
+<h3 id="previous-work">Previous work</h3>
+<p>How to get <strong>a good image representation</strong></p>
 <ul>
-<li><strong>ResNet50</strong>, the output before task-specific logits layer is named as $pre-logits$. explore $k \in {4, 8, 12, 16}$, resulting in pre-logits of size $2048, 4096, 6144$ and $8192$ respectively. $k$ is the widening factor.</li>
-<li><strong>ResNet v1</strong>: ???batch normalization (BN) right after each convolution and before activation???</li>
-<li><strong>ResNet v2</strong>: ?</li>
-<li><strong>ResNet (-)</strong>: without ReLU preceding the global average pooling</li>
+<li>The latent variables of an appropriate generative model. --&gt; generative models
+<ul>
+<li>But given an image, inferring the latent structure is <strong>intractable</strong> for even relatively simple models --&gt; to fix, use <strong>sampling</strong> to perform approximate inference.</li>
+</ul></li>
+<li>An embedding that can discriminate the semantics in images by distances of them. -- create a supervised "pretext" task. But hard to tell whether the predictions themselves are correct.
+<ul>
+<li>Reconstruction-based: E.g., denoising autoencoders (reconstruction ), sparse autoencoders (reconstruction + sparsity penalty )</li>
+<li>Context prediction: "skip-gram" to "filling the blank" task, and convert the prediction task to discriminate task like discriminating between real images vs. images where one patch has been replaced by a random patch from elsewhere in the dataset. But not hard enough for high-level representations</li>
+<li>Discover object categories using hand-crafted features and various forms of clustering. But they will lose shape information. To keep more shape information, some take contour extraction or defining similarity metrics.</li>
+<li>Video-based: since the identity of objects remains unchanged -</li>
+</ul></li>
 </ul>
-</li>
-<li><p>a batch-normalized <strong>VGG</strong> architecture since VGG is structurally close to AlexNet. BN between CNN and activation, VGG19.</p>
-</li>
-<li><p><strong>RevNets</strong>: stronger invertibility guarantees so as to compare with ResNets. The residual unit used here is equivalent to double application of the residual unit.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110133429.png" alt="image-20210110133429332" style="zoom:50%;" />, check <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2017/file/f9be311e65d81a9ad8150a60844bb94c-Paper.pdf">here</a> for details. Apart from this slightly complex residual unit, others are the same as ResNet.</p>
-</li>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Observations
+<ul>
+<li>the difficulties for generalizing CNNs models on Internet -scale datasets</li>
+<li>context has proven to be a powerful source of automatic supervisory signal for learning representations --&gt; context can be regarded as a 'pretext' task to force the model to learn a good word embedding</li>
+<li>current reconstruction-based algorithms struggle with low-level phenomena, like stochastic textures, making it hard to even measure whether a model is generating well.</li>
+</ul></li>
+<li>Limitations:
+<ul>
+<li>generative models are rather efficiently on smaller datasets but burden on high-resolution natural images</li>
+<li>Some are too simple for extracting high-level representations</li>
+<li>Hard to tell whether the model has obtained good representations.</li>
+</ul></li>
 </ul>
-<h4 id="Family-of-pretext-tasks"><a href="#Family-of-pretext-tasks" class="headerlink" title="Family of pretext tasks"></a>Family of pretext tasks</h4><ul>
-<li><strong>Rotation</strong>: same as RotNet, ${0^{\circ}, 90^{\circ}, 180^{\circ}, 270^{\circ}}$</li>
-<li><strong>Exemplar</strong>: triplet loss</li>
-<li><strong>Jigsaw</strong>: recover relative spatial position of 9 randomly sampled image patches after a random permutation of these patches was performed. Patches are sampled with a random gap between them. Each patch is then independently converted to grayscale with probability $\frac{2}{3}$ and normalized to zero mean and unit standard deviation. Extract final image representations by averaging representations of 9 cropped patches.</li>
-<li><strong>Relative patch location</strong>: predicting the relative location of two given patches of an image. Extract final image representations by averaging representations of 9 cropped patches.</li>
+<h2 id="goals">Goals</h2>
+<p>Provide a "self-supervised" formulation for image data, a supervised task involving predicting the context for a patch.</p>
+<h2 id="how">How?</h2>
+<h3 id="idea">Idea</h3>
+<ul>
+<li>Hypothesis: Doing well on predicting patches' positions requires understanding scenes and objects--&gt; a good visual representation</li>
+<li>Concretely, sample random pairs of patches in one of eight spatial configurations, and present each pair to a machine learner. The algorithm must then guess the position of one patch relative to the other.</li>
 </ul>
-<h4 id="Evaluation-of-the-quality-of-learned-representations"><a href="#Evaluation-of-the-quality-of-learned-representations" class="headerlink" title="Evaluation of the quality of learned representations"></a>Evaluation of the quality of learned representations</h4><ul>
-<li>Idea: <strong>Using learned representations for training a linear logistic regression model to solve multiclass image classification tasks</strong> (downstream tasks). All representations come from pre-logits level. </li>
-<li>Details: the linear logistic regression model is trained by L-BFGS. But for comparison, using SGD with momentum and use data augmentation during training.</li>
+<h3 id="implementation">Implementation</h3>
+<h4 id="data-preparation">Data preparation</h4>
+<ul>
+<li><p>Two patches are fed into network</p></li>
+<li><p>Given an image, one patch will be sampled uniformly, then according to the position of this sampled patch, then 2nd patch will be sampled randomly from the eight possible neighboring locations.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png" alt="image-20210108181757911" style="zoom:33%;" /></p></li>
+<li><p>including a gap between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</p></li>
+<li><p>For some images ( chromatic aberration), after solving the relative location task (like by detecting the separation between green and magenta (red + blue). ), this problem will be relaxed.</p>
+<ul>
+<li>Shift green and magenta toward gray</li>
+<li>Color dropping : randomly drop 2 of the 3 color channels from each patch and replace them by gaussian noise.</li>
+</ul></li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
-<li>Datasets</li>
+<h4 id="learning-algorithm">Learning algorithm</h4>
+<ul>
+<li><p>Siamese network based on AlexNet. But not all layers share weights, LRN (local response normalization ) layers won't.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png" alt="image-20210108183110662" style="zoom:33%;" /></p></li>
+<li><p><strong>Why does it works?</strong></p>
+<ul>
+<li>Avoid 'trivial' shortcuts (like boundary patterns or textures continuing between patches)--&gt; including a gap (up to 48 pixels) between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</li>
+<li>Enhancing performance on images with chromatic aberration.</li>
+</ul></li>
 </ul>
-<div class="table-container">
+<h2 id="experiments">Experiments</h2>
+<p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
 <table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 28%" />
+<col style="width: 63%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Datasets</th>
-<th style="text-align:center">Train</th>
-<th>Test</th>
+<th style="text-align: center;">Resizing</th>
+<th>Preprocess</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>ImageNet</td>
-<td style="text-align:center">training set</td>
-<td>Most on validation set, only Table 2 on official test set</td>
-</tr>
-<tr>
-<td>Places 205</td>
-<td style="text-align:center"></td>
+<td style="text-align: center;"><span class="math inline">\(150K\sim450K\)</span> total pixels</td>
+<td>1. sample patches at resolution <span class="math inline">\(96\times 96\)</span><br />2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Ability-on-semantic"><a href="#Ability-on-semantic" class="headerlink" title="Ability on semantic"></a>Ability on semantic</h3><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><h3 id="Pretext-CNNs-Downstream"><a href="#Pretext-CNNs-Downstream" class="headerlink" title="Pretext? CNNs? Downstream?"></a>Pretext? CNNs? Downstream?</h3><ul>
-<li><p>Pretext and its preferred CNN architecture: <strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110151545.png" alt="image-20210110151545316" style="zoom:30%;" /></p>
-</li>
-<li><p>The generalization of representations from pretext tasks: each pretext task can be generalized to other dataset. Check the trendings in figure 2.</p>
-</li>
-<li><p>Optimal CNNs for Pretext and downstream tasks: not consistent. But after selecting the right architecture for each self-supervision and increasing the widening factor, models significantly outperform previously reported results.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155158.png" alt="image-20210110155157874" style="zoom:45%;" /></p>
-</li>
-<li><p><strong>Better performance on the pretext task does not always translate to better representations</strong>: Performance on pretext cannot be used to reliably select the model architecture.</p>
-</li>
+<h3 id="ability-on-semantic">Ability on semantic</h3>
+<p>Does it get similar representations for patches with similar semantics?</p>
+<ul>
+<li><p>check nearest neighbors by normalized correlation of <span class="math inline">\(fc6\)</span>'s output. Compared with results from random initialized model and ImageNet AlexNet.</p></li>
+<li><p>Summary</p>
+<ul>
+<li>in a few cases, random (untrained) ConvNet also does reasonably well</li>
+<li>the representations from proposed model often capture the semantic information</li>
+</ul></li>
 </ul>
-<h3 id="CNNs-architecture"><a href="#CNNs-architecture" class="headerlink" title="CNNs architecture"></a>CNNs architecture</h3><ul>
-<li>Skip-connection: For VGG, representations deteriorate towards the end of the network cause models specialize to the pretext task in the later layers. ResNet prevent this deterioration. They argue that this is because <strong>ResNet’s residual units being invertible under some conditions</strong> and confirm this by RevNet.</li>
-<li>Depth of CNNs: For residual architectures, the pre-logits are always best.</li>
-<li>Model-width and representation size: <ul>
-<li>whether the increase in performance is due to increased network capacity or to the use of higher-dimensional representations, or to the interplay of both? To answer it, authors disentangle the network width from the representation size by adding an additional linear layer to control the size of the pre-logits layer. </li>
-<li><strong>Model-width and representation size both matter independently, and larger is always better.</strong></li>
-<li>SSL techniques are likely to <strong>benefit from using CNNs with increased number of channels</strong> across wide range of scenarios, even under low-data regime.</li>
+<h3 id="learnability-of-chromatic-aberration">Learnability of Chromatic Aberration</h3>
+<ul>
+<li>Patches displayed similar aberration tend to be predicted at the same location.</li>
+<li>The effect of color projection operation is canceled for this kind of images.</li>
 </ul>
-</li>
+<h3 id="object-detection">Object detection</h3>
+<ul>
+<li>Dataset : VOC 2007</li>
+<li>Train: fine-tune the pretrained model (model is slight different with the previous one considering the image size in VOC) on VOC 2007.</li>
+<li>Test: output from <span class="math inline">\(fc7\)</span> is taken.</li>
+<li>Summary
+<ul>
+<li>Pre-trained model outperforms the one trained from scratch</li>
+<li>Obtained the best result on VOC 2007 without using labels</li>
+<li>Robustness of the representations for one object in different datasets: acceptable</li>
+</ul></li>
 </ul>
-<h3 id="Evaluate-the-quality-of-representations"><a href="#Evaluate-the-quality-of-representations" class="headerlink" title="Evaluate the quality of representations"></a>Evaluate the quality of representations</h3><ul>
-<li><p><strong>A linear model is adequate</strong>:  MLP provides only marginal improvement over the linear evaluation and the relative performance of various settings is mostly unchanged</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155830.png" alt="image-20210110155829820" style="zoom:50%;" /></p>
-</li>
-<li><p>To train <strong>linear model, SGD optimization hyperparameters:</strong>  very long training (≈ 500 epochs) results in higher accuracy</p>
-</li>
+<h3 id="visual-data-mining">Visual data mining</h3>
+<ul>
+<li>Task : aims to use a large image collection to discover image fragments which happen to depict the same semantic objects</li>
+<li>Specification for this task: sample a constellation of four adjacent patches from an image, after finding the top 100 images which have the strongest matches for all four patches, then use a type of geometric verification to filter away the images where the four matches are not geometrically consistent. Finally, rank the different constellations by counting the number of times the top 100 matches geometrically verify.</li>
+<li>To define the geometric verification: first compute the best-fitting square <span class="math inline">\(S\)</span> to the patch centers (via least-squares), while constraining that side of <span class="math inline">\(S\)</span> be between 2/3 and 4/3 of the average side of the patches. Then compute the squared error of the patch centers relative to <span class="math inline">\(S\)</span> (normalized by dividing the sum-of-squared-errors by the square of the side of <span class="math inline">\(S\)</span>). The patch is geometrically verified if this normalized squared error is less than 1.</li>
+<li>Test: VOC 2011, Street View images from Paris</li>
+<li>Summary
+<ul>
+<li>The discovery of birds and torsos is good</li>
+<li>The gains in terms of coverage, suggesting increased invariance for learned features</li>
+<li>The pretext task is difficult: for a large fraction of patches within each image, the task is almost impossible</li>
+<li>Limitations: some loss of purity, and cannot currently determine an object mask automatically (although one could imagine dynamically adding more sub-patches to each proposed object).</li>
+</ul></li>
 </ul>
-<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
-<li>Most affect performance in the fully labeled setting, may significantly affect performance in the selfsupervised setting.</li>
-<li>the quality of learned representations in CNN architectures with skip-connections does not degrade towards the end of the model.</li>
-<li>Increasing the number of filters in a CNN model and, consequently, the size of the representation significantly and consistently increases the quality of the learned visual representations</li>
-<li>The evaluation procedure, where a linear model is trained on a fixed visual representation using stochastic gradient descent, is sensitive to the learning rate schedule and may take many epochs to converge</li>
-<li><strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong>—&gt;<strong>pretext tasks for self-supervised learning</strong> should not <strong>be considered</strong> in isolation, but <strong>in conjunction with underlying architectures</strong>.</li>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>instance-level supervision appears to improve performance on category-level tasks</li>
+<li>The proposed model is sensitive to objects and the layout of the rest of the image</li>
 </ul>
 
       
@@ -352,9 +366,18 @@
   
 <nav id="article-nav">
   
+    <a href="/posts/notes/2021-01-08-notes-paper-SSL-rotation.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Paper--Unsupervised Representation Learning by Predicting Image Rotations
+        
+      </div>
+    </a>
   
-    <a href="/posts/notes/2021-01-08-notes-paper-rotation-SSL.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Paper--Unsupervised Representation Learning by Predicting Image Rotations</div>
+  
+    <a href="/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +404,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Family-of-CNNs"><span class="toc-number">3.2.1.</span> <span class="toc-text">Family of CNNs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Family-of-pretext-tasks"><span class="toc-number">3.2.2.</span> <span class="toc-text">Family of pretext tasks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Evaluation-of-the-quality-of-learned-representations"><span class="toc-number">3.2.3.</span> <span class="toc-text">Evaluation of the quality of learned representations</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pretext-CNNs-Downstream"><span class="toc-number">5.1.</span> <span class="toc-text">Pretext? CNNs? Downstream?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CNNs-architecture"><span class="toc-number">5.2.</span> <span class="toc-text">CNNs architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evaluate-the-quality-of-representations"><span class="toc-number">5.3.</span> <span class="toc-text">Evaluate the quality of representations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-1"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#learnability-of-chromatic-aberration"><span class="toc-number">4.2.</span> <span class="toc-text">Learnability of Chromatic Aberration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object-detection"><span class="toc-number">4.3.</span> <span class="toc-text">Object detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#visual-data-mining"><span class="toc-number">4.4.</span> <span class="toc-text">Visual data mining</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -542,6 +565,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
@@ -558,14 +589,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
@@ -575,14 +598,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,22 +613,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -622,11 +621,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,6 +650,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,7 +805,22 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>
