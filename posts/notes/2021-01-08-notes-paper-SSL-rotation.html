@@ -197,35 +197,70 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1803.07728.pdf">Unsupervised Representation Learning by Predicting Image Rotations</a></p>
 <p>Codes <a target="_blank" rel="noopener" href="https://github.com/gidariss/FeatureLearningRotNet">here</a></p>
 <a id="more"></a>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><p>How to get <strong>a high-level image semantic representation using unlabeled data</strong>  </p>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
+<p>How to get <strong>a high-level image semantic representation using unlabeled data</strong></p>
 <ul>
-<li>SSL:  defines an annotation free pretext task, has been proved as good alternatives for transferring on other vision tasks. E.g.: colorize gray scale images, predict the relative position of image patches, predict the egomotion (i.e., self-motion) of a moving vehicle between two consecutive frames. </li>
+<li>SSL:  defines an annotation free pretext task, has been proved as good alternatives for transferring on other vision tasks. E.g.: colorize gray scale images, predict the relative position of image patches, predict the egomotion (i.e., self-motion) of a moving vehicle between two consecutive frames.</li>
 </ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Observations<ul>
+<h3 id="Summary">Summary</h3>
+<ul>
+<li>Observations
+<ul>
 <li><strong>the attention maps are equivariant w.r.t. the image rotations, check appendix A.</strong></li>
 </ul>
 </li>
-<li>Limitations<ul>
+<li>Limitations
+<ul>
 <li>supervised feature learning has the main limitation of requiring intensive manual labeling effort</li>
 </ul>
 </li>
 </ul>
-<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>Provide a “self-supervised” formulation for image data, a <strong>self defined supervised task involving predicting the transformations used for image.</strong> The model won’t have access to the initial image.</p>
-<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
+<h2 id="Goals">Goals</h2>
+<p>Provide a “self-supervised” formulation for image data, a <strong>self defined supervised task involving predicting the transformations used for image.</strong> The model won’t have access to the initial image.</p>
+<h2 id="How">How?</h2>
+<h3 id="Idea">Idea</h3>
+<ul>
 <li>Concretely, define the geometric transformations as the image rotations by 0, 90, 180, and 270 degrees. Thus, the ConvNet model is trained on the 4-way image classification task of recognizing one of the four image rotations.</li>
 </ul>
-<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul>
-<li><p>2D image Rotation</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png" alt="image-20210109124726420" style="zoom:40%;" /></p>
-<p>| Operations |             Implementation              |<br>| ————— | :——————————————————-: |<br>| +90        |     transpose then flip vertically      |<br>| +180       | flip  vertically then flip horizontally |<br>| +270       |     flip vertically then transpose      |</p>
+<h3 id="Implementation">Implementation</h3>
+<h4 id="Data-preparation">Data preparation</h4>
+<ul>
+<li>
+<p>2D image Rotation</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109124726.png" alt="image-20210109124726420" style="zoom:40%;" />
+<table>
+<thead>
+<tr>
+<th>Operations</th>
+<th style="text-align:center">Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+90</td>
+<td style="text-align:center">transpose then flip vertically</td>
+</tr>
+<tr>
+<td>+180</td>
+<td style="text-align:center">flip  vertically then flip horizontally</td>
+</tr>
+<tr>
+<td>+270</td>
+<td style="text-align:center">flip vertically then transpose</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
-<h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul>
-<li><p>Loss function:</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109123815.png" alt="image-20210109123815880" style="zoom:45%;" />, where <script type="math/tex">F(\cdot)</script> is the predicted probability of the geometric transformation with label $y$ and $\theta$ are the learnable parameters of model <script type="math/tex">F(\cdot)</script>, and $g(X_i|y)$ is the transformed image with transformation $y$.</p>
+<h4 id="Learning-algorithm">Learning algorithm</h4>
+<ul>
+<li>
+<p>Loss function:</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109123815.png" alt="image-20210109123815880" style="zoom:45%;" />, where $$F(\cdot)$$ is the predicted probability of the geometric transformation with label $y$ and $\theta$ are the learnable parameters of model $$F(\cdot)$$, and $g(X_i|y)$ is the transformed image with transformation $y$.</p>
 </li>
-<li><p><strong>Why does it works?</strong></p>
+<li>
+<p><strong>Why does it works?</strong></p>
 <ul>
 <li>To work for this pretext task, extractor has to  <strong>understand the concept of the objects depicted in the image</strong>. Models must learn to localize salient objects in the image, recognize their orientation and object type, and then relate the object orientation with the dominant orientation that each type of object tends to be depicted within the available images.</li>
 <li>Easy to be implemented by flipping and transpose, no chance for importing low-level visual artifacts so as to avoid trivial features (which have no practical value)</li>
@@ -233,10 +268,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="CIFAR-object-recognition"><a href="#CIFAR-object-recognition" class="headerlink" title="CIFAR: object recognition"></a>CIFAR: object recognition</h3><ul>
+<h2 id="Experiments">Experiments</h2>
+<h3 id="CIFAR-object-recognition">CIFAR: object recognition</h3>
+<ul>
 <li>Dataset:</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -251,10 +287,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>Training:  SGD with batch size 128, momentum 0.9, weight decay $5e−4$ and $lr$ of 0.1. We drop the learning rates by a factor of 5 after epochs 30, 60, and 80. 100 epochs. Each time feeding with all 4 images.</li>
-<li>Summary<ul>
+<li>Summary
+<ul>
 <li><em>The learned feature hierarchies</em>: convnet with different number of layers. <strong>Representations from the 2nd block</strong> are good, and <strong>increasing the total depth</strong> of the RotNet models leads to increased object recognition performance by the feature maps generated by earlier layers.</li>
 <li><em>The quality of the learned features w.r.t. the number of recognized rotations</em>: 4 discrete rotations outperform.</li>
 <li><em>Compared with previous work</em> : almost the same as the NIN  supervised model. Fine-tuned the unsupervised learned features further improves the classification performance.</li>
@@ -263,31 +299,61 @@
 </ul>
 </li>
 </ul>
-<h3 id="Others-classification-object-detection-segmentation"><a href="#Others-classification-object-detection-segmentation" class="headerlink" title="Others: classification, object detection , segmentation"></a>Others: classification, object detection , segmentation</h3><ul>
-<li><p>Dataset: ImageNet, Places, and PASCAL VOC.</p>
-<p>| Task                | Datasets                                                     |<br>| —————————- | —————————————————————————————— |<br>| Classification      | Pretrained on ImageNet, then test on ImageNet, Places, and PASCAL VOC. |<br>| Object detection    | PASCAL VOC                                                   |<br>| Object segmentation | PASCAL VOC                                                   |</p>
-</li>
-<li><p>Backbones: AlexNet without local response normalization units, dropout units, or groups in the  colvolutional layers while it includes batch normalization units after each linear layer</p>
-</li>
-<li><p>Pretrained: on ImageNet, SGD with batch size 192, momentum 0.9, weight decay $5e − 4$ and $lr$ of 0.01. Learning rates are dropped by a factor of 10 after epochs 10, and 20 epochs. Trained in total for 30 epochs.</p>
-</li>
-<li><p>Summary:</p>
+<h3 id="Others-classification-object-detection-segmentation">Others: classification, object detection , segmentation</h3>
 <ul>
-<li><p>ImageNet classification task: surpasses all the other unsupervised methods by a significant margin, narrows the performance gap between unsupervised features and supervised features. </p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154626.png" alt="image-20210109154626599" style="zoom:50%;" /></p>
+<li>
+<p>Dataset: ImageNet, Places, and PASCAL VOC.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Datasets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classification</td>
+<td>Pretrained on ImageNet, then test on ImageNet, Places, and PASCAL VOC.</td>
+</tr>
+<tr>
+<td>Object detection</td>
+<td>PASCAL VOC</td>
+</tr>
+<tr>
+<td>Object segmentation</td>
+<td>PASCAL VOC</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li><p>Transfer learning evaluation on PASCAL VOC: fine tuning, used weight rescaling proposed by Krahenbuhl et al.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154831.png" alt="image-20210109154831162" style="zoom:60%;" /></p>
+<li>
+<p>Backbones: AlexNet without local response normalization units, dropout units, or groups in the  colvolutional layers while it includes batch normalization units after each linear layer</p>
 </li>
-<li><p>Places classification task: the learnt features are evaluated w.r.t. their generalization on classes that were “unseen” during the unsupervised training phase</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154953.png" alt="image-20210109154952935" style="zoom:50%;" /></p>
+<li>
+<p>Pretrained: on ImageNet, SGD with batch size 192, momentum 0.9, weight decay $5e − 4$ and $lr$ of 0.01. Learning rates are dropped by a factor of 10 after epochs 10, and 20 epochs. Trained in total for 30 epochs.</p>
+</li>
+<li>
+<p>Summary:</p>
+<ul>
+<li>
+<p>ImageNet classification task: surpasses all the other unsupervised methods by a significant margin, narrows the performance gap between unsupervised features and supervised features.</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154626.png" alt="image-20210109154626599" style="zoom:50%;" />
+</li>
+<li>
+<p>Transfer learning evaluation on PASCAL VOC: fine tuning, used weight rescaling proposed by Krahenbuhl et al.</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154831.png" alt="image-20210109154831162" style="zoom:60%;" />
+</li>
+<li>
+<p>Places classification task: the learnt features are evaluated w.r.t. their generalization on classes that were “unseen” during the unsupervised training phase</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210109154953.png" alt="image-20210109154952935" style="zoom:50%;" />
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
-<li>Propose a new self-supervised task that is very simple and at the same time. </li>
-<li>Rotationsod under various settings (e.g. semi-supervised or transfer learning settings) and in various vision tasks (i.e., CIFAR-10, ImageNet, Places, and PASCAL classification, detection, or segmentation tasks). </li>
+<h2 id="Conclusion">Conclusion</h2>
+<ul>
+<li>Propose a new self-supervised task that is very simple and at the same time.</li>
+<li>Rotationsod under various settings (e.g. semi-supervised or transfer learning settings) and in various vision tasks (i.e., CIFAR-10, ImageNet, Places, and PASCAL classification, detection, or segmentation tasks).</li>
 <li>They argue this self-supervised formulation demonstrates state-of-the-art results with dramatic improvements w.r.t. prior unsupervised approaches, and narrows the gap between unsupervised and supervised feature learning.</li>
 </ul>
 
@@ -532,14 +598,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -549,6 +607,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">feelings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,18 +666,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -620,7 +674,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,15 +706,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,22 +862,7 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>

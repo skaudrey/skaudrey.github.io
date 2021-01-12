@@ -193,13 +193,17 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Doersch_Unsupervised_Visual_Representation_ICCV_2015_paper.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></p>
 <a id="more"></a>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><p>How to get <strong>a good image representation</strong> </p>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
+<p>How to get <strong>a good image representation</strong></p>
 <ul>
-<li>The latent variables of an appropriate generative model.  —&gt; generative models<ul>
-<li>But given an image, inferring the latent structure is <strong>intractable</strong> for even relatively simple models —&gt; to fix, use <strong>sampling</strong> to perform approximate inference.</li>
+<li>The latent variables of an appropriate generative model.  --&gt; generative models
+<ul>
+<li>But given an image, inferring the latent structure is <strong>intractable</strong> for even relatively simple models --&gt; to fix, use <strong>sampling</strong> to perform approximate inference.</li>
 </ul>
 </li>
-<li>An embedding that can discriminate the semantics in images by distances of them. — create a supervised “pretext” task. But hard to tell whether the predictions themselves are correct. <ul>
+<li>An embedding that can discriminate the semantics in images by distances of them. – create a supervised “pretext” task. But hard to tell whether the predictions themselves are correct.
+<ul>
 <li>Reconstruction-based:  E.g., denoising autoencoders (reconstruction ), sparse autoencoders (reconstruction + sparsity penalty )</li>
 <li>Context prediction: “skip-gram” to “filling the blank” task, and convert the prediction task to discriminate task like discriminating between real images vs. images where one patch has been replaced by a random patch from elsewhere in the dataset. But not hard enough for high-level representations</li>
 <li>Discover object categories using hand-crafted features and various forms of clustering. But they will lose shape information. To keep more shape information, some take contour extraction or defining similarity metrics.</li>
@@ -207,53 +211,68 @@
 </ul>
 </li>
 </ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Observations<ul>
+<h3 id="Summary">Summary</h3>
+<ul>
+<li>Observations
+<ul>
 <li>the difficulties for generalizing CNNs models on Internet -scale datasets</li>
-<li>context has proven to be a powerful source of automatic supervisory signal for learning representations —&gt; context can be regarded as a ‘pretext’ task to force the model to learn a good word embedding </li>
+<li>context has proven to be a powerful source of automatic supervisory signal for learning representations --&gt; context can be regarded as a ‘pretext’ task to force the model to learn a good word embedding</li>
 <li>current reconstruction-based algorithms struggle with low-level phenomena, like stochastic textures, making it hard to even measure whether a model is generating well.</li>
 </ul>
 </li>
-<li>Limitations:<ul>
+<li>Limitations:
+<ul>
 <li>generative models are rather efficiently on smaller datasets but burden on high-resolution  natural images</li>
-<li>Some are too simple for extracting high-level representations </li>
+<li>Some are too simple for extracting high-level representations</li>
 <li>Hard to tell whether the model has obtained good representations.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>Provide a “self-supervised” formulation for image data, a supervised task involving predicting the context for a patch. </p>
-<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
-<li>Hypothesis: Doing well on predicting patches’ positions requires understanding scenes and objects—&gt; a good visual representation</li>
+<h2 id="Goals">Goals</h2>
+<p>Provide a “self-supervised” formulation for image data, a supervised task involving predicting the context for a patch.</p>
+<h2 id="How">How?</h2>
+<h3 id="Idea">Idea</h3>
+<ul>
+<li>Hypothesis: Doing well on predicting patches’ positions requires understanding scenes and objects–&gt; a good visual representation</li>
 <li>Concretely, sample random pairs of patches in one of eight spatial configurations, and present each pair to a machine learner. The algorithm must then guess the position of one patch relative to the other.</li>
 </ul>
-<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h4><ul>
-<li><p>Two patches are fed into network</p>
-</li>
-<li><p>Given an image, one patch will be sampled uniformly, then according to the position of this sampled patch, then 2nd patch will be sampled randomly from the eight possible neighboring locations.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png" alt="image-20210108181757911" style="zoom:33%;" /></p>
-</li>
-<li><p>including a gap between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels </p>
-</li>
-<li><p>For some images ( chromatic aberration), after solving the relative location task (like by detecting the separation between green and magenta (red + blue). ), this problem will be relaxed. </p>
+<h3 id="Implementation">Implementation</h3>
+<h4 id="Data-preparation">Data preparation</h4>
 <ul>
-<li>Shift green and magenta toward gray </li>
+<li>
+<p>Two patches are fed into network</p>
+</li>
+<li>
+<p>Given an image, one patch will be sampled uniformly, then according to the position of this sampled patch, then 2nd patch will be sampled randomly from the eight possible neighboring locations.</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png" alt="image-20210108181757911" style="zoom:33%;" />
+</li>
+<li>
+<p>including a gap between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</p>
+</li>
+<li>
+<p>For some images ( chromatic aberration), after solving the relative location task (like by detecting the separation between green and magenta (red + blue). ), this problem will be relaxed.</p>
+<ul>
+<li>Shift green and magenta toward gray</li>
 <li>Color dropping : randomly drop 2 of the 3 color channels from each patch and replace them by gaussian noise.</li>
 </ul>
 </li>
 </ul>
-<h4 id="Learning-algorithm"><a href="#Learning-algorithm" class="headerlink" title="Learning algorithm"></a>Learning algorithm</h4><ul>
-<li><p>Siamese network based on AlexNet. But not all layers share weights, LRN (local response normalization ) layers won’t.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png" alt="image-20210108183110662" style="zoom:33%;" /></p>
-</li>
-<li><p><strong>Why does it works?</strong></p>
+<h4 id="Learning-algorithm">Learning algorithm</h4>
 <ul>
-<li>Avoid ‘trivial’ shortcuts (like boundary patterns or textures continuing between patches)—&gt; including a gap (up to 48 pixels) between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels </li>
+<li>
+<p>Siamese network based on AlexNet. But not all layers share weights, LRN (local response normalization ) layers won’t.</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png" alt="image-20210108183110662" style="zoom:33%;" />
+</li>
+<li>
+<p><strong>Why does it works?</strong></p>
+<ul>
+<li>Avoid ‘trivial’ shortcuts (like boundary patterns or textures continuing between patches)–&gt; including a gap (up to 48 pixels) between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</li>
 <li>Enhancing performance on images with  chromatic aberration.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
-<div class="table-container">
+<h2 id="Experiments">Experiments</h2>
+<p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
 <table>
 <thead>
 <tr>
@@ -270,39 +289,46 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Ability-on-semantic"><a href="#Ability-on-semantic" class="headerlink" title="Ability on semantic"></a>Ability on semantic</h3><p>Does it get similar representations for patches with similar semantics?</p>
+<h3 id="Ability-on-semantic">Ability on semantic</h3>
+<p>Does it get similar representations for patches with similar semantics?</p>
 <ul>
-<li><p>check nearest neighbors by normalized correlation of $fc6$’s output. Compared with results from  random initialized model and ImageNet AlexNet.</p>
+<li>
+<p>check nearest neighbors by normalized correlation of $fc6$'s output. Compared with results from  random initialized model and ImageNet AlexNet.</p>
 </li>
-<li><p>Summary</p>
+<li>
+<p>Summary</p>
 <ul>
 <li>in a few cases, random (untrained) ConvNet also does reasonably well</li>
 <li>the representations from proposed model often capture the semantic information</li>
 </ul>
 </li>
 </ul>
-<h3 id="Learnability-of-Chromatic-Aberration"><a href="#Learnability-of-Chromatic-Aberration" class="headerlink" title="Learnability of Chromatic Aberration"></a>Learnability of Chromatic Aberration</h3><ul>
+<h3 id="Learnability-of-Chromatic-Aberration">Learnability of Chromatic Aberration</h3>
+<ul>
 <li>Patches displayed similar aberration tend to be predicted at the same location.</li>
 <li>The effect of  color projection operation is canceled for this kind of images.</li>
 </ul>
-<h3 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h3><ul>
+<h3 id="Object-detection">Object detection</h3>
+<ul>
 <li>Dataset : VOC 2007</li>
 <li>Train: fine-tune the pretrained model (model is slight different with the previous one considering the image size in VOC) on VOC 2007.</li>
 <li>Test: output from $fc7$ is taken.</li>
-<li>Summary<ul>
-<li>Pre-trained model outperforms the one trained from scratch </li>
-<li>Obtained the best result on VOC 2007 without using labels </li>
+<li>Summary
+<ul>
+<li>Pre-trained model outperforms the one trained from scratch</li>
+<li>Obtained the best result on VOC 2007 without using labels</li>
 <li>Robustness of the representations for one object in different datasets: acceptable</li>
 </ul>
 </li>
 </ul>
-<h3 id="Visual-data-mining"><a href="#Visual-data-mining" class="headerlink" title="Visual data mining"></a>Visual data mining</h3><ul>
+<h3 id="Visual-data-mining">Visual data mining</h3>
+<ul>
 <li>Task : aims to use a large image collection to discover image fragments which happen to depict the same semantic objects</li>
 <li>Specification for this task: sample a constellation of four adjacent patches from an image, after finding the top 100 images which have the strongest matches for all four patches, then use a type of geometric verification to filter away the images where the four matches are not geometrically consistent. Finally, rank the different constellations by counting the number of times the top 100 matches geometrically verify.</li>
 <li>To define the geometric verification: first compute the best-fitting square $S$ to the patch centers (via least-squares), while constraining that side of $S$ be between 2/3 and 4/3 of the average side of the patches. Then compute the squared error of the patch centers relative to $S$ (normalized by dividing the sum-of-squared-errors by the square of the side of $S$). The patch is geometrically verified if this normalized squared error is less than 1.</li>
 <li>Test: VOC 2011, Street View images from Paris</li>
-<li>Summary<ul>
+<li>Summary
+<ul>
 <li>The discovery of birds and torsos is good</li>
 <li>The gains in terms of coverage, suggesting increased invariance for learned features</li>
 <li>The pretext task is difficult:  for a large fraction of patches within each image, the task is almost impossible</li>
@@ -310,9 +336,10 @@
 </ul>
 </li>
 </ul>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<h2 id="Conclusion">Conclusion</h2>
+<ul>
 <li>instance-level supervision appears to improve performance on category-level tasks</li>
-<li>The proposed model is sensitive to objects and the layout of the rest of the image </li>
+<li>The proposed model is sensitive to objects and the layout of the rest of the image</li>
 </ul>
 
       
@@ -556,14 +583,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -573,6 +592,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">feelings</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,18 +651,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -644,7 +659,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,15 +691,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,22 +847,7 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({{ JSON.stringify(config) }});
 </script>
