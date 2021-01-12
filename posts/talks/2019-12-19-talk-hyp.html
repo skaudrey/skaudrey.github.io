@@ -8,26 +8,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>rl-intro | Mia&#39;s Blog</title>
+  <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This post is built to list an introduction of reinforce learning, mainly based on the slides given by David Silver.">
+  <meta name="description" content="Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rl-intro">
-<meta property="og:url" content="http://yoursite.com/posts/notes/2019-05-26-rl-intro.html">
+<meta property="og:title" content="The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.">
+<meta property="og:url" content="http://yoursite.com/posts/talks/2019-12-19-talk-hyp.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="This post is built to list an introduction of reinforce learning, mainly based on the slides given by David Silver.">
+<meta property="og:description" content="Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in s">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLML.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLCapacity.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/RLEA.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/policyitr.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/RLIntro/valueitr.png">
-<meta property="article:published_time" content="2019-05-26T17:02:18.000Z">
-<meta property="article:modified_time" content="2021-01-09T22:31:46.251Z">
+<meta property="article:published_time" content="2019-12-19T11:46:44.346Z">
+<meta property="article:modified_time" content="2018-12-10T08:01:04.000Z">
 <meta property="article:author" content="Mia Feng">
-<meta property="article:tag" content="notes">
+<meta property="article:tag" content="hyperspectral">
+<meta property="article:tag" content="compression">
+<meta property="article:tag" content="reconstruction">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/assets/img/RLIntro/RLML.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -173,107 +169,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-rl-intro" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-talk-hyp" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      rl-intro
+      The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.
     </h1>
   
 
         
-        <a href="/posts/notes/2019-05-26-rl-intro.html" class="archive-article-date">
-  	<time datetime="2019-05-26T17:02:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+        <a href="/posts/talks/2019-12-19-talk-hyp.html" class="archive-article-date">
+  	<time datetime="2019-12-19T11:46:44.346Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        This post is built to list an introduction of reinforce learning, mainly based on the slides given by David Silver. <a id="more"></a> ## Why RL? ### The difference between supervised learning and RL * task directed from fixed data sets vs goal directed learning from interaction * characteristics: * RL * trial-and-error search * delayed reward * ML * generalization methods: regularization, data augmentation * real-time loss * methods: * RL * exploit: get reward * exploration: make better action selection in the future. * ML * discriminative and generative: parameterized and semi-parameterized * supervised and unsupervised: depends on whether have labeled data
-<center>
-<img src="/assets/img/RLIntro/RLML.png" width=400">
-</center>
-<h3 id="the-capacity-of-rl">The capacity of RL</h3>
+        <p>Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:</p>
 <ul>
-<li>sequential decision maker facing unknown or known environment</li>
-<li>works for non i.i.d. data</li>
+<li>high spectral correlation,</li>
+<li>high spatial correlation,</li>
+<li>and sparsity,</li>
 </ul>
-<center>
-<img src="/assets/img/RLIntro/RLCapacity.png" width=300">
-</center>
-<h2 id="whats-rl">What's RL?</h2>
-<h3 id="the-agent-environment-interaction">The agent-environment interaction</h3>
-<center>
-<img src="/assets/img/RLIntro/RLEA.png" width=300">
-</center>
-<ul>
-<li>At each step t the agent:
-<ul>
-<li>Executes action at</li>
-<li>Transform to state St</li>
-<li>Receives scalar reward rt</li>
-</ul></li>
-<li>The environment:
-<ul>
-<li>Receives action at</li>
-<li>Transform to state St</li>
-<li>Emits scalar reward rt+1</li>
-</ul></li>
-<li>t increments at env. step</li>
-</ul>
-<h3 id="the-elements-of-rl">The elements of RL</h3>
-<ul>
-<li><p>Policy: agent's behaviour function, mostly is a PDF mapping state to action</p>
-<ul>
-<li><p>Deterministic policy</p>
-<p><span>$$a = \pi\left(S\right)$$</span><!-- Has MathJax --></p></li>
-<li><p>Stochastic policy</p>
-<p><span>$$\pi\left(a|S\right)=\mathbb{P}\left(A_t=a|S_t=s\right)$$</span><!-- Has MathJax --></p></li>
-</ul></li>
-<li><p>Value function: how good is each state and/or action, the scalar value is also named reward.</p>
-<p><span>$$v_{\pi}\left(s\right)=\mathbb{E}\left(R_{t+1}+\gamma R_{t+1}+{\gamma}^2 R_{t+2}+\cdots|S_t=s\right)$$</span><!-- Has MathJax --></p>
-<p>Mostly, to make algorithm converge, a final state will be rewarded 0, and other non-final states are rewarded as a minus value.</p></li>
-<li><p>Model: agent's representation of the environment, they can be modeled by TKinter, gym etc.</p>
-<ul>
-<li><p>e.g.: models in assimilation, maze</p>
-<p><span>$$\mathcal{P}_{ss&apos;}^{a}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s,A_t=a\right)\\
-\mathcal{R}_{s}^{a}=\mathbb{E}\left(R_{t+1}=s&apos;|S_t=s,A_t=a\right)$$</span><!-- Has MathJax --></p></li>
-<li><p>unknown environment can be stimulated by sampling ### Classification of RL #### What you want</p></li>
-<li><p>Value Based: No Policy (Implicit), Value Function</p></li>
-<li><p>Policy Based: Policy, No Value Function</p></li>
-<li><p>Actor Critic: Policy, Value Function #### What you knew</p></li>
-<li><p>Model-free: Policy and/or Value Function, No Model</p></li>
-<li><p>Model-based: Policy and/or Value Function, Model</p></li>
-</ul></li>
-</ul>
-<h2 id="how-to-rl">How to RL?</h2>
-<h3 id="markov-process----to-simplify">Markov process -- to simplify</h3>
-<h4 id="markov-process">Markov Process</h4>
-<span>$$\mathbb{P}\left(S_{t+1}\right)=\mathbb{P}\left(S_{t+1}|S_1,\cdots,S_t\right)\\
-\mathcal{P}_{ss&apos;}=\mathbb{P}\left(S_{t+1}=s&apos;|S_t=s\right)$$</span><!-- Has MathJax -->
-<h4 id="markov-rewarded-process">Markov Rewarded Process</h4>
-<span>$\langle S,\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
-<p>solve the reward from state at time t to the final state, which can be also solved by adding immediate reward and discounted value of successor state.</p>
-<span>$v\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)=\mathbb{E}\left(R_{t+1}+\gamma v\left(S_{t+1}|S_t=s\right)\right)$</span><!-- Has MathJax -->
-<h4 id="markov-decision-process">Markov Decision Process</h4>
-<span>$\langle S,\mathcal{A},\mathcal{P},\mathcal{R},\gamma\rangle$</span><!-- Has MathJax -->
-<p>Sequential decision making. * state-value function <span>$v_{\pi}\left(s\right)=\mathbb{E}\left(G_t|S_t=s\right)$</span><!-- Has MathJax --></p>
-<ul>
-<li>action-value function <span>$q_{\pi}\left(s,a\right)=\mathbb{E}_{\pi}\left(G_t|S_t=s,A_t=a\right)$</span><!-- Has MathJax --></li>
-</ul>
-<h3 id="valuepolicy">Value？Policy？</h3>
-<h4 id="policy-iteration">Policy Iteration</h4>
-<center>
-<img src="/assets/img/RLIntro/policyitr.png" width=300">
-</center>
-<h4 id="value-iteration">Value Iteration</h4>
-<center>
-<img src="/assets/img/RLIntro/valueitr.png" width=300">
-</center>
+<p>and they casue a trouble during processing. <a id="more"></a> This talk explained why they are highly correlated but also sparse. Kernel PCA for compressing was also tested.</p>
+<p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slides</a> for more details.</p>
 
       
 
@@ -287,7 +210,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compression</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">reconstruction</a>
         		</li>
       		
 		</ul>
@@ -299,7 +230,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
         		</li>
       		
 		</ul>
@@ -317,18 +248,18 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/uncategorized/2019-06-13-about.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/projects/2019-12-19-lr.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          About
+          Clouds detection of infrared hyperspectral data based on logistic.
         
       </div>
     </a>
   
   
-    <a href="/posts/notes/2019-05-24-gnn.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gnn</div>
+    <a href="/posts/notes/2019-12-19-hexo+killy+github%20pages=blog.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Build up personal blog</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,19 +278,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#the-capacity-of-rl"><span class="toc-number">1.</span> <span class="toc-text">The capacity of RL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whats-rl"><span class="toc-number"></span> <span class="toc-text">What&#39;s RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#the-agent-environment-interaction"><span class="toc-number">1.</span> <span class="toc-text">The agent-environment interaction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-elements-of-rl"><span class="toc-number">2.</span> <span class="toc-text">The elements of RL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-rl"><span class="toc-number"></span> <span class="toc-text">How to RL?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#markov-process----to-simplify"><span class="toc-number">1.</span> <span class="toc-text">Markov process -- to simplify</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#markov-process"><span class="toc-number">1.1.</span> <span class="toc-text">Markov Process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#markov-rewarded-process"><span class="toc-number">1.2.</span> <span class="toc-text">Markov Rewarded Process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#markov-decision-process"><span class="toc-number">1.3.</span> <span class="toc-text">Markov Decision Process</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#valuepolicy"><span class="toc-number">2.</span> <span class="toc-text">Value？Policy？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#policy-iteration"><span class="toc-number">2.1.</span> <span class="toc-text">Policy Iteration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value-iteration"><span class="toc-number">2.2.</span> <span class="toc-text">Value Iteration</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -392,27 +310,6 @@
     </div>
   </div>
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
 </footer>
 
@@ -516,10 +413,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -532,23 +425,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,23 +457,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,23 +485,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,11 +501,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSLs</a>
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,20 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Understand and debug the codes of GCN proposed by Thomas N. Kipf | Mia&#39;s Blog</title>
+  <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
+  <meta name="description" content="This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the projects&#39; introduction and github for more details. Slides a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Understand and debug the codes of GCN proposed by Thomas N. Kipf">
-<meta property="og:url" content="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html">
+<meta property="og:title" content="Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.">
+<meta property="og:url" content="http://yoursite.com/posts/talks/2019-12-19-talk-gpr.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS.">
+<meta property="og:description" content="This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the projects&#39; introduction and github for more details. Slides a">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-04-26T22:21:35.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:34:09.102Z">
+<meta property="article:published_time" content="2019-12-19T11:46:44.316Z">
+<meta property="article:modified_time" content="2018-12-10T02:45:56.000Z">
 <meta property="article:author" content="Mia Feng">
-<meta property="article:tag" content="paper">
-<meta property="article:tag" content="gcn">
+<meta property="article:tag" content="GPR">
+<meta property="article:tag" content="interpolation">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
@@ -168,48 +168,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-notes-GCN-SemiClassification" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-talk-gpr" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Understand and debug the codes of GCN proposed by Thomas N. Kipf
+      Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.
     </h1>
   
 
         
-        <a href="/posts/notes/2019-04-26-notes-GCN-SemiClassification.html" class="archive-article-date">
-  	<time datetime="2019-04-26T22:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
+        <a href="/posts/talks/2019-12-19-talk-gpr.html" class="archive-article-date">
+  	<time datetime="2019-12-19T11:46:44.316Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1609.02907.pdf">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p>
-<a id="more"></a>
-<h2 id="big-question-semi-supervised-classification-of-graph-data">Big Question: semi-supervised classification of graph data</h2>
-<ul>
-<li>reason
-<ul>
-<li>computation effective: semi-supervision</li>
-<li>the complex of graphs, the information of nodes and edges are not structural information.</li>
-</ul></li>
-<li>background
-<ul>
-<li>the improvement of GCNs: spectral GCNs</li>
-</ul></li>
-</ul>
-<h2 id="key-points">Key points</h2>
-<h3 id="the-approximation-of-spectral-graph-convolution">The approximation of spectral graph convolution</h3>
-<p>The lines in paper had confused me at first before I ran the codes.</p>
-<p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
-<p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
-<p>After those approximation, it is input into the whole network with features.</p>
-<h3 id="build-model">Build model</h3>
-<p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do. <span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$</span><!-- Has MathJax --></p>
+        <p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html">projects' introduction</a> and <a target="_blank" rel="noopener" href="https://github.com/skaudrey/gpml/">github</a> for more details.</p>
+<p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>
 
       
 
@@ -223,11 +203,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPR</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">interpolation</a>
         		</li>
       		
 		</ul>
@@ -239,7 +219,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
         		</li>
       		
 		</ul>
@@ -257,15 +237,20 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2019-04-26-Cornell-notes-tex-templates.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/projects/2019-12-19-gpr.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          A Tex Template of Cornell Notes
+          Weather processes interpolation based on GPR
         
       </div>
     </a>
   
+  
+    <a href="/posts/talks/2019-12-19-talk-gan-rs.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -282,19 +267,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question-semi-supervised-classification-of-graph-data"><span class="toc-number">1.</span> <span class="toc-text">Big Question: semi-supervised classification of graph data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#key-points"><span class="toc-number">2.</span> <span class="toc-text">Key points</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#the-approximation-of-spectral-graph-convolution"><span class="toc-number">2.1.</span> <span class="toc-text">The approximation of spectral graph convolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-model"><span class="toc-number">2.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -327,27 +299,6 @@
     </div>
   </div>
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
 </footer>
 
@@ -451,10 +402,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -467,23 +414,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,23 +446,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,23 +474,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,11 +490,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSLs</a>
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">

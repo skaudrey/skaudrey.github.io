@@ -45,7 +45,7 @@
     <link href="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html"/>
     <id>http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html</id>
     <published>2021-01-11T20:00:00.000Z</published>
-    <updated>2021-01-12T19:33:44.434Z</updated>
+    <updated>2021-01-12T19:38:37.955Z</updated>
     
     <content type="html"><![CDATA[<p>Paper <a href="https://arxiv.org/pdf/2008.01064.pdf">Predicting What You Already Know Helps: Provable Self-Supervised Learning</a></p><a id="more"></a><h2 id="why">Why?</h2><h3 id="previous-work">Previous work</h3><ul><li><p>Pretext tasks</p><ul><li><strong>Reconstruct images from corrupted versions or just part it</strong>: including denoising auto-encoders, image inpainting, and split-brain autoencoder</li><li><strong>Using visual common sense</strong>, including predicting rotation angle, relative patch position, recovering color channels, solving jigsaw puzzle games, and discriminating images created from distortion.</li><li><strong>Contrastive learning</strong>: learn representations that <strong>bring similar data points closer</strong> while pushing randomly selected points further away or <strong>maximize a contrastive-based mutual information lower bound</strong> between different views</li><li><strong>Create auxiliary tasks</strong>: The natural ordering or topology of data is also exploited in video-based, graph-based or map-based self-supervised learning. For instance, the pretext task is to determine the correct temporal order for video frames.</li></ul></li><li><p>Theory for self-supervised learning: contrastive learning</p><ul><li>Contrastive learning may not work when conditional independence holds only with additional latent variables</li></ul><table><colgroup><col style="width: 50%" /><col style="width: 50%" /></colgroup><thead><tr class="header"><th style="text-align: left;">Theory</th><th style="text-align: left;">Limitations</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption</td><td style="text-align: left;">Not handle approximate conditional independence</td></tr><tr class="even"><td style="text-align: left;">Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text</td><td style="text-align: left;">The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images</td></tr><tr class="odd"><td style="text-align: left;">Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations</td><td style="text-align: left;">No connection made to downstream tasks</td></tr><tr class="even"><td style="text-align: left;">A mutual information maximization view of contrastive learning</td><td style="text-align: left;">Some issues point by paper [45]</td></tr><tr class="odd"><td style="text-align: left;">Explain negative sampling based methods use the theory of noise contrastive estimation</td><td style="text-align: left;"><strong>guarantees are only asymptotic and not for downstream tasks.</strong></td></tr><tr class="even"><td style="text-align: left;">Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training</td><td style="text-align: left;">not for downstream task</td></tr></tbody></table></li></ul><h3 id="summary">Summary</h3><ul><li>Observations<ul><li>Forming the pretext tasks:<ul><li>Colorization: can be interpreted as <span class="math inline">\(p(X_1,X_2|Y)=p(X_1|Y)\times p(X_2|Y)\)</span>, aka <span class="math inline">\(X_1,X_2\)</span> are independently conditioned on <span class="math inline">\(Y\)</span></li><li>Inpainting: <span class="math inline">\(p(X_1,X_2|Y,Z)=p(X_1|Y,Z)\times p(X_2|Y,Z)\)</span>,aka the inpainted <span class="math inline">\(X_2\)</span> is conditionally independent of <span class="math inline">\(X_2\)</span> (the remainder) given <span class="math inline">\(Y,Z\)</span>.</li></ul></li><li>The only way to solve the pretext task is to first implicitly predict <span class="math inline">\(Y\)</span> and then predict <span class="math inline">\(X_2\)</span> from <span class="math inline">\(Y\)</span></li></ul></li><li>Limitations:<ul><li>The underlying principles of self-supervised learning are still mysterious since it is a-priori unclear why predicting what we already know should help.</li></ul></li></ul><h2 id="goals">Goals</h2><p><strong><em>What conceptual connection between pretext and downstream tasks ensures good representations?</em></strong></p><p><strong><em>What is a good way to quantify this?</em></strong></p><h2 id="how">How?</h2><h3 id="notations">Notations</h3><table><colgroup><col style="width: 24%" /><col style="width: 75%" /></colgroup><thead><tr class="header"><th style="text-align: left;">Symbol</th><th style="text-align: left;">Meaning</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;"><span class="math inline">\(\mathbb{E}^L[Y|X]\)</span></td><td style="text-align: left;">the best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span></td></tr><tr class="even"><td style="text-align: left;"><span class="math inline">\(\Sigma_{XY|Z}\)</span></td><td style="text-align: left;">partial covariance matrix between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span></td></tr><tr class="odd"><td style="text-align: left;"><span class="math inline">\(X_1,X_2\)</span></td><td style="text-align: left;">the input variable and the target random variable for the pretext tasks</td></tr><tr class="even"><td style="text-align: left;"><span class="math inline">\(Y\)</span></td><td style="text-align: left;">label for the downstream task</td></tr><tr class="odd"><td style="text-align: left;"><span class="math inline">\(P_{X_1X_2Y}\)</span></td><td style="text-align: left;">the joint distribution over <span class="math inline">\(\mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{Y}\)</span></td></tr></tbody></table><h3 id="idea">Idea</h3><ul><li>Under approximate condition independence (CI) (quantified by the norm of a certain partial covariance matrix), show similar sample complexity improvements.</li><li>Testify pretext task helps when CI is approximately satisfied in text domain.</li><li>Demonstrate on a real-world image dataset that a pretext task-based linear model outperforms or is comparable to many baselines.</li></ul><h3 id="formalize-ssl-with-pretext-task">Formalize SSL with pretext task</h3><p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" /></p><p>It will be estimated by:</p><ul><li><strong>approximation erro</strong>r:<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png" alt="image-20210111173318840" style="zoom:33%;" />, where <span class="math inline">\(f^*=\mathbb{E}[Y|X_1]\)</span> is the optimal predictor for the task</li><li><strong>estimation error</strong>: <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png" alt="image-20210111173520930" style="zoom:25%;" />, it's the difference between Predicting <span class="math inline">\(Y\)</span> directly by <span class="math inline">\(X_1\)</span> and Predicting by the representations from pretext task</li></ul><h2 id="experiments">Experiments</h2><ul><li></li></ul><h2 id="conclusion">Conclusion</h2><ul><li>This paper posits a mechanism based on conditional independence to formalize how solving certain pretext tasks can learn representations that provably decreases the sample complexity of downstream supervised tasks</li><li>Quantify how approximate independence between the components of the pretext task (conditional on the label and latent variables) <strong>allows us to learn representations that can solve the downstream task with drastically reduced sample complexity</strong> by just training a linear layer on top of the learned representation.</li></ul>]]></content>
     
@@ -60,7 +60,7 @@
     
       <category term="paper" scheme="http://yoursite.com/tags/paper/"/>
     
-      <category term="SSLs" scheme="http://yoursite.com/tags/SSLs/"/>
+      <category term="SSL" scheme="http://yoursite.com/tags/SSL/"/>
     
   </entry>
   
@@ -429,16 +429,16 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
       <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
     <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2019-12-19-mlutility+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-12-19-mlutility+talk.html</id>
+    <link href="http://yoursite.com/posts/talks/2019-12-19-talk-mlutility.html"/>
+    <id>http://yoursite.com/posts/talks/2019-12-19-talk-mlutility.html</id>
     <published>2019-12-19T11:46:44.394Z</published>
     <updated>2018-12-10T02:06:52.000Z</updated>
     
@@ -548,8 +548,8 @@
   
   <entry>
     <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2019-12-19-hyp+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-12-19-hyp+talk.html</id>
+    <link href="http://yoursite.com/posts/talks/2019-12-19-talk-hyp.html"/>
+    <id>http://yoursite.com/posts/talks/2019-12-19-talk-hyp.html</id>
     <published>2019-12-19T11:46:44.346Z</published>
     <updated>2018-12-10T08:01:04.000Z</updated>
     
@@ -684,8 +684,8 @@
   
   <entry>
     <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2019-12-19-gpr-talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-12-19-gpr-talk.html</id>
+    <link href="http://yoursite.com/posts/talks/2019-12-19-talk-gpr.html"/>
+    <id>http://yoursite.com/posts/talks/2019-12-19-talk-gpr.html</id>
     <published>2019-12-19T11:46:44.316Z</published>
     <updated>2018-12-10T02:45:56.000Z</updated>
     
@@ -711,8 +711,8 @@
   
   <entry>
     <title>Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</title>
-    <link href="http://yoursite.com/posts/talks/2019-12-19-gan+rs+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-12-19-gan+rs+talk.html</id>
+    <link href="http://yoursite.com/posts/talks/2019-12-19-talk-gan-rs.html"/>
+    <id>http://yoursite.com/posts/talks/2019-12-19-talk-gan-rs.html</id>
     <published>2019-12-19T11:46:44.306Z</published>
     <updated>2019-08-18T14:16:24.132Z</updated>
     
@@ -731,9 +731,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
-    
       <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
     
   </entry>
   
@@ -761,8 +761,8 @@
   
   <entry>
     <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
-    <link href="http://yoursite.com/posts/talks/2019-12-19-da+talk.html"/>
-    <id>http://yoursite.com/posts/talks/2019-12-19-da+talk.html</id>
+    <link href="http://yoursite.com/posts/talks/2019-12-19-talk-da.html"/>
+    <id>http://yoursite.com/posts/talks/2019-12-19-talk-da.html</id>
     <published>2019-12-19T11:46:44.289Z</published>
     <updated>2018-11-17T08:19:06.000Z</updated>
     
@@ -780,9 +780,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
       <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
@@ -908,8 +908,8 @@
   
   <entry>
     <title>rl-intro</title>
-    <link href="http://yoursite.com/posts/notes/2019-05-26-rl-intro.html"/>
-    <id>http://yoursite.com/posts/notes/2019-05-26-rl-intro.html</id>
+    <link href="http://yoursite.com/posts/notes/2019-05-26-notes-rl-intro.html"/>
+    <id>http://yoursite.com/posts/notes/2019-05-26-notes-rl-intro.html</id>
     <published>2019-05-26T17:02:18.000Z</published>
     <updated>2021-01-09T22:31:46.251Z</updated>
     
@@ -954,8 +954,8 @@
   
   <entry>
     <title>UNet proposed by Olaf Ronneberger etc.</title>
-    <link href="http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html"/>
-    <id>http://yoursite.com/posts/notes/2019-05-23-notes-UNet.html</id>
+    <link href="http://yoursite.com/posts/notes/2019-05-23-notes-paper-UNet.html"/>
+    <id>http://yoursite.com/posts/notes/2019-05-23-notes-paper-UNet.html</id>
     <published>2019-05-23T21:18:21.000Z</published>
     <updated>2021-01-12T19:33:13.151Z</updated>
     
@@ -976,8 +976,8 @@
   
   <entry>
     <title>paper--Faster RCNN</title>
-    <link href="http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html"/>
-    <id>http://yoursite.com/posts/notes/2019-05-19-notes-faster rcnn.html</id>
+    <link href="http://yoursite.com/posts/notes/2019-05-19-notes-paper-faster%20rcnn.html"/>
+    <id>http://yoursite.com/posts/notes/2019-05-19-notes-paper-faster rcnn.html</id>
     <published>2019-05-19T15:17:12.000Z</published>
     <updated>2021-01-12T19:31:54.427Z</updated>
     
@@ -1048,8 +1048,8 @@
   
   <entry>
     <title>Understand and debug the codes of GCN proposed by Thomas N. Kipf</title>
-    <link href="http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html"/>
-    <id>http://yoursite.com/posts/notes/2019-04-26-notes-GCN-SemiClassification.html</id>
+    <link href="http://yoursite.com/posts/notes/2019-04-26-notes-paper-GCN-SemiClassification.html"/>
+    <id>http://yoursite.com/posts/notes/2019-04-26-notes-paper-GCN-SemiClassification.html</id>
     <published>2019-04-26T22:21:35.000Z</published>
     <updated>2021-01-12T19:34:09.102Z</updated>
     

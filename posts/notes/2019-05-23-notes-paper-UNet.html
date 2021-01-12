@@ -8,19 +8,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>paper--Faster RCNN | Mia&#39;s Blog</title>
+  <title>UNet proposed by Olaf Ronneberger etc. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
+  <meta name="description" content="The notes of paper U-Net: Convolutional Networks for Biomedical Image Segmentation.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="paper--Faster RCNN">
-<meta property="og:url" content="http://yoursite.com/posts/notes/2019-05-19-notes-faster%20rcnn.html">
+<meta property="og:title" content="UNet proposed by Olaf Ronneberger etc.">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2019-05-23-notes-paper-UNet.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Some understanding about the details in Faster RCNN, based on the codes in tensorflow.">
+<meta property="og:description" content="The notes of paper U-Net: Convolutional Networks for Biomedical Image Segmentation.">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-05-19T15:17:12.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:31:54.427Z">
+<meta property="article:published_time" content="2019-05-23T21:18:21.000Z">
+<meta property="article:modified_time" content="2021-01-12T19:33:13.151Z">
 <meta property="article:author" content="Mia Feng">
-<meta property="article:tag" content="notes">
 <meta property="article:tag" content="paper">
 <meta name="twitter:card" content="summary">
   
@@ -168,50 +167,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-notes-faster rcnn" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-notes-paper-UNet" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      paper--Faster RCNN
+      UNet proposed by Olaf Ronneberger etc.
     </h1>
   
 
         
-        <a href="/posts/notes/2019-05-19-notes-faster%20rcnn.html" class="archive-article-date">
-  	<time datetime="2019-05-19T15:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
+        <a href="/posts/notes/2019-05-23-notes-paper-UNet.html" class="archive-article-date">
+  	<time datetime="2019-05-23T21:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p>
+        <p>The notes of paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.04597v1">U-Net: Convolutional Networks for Biomedical Image Segmentation</a>.</p>
 <a id="more"></a>
-<h2 id="big-question">Big Question</h2>
+<h2 id="big-question-classification-in-pixel-level-and-thus-image-segmentation">Big Question: classification in pixel level and thus image segmentation</h2>
 <h3 id="reason">reason</h3>
-<h3 id="background">background</h3>
-<h2 id="region-proposal-network">Region Proposal Network</h2>
-<h3 id="some-numbers">Some numbers</h3>
 <ul>
-<li>The number of anchor boxes for one anchor target <span>$k = scale \times ratios$</span><!-- Has MathJax -->,</li>
-<li>The number of anchor boxes for one feature layer (which has <span>$W \times H$</span><!-- Has MathJax --> grids), will get <span>$W \times H \times k$</span><!-- Has MathJax --> anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have <span class="math inline">\(k\)</span> anchor boxes.</li>
-<li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by <span>$k$</span><!-- Has MathJax --> regressors.</li>
-</ul>
-<h2 id="experiments">Experiments</h2>
-<h3 id="prove">prove</h3>
+<li>single label for a image is not enough to support segmentation. ### background</li>
+<li>why focus on it
 <ul>
-<li>The top-ranked RPN proposals are accurate.</li>
-<li>NMS does not harm the detection mAP and may reduce false alarms.</li>
-</ul>
-<h2 id="construct">Construct</h2>
-<h3 id="add-loss">Add loss</h3>
-<h3 id="problems-using-it-processing-typhoon-data">Problems using it processing typhoon data</h3>
+<li>biomedical images: like cells segmentation. Add: also appropriate for other entity segmentation</li>
+</ul></li>
+<li>how have been done:
 <ul>
-<li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li>
+<li>the development of deeper CNNs</li>
+<li>using CNNs segmenting electron microscopy images</li>
+</ul></li>
+<li>what have been missed:
+<ul>
+<li>computation efficiency and redundancy: slow cause every patch require a running of network; patch overlapping</li>
+<li>difficult trade-off for localization and the usage of context.</li>
+</ul></li>
 </ul>
+<h2 id="methods">Methods</h2>
+<h3 id="for-what">For what?</h3>
+<p>Cells segmentation.</p>
+<h3 id="framework-of-methods">Framework of Methods</h3>
+<p>Convolution2D + deconvolution (upsampling 2D). The output of one downsampling layer is contracted as part of the input of the corresponding symmetric upsampling layer.</p>
+<h3 id="novelty">Novelty</h3>
+<ul>
+<li>data augmentation randomly elastic deformations: shift, rotation, gray value, random elastic deformations are the most important</li>
+<li>replace pooling by upsampling.</li>
+<li>No fully connection layers.</li>
+<li>weighted the loss of touching objects (cells).</li>
+</ul>
+<h2 id="details">Details</h2>
+<h3 id="weighted-map-to-segment-overlapped-cells">weighted map to segment overlapped cells</h3>
+<p>According to the paper, they pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels.</p>
+<h3 id="data-augmentation">data augmentation</h3>
+<p>Smooth deformations using random displacements vectors on a coarse 3 by 3 grid. The displacements are sampled from a Gaussian distribution with 10 pixels standard deviation. Per-pixel displacements are then computed using bicubic interpolation.</p>
+<h2 id="abstract">Abstract</h2>
+<p>The main idea in abstract are contracted NNs and data augmentation so that the new NNs can get reasonable results by fewer images.</p>
 
       
 
@@ -224,10 +239,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
         		</li>
@@ -259,18 +270,18 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2019-05-23-notes-UNet.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/notes/2019-05-24-gnn.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UNet proposed by Olaf Ronneberger etc.
+          gnn
         
       </div>
     </a>
   
   
-    <a href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Positioning Data of FY4 AGRI.</div>
+    <a href="/posts/notes/2019-05-19-notes-paper-faster%20rcnn.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">paper--Faster RCNN</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -297,7 +308,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question"><span class="toc-number">1.</span> <span class="toc-text">Big Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#region-proposal-network"><span class="toc-number">2.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#some-numbers"><span class="toc-number">2.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">3.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">3.1.</span> <span class="toc-text">prove</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#construct"><span class="toc-number">4.</span> <span class="toc-text">Construct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add-loss"><span class="toc-number">4.1.</span> <span class="toc-text">Add loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#problems-using-it-processing-typhoon-data"><span class="toc-number">4.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question-classification-in-pixel-level-and-thus-image-segmentation"><span class="toc-number">1.</span> <span class="toc-text">Big Question: classification in pixel level and thus image segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for-what"><span class="toc-number">2.1.</span> <span class="toc-text">For what?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#framework-of-methods"><span class="toc-number">2.2.</span> <span class="toc-text">Framework of Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#novelty"><span class="toc-number">2.3.</span> <span class="toc-text">Novelty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#details"><span class="toc-number">3.</span> <span class="toc-text">Details</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weighted-map-to-segment-overlapped-cells"><span class="toc-number">3.1.</span> <span class="toc-text">weighted map to segment overlapped cells</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-augmentation"><span class="toc-number">3.2.</span> <span class="toc-text">data augmentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract"><span class="toc-number">4.</span> <span class="toc-text">Abstract</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -334,27 +345,6 @@
     </div>
   </div>
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
 </footer>
 
@@ -458,10 +448,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -474,23 +460,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,23 +492,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,23 +520,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,11 +536,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSLs</a>
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
