@@ -826,9 +826,9 @@
     </summary>
     
     
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
-    
       <category term="notes" scheme="http://yoursite.com/tags/notes/"/>
+    
+      <category term="book" scheme="http://yoursite.com/tags/book/"/>
     
   </entry>
   

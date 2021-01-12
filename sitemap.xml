@@ -305,6 +305,20 @@
 
   
   <url>
+    <loc>http://yoursite.com/tags/notes/</loc>
+    <lastmod>2021-01-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/Sensor/</loc>
+    <lastmod>2021-01-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/book/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
@@ -320,20 +334,6 @@
   
   <url>
     <loc>http://yoursite.com/tags/feelings/</loc>
-    <lastmod>2021-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/notes/</loc>
-    <lastmod>2021-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/Sensor/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,14 +424,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/data-assimilation/</loc>
-    <lastmod>2021-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/machine-learning/</loc>
+    <loc>http://yoursite.com/tags/da/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -452,14 +445,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/math/</loc>
+    <loc>http://yoursite.com/tags/data-assimilation/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/da/</loc>
+    <loc>http://yoursite.com/tags/machine-learning/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -480,6 +473,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/tags/math/</loc>
+    <lastmod>2021-01-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/SSL/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
@@ -487,14 +487,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/remote-sensing-images/</loc>
+    <loc>http://yoursite.com/tags/interpolation/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/interpolation/</loc>
+    <loc>http://yoursite.com/tags/remote-sensing-images/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -538,14 +538,14 @@
 
   
   <url>
-    <loc>http://yoursite.com/categories/feelings/</loc>
+    <loc>http://yoursite.com/categories/notes/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/notes/</loc>
+    <loc>http://yoursite.com/categories/feelings/</loc>
     <lastmod>2021-01-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
