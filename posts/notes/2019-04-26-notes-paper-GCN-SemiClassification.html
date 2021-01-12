@@ -190,26 +190,22 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1609.02907.pdf">SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS</a>.</p>
 <a id="more"></a>
-<h2 id="big-question-semi-supervised-classification-of-graph-data">Big Question: semi-supervised classification of graph data</h2>
-<ul>
-<li>reason
-<ul>
+<h2 id="Big-Question-semi-supervised-classification-of-graph-data"><a href="#Big-Question-semi-supervised-classification-of-graph-data" class="headerlink" title="Big Question: semi-supervised classification of graph data"></a>Big Question: semi-supervised classification of graph data</h2><ul>
+<li>reason<ul>
 <li>computation effective: semi-supervision</li>
 <li>the complex of graphs, the information of nodes and edges are not structural information.</li>
-</ul></li>
-<li>background
-<ul>
-<li>the improvement of GCNs: spectral GCNs</li>
-</ul></li>
 </ul>
-<h2 id="key-points">Key points</h2>
-<h3 id="the-approximation-of-spectral-graph-convolution">The approximation of spectral graph convolution</h3>
-<p>The lines in paper had confused me at first before I ran the codes.</p>
+</li>
+<li>background<ul>
+<li>the improvement of GCNs: spectral GCNs</li>
+</ul>
+</li>
+</ul>
+<h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h3 id="The-approximation-of-spectral-graph-convolution"><a href="#The-approximation-of-spectral-graph-convolution" class="headerlink" title="The approximation of spectral graph convolution"></a>The approximation of spectral graph convolution</h3><p>The lines in paper had confused me at first before I ran the codes.</p>
 <p>The difference of graph convolution and valina convolution is the input, as the input is a graph rather than data in same dimension, the key point is how to convert data represented by node and graph to a tensor in fixed dimension.</p>
 <p>To solve it, Thomas maps the graph into a spectral space and also, to be computational efficient, approximate the infinite coefficients by second-order Chebyshev polynomial formulas.</p>
-<p>After those approximation, it is input into the whole network with features.</p>
-<h3 id="build-model">Build model</h3>
-<p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do. <span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$</span><!-- Has MathJax --></p>
+<p>After those approximation, it is input into the whole network with features.    </p>
+<h3 id="Build-model"><a href="#Build-model" class="headerlink" title="Build model"></a>Build model</h3><p>Actually, except the complicated preprocess to represent graph G into a sparse tensor, the other step are not that complex, just the similar as what a convolution layer do.<br><span>$Z = f\left(\mathbf{X},A\right)=softmax\left(\hat{A}ReLU\left({\hat{A}XW^{\left(0\right)}}\right)W^{\left(1\right)}\right)$</span><!-- Has MathJax --></p>
 
       
 
@@ -290,7 +286,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question-semi-supervised-classification-of-graph-data"><span class="toc-number">1.</span> <span class="toc-text">Big Question: semi-supervised classification of graph data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#key-points"><span class="toc-number">2.</span> <span class="toc-text">Key points</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#the-approximation-of-spectral-graph-convolution"><span class="toc-number">2.1.</span> <span class="toc-text">The approximation of spectral graph convolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-model"><span class="toc-number">2.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question-semi-supervised-classification-of-graph-data"><span class="toc-number">1.</span> <span class="toc-text">Big Question: semi-supervised classification of graph data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-points"><span class="toc-number">2.</span> <span class="toc-text">Key points</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-approximation-of-spectral-graph-convolution"><span class="toc-number">2.1.</span> <span class="toc-text">The approximation of spectral graph convolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-model"><span class="toc-number">2.2.</span> <span class="toc-text">Build model</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -451,6 +447,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
@@ -460,10 +460,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">feelings</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,10 +491,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -507,11 +499,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +508,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,19 +539,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +556,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
