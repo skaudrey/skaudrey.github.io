@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-12T02:46:45.880Z</updated>
+  <updated>2021-01-12T02:53:46.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions</title>
     <link href="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-GNN.html"/>
     <id>http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-GNN.html</id>
-    <published>2021-01-11T20:00:00.000Z</published>
-    <updated>2021-01-12T02:46:45.880Z</updated>
+    <published>2021-01-12T03:00:00.000Z</published>
+    <updated>2021-01-12T02:53:46.663Z</updated>
     
     <content type="html"><![CDATA[<p>Paper <a href="https://arxiv.org/pdf/2006.10141.pdf">Self-supervised Learning on Graphs: Deep Insights and New Directions</a></p><a id="more"></a><h2 id="why">Why?</h2><h3 id="previous-work">Previous work</h3><ul><li></li></ul><h3 id="summary">Summary</h3><ul><li>Observations</li><li>Limitations:<ul><li></li></ul></li></ul><h2 id="goals">Goals</h2><h2 id="how">How?</h2><h3 id="idea">Idea</h3><h3 id="implementation">Implementation</h3><ul><li></li></ul><h2 id="experiments">Experiments</h2><ul><li></li></ul><h2 id="conclusion">Conclusion</h2><ul><li></li></ul>]]></content>
     
@@ -415,9 +415,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
-    
       <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
     
   </entry>
   
@@ -717,9 +717,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
       <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
@@ -766,9 +766,9 @@
       <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
     
     
-      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
-    
       <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
     
   </entry>
   
