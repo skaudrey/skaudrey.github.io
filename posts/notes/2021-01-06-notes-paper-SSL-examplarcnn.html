@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png">
 <meta property="article:published_time" content="2021-01-06T16:17:12.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:33:31.917Z">
+<meta property="article:modified_time" content="2021-01-12T20:58:39.413Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
@@ -265,13 +265,13 @@
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png" alt="image-20210107162118193" style="zoom:50%;" />, notice the 2nd and the 4th can be canceled.</p>
 <ul>
 <li>The 1st term: enforces correct classification of the average representation <span class="math inline">\(\mathbb{E}_\alpha[g(T_\alpha x_i)]\)</span> for a given input sample</li>
-<li>The 2nd term: a regularizer enforcing all $ h(T_x_i)$ to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations <span class="math display">\[ T_\alpha\]</span>, note the convergence to global minimum is listed at appendix.</li>
+<li>The 2nd term: a regularizer enforcing all $ h(T_x_i)$ to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations $ T_$, note the convergence to global minimum is listed at appendix.</li>
 </ul></li>
 </ul></li>
 <li><p><strong>Why does it works?</strong></p>
 <ul>
-<li>Previous works mostly focus on modeling the input distribution <span class="math display">\[p(x)\]</span>, based on the assumption that a good model of <span class="math display">\[p(x)\]</span> contains information about the category distribution <span class="math display">\[p(y|x)\]</span>. Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
-<li>Their work does not directly model the input distribution <span class="math display">\[p(x)\]</span> but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong></li>
+<li>Previous works mostly focus on modeling the input distribution <span class="math inline">\(p(x)\)</span>, based on the assumption that a good model of <span class="math inline">\(p(x)\)</span> contains information about the category distribution <span class="math inline">\(p(y|x)\)</span>. Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
+<li>Their work does not directly model the input distribution <span class="math inline">\(p(x)\)</span> but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong></li>
 <li>However, their work will <strong>fail on color-relied task</strong></li>
 </ul></li>
 </ul>
@@ -279,11 +279,11 @@
 <h3 id="classification">Classification</h3>
 <ul>
 <li><p>Datasets: <strong>STL-10</strong>, CIFAR-10, Caltech-101 and Caltech-256. report mean and standard deviation</p>
-<table>
+<table style="width:100%;">
 <colgroup>
 <col style="width: 6%" />
-<col style="width: 26%" />
-<col style="width: 34%" />
+<col style="width: 24%" />
+<col style="width: 35%" />
 <col style="width: 33%" />
 </colgroup>
 <thead>
@@ -303,19 +303,19 @@
 </tr>
 <tr class="even">
 <td>CIFAR-10</td>
-<td style="text-align: center;">resize from <span class="math display">\[32\times 32\]</span> to <span class="math display">\[64\times 64\]</span></td>
+<td style="text-align: center;">resize from <span class="math inline">\(32\times 32\)</span> to <span class="math inline">\(64\times 64\)</span></td>
 <td>1. whole training set<br />2. 10 random selections of 400 training samples per class</td>
 <td>1. results on CIFAR-10<br />2. average results on 10 sets.</td>
 </tr>
 <tr class="odd">
 <td>Caltech-101</td>
-<td style="text-align: center;">to <span class="math display">\[150\times 150\]</span></td>
+<td style="text-align: center;">to <span class="math inline">\(150\times 150\)</span></td>
 <td>30 random samples per class</td>
 <td>not more than 50 samples per class</td>
 </tr>
 <tr class="even">
 <td>Caltech-256</td>
-<td style="text-align: center;"><span class="math display">\[256\times 256\]</span></td>
+<td style="text-align: center;"><span class="math inline">\(256\times 256\)</span></td>
 <td>randomly selected 30 samples per class</td>
 <td>those except for training</td>
 </tr>
@@ -641,6 +641,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
@@ -665,14 +669,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -689,6 +685,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
@@ -701,18 +701,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -721,11 +709,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,10 +738,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
