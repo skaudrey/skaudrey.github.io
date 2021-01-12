@@ -17,11 +17,15 @@
 <meta property="og:site_name" content="Mia&#39;s Blog">
 <meta property="og:description" content="Paper Predicting What You Already Know Helps: Provable Self-Supervised Learning">
 <meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png">
 <meta property="article:published_time" content="2021-01-11T20:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-11T21:44:40.656Z">
+<meta property="article:modified_time" content="2021-01-12T02:46:28.089Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -202,7 +206,6 @@
 <li><p>Theory for self-supervised learning: contrastive learning</p>
 <ul>
 <li>Contrastive learning may not work when conditional independence holds only with additional latent variables</li>
-<li></li>
 </ul>
 <table>
 <colgroup>
@@ -263,13 +266,53 @@
 <p><strong><em>What conceptual connection between pretext and downstream tasks ensures good representations?</em></strong></p>
 <p><strong><em>What is a good way to quantify this?</em></strong></p>
 <h2 id="how">How?</h2>
+<h3 id="notations">Notations</h3>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathbb{E}^L[Y|X]\)</span></td>
+<td style="text-align: left;">the best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\Sigma_{XY|Z}\)</span></td>
+<td style="text-align: left;">partial covariance matrix between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(X_1,X_2\)</span></td>
+<td style="text-align: left;">the input variable and the target random variable for the pretext tasks</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(Y\)</span></td>
+<td style="text-align: left;">label for the downstream task</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P_{X_1X_2Y}\)</span></td>
+<td style="text-align: left;">the joint distribution over <span class="math inline">\(\mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{Y}\)</span></td>
+</tr>
+</tbody>
+</table>
 <h3 id="idea">Idea</h3>
 <ul>
-<li></li>
+<li>Under approximate condition independence (CI) (quantified by the norm of a certain partial covariance matrix), show similar sample complexity improvements.</li>
+<li>Testify pretext task helps when CI is approximately satisfied in text domain.</li>
+<li>Demonstrate on a real-world image dataset that a pretext task-based linear model outperforms or is comparable to many baselines.</li>
 </ul>
-<h3 id="data-preparation">Data Preparation</h3>
+<h3 id="formalize-ssl-with-pretext-task">Formalize SSL with pretext task</h3>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" /></p>
+<p>It will be estimated by:</p>
 <ul>
-<li></li>
+<li><strong>approximation erro</strong>r:<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png" alt="image-20210111173318840" style="zoom:33%;" />, where <span class="math inline">\(f^*=\mathbb{E}[Y|X_1]\)</span> is the optimal predictor for the task</li>
+<li><strong>estimation error</strong>: <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png" alt="image-20210111173520930" style="zoom:25%;" />, it's the difference between Predicting <span class="math inline">\(Y\)</span> directly by <span class="math inline">\(X_1\)</span> and Predicting by the representations from pretext task</li>
 </ul>
 <h3 id="implementation">Implementation</h3>
 <ul>
@@ -327,6 +370,15 @@
   
 <nav id="article-nav">
   
+    <a href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions
+        
+      </div>
+    </a>
+  
   
     <a href="/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Paper--Colorful Image Colorization</div>
@@ -356,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#notations"><span class="toc-number">3.1.</span> <span class="toc-text">Notations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.2.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#formalize-ssl-with-pretext-task"><span class="toc-number">3.3.</span> <span class="toc-text">Formalize SSL with pretext task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.4.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -517,14 +569,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Sensor</a>
               </li>
              
@@ -541,6 +585,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
@@ -553,15 +605,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">compress</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,27 +637,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">infrared</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cnn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">compress</a>
               </li>
              
               <li class="article-tag-list-item">
