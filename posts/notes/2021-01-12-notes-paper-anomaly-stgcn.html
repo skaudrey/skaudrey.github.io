@@ -19,8 +19,11 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png">
+<meta property="og:image" content="c:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113200600.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113222927.png">
 <meta property="article:published_time" content="2021-01-13T02:58:39.000Z">
-<meta property="article:modified_time" content="2021-01-14T00:16:58.501Z">
+<meta property="article:modified_time" content="2021-01-14T03:48:00.173Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="gcn">
@@ -242,22 +245,64 @@
 <h3 id="implementation">Implementation</h3>
 <ul>
 <li><p>Model</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png" alt="image-20210113115429152" style="zoom:50%;" /></p></li>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png" alt="image-20210113115429152" style="zoom:50%;" /></p>
+<p>ResNet mechanism is applied on each ST-GCN unit.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Layer name</th>
+<th>configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\sim3\)</span></td>
+<td>64 channels</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(4\sim6\)</span></td>
+<td>128 channels</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(7\sim9\)</span></td>
+<td>256 channels, 9 temporal kernel size</td>
+</tr>
+<tr class="even">
+<td>Global pooling+softmax</td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
 <li><p>Loss function</p>
 <ul>
 <li><p><strong>Sampling function</strong> <span class="math inline">\(\mathbb{p}\)</span> enumerates the neighbors of location <span class="math inline">\(x\)</span>.</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png" alt="image-20210113155452481" style="zoom:40%;" /></p>
 <p>In this paper, <strong>the 1-neighbor set</strong> of joint nodes are used.</p></li>
-<li><p><strong>The filter weights</strong> <span class="math inline">\(\mathbb{w}(v_{ti},v_{tj})\)</span> are shared everywhere on the input image.</p></li>
-</ul>
+<li><p><strong>The filter weights</strong> <span class="math inline">\(\mathbb{w}(v_{ti},v_{tj})\)</span> are shared everywhere on the input image.</p>
 <p>Build a mapping <span class="math inline">\(l_{ti}:B(v_{ti})\rightarrow\{0,\cdots,K−1\}\)</span> which maps a node in the neighborhood to its subset label. The weight function <span class="math inline">\(w(v_{ti}, v_{tj}):B(v_{ti})\rightarrow R^c\)</span> can be implemented by indexing a tensor of <span class="math inline">\((c,K)\)</span> dimension or</p>
 <p><span class="math inline">\(\mathbb{w}(v_{ti},v_{tj})=\mathbb{w}&#39;(l_{ti}(v_{tj})\)</span></p>
 <ul>
+<li><p>Labeling strategies (the definition of <span class="math inline">\(l_{ti}\)</span>)</p>
+<p><img src="C:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png" alt="image-20210113195834069" style="zoom:50%;" /></p>
+<ul>
+<li><p>Uni-labeling</p>
+<p>Make the whole neighbor set itself as subset. Then feature vectors on every neighboring node will have a inner product with the same weight vector. Formally, <span class="math inline">\(K=1,l_{ti}(v_{tj})=0,\forall i,j\in V\)</span></p></li>
+<li><p>Distance partitioning</p>
+<p><span class="math inline">\(d=0\)</span> refers to the root node itself and remaining neighbor nodes are in the <span class="math inline">\(d =1\)</span> subset. Formally , <span class="math inline">\(K=2,l_{ti}(v_{tj})=d(v_{tj},v_{ti})\)</span></p></li>
+<li><p>Spatial configuration partitioning</p>
+<p>Three subsets: 1) the root node itself; 2)centripetal group and 3) centrifugal group.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113200600.png" alt="image-20210113200600480" style="zoom:33%;" />, where <span class="math inline">\(r_i\)</span> is the average distance from gravity center to joint <span class="math inline">\(i\)</span> over all frames in the training set.</p></li>
+</ul></li>
+<li><p>Learnable edge importance weighting</p>
+<p>One joint appears in multiple body parts should have different importance in modeling the dynamics of these parts. A learnable mask M is added on every layer of spatial temporal graph convolution.</p></li>
+</ul></li>
 <li><p>The <strong>spatial graph convolution</strong></p>
 <p><span class="math inline">\(f_{out}(v_{ti})=\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(\mathbb{p}(v_{ti},v_{tj}))\cdot \mathbb{w}(v_{ti},v_{tj})=\\\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{tj})\cdot \mathbb{w}(l_{ti}(v_{tj}))\)</span>, <span class="math inline">\(Z_{ti}(v_{tj})=|\{v_{tk}|l_{ti}(v_{tk})=l_{ti}(v_{tj})\}|\)</span> is the cardinality of the corresponding subset. It's for balancing the contributions of different subsets to the output.</p></li>
 <li><p><strong>Spatial temporal modeling</strong></p>
 <p>Extend neighbors so as to include temporally connected joints</p>
 <p><span class="math inline">\(B(v_{ti})={v_{qj}|d(v_{tj},v_{ti})\le K,|q-t|\le \lfloor\Gamma/2\rfloor}\)</span>, where <span class="math inline">\(\Gamma\)</span> is temporal kernel size (controls the temporal range to be included in the neighbor graph). Then , the sampling function is <span class="math inline">\(l_{ST}(v_{qj})=l_{ti}(v_{tj})+(q-t+\lfloor\Sigma/2\rfloor)\times K\)</span>.</p></li>
+<li><p>The final convolution formula:</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113222927.png" alt="image-20210113222926988" style="zoom:40%;" />, where <span class="math inline">\(\Lambda_j^{ii}=\sum_k(A_j^{ik})+\alpha\)</span>, <span class="math inline">\(\alpha=0.001\)</span> is to avoid empty rows in <span class="math inline">\(A_j\)</span>. To add learnable mask <span class="math inline">\(M\)</span>, displace <span class="math inline">\(A_j\)</span> as <span class="math inline">\(A_j\otimes M\)</span>.</p></li>
 </ul></li>
 <li><p>Why does it work?</p>
 <ul>
@@ -266,7 +311,8 @@
 </ul>
 <h2 id="experiments">Experiments</h2>
 <ul>
-<li>Dataset: Kinetics and NTU-RGBD</li>
+<li>Dataset: Kinetics and NTU-RGBD. To avoid overfitting,two kinds of augmentation are used to replace dropout layers when training on the Kinetics dataset. One is affine transformations, the other is sampling part of the frames from the whole frame and testing by a whole frame. <font color=Blue>May that's a way for avoiding the two consecutive frame are too similar?</font></li>
+<li>Training: SGD with a learning rate of 0.01. <span class="math inline">\(lr\)</span> decay by 0.1 after every 10 epochs.</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
@@ -579,19 +625,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">naive</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,23 +661,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,6 +678,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
