@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210112160157.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110233506.png">
 <meta property="article:published_time" content="2021-01-10T22:15:39.000Z">
-<meta property="article:modified_time" content="2021-01-12T21:02:16.036Z">
+<meta property="article:modified_time" content="2021-01-12T21:19:21.259Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
@@ -261,8 +261,7 @@
 </ul>
 <h3 id="data-preparation">Data Preparation</h3>
 <ul>
-<li><p>Quantize the <span class="math inline">\(ab\)</span> output space into bins with grid size <span class="math inline">\(10\)</span> and keep the <span class="math inline">\(Q = 313\)</span> values which are in-gamut. Then this is the label <span class="math inline">\(Z\)</span> of each pixel. Formally, denote the raw label as <span class="math inline">\(Y\)</span></p>
-<p>$ Z = H^{−1}_{gt} (Y)$, which converts ground truth color <span class="math inline">\(Y\)</span> to vector <span class="math inline">\(Z\)</span>s</p></li>
+<li>Quantize the <span class="math inline">\(ab\)</span> output space into bins with grid size <span class="math inline">\(10\)</span> and keep the <span class="math inline">\(Q = 313\)</span> values which are in-gamut. Then this is the label <span class="math inline">\(Z\)</span> of each pixel. Formally, denote the raw label as <span class="math inline">\(Y\)</span>, then <span class="math inline">\(Z = H^{−1}_{gt} (Y)\)</span>, which converts ground truth color <span class="math inline">\(Y\)</span> to vector <span class="math inline">\(Z\)</span>.</li>
 </ul>
 <h3 id="implementation">Implementation</h3>
 <ul>
@@ -332,7 +331,7 @@
 <tr class="odd">
 <td>Gray</td>
 <td style="text-align: center;">--</td>
-<td>every pixel is gray, with (a, b) = 0</td>
+<td>every pixel is gray, with <span class="math inline">\((a, b) = 0\)</span></td>
 </tr>
 <tr class="even">
 <td>Random</td>
@@ -678,6 +677,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -694,10 +697,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
@@ -706,15 +705,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,6 +730,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
               </li>
              
               <li class="article-tag-list-item">
