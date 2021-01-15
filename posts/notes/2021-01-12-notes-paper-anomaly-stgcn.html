@@ -22,8 +22,11 @@
 <meta property="og:image" content="c:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113200600.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113222927.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114194501.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204800.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204722.png">
 <meta property="article:published_time" content="2021-01-13T02:58:39.000Z">
-<meta property="article:modified_time" content="2021-01-14T03:48:00.173Z">
+<meta property="article:modified_time" content="2021-01-15T01:55:05.236Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="gcn">
@@ -236,6 +239,7 @@
 <p>Build a better model for dynamics of human body skeletons. Specifically, a new method that can automatically capture the patterns embedded in the <strong>spatial configuration of the joints as well as the temporal dynamics</strong> is required.</p>
 <h2 id="how">How?</h2>
 <h3 id="idea">Idea</h3>
+<p>Skeletons in frames are connected as natural spatial-temporal graph, then using GCN.</p>
 <h3 id="data-preparation">Data Preparation</h3>
 <ul>
 <li>The feature vector on a node <span class="math inline">\(F(v_{ti})\)</span> consists of coordinate vectors, as well as estimation confidence, of the i-th joint on frame t.</li>
@@ -278,9 +282,9 @@
 <li><p><strong>Sampling function</strong> <span class="math inline">\(\mathbb{p}\)</span> enumerates the neighbors of location <span class="math inline">\(x\)</span>.</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png" alt="image-20210113155452481" style="zoom:40%;" /></p>
 <p>In this paper, <strong>the 1-neighbor set</strong> of joint nodes are used.</p></li>
-<li><p><strong>The filter weights</strong> <span class="math inline">\(\mathbb{w}(v_{ti},v_{tj})\)</span> are shared everywhere on the input image.</p>
-<p>Build a mapping <span class="math inline">\(l_{ti}:B(v_{ti})\rightarrow\{0,\cdots,K−1\}\)</span> which maps a node in the neighborhood to its subset label. The weight function <span class="math inline">\(w(v_{ti}, v_{tj}):B(v_{ti})\rightarrow R^c\)</span> can be implemented by indexing a tensor of <span class="math inline">\((c,K)\)</span> dimension or</p>
-<p><span class="math inline">\(\mathbb{w}(v_{ti},v_{tj})=\mathbb{w}&#39;(l_{ti}(v_{tj})\)</span></p>
+<li><p><strong>The filter weights</strong> <span class="math inline">\(\mathrm{w} (v_{ti},v_{tj})\)</span> are shared everywhere on the input image.</p>
+<p>Build a mapping <span class="math inline">\(l_{ti}:B(v_{ti})\rightarrow\{0,\cdots,K−1\}\)</span> which maps a node in the neighborhood to its subset label. The weight function <span class="math inline">\(\mathrm{w}(v_{ti}, v_{tj}):B(v_{ti})\rightarrow R^c\)</span> can be implemented by indexing a tensor of <span class="math inline">\((c,K)\)</span> dimension or</p>
+<p><span class="math inline">\(\mathrm{w}(v_{ti},v_{tj})=\mathrm{w}&#39;(l_{ti}(v_{tj})\)</span></p>
 <ul>
 <li><p>Labeling strategies (the definition of <span class="math inline">\(l_{ti}\)</span>)</p>
 <p><img src="C:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png" alt="image-20210113195834069" style="zoom:50%;" /></p>
@@ -297,7 +301,7 @@
 <p>One joint appears in multiple body parts should have different importance in modeling the dynamics of these parts. A learnable mask M is added on every layer of spatial temporal graph convolution.</p></li>
 </ul></li>
 <li><p>The <strong>spatial graph convolution</strong></p>
-<p><span class="math inline">\(f_{out}(v_{ti})=\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(\mathbb{p}(v_{ti},v_{tj}))\cdot \mathbb{w}(v_{ti},v_{tj})=\\\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{tj})\cdot \mathbb{w}(l_{ti}(v_{tj}))\)</span>, <span class="math inline">\(Z_{ti}(v_{tj})=|\{v_{tk}|l_{ti}(v_{tk})=l_{ti}(v_{tj})\}|\)</span> is the cardinality of the corresponding subset. It's for balancing the contributions of different subsets to the output.</p></li>
+<p><span class="math inline">\(f_{out}(v_{ti})=\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(\mathbb{p}(v_{ti},v_{tj}))\cdot \mathrm{w}(v_{ti},v_{tj})=\\\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{tj})\cdot \mathrm{w}(l_{ti}(v_{tj}))\)</span>, <span class="math inline">\(Z_{ti}(v_{tj})=|\{v_{tk}|l_{ti}(v_{tk})=l_{ti}(v_{tj})\}|\)</span> is the cardinality of the corresponding subset. It's for balancing the contributions of different subsets to the output.</p></li>
 <li><p><strong>Spatial temporal modeling</strong></p>
 <p>Extend neighbors so as to include temporally connected joints</p>
 <p><span class="math inline">\(B(v_{ti})={v_{qj}|d(v_{tj},v_{ti})\le K,|q-t|\le \lfloor\Gamma/2\rfloor}\)</span>, where <span class="math inline">\(\Gamma\)</span> is temporal kernel size (controls the temporal range to be included in the neighbor graph). Then , the sampling function is <span class="math inline">\(l_{ST}(v_{qj})=l_{ti}(v_{tj})+(q-t+\lfloor\Sigma/2\rfloor)\times K\)</span>.</p></li>
@@ -311,8 +315,79 @@
 </ul>
 <h2 id="experiments">Experiments</h2>
 <ul>
-<li>Dataset: Kinetics and NTU-RGBD. To avoid overfitting,two kinds of augmentation are used to replace dropout layers when training on the Kinetics dataset. One is affine transformations, the other is sampling part of the frames from the whole frame and testing by a whole frame. <font color=Blue>May that's a way for avoiding the two consecutive frame are too similar?</font></li>
-<li>Training: SGD with a learning rate of 0.01. <span class="math inline">\(lr\)</span> decay by 0.1 after every 10 epochs.</li>
+<li><p>Dataset:</p>
+<ul>
+<li><p>Kinetics (unconstrained action recognition dataset), provides only raw video clips without skeleton data.</p>
+<ul>
+<li><p>Augmentation: To avoid overfitting,two kinds of augmentation are used to replace dropout layers when training on the Kinetics dataset. 1) affine transformations, 2) sampling part of the frames from the whole frame and testing by a whole frame. <font color=Blue>May that's a way for avoiding the two consecutive frame are too similar?</font></p></li>
+<li><p>Videos to skeletons</p>
+<p>To work on skeletons, openpose is used for extracting. Concretely, resize all videos to the resolution of 340 × 256 and convert the frame rate to 30 FPS. Then OpenPose toolbox is used to estimate the location of 18 joints on every frame of the clips.</p></li>
+<li><p>Final features:</p>
+<p>Finally <strong>the clips are represented by a tensor in shape</strong> <span class="math inline">\((3,T,18,2)\)</span>, where 18 is the number of joints, 2 is the number of people and 3 is the number of features (X,Y,C), C is the confidence.</p></li>
+</ul></li>
+<li><p>NTU-RGBD ( in-house captured action recognition dataset)</p>
+<ul>
+<li>Already annotated with 25 3D joints</li>
+<li>Each clip is guaranteed to have at most 2 subjects</li>
+</ul></li>
+</ul></li>
+<li><p>Training: SGD with a learning rate of 0.01. <span class="math inline">\(lr\)</span> decay by 0.1 after every 10 epochs.</p></li>
+<li><p>Evaluation metrics</p>
+<ul>
+<li><p>Kinetics</p>
+<p>Test on validation set. Using <strong>top-1 and top-5 classification accuracy</strong></p></li>
+<li><p>NTU-RGBD</p>
+<p>Report top-1 recognition accuracy.</p>
+<ul>
+<li><strong>Cross-subject</strong>: Train on one subset of actors and test on the remaining actors.</li>
+<li><strong>Cross-view</strong>: Train on skeletons from camera views 2 and 3, and test on those from camera view 1.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="ablation-study">Ablation study</h3>
+<p>Applied on Kinetics dataset.</p>
+<ul>
+<li><p>Spatial temporal graph convolution</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>baseline-TCN</em></td>
+<td>squeeze Spatial dimension, concatenate all input joint locations to form the input features at each frame <span class="math inline">\(t\)</span>.</td>
+</tr>
+<tr class="even">
+<td><em>local convolution</em></td>
+<td>The input data are the same format, but with unshared convolution filters.</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Partition strategies: same as what described before. <em>Distance partitioning*</em> is as intermediate between the distance partitioning and uni-labeling. The filters in this setting only differs with a scaling factor -1, or to say <span class="math inline">\(\mathrm{w}_0=-\mathrm{w}_1\)</span>.</p></li>
+<li><p>Learnable edge importance weighting</p>
+<p>This setting is named as <em>ST-GCN+Imp</em>.</p></li>
+<li><p>Results</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114194501.png" alt="image-20210114194452831" style="zoom:50%;" /></p>
+<ul>
+<li>Better performance of ST-GCN based models could justify the power of the spatial temporal graph convolution in skeleton based action recognition</li>
+<li>Distance partitioning* achieves better performance than uni-labeling, which again demonstrate <strong>the importance of the partitioning with multiple subsets</strong>.</li>
+<li>ST-GCN model with learnable edge importance weights can learn to express the joint importance.</li>
+</ul></li>
+</ul>
+<h3 id="compared-with-sota">Compared with SOTA</h3>
+<p><strong>Model setting: ST-GCN+Learnable weights+Spatial configuration partitioning</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204800.png" alt="image-20210114204800283" style="zoom:30%;" /> <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204722.png" alt="image-20210114204722008" style="zoom:30%;" /></p>
+<ul>
+<li>Kinetics: ST-GCN is able to outperform previous representative approaches, but under-perform methods in RGB or optical flow.</li>
+<li>NTU-RGBD: No data augmentation before training. It outperforms all other selected candidates.</li>
+<li>The skeleton based model ST-GCN can provide complementary information to RGB and optical flow models.</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
@@ -371,6 +446,15 @@
   
 <nav id="article-nav">
   
+    <a href="/posts/notes/2021-01-14-notes-paper-anomaly-2sagcn.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Paper--Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition
+        
+      </div>
+    </a>
+  
   
     <a href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions</div>
@@ -400,7 +484,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ablation-study"><span class="toc-number">4.1.</span> <span class="toc-text">Ablation study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compared-with-sota"><span class="toc-number">4.2.</span> <span class="toc-text">Compared with SOTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -581,14 +665,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -605,7 +681,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,19 +697,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,6 +721,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
@@ -653,15 +737,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,15 +749,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,6 +762,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
