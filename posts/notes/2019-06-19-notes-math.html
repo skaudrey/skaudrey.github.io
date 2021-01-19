@@ -18,8 +18,24 @@
 <meta property="og:description" content="泛函">
 <meta property="og:locale">
 <meta property="og:image" content="http://yoursite.com/assets/img/Rules/lines.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117165609.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117170246.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117171410.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117173919.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181258.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181415.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117185801.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190336.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190943.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117191112.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222307.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222725.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117223015.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117225400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117233245.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210118152328.png">
 <meta property="article:published_time" content="2019-06-19T13:40:09.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:34:13.746Z">
+<meta property="article:modified_time" content="2021-01-19T00:17:17.623Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -218,6 +234,160 @@
 <ol type="1">
 <li>若存在一个常数K，使得定义域内的任意两点x1,x2满足： $ |f(x_1)-f(x_2)|=K|x_1-x_2|$ 则称函数为Lipschitz连续函数。此性质限定了f的导函数的绝对值不超过K，规定了函数的最大局部变动幅度。</li>
 </ol>
+<h2 id="convex-optimization">Convex Optimization</h2>
+<p>Book <a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a></p>
+<h3 id="convex-sets">Convex sets</h3>
+<h4 id="affine-sets">Affine sets</h4>
+<ul>
+<li>Affine sets:
+<ul>
+<li>Definition : A set <span class="math inline">\(C\subseteq R^n\)</span> is affine if the line through any two distinct points in <span class="math inline">\(C\)</span> lies in <span class="math inline">\(C\)</span>, aka for any <span class="math inline">\(x_1 ,x_2\in C\)</span> and <span class="math inline">\(\theta\in R\)</span>, one has <span class="math inline">\(\theta x_1+(1-\theta)x_2\in C\)</span>. It indicates that the <span class="math inline">\(C\)</span> contains the linear combination of any two points in <span class="math inline">\(C\)</span>.</li>
+<li>Induction: If <span class="math inline">\(C\)</span> is an affine set, <span class="math inline">\(x_1，\cdots,x_k\in C\)</span> and <span class="math inline">\(\theta_1+\cdots+\theta_k=1\)</span>, then the point <span class="math inline">\(\theta_1 x_1+\cdots+\theta_kx_k\)</span> also belongs to <span class="math inline">\(C\)</span>.</li>
+</ul></li>
+<li>Affine hull
+<ul>
+<li>Definition: the set of all affine combinations of points in some set <span class="math inline">\(C\subseteq R^n\)</span>, denoted as <span class="math inline">\(\mathrm{aff}C\)</span></li>
+<li>It's the smallest affine set that contains <span class="math inline">\(C\)</span></li>
+</ul></li>
+<li>Affine dimension
+<ul>
+<li>Definition: as the dimension of its affine hull.</li>
+<li>E.g.: <span class="math inline">\(\{x\in R^2|x_1 ^2+x_2^2=1\}\)</span>, the affine dimension is 2.</li>
+</ul></li>
+</ul>
+<h4 id="convex-sets-1">Convex sets</h4>
+<ul>
+<li>Definition: If every point in the set can be seen by every other point, along an unobstructed straight path between them, where unobstructed means lying in the set.</li>
+<li>Every affine set is also convex.</li>
+<li>Convex hull, denotes as <span class="math inline">\(\mathrm{conv} C\)</span>, is the set of all convex combinations of points in <span class="math inline">\(C\)</span>. It is always convex, and it's the smallest convex set that contains <span class="math inline">\(C\)</span></li>
+<li>More generally, suppose <span class="math inline">\(p: R^n \rightarrow R\)</span> satisfies <span class="math inline">\(p(x)\ge0\)</span> for all <span class="math inline">\(x\in C\)</span> and <span class="math inline">\(\int_Cp(x)dx=1\)</span>, where <span class="math inline">\(C\subseteq R^n\)</span> is convex, then <span class="math inline">\(\int_Cp(x)x dx \in C\)</span>, if the integral exists.</li>
+</ul>
+<h3 id="convex-functions">Convex functions</h3>
+<h4 id="convex-functions-1">Convex functions</h4>
+<ul>
+<li><p>Definition</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117165609.png" alt="image-20210117165609361" style="zoom:50%;" /></p></li>
+<li><p>All affine function are both convex and concave.</p></li>
+<li><p><span class="math inline">\(f\)</span> is convex if and only if for all <span class="math inline">\(x\in \mathrm{dom}f\)</span> and all <span class="math inline">\(v\)</span>, the function <span class="math inline">\(g(t)=f(x+tv)\)</span> is convex.</p></li>
+</ul>
+<h4 id="extended-value-extensions">Extended-value extensions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117170246.png" alt="image-20210117170246166" style="zoom:50%;" /></p>
+<h4 id="first-order-conditions">First-order conditions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117171410.png" alt="image-20210117171410378" style="zoom:50%;" /></p>
+<p>The inequality (3.2) states that for a convex function, the first-order Taylor approximation is in fact a global <em>underestimator</em> of the function. Conversely, if the first-order Taylor approximation of a function is always a global <em>underestimator</em> of the function, then the function is convex.</p>
+<ul>
+<li>The inequality (3.2) shows that if <span class="math inline">\(\nabla f(x) = 0\)</span>, then for all <span class="math inline">\(y \in \mathrm{dom} f, f(y) ≥ f(x)\)</span>, i.e., <span class="math inline">\(x\)</span> is a global minimizer of the function <span class="math inline">\(f\)</span>.</li>
+</ul>
+<h4 id="second-order-conditions">Second-order conditions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117173919.png" alt="image-20210117173919136" style="zoom:67%;" /></p>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><em>Norms</em></li>
+<li><em>Max function</em></li>
+<li><em>Quadratic-over-linear function</em> <span class="math inline">\(\frac{x^2}{y}\)</span></li>
+<li><em>Log-sum-exp</em>: <span class="math inline">\(\log(e^{x_1}+\cdots+e^{x_n})\)</span>, which is regarded as a differentiable approximation of the max function</li>
+<li><em>Geometric mean</em>: <span class="math inline">\((\prod\limits_{i=1}^{n}x_i)^{1/n}\)</span>, concave</li>
+<li><em>Log-determinant</em>: <span class="math inline">\(\log\det X\)</span>, concave</li>
+</ul>
+<p>For proofs, check Chapter <span class="math inline">\(3.1.5\)</span> of <a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a>.</p>
+<h4 id="sublevel-sets">Sublevel sets</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181258.png" alt="image-20210117181258728" style="zoom:50%;" /></p>
+<h4 id="epigraph">Epigraph</h4>
+<p>A function is convex if and only if its epigraph is a convex set.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181415.png" alt="image-20210117181415039" style="zoom:50%;" /></p>
+<h4 id="jensens-inequality-and-extensions">Jensen's inequality and extensions</h4>
+<p>Once a function is convex, then you can get</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117185801.png" alt="image-20210117185801678" style="zoom:50%;" /> the simplest version of it is <span class="math inline">\(f(\frac{x+y}{2})\le\frac{f(x)+f(y)}{2}\)</span>.</p>
+<h4 id="holders-inequality">Holder's inequality</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190336.png" alt="image-20210117190336823" style="zoom:50%;" /></p>
+<h3 id="operations-that-preserve-convexity">Operations that preserve convexity</h3>
+<ul>
+<li><p>Nonnegative weighted sums: <span class="math inline">\(f=w_1f_1+\cdots+w_mf_m\)</span></p></li>
+<li><p>Composition with an affine mapping: <span class="math inline">\(g(x)=f(Ax+b)\)</span>. If <span class="math inline">\(f\)</span> is convex, so is <span class="math inline">\(g\)</span>; if <span class="math inline">\(f\)</span> is concave, so is <span class="math inline">\(g\)</span>.</p></li>
+<li><p>Pointwise maximum and suprenum: <span class="math inline">\(f(x)=\max\{f_1(x),f_2(x)\}\)</span> and <span class="math inline">\(f(x)=\max\{f_1(x),\cdots,f_m(x)\}\)</span></p></li>
+<li><p>Composition: <span class="math inline">\(f(x)=h(g(x))\)</span></p>
+<ul>
+<li><p>Scalar composition</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190943.png" alt="image-20210117190943043" style="zoom:50%;" /></p></li>
+<li><p>Vector composition <span class="math inline">\(f(x)=h(g(x))=h(g_1(x),\cdots,g_k(x))\)</span></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117191112.png" alt="image-20210117191112754" style="zoom:50%;" /></p></li>
+<li><p>Minimization</p></li>
+</ul></li>
+</ul>
+<h3 id="dimension-free-convex-optimization">Dimension-free convex optimization</h3>
+<p>The basic principle behind <strong>gradient descent</strong> is to make a small step in the direction that minimizes the local first order Taylor approximation of <span class="math inline">\(f\)</span> (also known as the steepest descent direction). This kind of methods will <strong>obtain an oracle complexity <em>independent of the dimension</em>.</strong></p>
+<h4 id="projected-subgradient-descent-for-lipschitz-functions">Projected subgradient descent for Lipschitz functions</h4>
+<ul>
+<li><p>Subgradient</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222307.png" alt="image-20210117222306873" style="zoom:40%;" /></p></li>
+<li><p>Projected subgradient descent</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222725.png" alt="image-20210117222725673" style="zoom:50%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117223015.png" alt="image-20210117222937543" style="zoom:40%;" /></p></li>
+<li><p><strong>Theorem</strong></p>
+<p>Assume that <span class="math inline">\(\mathcal{X}\)</span> is contained in an Euclidean ball centered at <span class="math inline">\(x_1\in \mathcal{X}\)</span> and of radius <span class="math inline">\(R\)</span>. Assume that <span class="math inline">\(f\)</span> is such that for any <span class="math inline">\(x\in \mathcal{X}\)</span> and of any <span class="math inline">\(g\in\part f(x)\)</span> (assume <span class="math inline">\(\part f(x)\ne \emptyset\)</span>) one has <span class="math inline">\(\|g\|\le L\)</span>. (This implies that <span class="math inline">\(f\)</span> is L-Lipschitz on <span class="math inline">\(\mathcal{X}\)</span>, that is <span class="math inline">\(\|f(x)-f(y)\|\le L\|x-y\|\)</span>)</p>
+<p><font color='blue'><strong>The projected subgradient descent method with <span class="math inline">\(\eta=\frac{R}{L\sqrt{t}}\)</span> satisfies</strong> <span class="math inline">\(f(\frac{1}{t}\sum\limits_{s=1}^{t}x_s)-f(x^*)\le\frac{RL}{\sqrt{t}}\)</span></font></p>
+<ul>
+<li><p>Proof</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117225400.png" alt="image-20210117225359857" style="zoom:40%;" /></p></li>
+<li><p><font color='blue'><strong>The rate is unimprovable from a black-box perspective.</strong></font></p></li>
+</ul></li>
+</ul>
+<h3 id="gradient-descent-for-smooth-functions">Gradient descent for smooth functions</h3>
+<h4 id="beta-smooth"><span class="math inline">\(\beta\)</span>-smooth</h4>
+<ul>
+<li>Definition: a continuously function <span class="math inline">\(f\)</span> is <span class="math inline">\(\beta\)</span>-smooth if the gradient <span class="math inline">\(\nabla f\)</span> is <span class="math inline">\(\beta\)</span>-Lipschitz, that is <span class="math inline">\(\|\nabla f(x)-\nabla f(y)\|\le\beta\|x-y\|\)</span>.</li>
+<li>If <span class="math inline">\(f\)</span> is twice differentiable then this is equivalent to the eigenvalues of the Hessians being smaller than <span class="math inline">\(\beta\)</span>.</li>
+</ul>
+<h4 id="theorems-under-unconstrained-cases">Theorems under unconstrained cases</h4>
+<p>In this section all <span class="math inline">\(f\)</span> is a convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<ul>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathbb{R}^n\)</span>. Then gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies <span class="math inline">\(f(x_t)-f(x^*)\le\frac{2\beta\|x_1-x^*\|^2}{t-1}\)</span> .</font></p>
+<p>For the proof check <span class="math inline">\(3.2\)</span> in <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a>.</p></li>
+<li><p>Gradient descent attains a much faster rate in <span class="math inline">\(\beta\)</span>-smooth situation than in the non-smooth case of the previous section.</p></li>
+<li><p>The Definition of smooth convex functions</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117233245.png" alt="image-20210117233244773" style="zoom:50%;" /></p></li>
+</ul>
+<h4 id="the-constrained-cases">The constrained cases</h4>
+<p>This time <em>consider the projected gradient descent algorithm <span class="math inline">\(x_{t+1}=\prod_{\mathcal{X}}(x_t-\eta\nabla f(x_t))\)</span></em></p>
+<ul>
+<li><strong>Lemma</strong></li>
+</ul>
+<p><font color='orange'>Let <span class="math inline">\(x,y\in \mathcal{X},x^+=\prod_{\mathcal{X}}(x-\frac{1}{\beta}\nabla f(x))\)</span> and <span class="math inline">\(g_{\mathcal{X}}(x)=\beta (x-x^+)\)</span> , then the following holds true: <span class="math inline">\(f(x^+)-f(y)\le g_{\mathcal{X}}(x)^T(x-y)-\frac{1}{2\beta}\|g_{\mathcal{X}}(x)\|^2\)</span>.</font></p>
+<ul>
+<li><strong>Theorem</strong></li>
+</ul>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathcal{X}\)</span>. Then projected gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies <span class="math inline">\(f(x_t)-f(x^*)\le\frac{3\beta\|x_1-x^*\|^2+f(x_1)-f(x^*)}{t}\)</span> .</font></p>
+<h3 id="strong-convexity">Strong convexity</h3>
+<p>Strong convexity can significantly speed-up the convergence of first order methods.</p>
+<ul>
+<li><p>Definition</p>
+<p>We say that <span class="math inline">\(f:\mathcal{X}\rightarrow\mathbb{R}\)</span> is a <span class="math inline">\(\alpha\)</span><em>-strongly convex</em> if it satisfies the following improved subgradient inequality:</p>
+<p><span class="math inline">\(f(x)-f(y)\le\nabla f(x)^T(x-y)-\frac{\alpha}{2}\|x-y\|^2\)</span>. A large value of <span class="math inline">\(\alpha\)</span> will lead to a faster rate.</p></li>
+<li><p>Strong convexity plus <span class="math inline">\(\beta\)</span>-smoothness will lead to the gradient descent with a constant step-size achieves a linear rate of convergence, precisely the oracle complexity will be <span class="math inline">\(O(\frac{\beta}{\alpha}\log(1/\varepsilon)), \beta\ge\alpha\)</span>. In some sense strong convexity is a dual assumption to smoothness, and in fact this can be made precise within the framework of Fenchel duality.</p></li>
+<li><p><strong>Strongly convex and Lipschitz functions</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210118152328.png" alt="image-20210118152328268" style="zoom:50%;" /></p>
+<ul>
+<li><strong>Theorem</strong></li>
+</ul>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(L\)</span>-Lipschitz and <span class="math inline">\(\alpha\)</span>-strongly convex  on <span class="math inline">\(\mathcal{X}\)</span>. Then projected gradient descent with <span class="math inline">\(\eta_s=\frac{2}{\alpha(s+1)}\)</span> satisfies <span class="math inline">\(f(\sum\limits_{s=1}^{t}\frac{2s}{t(t+1)}x_s)-f(x^*)\le\frac{2L^2}{\alpha(t+1)}\)</span> .</font></p></li>
+<li><p><strong>Strongly convex and smooth functions</strong></p>
+<ul>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex on <span class="math inline">\(\mathcal{X}\)</span>, then projected gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies for <span class="math inline">\(t\ge0\)</span>, <span class="math inline">\(\|x_{t+1}-x^*\|^2\le\exp(-\frac{t}{\kappa})\|x_a -x^*\|^2\)</span> .</font></p></li>
+<li><p><strong>Lemma</strong></p>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex on <span class="math inline">\(\mathbb{R}^n\)</span>, then for all <span class="math inline">\(x,y\in \mathbb{R}^n\)</span>, one has <span class="math inline">\((\nabla f(x)-\nabla f(y))^T(x-y)\ge\frac{\alpha\beta}{\alpha+\beta}\|x-y\|^2+\frac{1}{\beta+\alpha}\|\nabla f(x)-\nabla f(y)\|^2\)</span> .</font></p></li>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'> Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex  on <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\(\kappa=\frac{\beta}{\alpha}\)</span> as the condition number. Then gradient descent with <span class="math inline">\(\eta=\frac{2}{\beta+\alpha}\)</span> satisfies <span class="math inline">\(f(x_{t+1})-f(x^*)\le\frac{\beta}{2}\exp(-\frac{4t}{\kappa+1}\|x_1-x^*\|^2)\)</span>   </font></p></li>
+</ul></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103359560">【凸优化笔记5】-次梯度方法（Subgradient method）</a></li>
+<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a></li>
+<li></li>
+</ul>
 
       
 
@@ -299,7 +469,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%87%BD"><span class="toc-number">1.</span> <span class="toc-text">泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8A%A8%E7%82%B9%E5%AE%9A%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">不动点定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E6%80%A7%E7%9A%84%E5%88%A9%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">紧性的利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%BD%A2manifolds"><span class="toc-number">1.3.</span> <span class="toc-text">流形(Manifolds)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%92%91%E9%9B%86support"><span class="toc-number">1.4.</span> <span class="toc-text">支撑集(Support)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">数学分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lipschitz%E8%BF%9E%E7%BB%AD"><span class="toc-number">2.1.</span> <span class="toc-text">Lipschitz连续</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%87%BD"><span class="toc-number">1.</span> <span class="toc-text">泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8A%A8%E7%82%B9%E5%AE%9A%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">不动点定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E6%80%A7%E7%9A%84%E5%88%A9%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">紧性的利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%BD%A2manifolds"><span class="toc-number">1.3.</span> <span class="toc-text">流形(Manifolds)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%92%91%E9%9B%86support"><span class="toc-number">1.4.</span> <span class="toc-text">支撑集(Support)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">数学分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lipschitz%E8%BF%9E%E7%BB%AD"><span class="toc-number">2.1.</span> <span class="toc-text">Lipschitz连续</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convex-optimization"><span class="toc-number">3.</span> <span class="toc-text">Convex Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#convex-sets"><span class="toc-number">3.1.</span> <span class="toc-text">Convex sets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#affine-sets"><span class="toc-number">3.1.1.</span> <span class="toc-text">Affine sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#convex-sets-1"><span class="toc-number">3.1.2.</span> <span class="toc-text">Convex sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convex-functions"><span class="toc-number">3.2.</span> <span class="toc-text">Convex functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convex-functions-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">Convex functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extended-value-extensions"><span class="toc-number">3.2.2.</span> <span class="toc-text">Extended-value extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#first-order-conditions"><span class="toc-number">3.2.3.</span> <span class="toc-text">First-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#second-order-conditions"><span class="toc-number">3.2.4.</span> <span class="toc-text">Second-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#examples"><span class="toc-number">3.2.5.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sublevel-sets"><span class="toc-number">3.2.6.</span> <span class="toc-text">Sublevel sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epigraph"><span class="toc-number">3.2.7.</span> <span class="toc-text">Epigraph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jensens-inequality-and-extensions"><span class="toc-number">3.2.8.</span> <span class="toc-text">Jensen&#39;s inequality and extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#holders-inequality"><span class="toc-number">3.2.9.</span> <span class="toc-text">Holder&#39;s inequality</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operations-that-preserve-convexity"><span class="toc-number">3.3.</span> <span class="toc-text">Operations that preserve convexity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dimension-free-convex-optimization"><span class="toc-number">3.4.</span> <span class="toc-text">Dimension-free convex optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#projected-subgradient-descent-for-lipschitz-functions"><span class="toc-number">3.4.1.</span> <span class="toc-text">Projected subgradient descent for Lipschitz functions</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gradient-descent-for-smooth-functions"><span class="toc-number">3.5.</span> <span class="toc-text">Gradient descent for smooth functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#beta-smooth"><span class="toc-number">3.5.1.</span> <span class="toc-text">\(\beta\)-smooth</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#theorems-under-unconstrained-cases"><span class="toc-number">3.5.2.</span> <span class="toc-text">Theorems under unconstrained cases</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#the-constrained-cases"><span class="toc-number">3.5.3.</span> <span class="toc-text">The constrained cases</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strong-convexity"><span class="toc-number">3.6.</span> <span class="toc-text">Strong convexity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -476,15 +646,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,6 +674,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -520,10 +694,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
@@ -533,6 +703,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">da</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,14 +726,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
@@ -568,15 +738,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">
