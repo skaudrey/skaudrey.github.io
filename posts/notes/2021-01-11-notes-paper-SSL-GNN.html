@@ -10,19 +10,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions">
+  <meta name="description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-GNN.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions">
+<meta property="og:description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
 <meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png">
 <meta property="article:published_time" content="2021-01-12T03:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:33:26.981Z">
+<meta property="article:modified_time" content="2021-01-22T01:11:05.259Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -189,25 +191,60 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.10141.pdf">Self-supervised Learning on Graphs: Deep Insights and New Directions</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChandlerBang/SelfTask-GNN">Codes</a></p>
 <a id="more"></a>
 <h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
-<h3 id="summary">Summary</h3>
 <ul>
-<li>Observations</li>
-<li>Limitations:</li>
+<li>Nodes in graphs present unique structure information and they are inherently linked indicating not independent and identically distributed (or i.i.d.).</li>
+<li>(SSL) has been introduced in both the image and text domains to alleviate the need of large labeled data by deriving labels for the significantly more unlabeled data.</li>
+<li>To fully exploit the unlabeled nodes for GNNs, SSL can be naturally harnessed for providing additional supervision.</li>
+<li>The challenges of graph to use SSL:
+<ul>
+<li>graphs are not restricted to these rigid structures.</li>
+<li>each node in a graph is an individual instance and has its own associated attributes and topological structures</li>
+<li>instances (or nodes) are inherently linked and dependent of each other.</li>
+</ul></li>
 </ul>
 <h2 id="goals">Goals</h2>
-<h2 id="how">How?</h2>
-<h3 id="idea">Idea</h3>
-<h3 id="implementation">Implementation</h3>
 <ul>
-<li></li>
+<li>Focus on advancing GNNs for node classification where GNNs leverage both labeled and unlabeled nodes on a graph to jointly learn node representations and a classifier that can predict the labels of unlabeled nodes on the graph. Aims at gain insights on when and why SSL works for GNNs and which strategy can better integrate SSL for GNNs.</li>
 </ul>
-<h2 id="experiments">Experiments</h2>
+<h2 id="problem">Problem</h2>
+<p>semi-supervised node classification task</p>
+<p><span class="math inline">\(\min\limits_{\theta}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)=\sum\limits_{(v_i,y_i)\in\mathcal{D}_L}\ell(f_{\theta}(\mathcal{G})_{v_i},y_i)\)</span></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png" alt="image-20210121192249653" style="zoom:40%;" /></p>
+<h2 id="previous-work">Previous work</h2>
+<h3 id="basic-pretext-task-on-graphs">Basic pretext task on graphs</h3>
+<h4 id="structure-information-adjacency-matrix-mathrma">Structure information (Adjacency matrix <span class="math inline">\(\mathrm{A}\)</span>)</h4>
+<p>Construct self-supervision information for the unlabeled nodes based on their local structure information, or how they relate to the rest of the graph</p>
+<h5 id="local-structure-information"><strong>Local structure information</strong></h5>
 <ul>
-<li></li>
+<li><p>Node property</p>
+<ul>
+<li><p>use node degree as a representative local node property for self-supervision while leaving other node properties (or the combination) as one future work</p></li>
+<li><p>Formally, let <span class="math inline">\(d_i=\sum\limits_{j=1}^{N}\mathrm{A}_{ij}\)</span> denote the degree of <span class="math inline">\(v_i\)</span> and construct the associated loss of the SSL pretext task as</p>
+<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}(f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i)^2\)</span>, where <span class="math inline">\(\mathcal{D}_U\)</span> denote the set of unlabeled nodes and associated pretext task labels in the graph.</p></li>
+<li><p>Assumption: The node property information is related to the specific task of interest.</p></li>
+</ul></li>
+<li><p><strong>EdgeMask</strong></p>
+<ul>
+<li><p>Build pretext task based on the connections between two nodes in the graph. Specifically, <strong>one can first randomly mask some edges and then the model is asked to reconstruct the masked edges</strong>.</p></li>
+<li><p>Formally, first mask <span class="math inline">\(m_e\)</span> edges denotes as the set <span class="math inline">\(\mathcal{M}_e\subset\varepsilon\)</span> and also sample the set <span class="math inline">\(\bar{\mathcal{M}_e}=\{(v_i,v_j)|v_i,v_j\in\mathcal{V},(v_i,v_j)\notin\varepsilon\}\)</span>, <span class="math inline">\(|\bar{\mathcal{M}_e}|=|\mathcal{M}_e|=m_e\)</span> . Then the SSL pretext task is to predict whether there exist a link between a given node pair.</p>
+<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\\\frac{1}{|\mathcal{M}_e|}\sum\limits_{(v_i,v_j)\in\mathcal{M}_e}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),1)+\frac{1}{|\bar{\mathcal{M}_e}|}\sum\limits_{(v_i,v_j)\in\bar{\mathcal{M}_e}}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),0)\)</span>, where <span class="math inline">\(\ell(\cdot,\cdot)\)</span> is the cross entropy loss, <span class="math inline">\(f_w\)</span> linearly maps to 1-dimension.</p></li>
+</ul></li>
 </ul>
+<h5 id="global-structure-information"><strong>Global structure information</strong></h5>
+<ul>
+<li><p>PairwiseDistance</p></li>
+<li><p>Distance2Clusters</p></li>
+</ul>
+<h4 id="attribute-information-nodes-matrix-mathrmx">Attribute information (Nodes matrix <span class="math inline">\(\mathrm{X}\)</span>)</h4>
+<ul>
+<li>AttributeMask</li>
+<li>PairewiseAttrSim</li>
+</ul>
+<h3 id="analysis">Analysis</h3>
+<h2 id="advanced-pretext-task-on-graphs">Advanced pretext task on graphs</h2>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
 <li></li>
@@ -297,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem"><span class="toc-number">3.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#previous-work"><span class="toc-number">4.</span> <span class="toc-text">Previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-pretext-task-on-graphs"><span class="toc-number">4.1.</span> <span class="toc-text">Basic pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#structure-information-adjacency-matrix-mathrma"><span class="toc-number">4.1.1.</span> <span class="toc-text">Structure information (Adjacency matrix \(\mathrm{A}\))</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#local-structure-information"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">Local structure information</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#global-structure-information"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">Global structure information</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#attribute-information-nodes-matrix-mathrmx"><span class="toc-number">4.1.2.</span> <span class="toc-text">Attribute information (Nodes matrix \(\mathrm{X}\))</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-number">4.2.</span> <span class="toc-text">Analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-pretext-task-on-graphs"><span class="toc-number">5.</span> <span class="toc-text">Advanced pretext task on graphs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -466,14 +503,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -490,6 +519,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -498,7 +539,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,14 +552,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">naive</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +575,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,22 +608,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">digest</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">feelings</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
             <div class="clearfix"></div>
