@@ -10,15 +10,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>notes-DAPPER | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see here. This notes keep records of the problems encountered while using DAPPER.">
+  <meta name="description" content="DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see here. This notes keep records of the problems encountered while using DAPPER.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="notes-DAPPER">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2019-10-05-notes-DAPPER.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see here. This notes keep records of the problems encountered while using DAPPER.">
+<meta property="og:description" content="DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see here. This notes keep records of the problems encountered while using DAPPER.">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-10-05T16:52:21.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:34:37.064Z">
+<meta property="article:modified_time" content="2021-01-12T19:34:38.000Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="da">
 <meta name="twitter:card" content="summary">
@@ -190,15 +190,18 @@
         <p>DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see <a target="_blank" rel="noopener" href="https://github.com/nansencenter/DAPPER">here</a>.</p>
 <p>This notes keep records of the problems encountered while using DAPPER.</p>
 <a id="more"></a>
-<ol type="1">
-<li>Pre-setting <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Intel MKL FATAL ERROR: Cannot load mkl_intel_thread.dll.</span><br></pre></td></tr></table></figure> Copy mkl_*.dll, libiomp5md.dll and <em>libiomp5md.pdb</em> from directory "./Library/bin" to the root directory of python exe.</li>
+<ol>
+<li>Pre-setting</li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Intel MKL FATAL ERROR: Cannot load mkl_intel_thread.dll.</span><br></pre></td></tr></table></figure>
+<p>Copy mkl_*.dll, libiomp5md.dll and <em>libiomp5md.pdb</em> from directory “./Library/bin” to the root directory of python exe.</p>
 <p>Reference from <a target="_blank" rel="noopener" href="https://blog.csdn.net/supertangcugu/article/details/89790617">here</a>.</p>
-<ol start="2" type="1">
+<ol start="2">
 <li>Manual</li>
 </ol>
 <p>Manual <a target="_blank" rel="noopener" href="https://dapper.readthedocs.io/en/latest/implementation.html">online</a></p>
-<p>For EnKF: Nx-by-N (维度数<em>样本数) For ndarrays: N-by-Nx (样本数</em>维度数)</p>
+<p>For EnKF: Nx-by-N (维度数<em>样本数)<br>
+For ndarrays: N-by-Nx (样本数</em>维度数)</p>
 
       
 
@@ -242,11 +245,11 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/talks/2019-12-19-talk-da.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.
+          Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks
         
       </div>
     </a>
@@ -445,15 +448,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,6 +476,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -481,15 +488,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,7 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,15 +536,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">

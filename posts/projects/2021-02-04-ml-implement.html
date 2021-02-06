@@ -8,21 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018. | Mia&#39;s Blog</title>
+  <title>The naive implementation of some popular machine learning algorithms. | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in s">
+  <meta name="description" content="Naive implementations of some M.L. algorithms, which are updated continuously. The algorithms that have been implemented are listed as follows:  Logistic Regression, SVM solved by SMO, K-Means， GMM so">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.">
-<meta property="og:url" content="http://yoursite.com/posts/talks/2019-12-19-talk-hyp.html">
+<meta property="og:title" content="The naive implementation of some popular machine learning algorithms.">
+<meta property="og:url" content="http://yoursite.com/posts/projects/2021-02-04-ml-implement.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in s">
+<meta property="og:description" content="Naive implementations of some M.L. algorithms, which are updated continuously. The algorithms that have been implemented are listed as follows:  Logistic Regression, SVM solved by SMO, K-Means， GMM so">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-12-19T11:46:44.346Z">
-<meta property="article:modified_time" content="2018-12-10T08:01:04.000Z">
+<meta property="article:published_time" content="2021-02-05T00:50:07.380Z">
+<meta property="article:modified_time" content="2018-12-10T12:57:30.000Z">
 <meta property="article:author" content="Mia Feng">
-<meta property="article:tag" content="hyperspectral">
-<meta property="article:tag" content="compression">
-<meta property="article:tag" content="reconstruction">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="naive">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
@@ -169,34 +168,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-talk-hyp" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ml-implement" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.
+      The naive implementation of some popular machine learning algorithms.
     </h1>
   
 
         
-        <a href="/posts/talks/2019-12-19-talk-hyp.html" class="archive-article-date">
-  	<time datetime="2019-12-19T11:46:44.346Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+        <a href="/posts/projects/2021-02-04-ml-implement.html" class="archive-article-date">
+  	<time datetime="2021-02-05T00:50:07.380Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:</p>
+        <p>Naive implementations of some M.L. algorithms, which are updated continuously.</p>
+<p>The algorithms that have been implemented are listed as follows:</p>
 <ul>
-<li>high spectral correlation,</li>
-<li>high spatial correlation,</li>
-<li>and sparsity,</li>
+<li>Logistic Regression,</li>
+<li>SVM solved by SMO,</li>
+<li>K-Means，</li>
+<li>GMM solved by EM,</li>
+<li>Perceptron，</li>
+<li>Naive Bayes,</li>
+<li>LeNet-Keras，</li>
+<li>MLP-Numpy solved with BP,</li>
+<li>MCMC sampling.</li>
 </ul>
-<p>and they casue a trouble during processing. <a id="more"></a> This talk explained why they are highly correlated but also sparse. Kernel PCA for compressing was also tested.</p>
-<p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slides</a> for more details.</p>
+<p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/ml_algorithm">here</a>.</p>
 
       
 
@@ -210,15 +215,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">compression</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">reconstruction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">naive</a>
         		</li>
       		
 		</ul>
@@ -230,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
+        			<a href="/categories/projects//" class="article-tag-list-link color4">projects</a>
         		</li>
       		
 		</ul>
@@ -248,18 +249,18 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/projects/2019-12-19-lr.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/talks/2021-02-04-notes-fourier-GCN.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Clouds detection of infrared hyperspectral data based on logistic.
+          Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.
         
       </div>
     </a>
   
   
-    <a href="/posts/notes/2019-12-19-hexo+killy+github%20pages=blog.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Build up personal blog</div>
+    <a href="/posts/meetings/2021-02-04-microsoft.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Computing in the 21th Century &amp; Asia Faculty Summit held by Microsoft, Nov., 2018.</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -278,6 +279,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    No contents
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -417,15 +431,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,6 +459,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -453,15 +471,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,7 +483,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,15 +519,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">

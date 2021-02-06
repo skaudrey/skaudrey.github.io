@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png">
 <meta property="article:published_time" content="2021-01-11T20:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-12T19:38:37.955Z">
+<meta property="article:modified_time" content="2021-01-12T19:38:38.000Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
@@ -194,132 +194,131 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.01064.pdf">Predicting What You Already Know Helps: Provable Self-Supervised Learning</a></p>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
 <ul>
-<li><p>Pretext tasks</p>
+<li>
+<p>Pretext tasks</p>
 <ul>
 <li><strong>Reconstruct images from corrupted versions or just part it</strong>: including denoising auto-encoders, image inpainting, and split-brain autoencoder</li>
 <li><strong>Using visual common sense</strong>, including predicting rotation angle, relative patch position, recovering color channels, solving jigsaw puzzle games, and discriminating images created from distortion.</li>
-<li><strong>Contrastive learning</strong>: learn representations that <strong>bring similar data points closer</strong> while pushing randomly selected points further away or <strong>maximize a contrastive-based mutual information lower bound</strong> between different views</li>
+<li><strong>Contrastive learning</strong>:  learn representations that <strong>bring similar data points closer</strong> while pushing randomly selected points further away or <strong>maximize a contrastive-based mutual information lower bound</strong> between different views</li>
 <li><strong>Create auxiliary tasks</strong>: The natural ordering or topology of data is also exploited in video-based, graph-based or map-based self-supervised learning. For instance, the pretext task is to determine the correct temporal order for video frames.</li>
-</ul></li>
-<li><p>Theory for self-supervised learning: contrastive learning</p>
+</ul>
+</li>
+<li>
+<p>Theory for self-supervised learning: contrastive learning</p>
 <ul>
 <li>Contrastive learning may not work when conditional independence holds only with additional latent variables</li>
 </ul>
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Theory</th>
-<th style="text-align: left;">Limitations</th>
+<tr>
+<th style="text-align:left">Theory</th>
+<th style="text-align:left">Limitations</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption</td>
-<td style="text-align: left;">Not handle approximate conditional independence</td>
+<tr>
+<td style="text-align:left">Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption</td>
+<td style="text-align:left">Not handle approximate conditional independence</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text</td>
-<td style="text-align: left;">The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images</td>
+<tr>
+<td style="text-align:left">Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text</td>
+<td style="text-align:left">The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations</td>
-<td style="text-align: left;">No connection made to downstream tasks</td>
+<tr>
+<td style="text-align:left">Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations</td>
+<td style="text-align:left">No connection made to downstream tasks</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">A mutual information maximization view of contrastive learning</td>
-<td style="text-align: left;">Some issues point by paper [45]</td>
+<tr>
+<td style="text-align:left">A mutual information maximization view of contrastive learning</td>
+<td style="text-align:left">Some issues point by paper [45]</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Explain negative sampling based methods use the theory of noise contrastive estimation</td>
-<td style="text-align: left;"><strong>guarantees are only asymptotic and not for downstream tasks.</strong></td>
+<tr>
+<td style="text-align:left">Explain negative sampling based methods use the theory of noise contrastive estimation</td>
+<td style="text-align:left"><strong>guarantees are only asymptotic and not for downstream tasks.</strong></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training</td>
-<td style="text-align: left;">not for downstream task</td>
+<tr>
+<td style="text-align:left">Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training</td>
+<td style="text-align:left">not for downstream task</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ul>
-<h3 id="summary">Summary</h3>
+<h3 id="Summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
 <li>Forming the pretext tasks:
 <ul>
-<li>Colorization: can be interpreted as <span class="math inline">\(p(X_1,X_2|Y)=p(X_1|Y)\times p(X_2|Y)\)</span>, aka <span class="math inline">\(X_1,X_2\)</span> are independently conditioned on <span class="math inline">\(Y\)</span></li>
-<li>Inpainting: <span class="math inline">\(p(X_1,X_2|Y,Z)=p(X_1|Y,Z)\times p(X_2|Y,Z)\)</span>,aka the inpainted <span class="math inline">\(X_2\)</span> is conditionally independent of <span class="math inline">\(X_2\)</span> (the remainder) given <span class="math inline">\(Y,Z\)</span>.</li>
-</ul></li>
-<li>The only way to solve the pretext task is to first implicitly predict <span class="math inline">\(Y\)</span> and then predict <span class="math inline">\(X_2\)</span> from <span class="math inline">\(Y\)</span></li>
-</ul></li>
+<li>Colorization: can be interpreted as $p(X_1,X_2|Y)=p(X_1|Y)\times p(X_2|Y)$, aka $X_1,X_2$ are independently conditioned on $Y$</li>
+<li>Inpainting: $p(X_1,X_2|Y,Z)=p(X_1|Y,Z)\times p(X_2|Y,Z)$,aka the inpainted $X_2$ is conditionally independent of $X_2$ (the remainder) given $Y,Z$.</li>
+</ul>
+</li>
+<li>The only way to solve the pretext task is to first implicitly predict $Y$ and then predict $X_2$ from $Y$</li>
+</ul>
+</li>
 <li>Limitations:
 <ul>
 <li>The underlying principles of self-supervised learning are still mysterious since it is a-priori unclear why predicting what we already know should help.</li>
-</ul></li>
 </ul>
-<h2 id="goals">Goals</h2>
-<p><strong><em>What conceptual connection between pretext and downstream tasks ensures good representations?</em></strong></p>
-<p><strong><em>What is a good way to quantify this?</em></strong></p>
-<h2 id="how">How?</h2>
-<h3 id="notations">Notations</h3>
+</li>
+</ul>
+<h2 id="Goals">Goals</h2>
+<p><em><strong>What conceptual connection between pretext and downstream tasks ensures good representations?</strong></em></p>
+<p><em><strong>What is a good way to quantify this?</strong></em></p>
+<h2 id="How">How?</h2>
+<h3 id="Notations">Notations</h3>
 <table>
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 75%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Symbol</th>
-<th style="text-align: left;">Meaning</th>
+<tr>
+<th style="text-align:left">Symbol</th>
+<th style="text-align:left">Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(\mathbb{E}^L[Y|X]\)</span></td>
-<td style="text-align: left;">the best linear predictor of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span></td>
+<tr>
+<td style="text-align:left">$\mathbb{E}^L[Y</td>
+<td style="text-align:left">X]$</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(\Sigma_{XY|Z}\)</span></td>
-<td style="text-align: left;">partial covariance matrix between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span></td>
+<tr>
+<td style="text-align:left">$\Sigma_{XY</td>
+<td style="text-align:left">Z}$</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(X_1,X_2\)</span></td>
-<td style="text-align: left;">the input variable and the target random variable for the pretext tasks</td>
+<tr>
+<td style="text-align:left">$X_1,X_2$</td>
+<td style="text-align:left">the input variable and the target random variable for the pretext tasks</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(Y\)</span></td>
-<td style="text-align: left;">label for the downstream task</td>
+<tr>
+<td style="text-align:left">$Y$</td>
+<td style="text-align:left">label for the downstream task</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(P_{X_1X_2Y}\)</span></td>
-<td style="text-align: left;">the joint distribution over <span class="math inline">\(\mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{Y}\)</span></td>
+<tr>
+<td style="text-align:left">$P_{X_1X_2Y}$</td>
+<td style="text-align:left">the joint distribution over $\mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{Y}$</td>
 </tr>
 </tbody>
 </table>
-<h3 id="idea">Idea</h3>
+<h3 id="Idea">Idea</h3>
 <ul>
 <li>Under approximate condition independence (CI) (quantified by the norm of a certain partial covariance matrix), show similar sample complexity improvements.</li>
 <li>Testify pretext task helps when CI is approximately satisfied in text domain.</li>
 <li>Demonstrate on a real-world image dataset that a pretext task-based linear model outperforms or is comparable to many baselines.</li>
 </ul>
-<h3 id="formalize-ssl-with-pretext-task">Formalize SSL with pretext task</h3>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" /></p>
+<h3 id="Formalize-SSL-with-pretext-task">Formalize SSL with pretext task</h3>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" />
 <p>It will be estimated by:</p>
 <ul>
-<li><strong>approximation erro</strong>r:<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png" alt="image-20210111173318840" style="zoom:33%;" />, where <span class="math inline">\(f^*=\mathbb{E}[Y|X_1]\)</span> is the optimal predictor for the task</li>
-<li><strong>estimation error</strong>: <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png" alt="image-20210111173520930" style="zoom:25%;" />, it's the difference between Predicting <span class="math inline">\(Y\)</span> directly by <span class="math inline">\(X_1\)</span> and Predicting by the representations from pretext task</li>
+<li><strong>approximation erro</strong>r:<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png" alt="image-20210111173318840" style="zoom:33%;" />, where $f^*=\mathbb{E}[Y|X_1]$ is the optimal predictor for the task</li>
+<li><strong>estimation error</strong>: <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png" alt="image-20210111173520930" style="zoom:25%;" />, it’s the difference between Predicting $Y$ directly by $X_1$ and Predicting by the representations from pretext task</li>
 </ul>
-<h2 id="experiments">Experiments</h2>
+<h2 id="Experiments">Experiments</h2>
 <ul>
 <li></li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="Conclusion">Conclusion</h2>
 <ul>
 <li>This paper posits a mechanism based on conditional independence to formalize how solving certain pretext tasks can learn representations that provably decreases the sample complexity of downstream supervised tasks</li>
 <li>Quantify how approximate independence between the components of the pretext task (conditional on the label and latent variables) <strong>allows us to learn representations that can solve the downstream task with drastically reduced sample complexity</strong> by just training a linear layer on top of the learned representation.</li>
@@ -409,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#notations"><span class="toc-number">3.1.</span> <span class="toc-text">Notations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.2.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#formalize-ssl-with-pretext-task"><span class="toc-number">3.3.</span> <span class="toc-text">Formalize SSL with pretext task</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notations"><span class="toc-number">3.1.</span> <span class="toc-text">Notations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.2.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Formalize-SSL-with-pretext-task"><span class="toc-number">3.3.</span> <span class="toc-text">Formalize SSL with pretext task</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -574,15 +573,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">summer school</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPR</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,6 +601,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -610,15 +613,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,7 +625,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,15 +661,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
               <li class="article-tag-list-item">

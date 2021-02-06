@@ -4,7 +4,21 @@
   <url>
     <loc>http://yoursite.com/posts/notes/2019-06-19-notes-math.html</loc>
     
-    <lastmod>2021-01-25</lastmod>
+    <lastmod>2021-02-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html</loc>
+    
+    <lastmod>2021-01-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-paper-GCN-SemiClassification.html</loc>
+    
+    <lastmod>2021-01-27</lastmod>
     
   </url>
   
@@ -44,21 +58,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/notes/2019-12-19-hexo+killy+github%20pages=blog.html</loc>
+    <loc>http://yoursite.com/posts/notes/2021-02-04-hexo+killy+github%20pages=blog.html</loc>
     
     <lastmod>2021-01-12</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/notes/2019-04-26-notes-paper-GCN-SemiClassification.html</loc>
-    
-    <lastmod>2021-01-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-notes-fourier-GCN.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-notes-fourier-GCN.html</loc>
     
     <lastmod>2021-01-12</lastmod>
     
@@ -100,7 +107,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/projects/2019-12-19-gpr.html</loc>
+    <loc>http://yoursite.com/posts/projects/2021-02-04-gpr.html</loc>
     
     <lastmod>2021-01-12</lastmod>
     
@@ -149,7 +156,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-talk-gan-rs.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-gan-rs.html</loc>
     
     <lastmod>2019-08-18</lastmod>
     
@@ -170,63 +177,63 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/projects/2019-12-19-lr.html</loc>
+    <loc>http://yoursite.com/posts/projects/2021-02-04-lr.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/projects/2019-12-19-ml-implement.html</loc>
+    <loc>http://yoursite.com/posts/projects/2021-02-04-ml-implement.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/projects/2019-12-19-hcr.html</loc>
+    <loc>http://yoursite.com/posts/projects/2021-02-04-hcr.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/meetings/2019-12-19-microsoft.html</loc>
+    <loc>http://yoursite.com/posts/meetings/2021-02-04-microsoft.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-talk-hyp.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-hyp.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/meetings/2019-12-19-harbin.html</loc>
+    <loc>http://yoursite.com/posts/meetings/2021-02-04-harbin.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-talk-gpr.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-gpr.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-talk-mlutility.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-mlutility.html</loc>
     
     <lastmod>2018-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2019-12-19-talk-da.html</loc>
+    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-da.html</loc>
     
     <lastmod>2018-11-17</lastmod>
     
@@ -242,7 +249,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -250,210 +257,210 @@
   
   <url>
     <loc>http://yoursite.com/tags/notes/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/Sensor/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/GPR/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/summer-school/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/mathematics/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/GPR/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/cnn/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/compress/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/infrared/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/hyperspectral/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/hexo/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/blog/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/logistic/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/applications/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <loc>http://yoursite.com/tags/hexo/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/tendency/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/ML/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/naive/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <loc>http://yoursite.com/tags/blog/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/da/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/ML/</loc>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/naive/</loc>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/applications/</loc>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/tendency/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/data-assimilation/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/machine-learning/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/paper/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/gcn/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/SSL/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/skeleton/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/remote-sensing-images/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/interpolation/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/compression/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/reconstruction/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/interpolation/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/AI/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/Data-assimilation/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/tags/math/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -462,28 +469,28 @@
   
   <url>
     <loc>http://yoursite.com/categories/notes/</loc>
-    <lastmod>2021-01-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/projects/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/meetings/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/projects/</loc>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite.com/categories/talks/</loc>
-    <lastmod>2021-01-26</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
