@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-10T02:06:52.000Z</updated>
+  <updated>2021-02-07T13:46:46.379Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Paper--Graph Level Anomaly Detection</title>
+    <link href="http://yoursite.com/posts/notes/2021-02-07-notes-paper-fall-survey.html"/>
+    <id>http://yoursite.com/posts/notes/2021-02-07-notes-paper-fall-survey.html</id>
+    <published>2021-02-07T13:46:39.000Z</published>
+    <updated>2021-02-07T13:46:46.379Z</updated>
+    
+    <content type="html"><![CDATA[<p>Paper <a href="https://www.frontiersin.org/articles/10.3389/frobt.2020.00071/full">Elderly Fall Detection Systems: A Literature Survey</a></p><a id="more"></a><h2 id="Why">Why?</h2><h2 id="Goals">Goals</h2><h2 id="How">How?</h2><h3 id="Idea">Idea</h3><h3 id="Implementation">Implementation</h3><h2 id="Experiments">Experiments</h2><h2 id="Conclusion">Conclusion</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Paper &lt;a href=&quot;https://www.frontiersin.org/articles/10.3389/frobt.2020.00071/full&quot;&gt;Elderly Fall Detection Systems: A Literature Survey&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="notes" scheme="http://yoursite.com/categories/notes/"/>
+    
+    
+      <category term="paper" scheme="http://yoursite.com/tags/paper/"/>
+    
+      <category term="fall" scheme="http://yoursite.com/tags/fall/"/>
+    
+      <category term="survey" scheme="http://yoursite.com/tags/survey/"/>
+    
+  </entry>
   
   <entry>
     <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
