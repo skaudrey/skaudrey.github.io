@@ -9,7 +9,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/notes/2021-02-07-notes-paper-fall-survey.html</loc>
+    <loc>http://yoursite.com/posts/notes/2019-01-28-hexo+killy+github%20pages=blog.html</loc>
     
     <lastmod>2021-02-07</lastmod>
     
@@ -59,13 +59,6 @@
   
   <url>
     <loc>http://yoursite.com/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html</loc>
-    
-    <lastmod>2021-01-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/notes/2021-02-04-hexo+killy+github%20pages=blog.html</loc>
     
     <lastmod>2021-01-12</lastmod>
     
@@ -347,20 +340,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/applications/</loc>
-    <lastmod>2021-02-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/tendency/</loc>
-    <lastmod>2021-02-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/ML/</loc>
     <lastmod>2021-02-07</lastmod>
     <changefreq>daily</changefreq>
@@ -369,6 +348,20 @@
   
   <url>
     <loc>http://yoursite.com/tags/naive/</loc>
+    <lastmod>2021-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/applications/</loc>
+    <lastmod>2021-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/tendency/</loc>
     <lastmod>2021-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -418,20 +411,6 @@
   
   <url>
     <loc>http://yoursite.com/tags/skeleton/</loc>
-    <lastmod>2021-02-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/fall/</loc>
-    <lastmod>2021-02-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/survey/</loc>
     <lastmod>2021-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
