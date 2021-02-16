@@ -422,4 +422,244 @@ J_\theta(X)=\sum_{i=1}^N (f_{\theta}(x^{(i)})-y^{(i)})^2
 %====================================================================%
 \begin{frame}{Why talking about this?}{\quad \quad \quad It\rq{}s not nonsense}
 May I could say the Theory of D.A. comes from \textbf{control theory},using \textbf{PDE,ODE} to make a perfect description of the natural phenomena,although it\rq{}s \textbf{impossible}.\\The natural phenomena is too complicated to describe , we need to \textbf{simplify} it again and again.Afterwards,we get our model, within plenty of \textbf{biases,errors}.\\
-M.L. focuses on the \textbf{general model}.You just need to spend more time on the \textbf{mapping} between the input data a
+M.L. focuses on the \textbf{general model}.You just need to spend more time on the \textbf{mapping} between the input data and output data, without much consideration about the physics,biology etc.And it did works. 
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+%====================================================================%
+\begin{frame}{Why talking about this?}{\quad \quad \quad It\rq{}s not nonsense}
+
+Then why didn\rq{}t us try to keep an eye on the more general model without considering many physics process? \\
+In fact, we are doing it. The \textbf{statistics} in D.A. supports me. If you look at Particle Filter,Hierarchical Bayesian network, you will find more.
+
+We are \textbf{combining D.A.and M.L.}.\\
+But we need to be better.
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+
+\subsection{Mathematical Basis}
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+%====================================================================%
+
+\begin{frame}{Mathematical Basis}{\quad \quad \quad you may need to learn}
+\includegraphics[scale=.42]{fig/math.png}
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+
+%====================================================================%
+\subsection{Methods}
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Methods}{\quad \quad \quad Let\rq{}s go back firstly}
+%====================================================================%
+
+\includegraphics[scale=.45]{fig/Bayes.png}
+
+According to the figure above, I\rq{}d like to make some extensions.
+
+\end{frame}
+% ----------------slide的结构结束---------------- %
+
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Methods}{\quad \quad \quad D.A. Framework,from the perspective of M.L.}
+% ----------------分栏的结构开始---------------- %
+\begin{columns}
+
+\column{.8\textwidth}
+
+\includegraphics[scale=.18]{fig/daalg.png}
+
+\column{.2\textwidth}
+
+Just for an instance, as for I\rq{}m a green hand in D.A.\& M.L., you may find many errors in it
+
+\end{columns}
+
+% ----------------分栏的结构结束---------------- %
+
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+
+%====================================================================%
+
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Methods}{\quad \quad \quad change the perspective}
+
+\begin{block}{from 邹晓蕾,\emph{资料同化与应用}page43}
+3DVAR、4DVAR、EnKF，分析增量均为观测增量的加权平均。不同的D.A.方法只是获得的后验权重$(W)$估计不同,所有的推导都是下式的直接或间接的表达
+\begin{equation}
+x^{a}=x^b+W(y^o-y)
+\end{equation}
+\end{block}
+参考线性回归，to be \textbf{more general},可以增加\textbf{正则项}
+%\begin{block}{from John M. Lewis \emph{Dynamic D.A.} page 115}--Tikhonov regularization
+%an unified model solve both the under-determined and over-determined problems
+%\begin{equation}
+%f(x)=\frac{\alpha}{2}x^Tx+\frac{1}{2}\left \| (z-Hx) \right \|^2
+%\end{equation}
+%
+%\end{block}
+
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Methods}{\quad \quad \quad Tikhonov regularization}
+
+\begin{block}{from John M. Lewis \emph{Dynamic D.A.} page 115}
+an unified model which solve both the under-determined and over-determined problems
+\begin{equation}
+f(x)=\frac{1}{2}\left \| (z-Hx) \right \|^2+\frac{\alpha}{2}x^Tx
+\end{equation}
+
+\end{block}
+What if changing the norm to $\ell_0,\ell_1$ norm, will it make sense?
+
+A.K.A. \emph{Will the $\ell_0,\ell_1$ norm,which is popularly used in M.L.,help us get a more general model in D.A. ?? }
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+
+
+%%====================================================================%
+%\section{An experience:failed}
+%
+%%====================================================================%
+%
+%\begin{frame}{An experience:failed}{\quad \quad \quad Just show the importance of D.A. and Physics}
+%
+%\begin{block}{}
+%
+%Task:雷达数据预测未来降水\\
+%讲一下自己做的和人家实验的对比\\说明：1.单纯算法不够。。2. 深度学习的结合训练效果
+%
+%\end{block}
+%
+%
+%\end{frame}
+%
+%% ----------------slide的结构结束---------------- %
+
+
+%====================================================================%
+\section{Some issues}
+
+%====================================================================%
+
+\begin{frame}{Some issues}{\quad \quad \quad Some problems in D.A. }
+
+
+Problems in D.A.
+\begin{itemize}
+\item 计算需求
+\item 模式误差
+\item 观测误差（数据集）
+\item 观测独立假设（实际不全为真）
+\item 预报性
+\end{itemize}
+
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Some issues}{\quad \quad \quad Just for an example}
+You may get some inspirations from M.L.
+
+\begin{itemize}
+\item 计算需求$\Leftarrow$ 降维：kernel trick，sparse matrix reconstruction
+\item 模式误差$\Leftarrow$ D.L.是否可以与模式结合？？LSTM擅长分析时间序列
+\item 观测误差（数据集）$\Leftarrow$ D.M.中的分箱、回归、离群点检测etc.
+\item 观测独立假设（实际不全为真）$\Leftarrow$ 随机过程取代随机变量：GPR？LSTM？
+\item 预报性(a.k.a.泛化性能) $\Leftarrow$ 正则化：norm selection
+\end{itemize}
+
+\end{frame}
+
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+
+% ----------------slide的结构开始---------------- %
+\begin{frame}{Some issues}{\quad \quad \quad You may be interested in }
+
+Data need huge storage space.\\
+\textbf{Hadoop and Spark} works well in the D.M. of big data
+
+\begin{block}{}
+\begin{enumerate}
+\item Hadoop：Apache的项目，分布式系统架构，开源。下设HDFS、HBase、map/reduce等子项目。
+\begin{itemize}
+ \item HDFS实现对于大数据的分布式文件存储。
+ \item HBase不同于Mysql、SQLSERVER、Oracle等关系型数据库，是No-sql数据库。擅长文件数据存储检索。常用的no-sql数据库还有mongoDB。
+ \item map/reduce为数据并行计算框架，用于作业调度。map步将大作业分散为小作业，reduce步将小作业的输出结果组织为最终结果。
+\end{itemize}
+\end{enumerate}
+\end{block}
+\end{frame}
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+
+%% ----------------slide的结构开始---------------- %
+\begin{frame}{Some issues}{\quad \quad \quad You may be interested in }
+
+\begin{block}{}	%注意，这里的{}不可少。。不然编译会报错
+\begin{enumerate}
+\item Spark：Apache项目，由UC Berkeley AMP lab开发的类map/reduce的通用并行框架，开源。\\M.L.的可行框架之一，计算速率优于map/reduce。\\可以在HDFS中并行运行，且提供M.L.的API。也可单独运行。
+
+\item Ray：由UC Berkeley RISE Lab开发，尚在开发中。旨在让基于Python的M.L.和D.L.工作负载能够实时执行，并具有类似消息传递接口（MPI）的性能和细粒度。据Michael I.Jordan说，Ray性能优于Spark，将取代Spark。
+\end{enumerate}
+\end{block}
+B.T.W.\quad Michael I.Jordan曾先后担任AMP、RISE的顾问，Spark和Ray都有做指导。研究方向为统计学习
+
+\end{frame}
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+
+
+
+\section{Summary}
+%====================================================================%
+
+
+% ----------------slide的结构开始---------------- %
+
+\begin{frame}{Summary}{Outline again}
+
+\begin{block}{relationship}
+Algorithm：\\
+\begin{enumerate}
+\item Bayesian network
+\item linear regression
+\end{enumerate}
+
+May be useful：\\
+\begin{enumerate}
+\item dimension reduce and sparse matrix reconstruction: kernel tricks,PCA
+\item computation efficiency: D.L.,Ray
+\item storage space: HDFS
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
+% ----------------slide的结构结束---------------- %
+%====================================================================%
+
+
+\begin{frame}{Summary}{}
+ The combination of D.A.\& M.L. is \huge{ \textbf{unavoidable}}
+
+\end{frame}
+
+\end{document}
+ 
