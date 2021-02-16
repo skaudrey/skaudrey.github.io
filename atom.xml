@@ -47,339 +47,6 @@
   </entry>
   
   <entry>
-    <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-talk-mlutility.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-talk-mlutility.html</id>
-    <published>2021-02-05T00:50:10.390Z</published>
-    <updated>2018-12-10T02:06:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven't learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p><p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my l
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
-    
-      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
-    
-      <category term="Data assimilation" scheme="http://yoursite.com/tags/Data-assimilation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-talk-hyp.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-talk-hyp.html</id>
-    <published>2021-02-05T00:50:10.320Z</published>
-    <updated>2018-12-10T08:01:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:</p><ul><li>high spectral correlation,</li><li>high spatial correlation,</li><li>and sparsity,</li></ul><p>and they casue a trouble during processing. <a id="more"></a> This talk explained why they are highly correlated but also sparse. Kernel PCA for compressing was also tested.</p><p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slides</a> for more details.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;high spectral correlation,&lt;/li&gt;
-&lt;li&gt;high spatial correlation,&lt;/li&gt;
-&lt;li&gt;and sparsity,&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;and they casue a trouble during processing.
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-      <category term="compression" scheme="http://yoursite.com/tags/compression/"/>
-    
-      <category term="reconstruction" scheme="http://yoursite.com/tags/reconstruction/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-talk-gpr.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-talk-gpr.html</id>
-    <published>2021-02-05T00:50:10.260Z</published>
-    <updated>2018-12-10T02:45:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html">projects' introduction</a> and <a href="https://github.com/skaudrey/gpml/">github</a> for more details.</p><p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check th
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
-    
-      <category term="interpolation" scheme="http://yoursite.com/tags/interpolation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-talk-gan-rs.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-talk-gan-rs.html</id>
-    <published>2021-02-05T00:50:10.220Z</published>
-    <updated>2019-08-18T14:16:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Some works using GANs handle the problems in remote sensing.</p><p>Check <a href="/assets/slides/GAN/GANRS.pdf">slide</a> for more details.``</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Some works using GANs handle the problems in remote sensing.&lt;/p&gt;
-&lt;p&gt;Check &lt;a href=&quot;/assets/slides/GAN/GANRS.pdf&quot;&gt;slide&lt;/a&gt; for more deta
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
-      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-talk-da.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-talk-da.html</id>
-    <published>2021-02-05T00:50:10.160Z</published>
-    <updated>2018-11-17T08:19:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin's summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning.</p><p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
-    
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
-    <link href="http://yoursite.com/posts/talks/2021-02-04-notes-fourier-GCN.html"/>
-    <id>http://yoursite.com/posts/talks/2021-02-04-notes-fourier-GCN.html</id>
-    <published>2021-02-05T00:50:07.490Z</published>
-    <updated>2021-01-12T20:59:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution.</p><p>Check <a href="/assets/slides/notes/GCN/fourier-GCN.pdf">slides</a> for more details.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution.&lt;/p&gt;
-&lt;p&gt;Check &lt;a hre
-      
-    
-    </summary>
-    
-      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
-    
-    
-      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
-    
-      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The naive implementation of some popular machine learning algorithms.</title>
-    <link href="http://yoursite.com/posts/projects/2021-02-04-ml-implement.html"/>
-    <id>http://yoursite.com/posts/projects/2021-02-04-ml-implement.html</id>
-    <published>2021-02-05T00:50:07.380Z</published>
-    <updated>2018-12-10T12:57:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Naive implementations of some M.L. algorithms, which are updated continuously.</p><p>The algorithms that have been implemented are listed as follows:</p><ul><li>Logistic Regression,</li><li>SVM solved by SMO,</li><li>K-Means，</li><li>GMM solved by EM,</li><li>Perceptron，</li><li>Naive Bayes,</li><li>LeNet-Keras，</li><li>MLP-Numpy solved with BP,</li><li>MCMC sampling.</li></ul><p>Codes are available <a href="https://github.com/skaudrey/ml_algorithm">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Naive implementations of some M.L. algorithms, which are updated continuously.&lt;/p&gt;
-&lt;p&gt;The algorithms that have been implemented are list
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
-    
-      <category term="naive" scheme="http://yoursite.com/tags/naive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Computing in the 21th Century &amp; Asia Faculty Summit held by Microsoft, Nov., 2018.</title>
-    <link href="http://yoursite.com/posts/meetings/2021-02-04-microsoft.html"/>
-    <id>http://yoursite.com/posts/meetings/2021-02-04-microsoft.html</id>
-    <published>2021-02-05T00:50:07.350Z</published>
-    <updated>2018-12-10T08:53:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is <a href="https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda">here</a>.</p><p>Babysitting AI and computational neuroscience impressed me a lot. <a id="more"></a> # computing neuroscience: robots with feelings.</p><p>Prof. Lenore Blue's keynote is about computational neuroscience. They try to let robots feel pain, and to simulate the long and short term encoding happening in our brains.</p><p>What she talked reminds me of something I had read before.</p><p>According to the book <em>Psychology</em> written by Daniel Schacter, our brains do encode information into long and short codes, and the short form is possibly trasformed into a long one. Even though we don't mean to encode or memorize something sometimes, encoding still occurs unconsciously.</p><p>Reviewing is one useful way for recalling these information. Moreover, if you are in the similar environment in which you encoded the codes before, you will have higher possibility to recall it. However, the <strong>encoding error</strong> happend during reviewing is more, and that's why a detective should try to get full information while inquiring evidences from witnesses at the 1st time.</p><p>Also, our brains are more sensible to pictorial information compared with text information. So, if you try to make each thing you want to keep code as a photo, you can boost the capability of memorizing.</p><h1 id="yoshu-bengio-beyond-i.i.d.-and-babysitting-ai">Yoshu Bengio: Beyond i.i.d. and babysitting AI</h1><p>One of the basic assumption that makes generation possible is independent identically distributed assumption. However, influenced by observing equipments, imbalanced samples and others, the distributions of training data and test data are not always the same. Hence, Prof. Bengio's team proposed that all data are sampled from the same system rather than same distribution. As for weather of two different seasons, data desciping them are sampled from the same atmospheric circulation system, but they don't distribute identically. Bengio said they tend to initialize this system with diversed initial conditions, and the result of this distribution will be taken as what the data set follows. It makes sense.</p><p><em>One thing that troubles me is, how can I model the system and figure out the initial conditions? For things with obvious physical rules, it is easy, and even the model's codes are open-acssessed online. What if the one I don't know? How to make this idea works in common situations?</em></p><p>CNN is renowned as its power in representation learning, which encodes a variety of information into vectors. Our brains also work like this. Nontheless, what they learn are supervised, and the utility of binary network, the simplification of network structure all demostrate that the captured information are redundant. The model learned is fragile, too. After adding some noises into an image, even though the image dosen't change visually for us humans, model can not tell what it is as before. It all comes from the uncontrolling unsupervision. Babysitting AI aims at modeling with environmental information and other information, so that leading AI models.</p><h1 id="andrew-c.-yao-the-advent-of-quantum-computing">Andrew C. Yao: The Advent of Quantum Computing</h1><p>The quantum computing will offer exponential speedup for crypto-code breaking, simulation of quantum physical systems, simulation of materials, chemistry, and biology, nonlinear optimization, ML and AI. It will break through the bottleneck of computing.</p><p>Its implementation is like crystallography. In terms of crystallography, you take an X-ray photo for a crystal and then compute its structure. For quantum computing, instead of taking a real photo, you just need to collect a polynomial number of sample points. By wave-particle duality, this single photo can recreate the raw image probabilistically.</p><p>According to Andrew, dimond qubits are in the highest possibility to be used in our laptops.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is &lt;a href=&quot;https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Babysitting AI and computational neuroscience impressed me a lot.
-    
-    </summary>
-    
-      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
-    
-    
-      <category term="applications" scheme="http://yoursite.com/tags/applications/"/>
-    
-      <category term="tendency" scheme="http://yoursite.com/tags/tendency/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clouds detection of infrared hyperspectral data based on logistic.</title>
-    <link href="http://yoursite.com/posts/projects/2021-02-04-lr.html"/>
-    <id>http://yoursite.com/posts/projects/2021-02-04-lr.html</id>
-    <published>2021-02-05T00:50:07.310Z</published>
-    <updated>2018-12-10T13:17:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p><p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p><p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land's IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p><p>Codes are available <a href="https://github.com/skaudrey/cloud">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed 
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HCR--Compress and Resonstruct Hyperspectral Data.</title>
-    <link href="http://yoursite.com/posts/projects/2021-02-04-hcr.html"/>
-    <id>http://yoursite.com/posts/projects/2021-02-04-hcr.html</id>
-    <published>2021-02-05T00:50:07.230Z</published>
-    <updated>2018-12-10T12:45:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p><p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p><p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels' weights for likewise data are similar.</p><p>Codes are available <a href="https://github.com/skaudrey/hyp">here</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression an
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
-    
-      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
-    
-      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
-    
-      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The summer school held in Harbin, Aug. 2017.</title>
-    <link href="http://yoursite.com/posts/meetings/2021-02-04-harbin.html"/>
-    <id>http://yoursite.com/posts/meetings/2021-02-04-harbin.html</id>
-    <published>2021-02-05T00:50:07.190Z</published>
-    <updated>2018-12-10T07:55:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do">here</a> for more info. I gave a talk to the students in my lab after returning, <a href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation. <a id="more"></a> The themes given by those professors are listed below.</p><ul><li><p>Prof. Francois</p><p>Research Area：Variational data assimilation (VAR), especially 4DVAR.</p><p>Keynotes：The direvation of adjoint models, sensitivity analysis and the introduction of image assimilation. See the <a href="/assets/notes/harbin/François%20meeting%20minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jordan</p><p>Research Area：Statistical Learning</p><p>Keynotes: Summarize popular machine learning algorithms, and prove the convergence etc. See the <a href="/assets/notes/harbin/Jordan%20meeting%20minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jurgen</p><p>Research Area：AI, DL</p><p>Keynotes: The introduction of utilizing AI. Check more from his <a href="http://people.idsia.ch/~juergen/">home page</a>.</p></li><li><p>Prof. Ma</p><p>Research Area：Compression sensing.</p><p>Keynotes: The introduction of compression sensing and its applications.</p></li><li><p>Prof. Cai</p><p>Research Area：Statistical inference.</p><p>Keynotes: Statistical inference in high-dimensions. No slides, the minutes file is <a href="/assets/notes/harbin/Tony%20meeting%20minutes.pdf">here</a>.</p></li></ul><p>Slides and records are available in the <a href="https://pan.baidu.com/s/1jGj07koiMIV-MOf17N_jeg">baidu network disk</a> with password 6o2x. Enjoy yourself.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check &lt;a href=&quot;http://mss2017.hit.edu.cn/showSubjectDominWebSite.do&quot;&gt;here&lt;/a&gt; for more info. I gave a talk to the students in my lab after returning, &lt;a href=&quot;https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html&quot;&gt;here&lt;/a&gt; are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.
-    
-    </summary>
-    
-      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
-    
-    
-      <category term="summer school" scheme="http://yoursite.com/tags/summer-school/"/>
-    
-      <category term="mathematics" scheme="http://yoursite.com/tags/mathematics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weather processes interpolation based on GPR</title>
-    <link href="http://yoursite.com/posts/projects/2021-02-04-gpr.html"/>
-    <id>http://yoursite.com/posts/projects/2021-02-04-gpr.html</id>
-    <published>2021-02-05T00:50:07.140Z</published>
-    <updated>2021-01-12T19:35:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, and two interpolation methods are proposed. Check <a href="http://www.mdpi.com/2073-4433/9/5/194/pdf">paper</a> for more information. Codes are available <a href="https://github.com/skaudrey/gpml">here</a>.</p><h1 id="reference">Reference</h1><pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.</code></pre><h1 id="acknowledgement">Acknowledgement</h1><pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale depen
-      
-    
-    </summary>
-    
-      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
-    
-    
-      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Paper--Graph Level Anomaly Detection</title>
     <link href="http://yoursite.com/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html"/>
     <id>http://yoursite.com/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html</id>
@@ -682,6 +349,34 @@
   </entry>
   
   <entry>
+    <title>Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</title>
+    <link href="http://yoursite.com/posts/talks/2019-07-26-talk-gan-rs.html"/>
+    <id>http://yoursite.com/posts/talks/2019-07-26-talk-gan-rs.html</id>
+    <published>2019-07-26T17:33:39.000Z</published>
+    <updated>2021-02-16T18:17:05.386Z</updated>
+    
+    <content type="html"><![CDATA[<p>Some works using GANs handle the problems in remote sensing.</p><p>Check <a href="/assets/slides/GAN/GANRS.pdf">slide</a> for more details.``</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Some works using GANs handle the problems in remote sensing.&lt;/p&gt;
+&lt;p&gt;Check &lt;a href=&quot;/assets/slides/GAN/GANRS.pdf&quot;&gt;slide&lt;/a&gt; for more deta
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="remote sensing images" scheme="http://yoursite.com/tags/remote-sensing-images/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Notes of Mathematics</title>
     <link href="http://yoursite.com/posts/notes/2019-06-19-notes-math.html"/>
     <id>http://yoursite.com/posts/notes/2019-06-19-notes-math.html</id>
@@ -722,28 +417,6 @@
     
     
       <category term="math" scheme="http://yoursite.com/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About</title>
-    <link href="http://yoursite.com/posts/uncategorized/2019-06-13-about.html"/>
-    <id>http://yoursite.com/posts/uncategorized/2019-06-13-about.html</id>
-    <published>2019-06-13T17:02:18.000Z</published>
-    <updated>2020-01-23T22:44:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to Mia Feng's Blog!</p><p>I'm doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in Montreal, Canada. I'm interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.</p><p>I got the bachelor degree from Wuhan University, China, and then I did my master at the National University of Defense Technology, China. During my studies, I've processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks.</p><p>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf">resume</a> for more information.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to Mia Feng&#39;s Blog!&lt;/p&gt;
-&lt;p&gt;I&#39;m doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in M
-      
-    
-    </summary>
-    
     
   </entry>
   
@@ -932,6 +605,333 @@
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
       <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Clouds detection of infrared hyperspectral data based on logistic.</title>
+    <link href="http://yoursite.com/posts/projects/2019-01-28-lr.html"/>
+    <id>http://yoursite.com/posts/projects/2019-01-28-lr.html</id>
+    <published>2019-01-28T18:33:39.000Z</published>
+    <updated>2021-02-16T18:18:55.095Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p><p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p><p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land's IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p><p>Codes are available <a href="https://github.com/skaudrey/cloud">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed 
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="logistic" scheme="http://yoursite.com/tags/logistic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HCR--Compress and Resonstruct Hyperspectral Data.</title>
+    <link href="http://yoursite.com/posts/projects/2018-12-28-hcr.html"/>
+    <id>http://yoursite.com/posts/projects/2018-12-28-hcr.html</id>
+    <published>2018-12-28T18:33:39.000Z</published>
+    <updated>2021-02-16T18:19:17.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p><p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p><p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels' weights for likewise data are similar.</p><p>Codes are available <a href="https://github.com/skaudrey/hyp">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression an
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="cnn" scheme="http://yoursite.com/tags/cnn/"/>
+    
+      <category term="compress" scheme="http://yoursite.com/tags/compress/"/>
+    
+      <category term="infrared" scheme="http://yoursite.com/tags/infrared/"/>
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What Can Artificial Intelligence Do in Data Assimilation? Dec. 9th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2018-12-09-talk-mlutility.html"/>
+    <id>http://yoursite.com/posts/talks/2018-12-09-talk-mlutility.html</id>
+    <published>2018-12-09T18:33:39.000Z</published>
+    <updated>2021-02-16T18:16:19.620Z</updated>
+    
+    <content type="html"><![CDATA[<p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven't learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p><p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my l
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
+    
+      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
+    
+      <category term="Data assimilation" scheme="http://yoursite.com/tags/Data-assimilation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Computing in the 21th Century &amp; Asia Faculty Summit held by Microsoft, Nov., 2018.</title>
+    <link href="http://yoursite.com/posts/meetings/2018-11-23-microsoft.html"/>
+    <id>http://yoursite.com/posts/meetings/2018-11-23-microsoft.html</id>
+    <published>2018-11-23T18:33:39.000Z</published>
+    <updated>2021-02-16T18:18:38.701Z</updated>
+    
+    <content type="html"><![CDATA[<p>This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is <a href="https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda">here</a>.</p><p>Babysitting AI and computational neuroscience impressed me a lot. <a id="more"></a> # computing neuroscience: robots with feelings.</p><p>Prof. Lenore Blue's keynote is about computational neuroscience. They try to let robots feel pain, and to simulate the long and short term encoding happening in our brains.</p><p>What she talked reminds me of something I had read before.</p><p>According to the book <em>Psychology</em> written by Daniel Schacter, our brains do encode information into long and short codes, and the short form is possibly trasformed into a long one. Even though we don't mean to encode or memorize something sometimes, encoding still occurs unconsciously.</p><p>Reviewing is one useful way for recalling these information. Moreover, if you are in the similar environment in which you encoded the codes before, you will have higher possibility to recall it. However, the <strong>encoding error</strong> happend during reviewing is more, and that's why a detective should try to get full information while inquiring evidences from witnesses at the 1st time.</p><p>Also, our brains are more sensible to pictorial information compared with text information. So, if you try to make each thing you want to keep code as a photo, you can boost the capability of memorizing.</p><h1 id="yoshu-bengio-beyond-i.i.d.-and-babysitting-ai">Yoshu Bengio: Beyond i.i.d. and babysitting AI</h1><p>One of the basic assumption that makes generation possible is independent identically distributed assumption. However, influenced by observing equipments, imbalanced samples and others, the distributions of training data and test data are not always the same. Hence, Prof. Bengio's team proposed that all data are sampled from the same system rather than same distribution. As for weather of two different seasons, data desciping them are sampled from the same atmospheric circulation system, but they don't distribute identically. Bengio said they tend to initialize this system with diversed initial conditions, and the result of this distribution will be taken as what the data set follows. It makes sense.</p><p><em>One thing that troubles me is, how can I model the system and figure out the initial conditions? For things with obvious physical rules, it is easy, and even the model's codes are open-acssessed online. What if the one I don't know? How to make this idea works in common situations?</em></p><p>CNN is renowned as its power in representation learning, which encodes a variety of information into vectors. Our brains also work like this. Nontheless, what they learn are supervised, and the utility of binary network, the simplification of network structure all demostrate that the captured information are redundant. The model learned is fragile, too. After adding some noises into an image, even though the image dosen't change visually for us humans, model can not tell what it is as before. It all comes from the uncontrolling unsupervision. Babysitting AI aims at modeling with environmental information and other information, so that leading AI models.</p><h1 id="andrew-c.-yao-the-advent-of-quantum-computing">Andrew C. Yao: The Advent of Quantum Computing</h1><p>The quantum computing will offer exponential speedup for crypto-code breaking, simulation of quantum physical systems, simulation of materials, chemistry, and biology, nonlinear optimization, ML and AI. It will break through the bottleneck of computing.</p><p>Its implementation is like crystallography. In terms of crystallography, you take an X-ray photo for a crystal and then compute its structure. For quantum computing, instead of taking a real photo, you just need to collect a polynomial number of sample points. By wave-particle duality, this single photo can recreate the raw image probabilistically.</p><p>According to Andrew, dimond qubits are in the highest possibility to be used in our laptops.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is &lt;a href=&quot;https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Babysitting AI and computational neuroscience impressed me a lot.
+    
+    </summary>
+    
+      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
+    
+    
+      <category term="applications" scheme="http://yoursite.com/tags/applications/"/>
+    
+      <category term="tendency" scheme="http://yoursite.com/tags/tendency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Introduction of Infrared Hyperspectral Data and Kernel PCA, June 5th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2018-06-05-talk-hyp.html"/>
+    <id>http://yoursite.com/posts/talks/2018-06-05-talk-hyp.html</id>
+    <published>2018-06-05T17:33:39.000Z</published>
+    <updated>2021-02-16T18:16:35.981Z</updated>
+    
+    <content type="html"><![CDATA[<p>Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:</p><ul><li>high spectral correlation,</li><li>high spatial correlation,</li><li>and sparsity,</li></ul><p>and they casue a trouble during processing. <a id="more"></a> This talk explained why they are highly correlated but also sparse. Kernel PCA for compressing was also tested.</p><p>Check <a href="/assets/slides/hyp/hypCompression.pdf">slides</a> for more details.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Infrared hyperspectral data are typical meteorological observations, which can detect the atmosphere vertically in many spectrums. Distinguishing obsorption peaks of different materials appearing in specific spectrums can help classify those materials. However, there are three characteristics of these data, namely:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;high spectral correlation,&lt;/li&gt;
+&lt;li&gt;high spatial correlation,&lt;/li&gt;
+&lt;li&gt;and sparsity,&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and they casue a trouble during processing.
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="hyperspectral" scheme="http://yoursite.com/tags/hyperspectral/"/>
+    
+      <category term="compression" scheme="http://yoursite.com/tags/compression/"/>
+    
+      <category term="reconstruction" scheme="http://yoursite.com/tags/reconstruction/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Weather processes interpolation based on GPR</title>
+    <link href="http://yoursite.com/posts/projects/2018-05-17-gpr.html"/>
+    <id>http://yoursite.com/posts/projects/2018-05-17-gpr.html</id>
+    <published>2018-05-17T17:33:39.000Z</published>
+    <updated>2021-02-16T18:19:54.655Z</updated>
+    
+    <content type="html"><![CDATA[<p>This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, and two interpolation methods are proposed. Check <a href="http://www.mdpi.com/2073-4433/9/5/194/pdf">paper</a> for more information. Codes are available <a href="https://github.com/skaudrey/gpml">here</a>.</p><h1 id="reference">Reference</h1><pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.</code></pre><h1 id="acknowledgement">Acknowledgement</h1><pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale depen
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Multivariate Interpolation of Wind Fields Based on Gaussian Process Regression, Jan. 24th, 2018.</title>
+    <link href="http://yoursite.com/posts/talks/2018-01-24-talk-gpr.html"/>
+    <id>http://yoursite.com/posts/talks/2018-01-24-talk-gpr.html</id>
+    <published>2018-01-24T18:33:39.000Z</published>
+    <updated>2021-02-16T18:16:51.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html">projects' introduction</a> and <a href="https://github.com/skaudrey/gpml/">github</a> for more details.</p><p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check th
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="GPR" scheme="http://yoursite.com/tags/GPR/"/>
+    
+      <category term="interpolation" scheme="http://yoursite.com/tags/interpolation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
+    <link href="http://yoursite.com/posts/talks/2017-09-11-notes-fourier-GCN.html"/>
+    <id>http://yoursite.com/posts/talks/2017-09-11-notes-fourier-GCN.html</id>
+    <published>2017-09-11T17:33:39.000Z</published>
+    <updated>2021-02-16T18:18:02.480Z</updated>
+    
+    <content type="html"><![CDATA[<p>Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution.</p><p>Check <a href="/assets/slides/notes/GCN/fourier-GCN.pdf">slides</a> for more details.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Notes about GCN in spectral space. It deduces from traditional fourier transformation to spectral graph convolution.&lt;/p&gt;
+&lt;p&gt;Check &lt;a hre
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Discussion about Data Assimilation and Machine Learning, Sep. 11th, 2017.</title>
+    <link href="http://yoursite.com/posts/talks/2017-09-11-talk-da.html"/>
+    <id>http://yoursite.com/posts/talks/2017-09-11-talk-da.html</id>
+    <published>2017-09-11T17:33:39.000Z</published>
+    <updated>2021-02-16T18:17:17.766Z</updated>
+    
+    <content type="html"><![CDATA[<p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin's summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning.</p><p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it
+      
+    
+    </summary>
+    
+      <category term="talks" scheme="http://yoursite.com/categories/talks/"/>
+    
+    
+      <category term="data assimilation" scheme="http://yoursite.com/tags/data-assimilation/"/>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The summer school held in Harbin, Aug. 2017.</title>
+    <link href="http://yoursite.com/posts/meetings/2017-08-22-harbin.html"/>
+    <id>http://yoursite.com/posts/meetings/2017-08-22-harbin.html</id>
+    <published>2017-08-22T17:33:39.000Z</published>
+    <updated>2021-02-16T18:19:33.454Z</updated>
+    
+    <content type="html"><![CDATA[<p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do">here</a> for more info. I gave a talk to the students in my lab after returning, <a href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation. <a id="more"></a> The themes given by those professors are listed below.</p><ul><li><p>Prof. Francois</p><p>Research Area：Variational data assimilation (VAR), especially 4DVAR.</p><p>Keynotes：The direvation of adjoint models, sensitivity analysis and the introduction of image assimilation. See the <a href="/assets/notes/harbin/François%20meeting%20minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jordan</p><p>Research Area：Statistical Learning</p><p>Keynotes: Summarize popular machine learning algorithms, and prove the convergence etc. See the <a href="/assets/notes/harbin/Jordan%20meeting%20minutes.pdf">minutes file</a> for details.</p></li><li><p>Prof. Jurgen</p><p>Research Area：AI, DL</p><p>Keynotes: The introduction of utilizing AI. Check more from his <a href="http://people.idsia.ch/~juergen/">home page</a>.</p></li><li><p>Prof. Ma</p><p>Research Area：Compression sensing.</p><p>Keynotes: The introduction of compression sensing and its applications.</p></li><li><p>Prof. Cai</p><p>Research Area：Statistical inference.</p><p>Keynotes: Statistical inference in high-dimensions. No slides, the minutes file is <a href="/assets/notes/harbin/Tony%20meeting%20minutes.pdf">here</a>.</p></li></ul><p>Slides and records are available in the <a href="https://pan.baidu.com/s/1jGj07koiMIV-MOf17N_jeg">baidu network disk</a> with password 6o2x. Enjoy yourself.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check &lt;a href=&quot;http://mss2017.hit.edu.cn/showSubjectDominWebSite.do&quot;&gt;here&lt;/a&gt; for more info. I gave a talk to the students in my lab after returning, &lt;a href=&quot;https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html&quot;&gt;here&lt;/a&gt; are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.
+    
+    </summary>
+    
+      <category term="meetings" scheme="http://yoursite.com/categories/meetings/"/>
+    
+    
+      <category term="summer school" scheme="http://yoursite.com/tags/summer-school/"/>
+    
+      <category term="mathematics" scheme="http://yoursite.com/tags/mathematics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The naive implementation of some popular machine learning algorithms.</title>
+    <link href="http://yoursite.com/posts/projects/2017-06-28-ml-implement.html"/>
+    <id>http://yoursite.com/posts/projects/2017-06-28-ml-implement.html</id>
+    <published>2017-06-28T17:33:39.000Z</published>
+    <updated>2021-02-16T18:18:21.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>Naive implementations of some M.L. algorithms, which are updated continuously.</p><p>The algorithms that have been implemented are listed as follows:</p><ul><li>Logistic Regression,</li><li>SVM solved by SMO,</li><li>K-Means，</li><li>GMM solved by EM,</li><li>Perceptron，</li><li>Naive Bayes,</li><li>LeNet-Keras，</li><li>MLP-Numpy solved with BP,</li><li>MCMC sampling.</li></ul><p>Codes are available <a href="https://github.com/skaudrey/ml_algorithm">here</a>.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Naive implementations of some M.L. algorithms, which are updated continuously.&lt;/p&gt;
+&lt;p&gt;The algorithms that have been implemented are list
+      
+    
+    </summary>
+    
+      <category term="projects" scheme="http://yoursite.com/categories/projects/"/>
+    
+    
+      <category term="ML" scheme="http://yoursite.com/tags/ML/"/>
+    
+      <category term="naive" scheme="http://yoursite.com/tags/naive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About</title>
+    <link href="http://yoursite.com/posts/uncategorized/2017-06-13-about.html"/>
+    <id>http://yoursite.com/posts/uncategorized/2017-06-13-about.html</id>
+    <published>2017-06-13T17:02:18.000Z</published>
+    <updated>2021-02-16T18:20:14.050Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to Mia Feng's Blog!</p><p>I'm doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in Montreal, Canada. I'm interested in data analysis, reinforce learning, transfer learning and democratising machine learning and AI.</p><p>I got the bachelor degree from Wuhan University, China, and then I did my master at the National University of Defense Technology, China. During my studies, I've processed spatial-temporal data, and financial data. I also worked as an intership of fintech in Meituan-Dianping. The main areas I have learned including machine learning, geographical information system, software engineering, data assimilation, and finance. Currently I am learning something about computational neuroscience. I want to learn more about transfer learning and visualization and explanation of neural networks.</p><p>Have a look at my <a href="https://github.com/skaudrey/cv/blob/master/cv.pdf">resume</a> for more information.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to Mia Feng&#39;s Blog!&lt;/p&gt;
+&lt;p&gt;I&#39;m doing my PhD since 2020 in Machine Learning and video surveillance at University of Montreal in M
+      
+    
+    </summary>
+    
     
   </entry>
   

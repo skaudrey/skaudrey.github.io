@@ -166,665 +166,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hcr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-notes-paper-SSL-cv-context" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/projects/2021-02-04-hcr.html">HCR--Compress and Resonstruct Hyperspectral Data.</a>
+      <a class="article-title" href="/posts/notes/2021-01-08-notes-paper-SSL-cv-context.html">Paper--Unsupervised Visual Representation Learning by Context Prediction</a>
     </h1>
   
 
         
-        <a href="/posts/projects/2021-02-04-hcr.html" class="archive-article-date">
-  	<time datetime="2021-02-05T00:50:07.230Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
+        <a href="/posts/notes/2021-01-08-notes-paper-SSL-cv-context.html" class="archive-article-date">
+  	<time datetime="2021-01-08T21:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
-<p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
-<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels' weights for likewise data are similar.</p>
-<p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/hyp">here</a>.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cnn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">compress</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">infrared</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hyperspectral</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/projects//" class="article-tag-list-link color4">projects</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+        <p>Paper <a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Doersch_Unsupervised_Visual_Representation_ICCV_2015_paper.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></p>
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-harbin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/meetings/2021-02-04-harbin.html">The summer school held in Harbin, Aug. 2017.</a>
-    </h1>
-  
-
-        
-        <a href="/posts/meetings/2021-02-04-harbin.html" class="archive-article-date">
-  	<time datetime="2021-02-05T00:50:07.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a target="_blank" rel="noopener" href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do">here</a> for more info. I gave a talk to the students in my lab after returning, <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.
-        
-          <a class="article-more-a" href="/posts/meetings/2021-02-04-harbin.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">summer school</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mathematics</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/meetings//" class="article-tag-list-link color4">meetings</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gpr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/projects/2021-02-04-gpr.html">Weather processes interpolation based on GPR</a>
-    </h1>
-  
-
-        
-        <a href="/posts/projects/2021-02-04-gpr.html" class="archive-article-date">
-  	<time datetime="2021-02-05T00:50:07.140Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, and two interpolation methods are proposed. Check <a target="_blank" rel="noopener" href="http://www.mdpi.com/2073-4433/9/5/194/pdf">paper</a> for more information. Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/gpml">here</a>.</p>
-<h1 id="reference">Reference</h1>
-<pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.</code></pre>
-<h1 id="acknowledgement">Acknowledgement</h1>
-<pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPR</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/projects//" class="article-tag-list-link color4">projects</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-notes-paper-anomal-graphlevel-SSL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html">Paper--Graph Level Anomaly Detection</a>
-    </h1>
-  
-
-        
-        <a href="/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html" class="archive-article-date">
-  	<time datetime="2021-01-28T18:33:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paper <a target="_blank" rel="noopener" href="http://snap.stanford.edu/class/cs224w-2019/project/26424135.pdf">Graph Level Anomaly Detection</a></p>
-        
-          <a class="article-more-a" href="/posts/notes/2021-01-28-notes-paper-anomal-graphlevel-SSL.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-notes-paper-anomaly-gepc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-15-notes-paper-anomaly-gepc.html">Paper--Graph Embedded Pose Clustering for Anomaly Detection</a>
-    </h1>
-  
-
-        
-        <a href="/posts/notes/2021-01-15-notes-paper-anomaly-gepc.html" class="archive-article-date">
-  	<time datetime="2021-01-15T20:17:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1912.11850.pdf">Graph Embedded Pose Clustering for Anomaly Detection</a></p>
-<p>Code <a target="_blank" rel="noopener" href="https://github.com/amirmk89/gepc">here</a></p>
-        
-          <a class="article-more-a" href="/posts/notes/2021-01-15-notes-paper-anomaly-gepc.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">skeleton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-notes-paper-anomaly-2sagcn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-14-notes-paper-anomaly-2sagcn.html">Paper--Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition</a>
-    </h1>
-  
-
-        
-        <a href="/posts/notes/2021-01-14-notes-paper-anomaly-2sagcn.html" class="archive-article-date">
-  	<time datetime="2021-01-15T01:51:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paper <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Shi_Two-Stream_Adaptive_Graph_Convolutional_Networks_for_Skeleton-Based_Action_Recognition_CVPR_2019_paper.pdf">Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition</a></p>
-<p>Code <a target="_blank" rel="noopener" href="https://github.com/lshiwjx/2s-AGCN">here</a></p>
-        
-          <a class="article-more-a" href="/posts/notes/2021-01-14-notes-paper-anomaly-2sagcn.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">skeleton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-notes-paper-anomaly-stgcn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-12-notes-paper-anomaly-stgcn.html">Paper--Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition</a>
-    </h1>
-  
-
-        
-        <a href="/posts/notes/2021-01-12-notes-paper-anomaly-stgcn.html" class="archive-article-date">
-  	<time datetime="2021-01-13T02:58:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1801.07455.pdf">Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition</a></p>
-<p>Code <a target="_blank" rel="noopener" href="https://github.com/yysijie/st-gcn">here</a></p>
-        
-          <a class="article-more-a" href="/posts/notes/2021-01-12-notes-paper-anomaly-stgcn.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">skeleton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-notes-paper-SSL-GNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html">Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions</a>
-    </h1>
-  
-
-        
-        <a href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html" class="archive-article-date">
-  	<time datetime="2021-01-12T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.10141.pdf">Self-supervised Learning on Graphs: Deep Insights and New Directions</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ChandlerBang/SelfTask-GNN">Codes</a></p>
-        
-          <a class="article-more-a" href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html#more">more >></a>
+          <a class="article-more-a" href="/posts/notes/2021-01-08-notes-paper-SSL-cv-context.html#more">more >></a>
         
       
 
@@ -889,29 +253,29 @@
 
 
   
-    <article id="post-notes-paper-SSL-alreadyknow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-notes-paper-SSL-examplarcnn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html">Paper--Predicting What You Already Know Helps, Provable Self-Supervised Learning</a>
+      <a class="article-title" href="/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html">Paper--Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</a>
     </h1>
   
 
         
-        <a href="/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html" class="archive-article-date">
-  	<time datetime="2021-01-11T20:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+        <a href="/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html" class="archive-article-date">
+  	<time datetime="2021-01-06T16:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.01064.pdf">Predicting What You Already Know Helps: Provable Self-Supervised Learning</a></p>
+        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1406.6909.pdf">Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</a></p>
         
-          <a class="article-more-a" href="/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html#more">more >></a>
+          <a class="article-more-a" href="/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html#more">more >></a>
         
       
 
@@ -976,30 +340,472 @@
 
 
   
-    <article id="post-notes-paper-SSL-colorimage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-notes-DAPPER" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html">Paper--Colorful Image Colorization</a>
+      <a class="article-title" href="/posts/notes/2019-10-05-notes-DAPPER.html">notes-DAPPER</a>
     </h1>
   
 
         
-        <a href="/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html" class="archive-article-date">
-  	<time datetime="2021-01-10T22:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-10</time>
+        <a href="/posts/notes/2019-10-05-notes-DAPPER.html" class="archive-article-date">
+  	<time datetime="2019-10-05T16:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1603.08511.pdf">Colorful Image Colorization</a></p>
-<p>Code <a target="_blank" rel="noopener" href="http://richzhang.github.io/colorization/">here</a></p>
+        <p>DAPPER is a set of templates for benchmarking the performance of data assimilation (DA) methods. For more details, see <a target="_blank" rel="noopener" href="https://github.com/nansencenter/DAPPER">here</a>.</p>
+<p>This notes keep records of the problems encountered while using DAPPER.</p>
         
-          <a class="article-more-a" href="/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html#more">more >></a>
+          <a class="article-more-a" href="/posts/notes/2019-10-05-notes-DAPPER.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">da</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-talk-gan-rs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/talks/2019-07-26-talk-gan-rs.html">Generative Adversarial Networks and Remote Sensing, July 26th, 2019.</a>
+    </h1>
+  
+
+        
+        <a href="/posts/talks/2019-07-26-talk-gan-rs.html" class="archive-article-date">
+  	<time datetime="2019-07-26T17:33:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Some works using GANs handle the problems in remote sensing.</p>
+<p>Check <a href="/assets/slides/GAN/GANRS.pdf">slide</a> for more details.``</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">remote sensing images</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/talks//" class="article-tag-list-link color1">talks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-notes-math" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-06-19-notes-math.html">Notes of Mathematics</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-06-19-notes-math.html" class="archive-article-date">
+  	<time datetime="2019-06-19T13:40:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="泛函">泛函</h2>
+<center>
+<img src="/assets/img/Rules/lines.png" width=500">
+</center>
+<h3 id="不动点定理">不动点定理</h3>
+<ol type="1">
+<li><p>不动点定理的基本逻辑：对于一个存在性问题，构造一个度量空间和一个映射，使得存在性问题等价于这个映射的不动点。只要证明这个映射存在不动点，那么原来的存在性问题即得证。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33885648">链接</a></p></li>
+</ol>
+<h3 id="紧性的利用">紧性的利用</h3>
+<ul>
+<li>证明存在性</li>
+<li>在无限维空间中“模仿”有限维的欧式空间</li>
+</ul>
+<p>紧集是为了模仿描述欧式空间中的有界闭集合么？ 紧=相对紧+闭</p>
+<h3 id="流形manifolds">流形(Manifolds)</h3>
+<ol type="1">
+<li>概念：高维空间中曲线、曲面概念的推广，如三维空间中的曲面为一二维流形。</li>
+</ol>
+<h3 id="支撑集support">支撑集(Support)</h3>
+<ol type="1">
+<li>概念：函数的非零部分子集；一个概率分布的支撑集为所有概率密度非零部分的集合</li>
+</ol>
+        
+          <a class="article-more-a" href="/posts/notes/2019-06-19-notes-math.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-notes-rl-intro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-05-26-notes-rl-intro.html">rl-intro</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-05-26-notes-rl-intro.html" class="archive-article-date">
+  	<time datetime="2019-05-26T17:02:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This post is built to list an introduction of reinforce learning, mainly based on the slides given by David Silver.
+        
+          <a class="article-more-a" href="/posts/notes/2019-05-26-notes-rl-intro.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-gnn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-05-24-gnn.html">gnn</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-05-24-gnn.html" class="archive-article-date">
+  	<time datetime="2019-05-24T22:17:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This post is built to list the generation and improvement of graph neural networks. # Why Use * Non-euclidean data: Irregular. Each graph has a variable size of unordered nodes and each node in a graph has a different number of neighbors,</p>
+<h1 id="basic-lines">Basic lines</h1>
+<p>Contents in this block mainly comes from paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1812.08434.pdf">Graph Neural Networks: A Review of Methods and Applications</a> and</p>
+        
+          <a class="article-more-a" href="/posts/notes/2019-05-24-gnn.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-notes-paper-UNet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-05-23-notes-paper-UNet.html">UNet proposed by Olaf Ronneberger etc.</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-05-23-notes-paper-UNet.html" class="archive-article-date">
+  	<time datetime="2019-05-23T21:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The notes of paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.04597v1">U-Net: Convolutional Networks for Biomedical Image Segmentation</a>.</p>
+        
+          <a class="article-more-a" href="/posts/notes/2019-05-23-notes-paper-UNet.html#more">more >></a>
         
       
 
@@ -1015,9 +821,181 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
         		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-notes-paper-faster rcnn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-05-19-notes-paper-faster%20rcnn.html">paper--Faster RCNN</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-05-19-notes-paper-faster%20rcnn.html" class="archive-article-date">
+  	<time datetime="2019-05-19T15:17:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p>
+        
+          <a class="article-more-a" href="/posts/notes/2019-05-19-notes-paper-faster%20rcnn.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/notes//" class="article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-FY4-AGRI-Calibration" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html">Positioning Data of FY4 AGRI.</a>
+    </h1>
+  
+
+        
+        <a href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html" class="archive-article-date">
+  	<time datetime="2019-04-26T22:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently I processed some data detected by AGRI, a sensor loaded on FY-4 Satellite, which was launched by China. Fourteen channels designed for AGRI observe almost half of the earth in minutes. However, because AGRI is an imager, data generated by it need positioning.</p>
+<p>There are two ways for positioning, one is querying the lookup table given by <a target="_blank" rel="noopener" href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3">NSMC</a>, the other is calculating by <a target="_blank" rel="noopener" href="http://satellite.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=3">formulas</a>.</p>
+<p>However, there are some errors in the files given by NSMC, I wrote this note in case others will meet the same trouble I got these days.
+        
+          <a class="article-more-a" href="/posts/notes/2019-04-26-FY4-AGRI-Calibration.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Sensor</a>
         		</li>
       		
 		</ul>
@@ -1199,14 +1177,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1220,6 +1190,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1251,15 +1229,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">

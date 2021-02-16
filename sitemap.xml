@@ -2,6 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/posts/uncategorized/2017-06-13-about.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2018-05-17-gpr.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/meetings/2017-08-22-harbin.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2018-12-28-hcr.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2019-01-28-lr.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/meetings/2018-11-23-microsoft.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/projects/2017-06-28-ml-implement.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2017-09-11-notes-fourier-GCN.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2017-09-11-talk-da.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2019-07-26-talk-gan-rs.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2018-01-24-talk-gpr.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2018-06-05-talk-hyp.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/posts/talks/2018-12-09-talk-mlutility.html</loc>
+    
+    <lastmod>2021-02-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/posts/notes/2021-02-07-notes-paper-fall-survey.html</loc>
     
     <lastmod>2021-02-16</lastmod>
@@ -72,13 +163,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-notes-fourier-GCN.html</loc>
-    
-    <lastmod>2021-01-12</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2021-01-06-notes-paper-SSL-examplarcnn.html</loc>
     
     <lastmod>2021-01-12</lastmod>
@@ -114,13 +198,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/projects/2021-02-04-gpr.html</loc>
-    
-    <lastmod>2021-01-12</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2019-10-05-notes-DAPPER.html</loc>
     
     <lastmod>2021-01-12</lastmod>
@@ -149,23 +226,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/uncategorized/2019-06-13-about.html</loc>
-    
-    <lastmod>2020-01-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2019-05-24-gnn.html</loc>
     
     <lastmod>2019-09-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-gan-rs.html</loc>
-    
-    <lastmod>2019-08-18</lastmod>
     
   </url>
   
@@ -180,69 +243,6 @@
     <loc>http://yoursite.com/posts/notes/2019-04-26-FY4-AGRI-Calibration.html</loc>
     
     <lastmod>2019-04-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/projects/2021-02-04-lr.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/projects/2021-02-04-ml-implement.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/projects/2021-02-04-hcr.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/meetings/2021-02-04-microsoft.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-hyp.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/meetings/2021-02-04-harbin.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-gpr.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-mlutility.html</loc>
-    
-    <lastmod>2018-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/posts/talks/2021-02-04-talk-da.html</loc>
-    
-    <lastmod>2018-11-17</lastmod>
     
   </url>
   
@@ -284,20 +284,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/summer-school/</loc>
-    <lastmod>2021-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/mathematics/</loc>
-    <lastmod>2021-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/cnn/</loc>
     <lastmod>2021-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -320,6 +306,20 @@
   
   <url>
     <loc>http://yoursite.com/tags/hyperspectral/</loc>
+    <lastmod>2021-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/summer-school/</loc>
+    <lastmod>2021-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/mathematics/</loc>
     <lastmod>2021-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -375,13 +375,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/da/</loc>
-    <lastmod>2021-02-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/data-assimilation/</loc>
     <lastmod>2021-02-16</lastmod>
     <changefreq>daily</changefreq>
@@ -390,6 +383,13 @@
   
   <url>
     <loc>http://yoursite.com/tags/machine-learning/</loc>
+    <lastmod>2021-02-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/da/</loc>
     <lastmod>2021-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
