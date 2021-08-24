@@ -8,33 +8,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions | Mia&#39;s Blog</title>
+  <title>Paper--Fall Surveys | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
+  <meta name="description" content="Self-supervised Learning: Generative or Contrastive">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions">
-<meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-GNN.html">
+<meta property="og:title" content="Paper--Fall Surveys">
+<meta property="og:url" content="http://yoursite.com/posts/notes/2021-08-23-notes-paper-SSL-survey.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
+<meta property="og:description" content="Self-supervised Learning: Generative or Contrastive">
 <meta property="og:locale">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233255.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233404.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123174253.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123181120.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123200058.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202214.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202231.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124113911.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114147.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114646.png">
-<meta property="article:published_time" content="2021-01-12T03:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-24T16:54:26.000Z">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823112440152.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823114232256.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823135504436.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823152108301.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823152312022.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824130843214.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824134109250.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824134816367.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824142746586.png">
+<meta property="article:published_time" content="2021-08-23T14:36:39.000Z">
+<meta property="article:modified_time" content="2021-08-24T19:46:10.494Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
+<meta property="article:tag" content="survey">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png">
+<meta name="twitter:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823112440152.png">
   
     <link rel="alternative" href="/atom.xml" title="Mia&#39;s Blog" type="application/atom+xml">
   
@@ -180,213 +179,449 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-notes-paper-SSL-GNN" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-notes-paper-SSL-survey" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions
+      Paper--Fall Surveys
     </h1>
   
 
         
-        <a href="/posts/notes/2021-01-11-notes-paper-SSL-GNN.html" class="archive-article-date">
-  	<time datetime="2021-01-12T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-11</time>
+        <a href="/posts/notes/2021-08-23-notes-paper-SSL-survey.html" class="archive-article-date">
+  	<time datetime="2021-08-23T14:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.10141.pdf">Self-supervised Learning on Graphs: Deep Insights and New Directions</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ChandlerBang/SelfTask-GNN">Codes</a></p>
+        <ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.08218.pdf">Self-supervised Learning: Generative or Contrastive</a></li>
+</ul>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
+<h2 id="ssl-generative-or-contrastive">SSL: Generative or Contrastive</h2>
+<h3 id="why">Why?</h3>
+<h4 id="supervised-learning"><strong>Supervised Learning</strong></h4>
 <ul>
-<li>Nodes in graphs present unique structure information and they are inherently linked indicating not independent and identically distributed (or i.i.d.).</li>
-<li>(SSL) has been introduced in both the image and text domains to alleviate the need of large labeled data by deriving labels for the significantly more unlabeled data.</li>
-<li>To fully exploit the unlabeled nodes for GNNs, SSL can be naturally harnessed for providing additional supervision.</li>
-<li>The challenges of graph to use SSL:
+<li>relies heavily on expensive manual labeling</li>
+<li>suffers from generalization error, spurious correlations, and adversarial attacks</li>
+<li>The characteristics of different types of falls are not taken into consideration in most of the work on fall detection surveyed. (like age, gender etc.)</li>
+</ul>
+<h4 id="ssl">SSL</h4>
 <ul>
-<li>graphs are not restricted to these rigid structures.</li>
-<li>each node in a graph is an individual instance and has its own associated attributes and topological structures</li>
-<li>instances (or nodes) are inherently linked and dependent of each other.</li>
+<li>Training data is automatically labeled by leveraging the relations between different input sensor signals.</li>
+<li>Features
+<ul>
+<li>Obtain “labels” from the data itself by using a “semi-automatic” process.</li>
+<li>Predict part of the data from other parts.</li>
 </ul></li>
 </ul>
-<h2 id="goals">Goals</h2>
+<h3 id="motivation-of-ssl">Motivation of SSL</h3>
+<h4 id="mainstream-of-methods">Mainstream of methods</h4>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823112440152.png" alt="image-20210823112440152" style="zoom:67%;" /></p>
 <ul>
-<li><p>Focus on advancing GNNs for node classification where GNNs leverage both labeled and unlabeled nodes on a graph to jointly learn node representations and a classifier that can predict the labels of unlabeled nodes on the graph. Aims at gain insights on when and why SSL works for GNNs and which strategy can better integrate SSL for GNNs.</p></li>
-<li><p><strong><em>Focus on semi-supervised node classification task</em></strong></p>
-<p><span class="math inline">\(\min\limits_{\theta}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)=\sum\limits_{(v_i,y_i)\in\mathcal{D}_L}\ell(f_{\theta}(\mathcal{G})_{v_i},y_i)\)</span></p></li>
+<li>For latent distribution <span class="math inline">\(z\)</span>: explicit in generative and contrastive methods, and implicit in GAN</li>
+<li>Discriminator: GANs and contrastive have while generative method does not.</li>
+<li>Objectives: generative methods use a reconstruction loss, the contrastive ones use a similarity metric and the GANs leverage distributional divergence as the loss (JS-divergence, Wasserstein distance )</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png" alt="image-20210121192249653" style="zoom:40%;" /></p>
-<h2 id="previous-work">Previous work</h2>
-<h3 id="examples">Examples</h3>
+<h4 id="hints">Hints</h4>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.11038">Multi-stage self-supervised learning for graph convolutional networks on graphs with few labels</a> utilize the clustering assignments of node embeddings as guidance to update the graph neural networks.</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.01604">Self-supervised graph representation learning via global context prediction</a> proposed to use the global context of nodes as the supervisory signals to learn node embeddings.</li>
+<li>Contrastive learning is useful for almost all visual classification tasks: since the contrastive object is modeling the class-invariance between different image instances.</li>
+<li>The art of SSL primarily lies in defining proper objectives for unlabeled data.</li>
 </ul>
-<h3 id="basic-pretext-task-on-graphs">Basic pretext task on graphs</h3>
-<h4 id="structure-information-adjacency-matrix-mathrma">Structure information (Adjacency matrix <span class="math inline">\(\mathrm{A}\)</span>)</h4>
-<p>Construct self-supervision information for the unlabeled nodes based on their local structure information, or how they relate to the rest of the graph</p>
-<h5 id="local-structure-information"><strong>Local structure information</strong></h5>
+<h4 id="summary-of-papers">Summary of papers</h4>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823114232256.png" alt="image-20210823114232256" /><figcaption aria-hidden="true">image-20210823114232256</figcaption>
+</figure>
+<h4 id="outline-of-this-paper">Outline of this paper</h4>
+<h3 id="generative-ssl">Generative SSL</h3>
+<h4 id="ar-model">AR model</h4>
 <ul>
-<li><p>Node property</p>
+<li>Viewed as "Bayes net", where the probability of each variable is dependent on the previous variables.</li>
+<li>objective: in NLP, usually maximizing the likelihood under the forward autoregressive factorization.</li>
+<li>Examples:
 <ul>
-<li><p>use node degree as a representative local node property for self-supervision while leaving other node properties (or the combination) as one future work</p></li>
-<li><p>Formally, let <span class="math inline">\(d_i=\sum\limits_{j=1}^{N}\mathrm{A}_{ij}\)</span> denote the degree of <span class="math inline">\(v_i\)</span> and construct the associated loss of the SSL pretext task as</p>
-<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}(f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i)^2\)</span>, where <span class="math inline">\(\mathcal{D}_U\)</span> denote the set of unlabeled nodes and associated pretext task labels in the graph.</p></li>
-<li><p>Assumption: The node property information is related to the specific task of interest.</p></li>
+<li>PixelRNN: lower (right) pixels are generated by conditioning on the upper (left) pixels.</li>
+<li>For 2D images: factorize probabilities according to specific directions, and therefore masked filters</li>
+<li>For raw audio: PixelCNN, wavenet.</li>
+<li>GraphRNN: y decompose the graph generation process into a sequence generation of nodes and edges conditioned on the graph generated so far. The objective is the likelihood of the observed graph generation sequences.</li>
 </ul></li>
-<li><p><strong>EdgeMask</strong></p>
-<ul>
-<li><p>Build pretext task based on the connections between two nodes in the graph. Specifically, <strong>one can first randomly mask some edges and then the model is asked to reconstruct the masked edges</strong>.</p></li>
-<li><p>Formally, first mask <span class="math inline">\(m_e\)</span> edges denotes as the set <span class="math inline">\(\mathcal{M}_e\subset\varepsilon\)</span> and also sample the set <span class="math inline">\(\bar{\mathcal{M}_e}=\{(v_i,v_j)|v_i,v_j\in\mathcal{V},(v_i,v_j)\notin\varepsilon\}\)</span>, <span class="math inline">\(|\bar{\mathcal{M}_e}|=|\mathcal{M}_e|=m_e\)</span> . Then the SSL pretext task is to predict whether there exist a link between a given node pair.</p>
-<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\\\frac{1}{|\mathcal{M}_e|}\sum\limits_{(v_i,v_j)\in\mathcal{M}_e}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),1)+\frac{1}{|\bar{\mathcal{M}_e}|}\sum\limits_{(v_i,v_j)\in\bar{\mathcal{M}_e}}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),0)\)</span>, where <span class="math inline">\(\ell(\cdot,\cdot)\)</span> is the cross entropy loss, <span class="math inline">\(f_w\)</span> linearly maps to 1-dimension.</p></li>
-<li><p>Expecting to help GNN learn information about local connectivity.</p></li>
-</ul></li>
+<li>Pros and cons: can model the context dependency well, but the token at each position can only access its context from one direction .</li>
 </ul>
-<h5 id="global-structure-information"><strong>Global structure information</strong></h5>
-<p>Not only based on the node itself or limited to its immediate local neighborhood, but also considering the position of the node in the graph.</p>
+<h4 id="flow-based-model">Flow-based model</h4>
 <ul>
-<li>PairwiseDistance
+<li>Goal: estimate complex high-dimensional densities from data. It designs the mapping between <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> in invertible, but also requires that <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> have the same dimension.</li>
+<li>Examples
 <ul>
-<li>Maintain global topology information through a pairwise comparison. Or to say, pretext task will be able to distinguish/predict the distance between different node pairs.</li>
-<li>The measurements of distance vary.</li>
-<li>If use the shortest path length <span class="math inline">\(p_{ij}\)</span> as a measure of the distance, then for all node pairs <span class="math inline">\(\{(v_i,v_j)|v_i,v_j\in\mathcal{V}\}\)</span>, they are grouped into four categories: <span class="math inline">\(p_{ij}=\{1,2,3,\ge4\}\)</span>, <span class="math inline">\(4\)</span> is because of the computing price and accuracy (the more neighbors , the more unrelated noises are included.) Practically, randomly sample a certain amount of node pairs <span class="math inline">\(S\)</span> used for SSL during epoch. Then the SSL loss is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|S|}\sum\limits_{(v_i,v_j)\in S}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),C_{p_{ij}})\)</span>, where <span class="math inline">\(C_{p_{ij}}\)</span> is the corresponding distance category of <span class="math inline">\(p_{ij}\)</span>.</li>
-</ul></li>
-<li><strong><em>Distance2Clusters</em></strong>
-<ul>
-<li>Predicting the distance from the unlabeled nodes to predefined graph clusters. Thus enforce the representations to learn a global positioning vector of each of the nodes.</li>
-<li>First partitioning the graph to get <span class="math inline">\(k\)</span> clusters <span class="math inline">\(\{C_1,C_2,\cdots,C_k\}\)</span> by METIS graph partitioning methods. Denote the node with highest degree as center node <span class="math inline">\(c_j\)</span> in each cluster.</li>
-<li>Formally, the SSL will optimize <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i\|^2\)</span>, where <span class="math inline">\(\mathrm{d}_i\)</span> is the distance vector between node <span class="math inline">\(v_i\)</span> and each center.</li>
+<li>NICE and RealNVP design affine coupling layer to parameterize <span class="math inline">\(f_\theta\)</span>.</li>
+<li>GLOW: introduces invertible 1 × 1 convolutions and simplifies RealNVP.</li>
 </ul></li>
 </ul>
-<h4 id="attribute-information-nodes-matrix-mathrmx">Attribute information (Nodes matrix <span class="math inline">\(\mathrm{X}\)</span>)</h4>
-<p>Guide the GNN to ensure certain aspects of node/neighborhood attribute information is encoded in the node embeddings after a SSL attribute-based pretext.</p>
+<h4 id="ae-model">AE model</h4>
+<h5 id="basic-ae">Basic AE</h5>
 <ul>
-<li><p>AttributeMask</p>
+<li>RBM can be regarded as a special AE.</li>
+<li>AE model is usually a feed-forward neural network trained to produce its input at the output layer.</li>
+<li>the linear autoencoder corresponds to the PCA method.</li>
+<li>some interesting structures can be discovered by imposing sparsity constraints on the hidden units</li>
+</ul>
+<h5 id="context-prediction-model-cpm">Context prediction model (CPM)</h5>
 <ul>
-<li>Let GNN learn attribute information via pretext</li>
-<li>Randomly mask (e.g. set to zero ) the features of <span class="math inline">\(m_a\)</span> nodes <span class="math inline">\(\mathcal{M}_a\subset\mathcal{V}, |\mathcal{M}_a|=m_a\)</span>, then SSL will try to construct these features. Formally , <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{M}_a|}\sum\limits_{v_i\in\mathcal{M}_a}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\mathrm{x}_i\|^2\)</span>, where <span class="math inline">\(\mathrm{x}_i\)</span> is the dense features after PCA.</li>
-</ul></li>
-<li><p>PairewiseAttrSim</p>
+<li>Idea: predict contextual information based on inputs.</li>
+<li>negative sampling is employed to ensure computational efficiency and scalability</li>
+<li>Examples
 <ul>
-<li><p>The similarity two nodes have in the input feature space is not guaranteed in the learned representations due to the GNN aggregating features from the two nodes local neighborhoods.</p></li>
-<li><p>Specifically,</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233255.png" alt="image-20210122233252928" style="zoom:50%;" /></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233404.png" alt="image-20210122233403875" style="zoom:50%;" /></p></li>
-<li><p>Only constrain the intra-class distance</p></li>
+<li>CBOW, Skip-Gram, FastText based on CBOW</li>
+<li>DeepWalk: based on a similar context prediction objective. It treats random walks as the equivalent of sentences.</li>
+<li>LINE: aims to generate neighbors based on current nodes. Use negative sampling to sample multiple negative edges to approximate the objective.</li>
 </ul></li>
 </ul>
-<h3 id="merge-pretext-task-on-graphs">Merge pretext task on Graphs</h3>
+<h5 id="denoising-ae-model">Denoising AE model</h5>
 <ul>
-<li><p>Joint Training</p>
+<li>Intuition: representation should be robust to the introduction of noise.</li>
+<li>Examples
 <ul>
-<li><p>Optimize the SSL loss (i.e., <span class="math inline">\(\mathcal{L}_{self}\)</span>) and supervised loss (i.e., <span class="math inline">\(\mathcal{L}_{task}\)</span>) simultaneously.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123174253.png" alt="image-20210123174253225" style="zoom:50%;" /></p></li>
-<li><p>The overall objective is <span class="math inline">\(\min\limits_{\theta,\theta&#39;}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)+\lambda(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)\)</span>, where <span class="math inline">\(\lambda\)</span> is the hyperparameter to control the distribution of self-supervision.</p></li>
-</ul></li>
-<li><p>Two-stage training</p>
-<p>Fine tuning the model which is pretrained on pretext task on downstream dataset.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123181120.png" alt="image-20210123181120517" style="zoom:50%;" /></p></li>
-</ul>
-<h2 id="analysis">Analysis</h2>
-<ul>
-<li><p>Targets: Understand what SSL information works for GNNs, which strategies can better integrate SSL for GNNs, and further analyze why SSL is able to improve GNNs</p></li>
-<li><p>Datasets: Cora, Citeseer, Pubmed</p></li>
-<li><p>Training: Adam, learning rate <span class="math inline">\(0.01\)</span>, <span class="math inline">\(L_2\)</span> regularization <span class="math inline">\(5e-4\)</span>, dropout rate <span class="math inline">\(0.5\)</span>, <span class="math inline">\(128\)</span> hidden units across all self-supervised information and GCN, top-K=bottom-K=<span class="math inline">\(3\)</span>. <span class="math inline">\(\lambda\)</span> in range <span class="math inline">\(\{0,0.001,0.01,0.1,1,5,10,50,100,500,1000\}\)</span>, <span class="math inline">\(m_e,m_a\)</span> in <span class="math inline">\(\{10\%,20\%\}\)</span> the size of <span class="math inline">\(|V|\)</span>.</p></li>
-<li><p><strong>Two-stage training</strong></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123200058.png" alt="image-20210123200058736" style="zoom:50%;" /></p>
-<ul>
-<li>the configuration of one graph convolutional layer for feature extraction, one graph convolutional layer for the adaptation of node classification and one linear layer for the adaptation of pretext task works very well for all three strategies</li>
-<li>In most cases, the strategy of “Tune all" achieves the best performance--&gt; fine tune for downstream task is necessary.</li>
-</ul></li>
-<li><p><strong>SSL for GNNs</strong></p>
-<ul>
-<li><p><em>Joint training vs. Two-stage Training</em></p>
-<p><strong><em>Joint training outperforms the Two-stage training in most settings.</em></strong></p></li>
-<li><p><em>What SSL works for GNNs</em></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202214.png" alt="image-20210123202214101" style="zoom:28%;" /> <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202231.png" alt="image-20210123202231858" style="zoom:30%;" /></p>
-<ul>
-<li>SSL for GNNs will improve the accuracy for downstream task</li>
-<li>Across all datasets , the best performing method is a pretext task developed from <em>global structure information.</em></li>
-<li>self-supervised information from both the structure and attributes have potentials</li>
-<li>For the structure information, the global pretext tasks are likely to provide much more significant improvements compared to the local ones.</li>
-</ul></li>
-<li><p><em>Why SSL Works for GNNs</em></p>
-<ul>
-<li>GCN for node classification is naturally semi-supervised that has explored the unlabeled nodes, those (SSL pretext) failed to improve GCNs is argued resulted in GCN has already learned that information.</li>
-<li>GCN is unable to naturally learn the global structure information and employing pairwise node distance prediction as the SSL task can help boost its performance for the downstream task.</li>
-</ul></li>
-<li><p>The capability of pretext representations maintaining similarity</p>
-<p>The most popular similarity for graph is structural equivalence and regular equivalence (规则的等效节点是那些不一定具有相同邻居但具有自身相似的邻居的节点).</p>
-<ul>
-<li>Authors argue pretext task can maintain these two similarities by changing the definition of task (like nodes attribute task or distance between a pair of nodes can maintain structure similarity and regular equivalence.</li>
-</ul></li>
+<li>MLM (masked language model): randomly mask some of the tokes from the input and then predicts them based on their context information. But <strong>it assumes the predicted tokens are independent if the unmasked tokens are given,</strong> which does not hold in reality.</li>
+<li>Bert: import a unique token to mask some tokens, but also replace the unique token with original words or random words with a small probability.</li>
+<li>SpanBert: mask continuous random spans rather than random tokens adopted by BERT. It trains the span boundary representations to predict the masked spans.</li>
+<li>ERINE: learn entity-level and phrase-level knowledge and further integrates knowledge in knowledge graphs into language models</li>
+<li>GPT-GNN: asks GNN to generate masked edges and attributes.</li>
 </ul></li>
 </ul>
-<h2 id="advanced-pretext-task-on-graphs">Advanced pretext task on graphs</h2>
-<p>Pretext tasks are built with the intuition of adapting the notion of regular equivalence to having neighbors with similar node labels (or regular task equivalence). Specifically, <strong>if every node constructs a pretext vector based on information in regards to the labels from their neighborhood, then two nodes having similar (or dissimilar) vectors will be encouraged to be similar (or dissimilar) in the embedding space.</strong></p>
-<h3 id="proposed-tasks">Proposed Tasks</h3>
-<h4 id="distance2labeled">Distance2Labeled</h4>
+<h5 id="variational-ae-model">Variational AE model</h5>
 <ul>
-<li>Modify Distance2Cluster. Propose to predict the distance vector from each node to the labeled nodes (i.e., <span class="math inline">\(\mathcal{V}_L\)</span>) as the pretext task. <em>For class <span class="math inline">\(c_j\in\{1，\cdots,K\}\)</span> and unlabeled node <span class="math inline">\(v_i\in\mathcal{V}_U\)</span>, the distance vector <span class="math inline">\(\mathrm{d}_i\)</span> for node <span class="math inline">\(v_i\)</span> is defined as three shortest path length (average, minimum, maximum) from <span class="math inline">\(v_i\)</span> to all labeled nodes in class <span class="math inline">\(c_i\)</span>.</em><br />
-</li>
-<li>Formally, the objective is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i\|^2\)</span>.</li>
-</ul>
-<h4 id="contextlabel">ContextLabel</h4>
+<li><p>Assumes that data are generated from underlying latent representation. The posterior distribution over a set of unobserved variable <span class="math inline">\(Z\)</span> given some data <span class="math inline">\(X\)</span> is approximated by a variational distribution <span class="math inline">\(q(z|x)\approx p(z|x)\)</span>. In variational inference, the ELBO (evidence lower bound) on the log-likelihood of data is maximized during training.</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823135504436.png" alt="image-20210823135504436" /><figcaption aria-hidden="true">image-20210823135504436</figcaption>
+</figure>
+<p>The 1st term of ELBO is a regularizer forcing the posterior to approximate the prior. The second term is the likelihood of reconstructing the original input data based on latent variables.</p></li>
+<li><p>Examples</p>
 <ul>
-<li>Considering the sparsity of labels, use similarity based function which utilize structure , attributes , and the current labeled nodes to <strong>construct a neighbor label distribution context vector <span class="math inline">\(\bar{\mathrm{y}}_i\)</span></strong> for each nodes as follows: <span class="math inline">\(f_s({\mathrm{A,X},\mathcal{D}_L,\mathcal{V}_U})\rightarrow\{\bar{\mathrm{y}}_i|v_i\in\mathcal{V}_U\}\)</span>. Specifically , the <span class="math inline">\(c\)</span>-th item of <span class="math inline">\(\bar{\mathrm{y}}\)</span> is: <span class="math inline">\(\bar{\mathrm{y}}_{ic}=\frac{|\mathcal{N}_{\mathcal{V}_L}(v_i,c)|+|\mathcal{N}_{\mathcal{V}_U}(v_i,c)|}{|\mathcal{N}_{\mathcal{V}_L}(v_i)|+|\mathcal{N}_{\mathcal{V}_U}(v_i)|},c=1,\cdots,K\)</span>. (For the neighbors of node <span class="math inline">\(v_i\)</span> (including unlabeled and labeled neighbors), the ratio of neighbors in class <span class="math inline">\(c\)</span>)</li>
-<li>Formally, the objective is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\mathrm{y}_i\|^2\)</span></li>
-<li>The labels of nodes (aka <span class="math inline">\(f_s\)</span>) can be generated by LP (Label propagation ) or ICA (Iterative Classification Algorithm). But these will import weak labels that are too noisy.</li>
-</ul>
-<h4 id="ensemblelabel">EnsembleLabel</h4>
-<ul>
-<li>Ensemble various functions <span class="math inline">\(f_s\)</span>. <span class="math inline">\(\bar{y}_i=\arg\max_c\sigma_{LP}(v_i)+\sigma_{ICA}(v_i),c=1,\cdots,K\)</span></li>
-<li>The objective is the same as ContextLabel method.</li>
-</ul>
-<h4 id="correctedlabel">CorrectedLabel</h4>
-<ul>
-<li>Enhance ContextLabel by iteratively improving the context vectors. GNN <span class="math inline">\(f_{\theta}\)</span> is trained on both the original (e.g., <span class="math inline">\(\bar{\mathrm{y}}_i\)</span>) and corrected (e.g., <span class="math inline">\(\hat{\mathrm{y}}_i\)</span>) context distributions.</li>
-<li>Formally, the loss is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U,\hat{\mathcal{D}}_U)=\\\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\bar{\mathrm{y}}_i\|^2+\alpha(\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\hat{\mathrm{y}}_i\|^2)\)</span>, where the 1st and second terms are to fit the original and corrected context distributions respectively, and <span class="math inline">\(\alpha\)</span> controls the contribution from the corrected context distribution. <span class="math inline">\(\hat{y}_i=\arg\max_c\frac{1}{p}\sum\limits_{l=1}^p\cos(f_{\theta&#39;}(\mathcal{G})_{v_i},\mathrm{z}_{cl}),c=1,\cdots,K\)</span>. Where <span class="math inline">\(p\)</span> indicates the prototype nodes in top-<span class="math inline">\(p\)</span> largest <span class="math inline">\(\rho\)</span> values, indicating <strong>the nodes if the measurements (<span class="math inline">\(\rho\)</span>) of their neighbors' label similarity is in top-<span class="math inline">\(p\)</span>.</strong>. Concretely, the similarity of labels' similarity is defined as <span class="math inline">\(\rho_i=\sum\limits_{j=1}^m\mathrm{sign}(\mathrm{S}_{ij}-S_c)\)</span>, where <span class="math inline">\(\mathrm{S}_{ij}\)</span> is the cosine similarity between two nodes based on their embeddings, <span class="math inline">\(S_c\)</span> indicating a constant value (which is selected as the value rank in top <span class="math inline">\(40\%\)</span> in <span class="math inline">\(\mathrm{S}\)</span>).</li>
-<li>In other words, the average similarity between <span class="math inline">\(v_i\)</span> and <span class="math inline">\(p\)</span> prototypes is used to represent the similarity between <span class="math inline">\(v_i\)</span> and the corresponding class, and then assign the class <span class="math inline">\(c\)</span> having the largest similarity to <span class="math inline">\(v_i\)</span>.</li>
-</ul>
-<h3 id="experiments-for-evaluating">Experiments for evaluating</h3>
-<ul>
-<li><p>Experiment settings</p>
-<ul>
-<li>Datasets: Cora, Citeseer, Pubmed and Reddit</li>
-<li>Model: 2-layer GCN as the backbone, with hidden units of 128, <span class="math inline">\(L_2\)</span> regularization <span class="math inline">\(5e−4\)</span>, dropout rate <span class="math inline">\(0.5\)</span> and learning rate <span class="math inline">\(0.01\)</span>. For the SSL loss, the hidden representations from the first layer of GCN are fed through a linear layer to solve SSL pretext task. Jointly train SSL and GCNs. <span class="math inline">\(\lambda\)</span> ranges in <span class="math inline">\(\{1, 5, 10, 50, 100, 500\}\)</span>. <span class="math inline">\(\alpha\)</span> ranges in <span class="math inline">\(\{0.5, 0.8, 1, 1.2, 1.5\}\)</span>.</li>
-<li>Measurements: the average accuracy with standard deviation.</li>
-</ul></li>
-<li><p>Analysis</p>
-<ul>
-<li><p>Performance comparison: Though they argue the performance exist, but seems not that significant. They summarize: <strong>label correction can better</strong> extend label information to unlabeled nodes than ensemble, but it's much less inefficient. A tradeoff must be taken in.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124113911.png" alt="image-20210124113911642" style="zoom:50%;" /></p></li>
-<li><p>Fewer Labeled Samples</p>
-<ul>
-<li><p>By randomly sampling 5 or 10 nodes per class for training and the same number of nodes for validation.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114147.png" alt="image-20210124114147761" style="zoom:50%;" /></p></li>
-<li><p><strong>SelfTask achieves even greater improvement when the labeled samples are fewer and consistently outperforms the state-of-the-art baselines.</strong></p></li>
-<li><p><font color='red'>Why with fewer samples per class SelfTask can be even better?</font></p></li>
-</ul></li>
-<li><p>Parameter Analysis</p>
-<ul>
-<li><p>Only the sensitivity of the best model <em>SelfTaskCorrectedLabel-ICA</em> is evaluated. Vary <span class="math inline">\(\lambda\)</span> in the range of <span class="math inline">\(\{0, 0.1, 0.5, 1, 5, 10, 50, 100\}\)</span> and <span class="math inline">\(\alpha\)</span> from 0 to 2.5 with an interval of 0.25.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114646.png" alt="image-20210124114646842" style="zoom:50%;" /></p></li>
-<li><p>The performance of this model first increases with the increase of <span class="math inline">\(\lambda\)</span>, which controls the contribution of SSL pretext task.</p></li>
-<li><p>The using of correction is confirmed.</p></li>
-<li><p>They don't report sensitivity on other datasets, which should have been in supplementary.</p></li>
-</ul></li>
+<li>VQ-VAE: aims to learn discrete latent variables motivated by the fact that many modalities are inherently discrete, such as language, speech, and images. VQ-VAE relies on vector quantization (VQ) to learn the posterior distribution of discrete latent variables.</li>
+<li>VQ-VAE-2: enlarge the scale and enhance the autoregressive priors by a powerful PixelCNN prior</li>
+<li>VGAE: VAE combined with GCN as the encoder, with an objective to reconstruct the adjacency matrix of the graph by measuring node proximity.</li>
+<li>DVNE: s Gaussian node embedding to model the uncertainty of nodes. 2-Wasserstein distance is used to measure the similarity between the distributions for its effectiveness in preserving network transitivity</li>
+<li>vGraph: node representation learning and community detection. Assumed that each node can be generated from a mixture of communities.</li>
 </ul></li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h4 id="hybrid-generative-models">Hybrid generative models</h4>
+<h5 id="arae">AR+AE</h5>
 <ul>
-<li>Present detailed empirical study to understand when and why SSL works for GNNs and which strategy can better work with GNNs.</li>
-<li>Propose a new direction SelfTask to build advanced pretext tasks which further exploit task-specific self-supervised information, and demonstrate that our advanced method achieves state-of-the-art performance.</li>
+<li>Examples
+<ul>
+<li>MADE: modify autoencoder by masking its parameters to respect AR constraints.</li>
+<li>PLM (permutation language model): AR+ auto encoding .</li>
+<li>XLNet: introduces PLM, enables learning bidirectional contexts by <strong>maximizing the expected likelihood over all permutations</strong> of the factorization order. It also integrates the segment recurrence mechanism and relative encoding scheme of Transformer-XL into pre-training, which can model long-range dependency better that Transformer.</li>
+</ul></li>
+</ul>
+<h5 id="ae-flow-based-models">AE + flow-based models</h5>
+<ul>
+<li>Examples
+<ul>
+<li>GraphAF: to molecule graph generation as a sequential decision process. Follow flow-based method, it defines an invertible transformation from a base distribution to a molecular graph structure. Dequantization technique is utilized to convert discrete data into continuous data.</li>
+</ul></li>
+</ul>
+<h4 id="pros-and-cons">Pros and cons</h4>
+<ul>
+<li>Ability: recover the original data distribution without assumptions for downstream tasks.</li>
+<li>Shortcomings
+<ul>
+<li>far less competitive than contrastive self-supervised learning in some classification scenarios because contrastive learning’s goal naturally conforms the classification objective: MOCO, SimCLR, BYOL, SwAV.</li>
+<li>Point-wise nature of the generative objective has some inherent defects. The MLE is based on all the samples <span class="math inline">\(x\)</span> we hope to model and the context information <span class="math inline">\(c\)</span> is conditionally constrained.
+<ul>
+<li>Sensitive and conservative distribution: when <span class="math inline">\(p(x|c)\rightarrow 0\)</span>, MLE loss becomes super large, making generative model extremely sensitive to rare samples.</li>
+<li>Low-level abstraction objective: the representation distribution in MLE is mostly modeled at <span class="math inline">\(x\)</span>'s level, while most of the classification tasks target at high-level abstraction.</li>
+</ul></li>
+<li>Generative - contrastive SSL abandons the point-wise objective.</li>
+</ul></li>
+</ul>
+<h3 id="contrastive-ssl">Contrastive SSL</h3>
+<p>The contrastive models show the potential of discriminative models for representation. They aim at "learn to compare" through a NCE (noise contrastive estimation ) objective formatted as</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823152108301.png" alt="image-20210823152108301" style="zoom:80%;" /></p>
+<p>With more dissimilar pairs involved, we have the InfoNCE formulated as</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210823152312022.png" alt="image-20210823152312022" /><figcaption aria-hidden="true">image-20210823152312022</figcaption>
+</figure>
+<h4 id="context-instance-contrast">Context-instance Contrast</h4>
+<p>Also called as global-local contrast, focusing on modeling the belonging relationship between the local feature of a sample and its global context representation. There are two main types of context-instance contrast:</p>
+<ul>
+<li>PRP (predict relative position): learn relative positions between local components. The global context serves as an implicit requirement for predicting these relations. (such as understanding what an elephant looks like is critical for predicting relative position between its head and tail)</li>
+<li>MI (maximize mutual information): learn the direct belonging relationships between local parts and global context. Ignore relative positions between local parts.</li>
+</ul>
+<h5 id="predict-relative-position">Predict relative position</h5>
+<ul>
+<li>The PRP is also knowns as pretext task, such as jigsaw, rotation. It may also serve as tools to create hard positive samples.</li>
+<li>Examples
+<ul>
+<li>NSP (next sentence prediction ): for a sentence, the model is asked to distinguish the following and a randomly sampled one. But in RoBERTa, the NSP loss is removed since some argue that NSP may hurt performance.</li>
+<li>ALBERT propose SOP task (sentence order prediction ): two sentences that exchange their position are regarded as a negative sample, making the model concentrate on the semantic meaning’s coherence.</li>
+</ul></li>
+</ul>
+<h5 id="mi">MI</h5>
+<ul>
+<li><p>Target at maximizing the association between two variables. To reduce the computation price, in practice, MI is maximized by maximizing its lower bound with an NCE objective</p></li>
+<li><p>Examples</p>
+<ul>
+<li>Deep InfoMax: maximizing the MI between a local patch and its global context.</li>
+<li>CPC (contrastive predictive coding ): inspired by deep infomax. It maximizes the association between a segment of audio and its context audio. The negative context vectors are taken at the same time.</li>
+<li>AMDIM: enhances the positive association between a local feature and its context. Instead picking a negative image which has the same context, it picks the image which is taken from a different view of the positive image.</li>
+<li><em>CMC</em>: extends AMDIM, which take the image in several different views as the positive samples, while the negative sample is another irrelevant sampled image. It <em>measure the instance-instance similarity rather than context-instance similarity</em>.</li>
+<li>InfoWord: maximize the mutual information between a global representation of a sentence and n-grams in it. The context is induced from the sentence with selected n-grams being masked, and the negative contexts are randomly picked out from the corpus.</li>
+<li>DGI (deep graph InfoMax): take a nodes representation as the local feature and the average of randomly samples 2-hop neighbors as the context. To generate negative samples on one single graph, DGI corrupt the original context by keeping the sub-graph structure and permuting the node features.</li>
+<li>InfoGraph: follow DGI, learn graph-level representation.</li>
+<li>Similar as CMC: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.05582.pdf">paper</a> learns node and graph representations by maximizing MI between node representations of one view and graph representation of another view and vice versa. They find that graph diffusion is the most effective way to yield augmented positive sample pairs in graph learning.</li>
+<li>In <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.12265">paper</a> , they attempt to unify graph pre-training in two strategies. One is structural prediction at node-level, where they propose context prediction to maximized the MI between the k-hop neighborhood's representations and its context graph. For node-level/graph-level strategy, they propose attribute mask to predict a node's attribute according to its neighborhood, which is a generative objective similar to token masks in bert.</li>
+<li><span class="math inline">\(\mathrm{S}^2\)</span>GRL: separate nodes in the context graph into k-hop context subgraphs and maximizes their MI with target node, respectively. <font color=red>(There are k negative samples?)</font></li>
+</ul></li>
+<li><p>Cons</p>
+<p>Existing graph pre-training work is only applicable for a specific domain, while graph pre-training tends to learn inductive biases across graphs.</p></li>
+</ul>
+<h5 id="improvements">Improvements</h5>
+<ul>
+<li>Some argue that the models above is only loosely connected to MI by showing that <strong><em>an upper bound MI estimator leads to ill-conditioned and lower performance representations.</em></strong>--&gt; <font color="blue">More should be attributed to encoder architecture and a negative sampling strategy related to metric learning.</font></li>
+<li>And therefore in metric learning: <strong><em>perform hard positive sampling while increasing the negative sampling strategy</em></strong>.</li>
+</ul>
+<h4 id="instance-instance-contrast">Instance-instance Contrast</h4>
+<ul>
+<li>Directly studies the relationships between different samples' instance-level local representations as what metric learning does.</li>
+</ul>
+<h5 id="cluster-discrimination">Cluster discrimination</h5>
+<ul>
+<li>The motivation is to pull similar images near in the embedding space.</li>
+<li>Examples
+<ul>
+<li>Deep Cluster: leverage clustering to yield pseudo labels and asks a discriminator to predict images' labels. In details, K-means to cluster pseudo labels and then the discriminator predicts whether two samples are from the same cluster and back-propagates to the encoder.
+<ul>
+<li>In DeepCluster, samples are assigned to mutual-exclusive clusters. But LA identifies neighbors separately for each examples.</li>
+<li>DeepCluster optimizes a cross-entropy discriminative loss, while LA employs an objective function that directly optimizes a local soft-clustering metric.</li>
+</ul></li>
+<li>LA (local aggregation): improve the cluster-based method's boundary.
+<ul>
+<li>LA identifies neighbors separately for each examples.</li>
+<li>LA employs an objective function that directly optimizes a local soft-clustering metric.</li>
+</ul></li>
+<li>VQ-VAE: similar as LA. For the feature matrix encoded from an image, VQ-VAE substitutes each 1-dimensional vector in the matrix to the nearest one in an embedding dictionary.</li>
+<li>ClusterFit: help in the generalization of other pre-trained models. Introduce a cluster prediction fine-tuning stage similar to DeepCluster.</li>
+<li>SwAV: to improve the time-consuming two-stage training. Use online clustering ideas and multi-view data augmentation strategies into the cluster discrimination approach. To reduce time price, they propose an online computing strategy to label the images in different views.</li>
+<li>M3S: in graph learning. Given little labeled data and many unlabeled data, for every stage, M3S first pretrain as DeepCluster does and then compares these pseudo labels with those predicted by the model being supervised trained on labeled data. . Only top-k confident labels are added into a labeled set for the next stage of semi-supervised training.</li>
+</ul></li>
+</ul>
+<h5 id="instance-discrimination">Instance Discrimination</h5>
+<ul>
+<li>The prototype is InstDisc.</li>
+<li>Examples
+<ul>
+<li>CMC: adopt multiple different views of an image as positive samples and take another one as the negative. But it's constrained by the idea of Deep Infomax, which only samples one negative sample for each positive one.</li>
+<li>MoCo: leverage instance discrimination via momentum contrast, which substantially increases the amount of negative samples.
+<ul>
+<li>It designs the <strong>momentum contrast learning with two encoders (query and key),</strong> which prevents the fluctuation of loss convergence in the beginning period</li>
+<li>to enlarge negative samples’ capacity, MoCo employs a queue (with K as large as 65536) to save the recently encoded batches as negative samples.</li>
+<li>But the positive sample strategy is too simple: a pair of positive representations come from the same sample without any transformation or augmentation.</li>
+</ul></li>
+<li>PIRL: based on MoCo, adds jigsaw augmentation.</li>
+<li>SimCLR: hard positive sample strategy by introducing data augmentation in 10 forms. The augmentation leverages several different views to augment the positive pairs. To handle the large-scale negative samples problem, it chooses a batch size of N as large as 8196. <strong>Techniques in SimCLR can also further improve MoCo's performance.</strong></li>
+<li>InfoMin: more into augmenting positive samples. They argue that we should select those views with less mutual information for better augmented views in contrastive learning. To do so, they first propose an unsupervised method to minimize mutual information between views, but this will result in a loss of information for predicting labels, say a pure blank view. Then a semi-supervised method is proposed to find views sharing only label information.</li>
+<li>BYOL: discards negative sampling in SSL but achieves an even better result over InfoMin. <em>They argue that negative samples may not be necessary in this process</em>.
+<ul>
+<li>If we use a fixed randomly initialized network to serve as the key encoder, the representation produced by query encoder would still be improved during training.</li>
+<li>BYOL proposes an architecture with an exponential moving average strategy to update the target encoder just as MoCo does.</li>
+<li>The loss is mean square error, which is robust to smaller batch size.</li>
+<li>The batch size in BYOL is not as critical as what's in MoCo and SimCLR.</li>
+</ul></li>
+<li>SimSiam: study how necessary is negative sampling.
+<ul>
+<li>They show that the most critical component in BYOL is the stop gradient operation, which makes the target representation stable.</li>
+<li>It converges faster than MoCo, SimCLR, and BYOL with even smaller batch sizes.</li>
+</ul></li>
+<li>ReLIC: argue that contrastive pre-training teaches the encoder to causally disentangle the invariant content and style in an image.
+<ul>
+<li>They propose to add an extra KL-divergence regularizer between prediction logits of an image's different views.</li>
+</ul></li>
+<li>GCC (graph contrastive coding): leverage instance discrimination as the pretext task for structural information pre-training.
+<ul>
+<li>For each node, they sample two subgraphs independently by random walks with restart and use top eigenvectors from their normalized graph Laplacian matrices as nodes' initial representations.</li>
+<li>Then they use GNN to encode them and calculate the InfoNCE loss.</li>
+</ul></li>
+<li>GraphCL: studies the data augmentation strategies, propose four different augmentation methods based on edge perturbation and node dropping. They show that the appropriate combination of these strategies can yield even better performance.</li>
+</ul></li>
+</ul>
+<h4 id="ss-contrastive-pre-training-for-semi-supervised-self-training">SS contrastive pre-training for semi-supervised self-training</h4>
+<ul>
+<li>No matter how self-supervised learning models improve, they are still the only powerful feature extractor, and to transfer to the downstream task, we still need labels more or less.</li>
+<li>In self-training, a model is trained on the small amount of labeled data and then yield labels on unlabeled data. Only those data with highly confident labels are combined with original labeled data to train a new model. We iterate this procedure to find the best model.
+<ul>
+<li>Student-teacher</li>
+<li>The improvements from pre-training and self-training are orthogonal to each other. The model with joint pre-training and self-training is the best.</li>
+</ul></li>
+<li>SimCLR v2 adopts the conclusion above
+<ul>
+<li>Do SS pre-training as SimCLR v1， with some minor architecture modification and a deeper ResNet.</li>
+<li>Fine tune the last few layers with only 1% or 10% of original ImageNet labels.</li>
+<li>Use the fine-tuned network as teacher to yield labels on unlabeled data to train a smaller student ResNet-50.</li>
+</ul></li>
+</ul>
+<h4 id="pros-and-cons-1">Pros and cons</h4>
+<ul>
+<li>usually light-weighted and perform better in discriminative downstream applications</li>
+<li>Problems remain to be solved
+<ul>
+<li>Scale to natural language pre-training</li>
+<li>Sampling efficiency: hints from BYOL and SimSiam. The role that negative sampling plays in contrastive learning is still not clear.</li>
+<li>data augmentation: in theory, why data augmentation can boost contrastive learning's performance is still not clear.</li>
+</ul></li>
+</ul>
+<h3 id="generative-contrastive-adversarial-ssl">Generative-Contrastive (Adversarial) SSL</h3>
+<p>Adversarial learning learns to reconstruct the original data distribution rather than the samples by minimizing the distributional divergence.</p>
+<h4 id="generate-with-complete-input">Generate with Complete Input</h4>
+<ul>
+<li>Capturing the sample's complete information.</li>
+<li>To extract the implicit distribution out <span class="math inline">\(p(z)\)</span>,
+<ul>
+<li>AAE: the generator in GAN is an implicit autoencoder, which can be replaced by an explicit variational autoencoder (VAE).
+<ul>
+<li>AAE substitutes the KLH divergence function for a discriminative loss.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="recover-with-partial-input">Recover with Partial Input</h4>
+<ul>
+<li>Provide models with partial input and ask them to recover the rest parts. Similar as masked bert but this works in an adversarial manner.</li>
+<li>Examples
+<ul>
+<li>Colorization: given one color channel L in an image and predicting the value of two other channels A, B. The encoder and decoder networks can be set to any form of convolutional neural network.</li>
+<li>Inpainting: ask the model to predict an arbitrary part of an image given the rest of it. Then a discriminator is employed to distinguish the inpainted image from the original one.</li>
+<li>SRGAN: follows the same idea in inpainting,</li>
+</ul></li>
+</ul>
+<h4 id="pre-trained-language-model-ptm">Pre-trained Language model (PTM)</h4>
+<ul>
+<li>Focus on maximum likelihood estimation based on pretext task.</li>
+<li>Examples
+<ul>
+<li>ELECTRA: outperform BERT.
+<ul>
+<li>The generator is a small masked language model (MLM)</li>
+<li>The discriminator will predict which words are replaced.</li>
+<li>Training steps: first warming-up the generator by MLM pretext task. Then train with the discriminator.</li>
+</ul></li>
+<li>WKLM: perform Replaced Token Detection (RTD) at the entity-level.</li>
+</ul></li>
+</ul>
+<h4 id="graph-learning">Graph learning</h4>
+<ul>
+<li>Adopt adversarial training
+<ul>
+<li>ANE (adversarial network embedding) designs a generator that is updated in two stages: the generator encodes sampled graph into target embedding and computes traditional NCE with a context encoder like Skip-gram; discriminator will distinguish embedding from the generator and sampled one from a prior distribution.</li>
+<li>GraphGAN: model the link prediction task and follow the original GANs style discriminative objective to distinguish directly at node-level rather than representation-level.</li>
+<li>GraphSGAN: use the adversarial method in semi-supervised graph learning with the motivation that marginal nodes cause most classification errors in the graph. Between clusters, there are density gaps where few samples exist. They prove that we can complete classification theoretically if we generate enough fake samples in density gaps. The generator will generate fake nodes in density gaps during the training.</li>
+</ul></li>
+</ul>
+<h4 id="domain-adaption-and-multi-modality-representation">Domain adaption and multi-modality representation</h4>
+<ul>
+<li>GAN can help on domain adaption: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.07818">[1]</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.05151">[2]</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.07818">[42]</a>, <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/318224334_Adversarial_Representation_Learning_for_Domain_Adaptation">[113]</a>.</li>
+<li>Leverage adversarial sampling to improve the negative samples' quality: <a target="_blank" rel="noopener" href="https://aclanthology.org/N18-1133.pdf">[16]</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.11017">[138]</a></li>
+</ul>
+<h4 id="pros-and-cons-2">Pros and cons</h4>
+<ul>
+<li>Challenges
+<ul>
+<li>Limited applications in NLP and graph.</li>
+<li>Easy to collapse</li>
+<li>Not for feature extraction: Contrastive learning is more practical in extraction.</li>
+</ul></li>
+</ul>
+<h3 id="theory-behind-ssl">Theory behind SSL</h3>
+<h4 id="gan">GAN</h4>
+<h5 id="divergence-matching">Divergence matching</h5>
+<ul>
+<li>Different divergence functions leads to different GAN variants. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1606.00709">Paper</a> discusses the effects of various choices of divergence functions.</li>
+</ul>
+<h5 id="disentangled-representation">Disentangled representation</h5>
+<ul>
+<li>GAN shows its superior potential in learning disentangled features empirically and theoretically.</li>
+<li>InfoGAN proposes to learn disentangled representation with DCGAN.
+<ul>
+<li>Since mutual information is hard to compute, they leverage the variational inference approach to estimate its lower bound.</li>
+</ul></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1811.10597">GAN dissection</a>: apply causal analysis into understanding GAN. They identify the correlations between channels in the convolutional layers and objects in the generated images, and examine whether they are causally-related with the output.</li>
+<li><a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=SJxDDpEKvH">Paper</a> examines the channels' conditional independence via rigorous counterfactual interventions over them. They show that in BigGAN, it's possible to disentangle backgrounds and objects.</li>
+</ul>
+<h4 id="maximizing-lower-bound">Maximizing Lower Bound</h4>
+<h5 id="evidence-lower-bound">Evidence lower bound</h5>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824130843214.png" alt="image-20210824130843214" style="zoom:80%;" /></p>
+<p>ELBO is the lower bound of the optimization target KL divergence. VAE maximizes the ELBO to minimize the difference between <span class="math inline">\(q_\phi(z|x),p_\theta(z|x)\)</span>.</p>
+<h5 id="mutual-information">Mutual information</h5>
+<ul>
+<li>Maximizes the MI of the input and its representation with joint density <span class="math inline">\(p(x|y\)</span> and marginal densities <span class="math inline">\(p(x),p(y)\)</span>.</li>
+<li>Examples
+<ul>
+<li>Deep Infomax maximizes the MI of local and global features and replaces KL-divergence with JS-divergence, which is similar to GAN.</li>
+<li>Instance Discrimination directly optimizes the proportion of gap of positive pairs and negative pairs. One of the commonly used estimators is InfoNCE. And prove that useful to use large negative samples(large values of N. But then the other testify that increasing the number of negative samples does not necessarily help.</li>
+<li>Maximizing the lower bound (MI and ELBO) is not sufficient to learn useful representations.</li>
+<li>MI maximization can be analyzed from the metric learning view. By rewriting the InfoNCE MI as the triplet loss, it is corresponding to the expectation of the multi-class k-pair loss.</li>
+</ul></li>
+</ul>
+<h4 id="contrastive-ss-representation-learning">Contrastive SS representation learning</h4>
+<h5 id="relationship-with-supervised-learning">Relationship with Supervised learning</h5>
+<ul>
+<li><p>How contrastive pre-training benefits supervised learning?</p>
+<ul>
+<li><p><strong><em>SSL cannot learn more than supervised learning, but make it with few labels.</em></strong></p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824134109250.png" alt="image-20210824134109250" /><figcaption aria-hidden="true">image-20210824134109250</figcaption>
+</figure></li>
+</ul></li>
+<li><p>SSL trained neural networks are more robust t adversarial examples, label corruption and common input corruptions. It also benefits OOD detection on difficult, near-distribution outliers, so much so that it exceeds the performance of fully supervised methods.</p></li>
+</ul>
+<h5 id="understanding-contrastive-loss">Understanding Contrastive Loss</h5>
+<ul>
+<li><p>Split the contrastive loss into two terms</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824134816367.png" alt="image-20210824134816367" /><figcaption aria-hidden="true">image-20210824134816367</figcaption>
+</figure>
+<p>where the first term aims at “alignment” and the second aims at “uniformity” of sample vectors on a sphere given the normalization condition. They show that these two terms have a large agreement with downstream tasks.</p>
+<ul>
+<li>They show that by directly optimizing the two loss, it is consistently better than contrastive loss. And both these terms are necessary for a good representation.</li>
+</ul></li>
+<li><p>It's doubtful that whether alignment and uniformity are necessarily in the form of upper two losses. We may still achieve uniformity via other techniques such as exponential moving average, batch normalization, regularization and random initialization.</p></li>
+</ul>
+<h5 id="generalization">Generalization</h5>
+<p>It is unclear why the learned representations should also lead to better performance on downstream tasks.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.09229">Paper</a> propose a conceptual framework to analyze contrastive learning on average classification tasks.
+<ul>
+<li>Under the context of only 1 negative sample, it is proved that optimizing unsupervised loss benefits the downstream classification tasks.</li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210824142746586.png" title="fig:" alt="image-20210824142746586" /></li>
+<li>They argue that enlarging the number of negative samples does not hold for contrastive learning and shows that it can hurt performance when the negative samples exceed a threshold.</li>
+</ul></li>
+<li>Noise Contrastive Estimation(NCE) [49] explains that increasing the number of negative samples can provably improve the variance of learning parameters</li>
+</ul>
+<h3 id="discussion-and-future-directions">Discussion and future directions</h3>
+<ul>
+<li>Theoretical foundation
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.09229">Paper</a> proposes a conceptual framework to analyze the contrastive objective's function in generalization ability.</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.13625">Paper</a> proves that the sampling strategies and architecture design may count more.</li>
+</ul></li>
+<li>Transferring to downstream tasks
+<ul>
+<li>pre-training task selection problem: By ALBERT, NSP for bert may hurt its performance.</li>
+<li>NAS to design pre-training tasks for a specific downstream task automatically.</li>
+</ul></li>
+<li>Transferring cross datasets (inductive learning)</li>
+<li>Exploring potential of sampling strategies
+<ul>
+<li>leverage super large amounts of negative samples and augmented positive samples, whose effects are studied in deep metric learning.</li>
+<li>How to further release the power of sampling is still an unsolved and attractive problem.</li>
+</ul></li>
+<li>Early degeneration for contrastive learning
+<ul>
+<li>the contrastive objectives often get trapped into embedding spaces’ early degeneration problem, which means that the model over-fits to the discriminative pretext task too early, and therefore lost the ability to generalize.</li>
+</ul></li>
 </ul>
 
       
@@ -406,6 +641,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">survey</a>
         		</li>
       		
 		</ul>
@@ -435,18 +674,9 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/notes/2021-01-12-notes-paper-anomaly-stgcn.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Paper--Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition
-        
-      </div>
-    </a>
   
-  
-    <a href="/posts/notes/2021-01-11-notes-paper-SSL-alreadyknow.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Paper--Predicting What You Already Know Helps, Provable Self-Supervised Learning</div>
+    <a href="/posts/notes/2021-05-22-notes-book-grl.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Book-Graph Representation Learning</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -473,7 +703,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#previous-work"><span class="toc-number">3.</span> <span class="toc-text">Previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#examples"><span class="toc-number">3.1.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-pretext-task-on-graphs"><span class="toc-number">3.2.</span> <span class="toc-text">Basic pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#structure-information-adjacency-matrix-mathrma"><span class="toc-number">3.2.1.</span> <span class="toc-text">Structure information (Adjacency matrix \(\mathrm{A}\))</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#local-structure-information"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">Local structure information</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#global-structure-information"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">Global structure information</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#attribute-information-nodes-matrix-mathrmx"><span class="toc-number">3.2.2.</span> <span class="toc-text">Attribute information (Nodes matrix \(\mathrm{X}\))</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-pretext-task-on-graphs"><span class="toc-number">3.3.</span> <span class="toc-text">Merge pretext task on Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#analysis"><span class="toc-number">4.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-pretext-task-on-graphs"><span class="toc-number">5.</span> <span class="toc-text">Advanced pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proposed-tasks"><span class="toc-number">5.1.</span> <span class="toc-text">Proposed Tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#distance2labeled"><span class="toc-number">5.1.1.</span> <span class="toc-text">Distance2Labeled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#contextlabel"><span class="toc-number">5.1.2.</span> <span class="toc-text">ContextLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ensemblelabel"><span class="toc-number">5.1.3.</span> <span class="toc-text">EnsembleLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#correctedlabel"><span class="toc-number">5.1.4.</span> <span class="toc-text">CorrectedLabel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#experiments-for-evaluating"><span class="toc-number">5.2.</span> <span class="toc-text">Experiments for evaluating</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssl-generative-or-contrastive"><span class="toc-number">1.</span> <span class="toc-text">SSL: Generative or Contrastive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why"><span class="toc-number">1.1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#supervised-learning"><span class="toc-number">1.1.1.</span> <span class="toc-text">Supervised Learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl"><span class="toc-number">1.1.2.</span> <span class="toc-text">SSL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#motivation-of-ssl"><span class="toc-number">1.2.</span> <span class="toc-text">Motivation of SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mainstream-of-methods"><span class="toc-number">1.2.1.</span> <span class="toc-text">Mainstream of methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hints"><span class="toc-number">1.2.2.</span> <span class="toc-text">Hints</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#summary-of-papers"><span class="toc-number">1.2.3.</span> <span class="toc-text">Summary of papers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#outline-of-this-paper"><span class="toc-number">1.2.4.</span> <span class="toc-text">Outline of this paper</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generative-ssl"><span class="toc-number">1.3.</span> <span class="toc-text">Generative SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ar-model"><span class="toc-number">1.3.1.</span> <span class="toc-text">AR model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flow-based-model"><span class="toc-number">1.3.2.</span> <span class="toc-text">Flow-based model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ae-model"><span class="toc-number">1.3.3.</span> <span class="toc-text">AE model</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#basic-ae"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">Basic AE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#context-prediction-model-cpm"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">Context prediction model (CPM)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#denoising-ae-model"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">Denoising AE model</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#variational-ae-model"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">Variational AE model</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hybrid-generative-models"><span class="toc-number">1.3.4.</span> <span class="toc-text">Hybrid generative models</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arae"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">AR+AE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ae-flow-based-models"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">AE + flow-based models</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pros-and-cons"><span class="toc-number">1.3.5.</span> <span class="toc-text">Pros and cons</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#contrastive-ssl"><span class="toc-number">1.4.</span> <span class="toc-text">Contrastive SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#context-instance-contrast"><span class="toc-number">1.4.1.</span> <span class="toc-text">Context-instance Contrast</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#predict-relative-position"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">Predict relative position</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mi"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">MI</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#improvements"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">Improvements</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#instance-instance-contrast"><span class="toc-number">1.4.2.</span> <span class="toc-text">Instance-instance Contrast</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cluster-discrimination"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">Cluster discrimination</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#instance-discrimination"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">Instance Discrimination</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ss-contrastive-pre-training-for-semi-supervised-self-training"><span class="toc-number">1.4.3.</span> <span class="toc-text">SS contrastive pre-training for semi-supervised self-training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pros-and-cons-1"><span class="toc-number">1.4.4.</span> <span class="toc-text">Pros and cons</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generative-contrastive-adversarial-ssl"><span class="toc-number">1.5.</span> <span class="toc-text">Generative-Contrastive (Adversarial) SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#generate-with-complete-input"><span class="toc-number">1.5.1.</span> <span class="toc-text">Generate with Complete Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#recover-with-partial-input"><span class="toc-number">1.5.2.</span> <span class="toc-text">Recover with Partial Input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pre-trained-language-model-ptm"><span class="toc-number">1.5.3.</span> <span class="toc-text">Pre-trained Language model (PTM)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-learning"><span class="toc-number">1.5.4.</span> <span class="toc-text">Graph learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#domain-adaption-and-multi-modality-representation"><span class="toc-number">1.5.5.</span> <span class="toc-text">Domain adaption and multi-modality representation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pros-and-cons-2"><span class="toc-number">1.5.6.</span> <span class="toc-text">Pros and cons</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#theory-behind-ssl"><span class="toc-number">1.6.</span> <span class="toc-text">Theory behind SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gan"><span class="toc-number">1.6.1.</span> <span class="toc-text">GAN</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#divergence-matching"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">Divergence matching</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#disentangled-representation"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">Disentangled representation</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#maximizing-lower-bound"><span class="toc-number">1.6.2.</span> <span class="toc-text">Maximizing Lower Bound</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#evidence-lower-bound"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">Evidence lower bound</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mutual-information"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">Mutual information</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#contrastive-ss-representation-learning"><span class="toc-number">1.6.3.</span> <span class="toc-text">Contrastive SS representation learning</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#relationship-with-supervised-learning"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">Relationship with Supervised learning</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#understanding-contrastive-loss"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">Understanding Contrastive Loss</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#generalization"><span class="toc-number">1.6.3.3.</span> <span class="toc-text">Generalization</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#discussion-and-future-directions"><span class="toc-number">1.7.</span> <span class="toc-text">Discussion and future directions</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
