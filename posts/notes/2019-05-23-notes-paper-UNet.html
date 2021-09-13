@@ -189,43 +189,50 @@
       
         <p>The notes of paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1505.04597v1">U-Net: Convolutional Networks for Biomedical Image Segmentation</a>.</p>
 <a id="more"></a>
-<h2 id="big-question-classification-in-pixel-level-and-thus-image-segmentation">Big Question: classification in pixel level and thus image segmentation</h2>
+<h2 id="Big-Question-classification-in-pixel-level-and-thus-image-segmentation">Big Question: classification in pixel level and thus image segmentation</h2>
 <h3 id="reason">reason</h3>
 <ul>
-<li>single label for a image is not enough to support segmentation. ### background</li>
+<li>single label for a image is not enough to support segmentation.</li>
+</ul>
+<h3 id="background">background</h3>
+<ul>
 <li>why focus on it
 <ul>
-<li>biomedical images: like cells segmentation. Add: also appropriate for other entity segmentation</li>
-</ul></li>
+<li>biomedical images: like cells segmentation.<br>
+Add: also appropriate for other entity segmentation</li>
+</ul>
+</li>
 <li>how have been done:
 <ul>
 <li>the development of deeper CNNs</li>
 <li>using CNNs segmenting electron microscopy images</li>
-</ul></li>
+</ul>
+</li>
 <li>what have been missed:
 <ul>
 <li>computation efficiency and redundancy: slow cause every patch require a running of network; patch overlapping</li>
 <li>difficult trade-off for localization and the usage of context.</li>
-</ul></li>
 </ul>
-<h2 id="methods">Methods</h2>
-<h3 id="for-what">For what?</h3>
+</li>
+</ul>
+<h2 id="Methods">Methods</h2>
+<h3 id="For-what">For what?</h3>
 <p>Cells segmentation.</p>
-<h3 id="framework-of-methods">Framework of Methods</h3>
+<h3 id="Framework-of-Methods">Framework of Methods</h3>
 <p>Convolution2D + deconvolution (upsampling 2D). The output of one downsampling layer is contracted as part of the input of the corresponding symmetric upsampling layer.</p>
-<h3 id="novelty">Novelty</h3>
+<h3 id="Novelty">Novelty</h3>
 <ul>
 <li>data augmentation randomly elastic deformations: shift, rotation, gray value, random elastic deformations are the most important</li>
 <li>replace pooling by upsampling.</li>
 <li>No fully connection layers.</li>
 <li>weighted the loss of touching objects (cells).</li>
 </ul>
-<h2 id="details">Details</h2>
+<h2 id="Details">Details</h2>
 <h3 id="weighted-map-to-segment-overlapped-cells">weighted map to segment overlapped cells</h3>
 <p>According to the paper, they pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels.</p>
 <h3 id="data-augmentation">data augmentation</h3>
 <p>Smooth deformations using random displacements vectors on a coarse 3 by 3 grid. The displacements are sampled from a Gaussian distribution with 10 pixels standard deviation. Per-pixel displacements are then computed using bicubic interpolation.</p>
-<h2 id="abstract">Abstract</h2>
+<h2 id="Abstract">Abstract</h2>
 <p>The main idea in abstract are contracted NNs and data augmentation so that the new NNs can get reasonable results by fewer images.</p>
 
       
@@ -308,7 +315,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question-classification-in-pixel-level-and-thus-image-segmentation"><span class="toc-number">1.</span> <span class="toc-text">Big Question: classification in pixel level and thus image segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for-what"><span class="toc-number">2.1.</span> <span class="toc-text">For what?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#framework-of-methods"><span class="toc-number">2.2.</span> <span class="toc-text">Framework of Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#novelty"><span class="toc-number">2.3.</span> <span class="toc-text">Novelty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#details"><span class="toc-number">3.</span> <span class="toc-text">Details</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weighted-map-to-segment-overlapped-cells"><span class="toc-number">3.1.</span> <span class="toc-text">weighted map to segment overlapped cells</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-augmentation"><span class="toc-number">3.2.</span> <span class="toc-text">data augmentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract"><span class="toc-number">4.</span> <span class="toc-text">Abstract</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question-classification-in-pixel-level-and-thus-image-segmentation"><span class="toc-number">1.</span> <span class="toc-text">Big Question: classification in pixel level and thus image segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-what"><span class="toc-number">2.1.</span> <span class="toc-text">For what?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Framework-of-Methods"><span class="toc-number">2.2.</span> <span class="toc-text">Framework of Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Novelty"><span class="toc-number">2.3.</span> <span class="toc-text">Novelty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Details"><span class="toc-number">3.</span> <span class="toc-text">Details</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#weighted-map-to-segment-overlapped-cells"><span class="toc-number">3.1.</span> <span class="toc-text">weighted map to segment overlapped cells</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-augmentation"><span class="toc-number">3.2.</span> <span class="toc-text">data augmentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">4.</span> <span class="toc-text">Abstract</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -493,19 +500,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">

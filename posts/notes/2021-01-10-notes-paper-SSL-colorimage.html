@@ -10,12 +10,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Colorful Image Colorization | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Colorful Image Colorization Code here">
+  <meta name="description" content="Paper Colorful Image Colorization Code here">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Colorful Image Colorization">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-10-notes-paper-SSL-colorimage.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Colorful Image Colorization Code here">
+<meta property="og:description" content="Paper Colorful Image Colorization Code here">
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110175555.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210112160157.png">
@@ -195,192 +195,212 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1603.08511.pdf">Colorful Image Colorization</a></p>
 <p>Code <a target="_blank" rel="noopener" href="http://richzhang.github.io/colorization/">here</a></p>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
-<p>Predicting colors in free way: taking the image’s <span class="math inline">\(L\)</span> channel as input and its <span class="math inline">\(ab\)</span> channels as the supervisory signal--&gt; but tend to look desaturated, one explanation is using loss functions that encourage conservative predictions</p>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
+<p>Predicting colors in free way: taking the image’s $L$ channel as input and its $ab$ channels as the supervisory signal–&gt; but  tend to look desaturated, one explanation is using loss functions that encourage conservative predictions</p>
 <ul>
-<li><p>Non-parametric methods: given an input grayscale image, first define one or more color reference images. Then, transfer colors onto the input image from analogous regions of the reference image(s).</p></li>
-<li><p>Parametric methods: learn prediction functions from large datasets of color images at training time, posing the problem as either regression onto continuous color space or classification of quantized color values. --&gt; Work in this paper is also classification task.</p></li>
-<li><p>Concurrent work on colorization</p>
+<li>
+<p>Non-parametric methods:  given an input grayscale image, first define one or more color reference images. Then, transfer colors onto the input image from analogous regions of the reference image(s).</p>
+</li>
+<li>
+<p>Parametric methods: learn prediction functions from large datasets of color images at training time, posing the problem as either regression onto continuous color space or classification of quantized color values. --&gt; Work in this paper is also classification task.</p>
+</li>
+<li>
+<p>Concurrent work on colorization</p>
 <table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 37%" />
-<col style="width: 45%" />
-<col style="width: 6%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Paper</th>
-<th style="text-align: center;">loss</th>
+<th style="text-align:center">loss</th>
 <th>CNNs</th>
 <th>Dataset</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Larsson et al.</td>
-<td style="text-align: center;">un-rebalanced classification loss</td>
+<td style="text-align:center">un-rebalanced classification loss</td>
 <td>hypercolumns on a VGG</td>
 <td>ImageNet</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Iizuka et al.</td>
-<td style="text-align: center;">regression loss</td>
+<td style="text-align:center">regression loss</td>
 <td>two-stream architecture in which fuse global and local features</td>
 <td>Places</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>This paper</td>
-<td style="text-align: center;">classification loss, with rebalanced rare classes,</td>
+<td style="text-align:center">classification loss, with rebalanced rare classes,</td>
 <td>a single-stream, VGG-styled network with added depth and dilated convolutions</td>
 <td>ImageNet</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ul>
-<h3 id="summary">Summary</h3>
+<h3 id="Summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
 <li>Even in gray images, the semantics of the scene and its surface texture provide ample cues for many regions in each image</li>
 <li>Color prediction is inherently multimodal --&gt; sparks for a loss tailored to their work</li>
-</ul></li>
+</ul>
+</li>
 <li>Limitations:
 <ul>
 <li>Loss only cares Euclidean distance: If an object can take on a set of distinct ab values, the optimal solution to the Euclidean loss will be the mean of the set. In color prediction, this averaging effect favors grayish, desaturated results. Additionally, if the set of plausible colorizations is non-convex, the solution will in fact be out of the set, giving implausible results.</li>
-</ul></li>
 </ul>
-<h2 id="goals">Goals</h2>
+</li>
+</ul>
+<h2 id="Goals">Goals</h2>
 <p>Design colorization based pretext task to get a good image semantic representations: <strong>produce a plausible colorization that could potentially fool a human observer</strong></p>
-<h2 id="how">How?</h2>
-<h3 id="idea">Idea</h3>
+<h2 id="How">How?</h2>
+<h3 id="Idea">Idea</h3>
 <ul>
 <li><strong>Produce vibrant colorization</strong>: Predict a distribution of possible colors for each pixel. Then, re-weight the loss at training time to emphasize rare colors. This encourages the model to exploit the full diversity of the large-scale data on which it is trained. Lastly, produce a final colorization by taking the annealed mean of the distribution.</li>
-<li>Evaluate synthesized images: set up a “colorization Turing test”.</li>
+<li>Evaluate synthesized images:  set up a “colorization Turing test”.</li>
 </ul>
-<h3 id="data-preparation">Data Preparation</h3>
+<h3 id="Data-Preparation">Data Preparation</h3>
 <ul>
-<li>Quantize the <span class="math inline">\(ab\)</span> output space into bins with grid size <span class="math inline">\(10\)</span> and keep the <span class="math inline">\(Q = 313\)</span> values which are in-gamut. Then this is the label <span class="math inline">\(Z\)</span> of each pixel. Formally, denote the raw label as <span class="math inline">\(Y\)</span>, then <span class="math inline">\(Z = H^{−1}_{gt} (Y)\)</span>, which converts ground truth color <span class="math inline">\(Y\)</span> to vector <span class="math inline">\(Z\)</span>.</li>
+<li>Quantize the $ab$ output space into bins with grid size $10$ and keep the $Q = 313$ values which are in-gamut. Then this is the label $Z$ of each pixel. Formally, denote the raw label as $Y$, then $Z = H^{−1}_{gt} (Y)$, which converts ground truth color $Y$ to vector $Z$.</li>
 </ul>
-<h3 id="implementation">Implementation</h3>
+<h3 id="Implementation">Implementation</h3>
 <ul>
-<li><p>Model</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110175555.png" alt="image-20210110175554683" style="zoom:30%;" /></p></li>
-<li><p>Loss function</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210112160157.png" alt="image-20210110180438146" style="zoom:33%;" /></p>
-<p>where <span class="math inline">\(v(·)\)</span> is a weighting term that can be used to re-balance the loss based on color-class rarity.</p>
+<li>
+<p>Model</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110175555.png" alt="image-20210110175554683" style="zoom:30%;" />
+</li>
+<li>
+<p>Loss function</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210112160157.png" alt="image-20210110180438146" style="zoom:33%;" />
+<p>where $v(·)$ is a weighting term that can be used to re-balance the loss based on color-class rarity.</p>
 <ul>
-<li><p>Re-balancing</p>
-<p>The distribution of <span class="math inline">\(ab\)</span> values in natural images is strongly biased towards values with low <span class="math inline">\(ab\)</span> values.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110233506.png" alt="image-20210110233506301" style="zoom:33%;" />, where <span class="math inline">\(\tilde{p}\)</span> the empirical probability of colors in the quantized ab space <span class="math inline">\(p\in \Delta Q\)</span> from the full ImageNet training set and smooth the distribution with a Gaussian kernel <span class="math inline">\(G_{\sigma}\)</span>. <span class="math inline">\(\lambda=\frac{1}{2}, \sigma=5\)</span> worked well.</p></li>
-</ul></li>
-<li><p>Inferring point estimates</p>
-<p>map probability distribution <span class="math inline">\(\hat{Z}\)</span> to color values <span class="math inline">\(\hat{Y}\)</span> with function <span class="math inline">\(\hat{Y} = H(\hat{Z})\)</span></p></li>
+<li>
+<p>Re-balancing</p>
+<p>The distribution of $ab$ values in natural images is strongly biased towards values with low $ab$ values.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110233506.png" alt="image-20210110233506301" style="zoom:33%;" />, where $\tilde{p}$ the  empirical probability of colors in the quantized ab space $p\in \Delta Q$ from the full ImageNet training set and smooth the distribution with a Gaussian kernel $G_{\sigma}$. $\lambda=\frac{1}{2}, \sigma=5$ worked well.</p>
+</li>
 </ul>
-<p>They interpolate by re-adjusting the temperature <span class="math inline">\(T\)</span> of the softmax distribution, and taking the mean of the result. Lowering the temperature <span class="math inline">\(T\)</span> produces a more strongly peaked distribution, and setting <span class="math inline">\(T\rightarrow 0\)</span> results in a 1-hot encoding at the distribution mode. They find that <span class="math inline">\(T=0.38\)</span> captures the vibrancy of the mode while maintaining the spatial coherence of the mean.</p>
-<h2 id="experiments">Experiments</h2>
+</li>
+<li>
+<p>Inferring point estimates</p>
+<p>map probability distribution $\hat{Z}$ to color values $\hat{Y}$ with function $\hat{Y} = H(\hat{Z})$</p>
+</li>
+</ul>
+<p>They interpolate by re-adjusting the temperature $T$ of the softmax distribution, and taking the mean of the result. Lowering the temperature $T$ produces a more strongly peaked distribution, and setting $T\rightarrow 0$ results in a 1-hot encoding at the distribution mode. They find that $T=0.38$ captures the vibrancy of the mode while maintaining the spatial coherence of the mean.</p>
+<h2 id="Experiments">Experiments</h2>
 <ul>
 <li>Dataset: ImageNet</li>
 <li>Base models</li>
 </ul>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 41%" />
-<col style="width: 47%" />
-</colgroup>
+<table>
 <thead>
-<tr class="header">
+<tr>
 <th>Model Name</th>
-<th style="text-align: center;">Loss</th>
+<th style="text-align:center">Loss</th>
 <th>Train</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Ours(full)</td>
-<td style="text-align: center;">classification loss</td>
-<td>from scratch with kmeans initialization, ADAM solver for about 450K iterations. <span class="math inline">\(\beta_1 = .9, \beta_2 = .99\)</span>, and weight decay = <span class="math inline">\(10^{−3}\)</span> . Initial learning rate was <span class="math inline">\(3 × 10^{−5}\)</span> and dropped to <span class="math inline">\(10^{−5}\)</span> and <span class="math inline">\(3 × 10^{−6}\)</span> when loss plateaued, at 200k and 375k iterations, respectively.</td>
+<td style="text-align:center">classification loss</td>
+<td>from scratch with kmeans initialization, ADAM solver for about 450K iterations. $\beta_1 = .9, \beta_2 = .99$, and weight decay = $10^{−3}$ . Initial learning rate was $3 × 10^{−5}$ and dropped to $10^{−5}$ and $3 × 10^{−6}$ when loss plateaued, at 200k and 375k iterations, respectively.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Ours(class)</td>
-<td style="text-align: center;">classification loss withou rebalancing (<span class="math inline">\(\lambda=1\)</span>)</td>
+<td style="text-align:center">classification loss withou rebalancing ($\lambda=1$)</td>
 <td>similar training protocol as Ours(full)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Ours(L2)</td>
-<td style="text-align: center;">L2 regression loss</td>
+<td style="text-align:center">L2 regression loss</td>
 <td>same training protocol</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Ours(L2,ft)</td>
-<td style="text-align: center;">L2 regression loss</td>
+<td style="text-align:center">L2 regression loss</td>
 <td>fine tuned from our full classification with rebalancing network</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Larsson et al.</td>
-<td style="text-align: center;"></td>
+<td style="text-align:center"></td>
 <td>CNN method</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Dahl</td>
-<td style="text-align: center;">L2 regression loss</td>
+<td style="text-align:center">L2 regression loss</td>
 <td>a Laplacian pyramid on VGG features</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Gray</td>
-<td style="text-align: center;">--</td>
-<td>every pixel is gray, with <span class="math inline">\((a, b) = 0\)</span></td>
+<td style="text-align:center">–</td>
+<td>every pixel is gray, with $(a, b) = 0$</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Random</td>
-<td style="text-align: center;">--</td>
+<td style="text-align:center">–</td>
 <td>Copies the colors from a random image from the training set</td>
 </tr>
 </tbody>
 </table>
-<h3 id="colorization-quality">Colorization quality</h3>
+<h3 id="Colorization-quality">Colorization quality</h3>
 <ul>
 <li>AMT: participants confirm their results. They argue that their work produce a more prototypical appearance for those are poorly white balanced</li>
-<li>Semantic interpretability (VGG classification): Are the results realistic enough colorizations to be interpretable to an off-the-shelf object classifier? They check it by by feeding their fake colorized images to a VGG network that was trained to predict ImageNet classes from real color photos.
+<li>Semantic interpretability (VGG classification): Are the results  realistic enough colorizations to be interpretable to an off-the-shelf object classifier? They check it by  by feeding their fake colorized images to a VGG network  that was trained to predict ImageNet classes from real color photos.
 <ul>
-<li>The result is <span class="math inline">\(3.4\%\)</span> lower than Larsson's.</li>
+<li>The result is $3.4%$ lower than Larsson’s.</li>
 <li>Without any additional training or fine-tuning, one can improve performance on grayscale image classification, simply by colorizing images with our algorithm and passing them to an off-the-shelf classifier.</li>
-</ul></li>
+</ul>
+</li>
 <li>Raw accuracy (AuC):
 <ul>
 <li>L2 metric can achieve accurate colorizations, but has difficulty in optimization from scratch</li>
 <li>class-rebalancing in the training objective achieved its desired effect</li>
-</ul></li>
+</ul>
+</li>
 <li>Compared with others
 <ul>
-<li>LEARCH: On SUN dataset, authors have <span class="math inline">\(17.2\%\)</span> on AMT task while LEARCH has <span class="math inline">\(9.8\%\)</span></li>
-</ul></li>
+<li>LEARCH: On SUN dataset, authors have $17.2%$ on AMT task while LEARCH has $9.8%$</li>
 </ul>
-<h3 id="cross-channel-encoding-as-ssl-feature-learning">Cross-channel encoding as SSL Feature learning</h3>
+</li>
+</ul>
+<h3 id="Cross-channel-encoding-as-SSL-Feature-learning">Cross-channel encoding as SSL Feature learning</h3>
 <ul>
-<li>Datasets: ImageNet, PASCAL (fine tuned after training on ImageNet)</li>
-<li>Backbone: AlexNet</li>
-<li>Settings
+<li>
+<p>Datasets: ImageNet, PASCAL (fine tuned after training on ImageNet)</p>
+</li>
+<li>
+<p>Backbone: AlexNet</p>
+</li>
+<li>
+<p>Settings</p>
 <ul>
 <li>ImageNet: fixing the extractor and retrain the classifier (softmax layer) by labels</li>
-<li>PASCAL: : (1) keeping the input grayscale by disregarding color information (Ours (gray)) and (2) modifying conv1 to receive a full 3-channel <span class="math inline">\(Lab\)</span> input, initializing the weights on the <span class="math inline">\(ab\)</span> channels to be zero (Ours (color)).</li>
-</ul></li>
-<li>Summary
+<li>PASCAL: : (1) keeping the input grayscale by disregarding color information (Ours (gray)) and (2) modifying conv1 to receive a full 3-channel $Lab$ input, initializing the weights on the $ab$ channels to be zero (Ours (color)).</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
 <ul>
-<li>For ImageNet, there is a <span class="math inline">\(6\%\)</span> performance gap between color and grayscale inputs. Except for the 1st layer, representations from other deeper layers catch and outperform most methods, indicating that <strong>solving the colorization task encourages representations that linearly separate semantic classes in the trained data distribution</strong></li>
+<li>For ImageNet, there is a $6%$ performance gap between color and grayscale inputs. Except for the 1st layer, representations from other deeper layers catch and outperform most methods, indicating that <strong>solving the colorization task encourages representations that linearly separate semantic classes in the trained data distribution</strong></li>
 <li>On PASCAL, when conv1 is frozen, the network is effectively only able to interpret grayscale images.</li>
-</ul></li>
 </ul>
-<h3 id="the-properties-of-network">The properties of network</h3>
+</li>
+</ul>
+<h3 id="The-properties-of-network">The properties of network</h3>
 <ul>
-<li><p>Is it exploiting low-level cues?</p>
-<p>Given a grayscale Macbeth color chart as input, it was unable to recover its colors. On the other hand, given two recognizable vegetables that are roughly <strong>isoluminant</strong>, <strong>the system is able to recover their color</strong>.</p></li>
-<li><p>Does it learn multimodal color distributions ?</p>
-<p>Take effective dilation ( the spacing at which consecutive elements of the convolutional kernel are evaluated, relative to the input pixels, and is computed by the product of the accumulated stride and the layer dilation) as the measurement. Through each convolutional block from conv1 to conv5, the effective dilation of the convolutional kernel is increased. From conv6 to conv8, the effective dilation is decreased</p></li>
+<li>
+<p>Is it exploiting low-level cues?</p>
+<p>Given a grayscale Macbeth color chart as input, it was unable to recover its colors. On the other hand, given two recognizable vegetables that are roughly <strong>isoluminant</strong>, <strong>the system is able to recover their color</strong>.</p>
+</li>
+<li>
+<p>Does it learn multimodal color distributions ?</p>
+<p>Take effective dilation ( the spacing at which consecutive elements of the convolutional kernel are evaluated, relative to the input pixels, and is computed by the product of the accumulated stride and the layer dilation) as the measurement.  Through each convolutional block from conv1 to conv5, the effective dilation of the convolutional kernel is increased. From conv6 to conv8, the effective dilation is decreased</p>
+</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="Conclusion">Conclusion</h2>
 <ul>
 <li>Designing an appropriate objective function that handles the multimodal uncertainty of the colorization problem and captures a wide diversity of colors</li>
 <li>Introducing a novel framework for testing colorization algorithms, potentially applicable to other image synthesis tasks</li>
@@ -472,7 +492,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#colorization-quality"><span class="toc-number">4.1.</span> <span class="toc-text">Colorization quality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cross-channel-encoding-as-ssl-feature-learning"><span class="toc-number">4.2.</span> <span class="toc-text">Cross-channel encoding as SSL Feature learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-properties-of-network"><span class="toc-number">4.3.</span> <span class="toc-text">The properties of network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Colorization-quality"><span class="toc-number">4.1.</span> <span class="toc-text">Colorization quality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cross-channel-encoding-as-SSL-Feature-learning"><span class="toc-number">4.2.</span> <span class="toc-text">Cross-channel encoding as SSL Feature learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-properties-of-network"><span class="toc-number">4.3.</span> <span class="toc-text">The properties of network</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -678,19 +698,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">

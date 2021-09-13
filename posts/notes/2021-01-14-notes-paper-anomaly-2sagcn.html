@@ -10,12 +10,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
+  <meta name="description" content="Paper Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-14-notes-paper-anomaly-2sagcn.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
+<meta property="og:description" content="Paper Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115142649.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115133332.png">
@@ -200,141 +200,178 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Shi_Two-Stream_Adaptive_Graph_Convolutional_Networks_for_Skeleton-Based_Action_Recognition_CVPR_2019_paper.pdf">Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition</a></p>
 <p>Code <a target="_blank" rel="noopener" href="https://github.com/lshiwjx/2s-AGCN">here</a></p>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
 <ul>
-<li>Convolutional DL based methods manually structure the skeleton as a sequence of joint-coordinate vectors or as a pseudo-image, which is fed into RNNs or CNNs to generate the prediction.</li>
+<li>Convolutional DL based methods  manually structure the skeleton as a sequence of joint-coordinate vectors or as a pseudo-image, which is fed into RNNs or CNNs to generate the prediction.</li>
 <li>Skeleton-based action recognition
 <ul>
 <li>Design handcrafted features to model human body, but they are barely satisfactory.</li>
 <li>DL-based: CNN-based methods are generally more popular than RNN-based methods. But both fail to fully represent the structure of the skeleton data.</li>
 <li>GCN-based: ST-GCN, eliminates the meed for designing handcrafted part assignment or traversal rules.</li>
-</ul></li>
+</ul>
+</li>
 <li>GNNs
 <ul>
 <li><strong>Spatial perspective</strong>: directly perform the convolution filters on the graph vertexes and their neighbors, which are extracted and normalized based on manually designed rules.</li>
 <li>Spectral perspective: use the eigenvalues and eigenvectors of the graph Laplace matrices. They perform the graph convolution in the frequency domain with the help of graph Fourier transform.</li>
-</ul></li>
 </ul>
-<h3 id="summary">Summary</h3>
+</li>
+</ul>
+<h3 id="Summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
 <li>The second-order information (the lengths and directions of bones) of the skeleton data, which is naturally more informative and discriminative for action recognition, is rarely investigated in existing methods.</li>
-</ul></li>
+</ul>
+</li>
 <li>Limitations:
 <ul>
 <li>Representing the skeleton data as a vector sequence or a 2D grid cannot fully express the dependency between correlated joints</li>
 <li>In GCN-based skeleton action recognition, the topology of the graph is set manually and thus may not be optimal for the hierarchical GCN and diverse samples in action recognition tasks.</li>
-<li>ST-GCN: 1) The skeleton graph is heuristically predefined and represents only the physical structure of the human body. 2) The fixed topology of graph limiting the flexibility and capacity to model the multilevel semantic information. 3) One fixed graph structure may not be optimal for all the samples of different action classes. Like hands-related actions and legs-related actions</li>
-</ul></li>
+<li>ST-GCN: 1)  The skeleton graph is heuristically predefined and represents only the physical structure of the human body. 2) The fixed topology of graph limiting the flexibility and capacity to model the multilevel semantic information. 3)  One fixed graph structure may not be optimal for all the samples of different action classes. Like hands-related actions and legs-related actions</li>
 </ul>
-<h2 id="goals">Goals</h2>
+</li>
+</ul>
+<h2 id="Goals">Goals</h2>
 <p>Propose a improved ST-GCN (graph convolutional based model), so as to use 2nd order information and improve the accuracy of action recognition based on skeletons.</p>
 <p>Make the graph is unique for different layers and samples.</p>
-<h2 id="how">How?</h2>
-<h3 id="idea">Idea</h3>
+<h2 id="How">How?</h2>
+<h3 id="Idea">Idea</h3>
 <p>Modification on ST-GCN</p>
 <ul>
 <li>Two types of graphs:
 <ul>
 <li>Global graph: represents the common pattern for all the data</li>
 <li>Individual graph: represents the unique pattern for each data</li>
-</ul></li>
+</ul>
+</li>
 <li>Second-order information: the length and directions of bones are formulated as a vector pointing from its source joint to its target joint.</li>
 </ul>
-<h3 id="data-preparation">Data Preparation</h3>
+<h3 id="Data-Preparation">Data Preparation</h3>
 <ul>
 <li>The structure of the graph follows the work of ST-GCN.</li>
 </ul>
-<h3 id="a-look-at-st-gcn">A look at ST-GCN</h3>
-<p>Graph convolution in ST-GCN: <span class="math inline">\(f_{out}(v_{ti})=\sum\limits_{v_{tj}\in \mathcal{B}_i}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{j})\cdot \mathrm{w}(l_{ti}(v_{tj}))\)</span>, follows spatial configuration partitioning.</p>
+<h3 id="A-look-at-ST-GCN">A look at ST-GCN</h3>
+<p>Graph convolution in ST-GCN: $f_{out}(v_{ti})=\sum\limits_{v_{tj}\in \mathcal{B}<em>i}\frac{1}{Z</em>{ti}(v_{tj})}f_{in}(v_{j})\cdot \mathrm{w}(l_{ti}(v_{tj}))$, follows spatial configuration partitioning.</p>
 <ul>
 <li>Graph convolution in spatial dimension</li>
 </ul>
-<p><span class="math inline">\(f_{out}=\sum\limits_{k}^{K_v}\mathrm{W}_k(f_{in}\mathrm{A}_k)\odot\mathrm{M}_k\)</span>, where <span class="math inline">\(\mathrm{M}_k\)</span> is an <span class="math inline">\(N\times N\)</span> attention map that indicates the importance of each vertex. <span class="math inline">\(\mathrm{A}_k\)</span> <strong>determines whether there are connections between two vertexes and <span class="math inline">\(\mathrm{M}_k\)</span> determines the strength of the connections.</strong></p>
+<p>$f_{out}=\sum\limits_{k}^{K_v}\mathrm{W}<em>k(f</em>{in}\mathrm{A}_k)\odot\mathrm{M}_k$, where $\mathrm{M}_k$ is an $N\times N$ attention map that indicates the importance of each vertex. $\mathrm{A}_k$ <strong>determines whether there are connections between two vertexes and $\mathrm{M}_k$ determines the strength of the connections.</strong></p>
 <ul>
-<li>Graph convolution in temporal dimension: <span class="math inline">\(K_t\times 1\)</span>convolution on the output feature map</li>
+<li>Graph convolution in temporal dimension: $K_t\times 1$convolution on the output feature map</li>
 </ul>
 <p><em>The model is calculated based on a predefined graph, which may not be a good choice.</em></p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="Implementation">Implementation</h3>
 <ul>
-<li><p>Adaptive graph convolutional network (<strong>AGCN</strong>)</p>
+<li>
+<p>Adaptive graph convolutional network (<strong>AGCN</strong>)</p>
 <p><strong>BN+9 of adaptive graph convolutional blocks + global average pooling + softmax classifier</strong></p>
 <ul>
-<li><p>Adaptive graph convolutional layer:</p>
+<li>
+<p>Adaptive graph convolutional layer:</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115142649.png" alt="image-20210115142649202" style="zoom:50%;" /><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115133332.png" alt="image-20210115133332722" style="zoom:50%;" /></p>
-<p><span class="math inline">\(f_{out}=\sum\limits_{k}^{K_v}\mathrm{W}_kf_{in}(\mathrm{A}_k+\mathrm{B}_k+\mathrm{C}_k)\)</span>. The adjacency matrix is now divided into three parts</p>
+<p>$f_{out}=\sum\limits_{k}^{K_v}\mathrm{W}<em>kf</em>{in}(\mathrm{A}_k+\mathrm{B}_k+\mathrm{C}_k)$. The adjacency matrix is now divided into three parts</p>
 <ul>
-<li><p><span class="math inline">\(\mathrm{A}_k\)</span>: same as <span class="math inline">\(N\times N\)</span> adjacency matrix <span class="math inline">\(\mathrm{A}_k\)</span> in ST-GCN, it <em>represents the physical structure of the human body</em>.</p></li>
-<li><p><span class="math inline">\(\mathrm{B}_k\)</span>: An <span class="math inline">\(N\times N\)</span> adjacency matrix. It's trainable. It acts as <span class="math inline">\(\mathrm{M}_k\)</span> (attention mechanism) in ST-GCN, influenced by the connections between two joints and also the strength of the connections.</p></li>
-<li><p><span class="math inline">\(\mathrm{C}_k\)</span>: a similarity matrix calculated by the normalized embedded Gaussian function with vectors embedded by <span class="math inline">\(1\times 1\)</span> convolutional layer.</p>
-<p><span class="math inline">\(\mathrm{C}_k=softmax(\mathrm{f}_{in}^T\mathrm{W}_{\theta k}^{T}\mathrm{W}_{\phi k}\mathrm{f}_{in})\)</span>, where <span class="math inline">\(\mathrm{W}_\theta,\mathrm{W}_\phi\)</span> are the parameters of the embedding functions <span class="math inline">\(\theta,\phi\)</span>, respectively.</p></li>
-</ul></li>
-<li><p>Adaptive graph convolutional block</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115132928.png" alt="image-20210115132928144" style="zoom:33%;" /></p></li>
-</ul></li>
-<li><p>Model: two stream networks</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115142748.png" alt="image-20210115142748418" style="zoom:50%;" /></p>
+<li>
+<p>$\mathrm{A}_k$: same as $N\times N$ adjacency matrix $\mathrm{A}_k$ in ST-GCN, it <em>represents the physical structure of the human body</em>.</p>
+</li>
+<li>
+<p>$\mathrm{B}_k$: An $N\times N$ adjacency matrix. It’s trainable. It acts as $\mathrm{M}_k$ (attention mechanism) in ST-GCN, influenced by the connections between two joints and also the strength of the connections.</p>
+</li>
+<li>
+<p>$\mathrm{C}_k$: a similarity matrix calculated by the normalized embedded Gaussian function with vectors embedded by $1\times 1$ convolutional layer.</p>
+<p>$\mathrm{C}<em>k=softmax(\mathrm{f}</em>{in}^T\mathrm{W}<em>{\theta k}^{T}\mathrm{W}</em>{\phi k}\mathrm{f}<em>{in})$, where $\mathrm{W}</em>\theta,\mathrm{W}_\phi$ are the parameters of the embedding functions $\theta,\phi$, respectively.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Adaptive graph convolutional block</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115132928.png" alt="image-20210115132928144" style="zoom:33%;" />
+</li>
+</ul>
+</li>
+<li>
+<p>Model: two stream networks</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115142748.png" alt="image-20210115142748418" style="zoom:50%;" />
 <ul>
-<li>J-stream: the input data are joints, as what's depicted in AGCN.</li>
+<li>J-stream: the input data are joints, as what’s depicted in AGCN.</li>
 <li>B-stream: the input data are bones.
 <ul>
-<li>A bone is the vector pointing from its source joint to its target joint. This vector will contain both length and direction of a bone. An empty bone is added so as to make sure the B-stream has similar quantity of input as J-stream.</li>
-</ul></li>
+<li>A bone is the vector pointing from its source joint to its target joint. This vector will contain both length and direction of a bone. An empty bone is added so as to make sure the B-stream has similar quantity of  input as J-stream.</li>
 </ul>
-<p>Finally, the <em>softmax</em> scores of the two streams are added to obtain the fused score and do prediction.</p></li>
-<li><p>Loss function</p>
-<p>Cross-entropy</p></li>
-<li><p>Why does it work?</p>
+</li>
+</ul>
+<p>Finally, the <em>softmax</em> scores of the two streams are added to obtain the fused score and do prediction.</p>
+</li>
+<li>
+<p>Loss function</p>
+<p>Cross-entropy</p>
+</li>
+<li>
+<p>Why does it work?</p>
 <ul>
 <li>Considering bones (2nd information)</li>
-<li>Offers trainable attention matrix <span class="math inline">\(\mathrm{B}_k\)</span> and the similarity evaluation of <span class="math inline">\(\mathrm{C}_k\)</span> to estimate the strength of connection. Both of them offer more possible connections and provide more flexibility.</li>
-</ul></li>
+<li>Offers trainable attention matrix $\mathrm{B}_k$ and the similarity evaluation of $\mathrm{C}_k$ to estimate the strength of connection. Both of them offer more possible connections and provide more flexibility.</li>
 </ul>
-<h2 id="experiments">Experiments</h2>
+</li>
+</ul>
+<h2 id="Experiments">Experiments</h2>
 <ul>
 <li>Dataset: Kinetics and NTU-RGBD
 <ul>
 <li>NTU-RGBD: If the number of bodies in the sample is less than 2, the second body is padded with 0.</li>
 <li>Kinetics: Same data augmentation as done in ST-GCN.</li>
-</ul></li>
+</ul>
+</li>
 <li>Training: SGD with Nesterov momentum (0.9), batch size is 64. The weight decay is set to 0.0001.
 <ul>
 <li>NTU-RGBD: learning rate is set as 0.1 and is divided by 10 at the 30th epoch and 40th epoch. The training process is ended at the 50th epoch.</li>
 <li>Kinetics: The learning rate is set as 0.1 and is divided by 10 at the 45th epoch and 55th epoch. Training ends at the 65th epoch.</li>
-</ul></li>
+</ul>
+</li>
 <li>Evaluation metrics</li>
 <li>NTU-RGBD: top-1 accuracy
 <ul>
 <li>Kinetics : top-1 and top-5 accuracy</li>
-</ul></li>
 </ul>
-<h3 id="ablation-study">Ablation study</h3>
+</li>
+</ul>
+<h3 id="Ablation-study">Ablation study</h3>
 <ul>
-<li><p>Adaptive graph convolutional block</p>
-<p>Manually delete one of the graphs and estimate.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115150909.png" alt="image-20210115150909820" style="zoom:33%;" /></p>
+<li>
+<p>Adaptive graph convolutional block</p>
+<p>Manually  delete one of the graphs and estimate.</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115150909.png" alt="image-20210115150909820" style="zoom:33%;" />
 <ul>
 <li>Given each connection, a weight parameter is important, which also proves the importance of the adaptive graph structure</li>
-</ul></li>
-<li><p>Visualization of the learned graphs</p>
+</ul>
+</li>
+<li>
+<p>Visualization of the learned graphs</p>
 <p>Denote the strength of joints by dot size, the bigger the stronger connection.</p>
 <ul>
-<li><p>A higher layer in AGCN contains higher-level information, comparing the dot size in different layers</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115151421.png" alt="image-20210115151421543" style="zoom:50%;" /></p></li>
-<li><p>The diversity for different sample in the same layer is proved.</p></li>
-</ul></li>
-<li><p>Two-stream framework</p>
-<p>The two-stream method outperforms the one-stream-based methods either the J-stream or the B-stream.</p></li>
+<li>
+<p>A higher layer in AGCN contains higher-level information, comparing the dot size in different layers</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115151421.png" alt="image-20210115151421543" style="zoom:50%;" />
+</li>
+<li>
+<p>The diversity for different sample in the same layer is proved.</p>
+</li>
 </ul>
-<h3 id="compared-with-sota">Compared with SOTA</h3>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115144443.png" alt="image-20210115144443887" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>Two-stream framework</p>
+<p>The two-stream method outperforms the one-stream-based methods either the J-stream or the B-stream.</p>
+</li>
+</ul>
+<h3 id="Compared-with-SOTA">Compared with SOTA</h3>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115144443.png" alt="image-20210115144443887" style="zoom:50%;" />
 <ul>
 <li>Question 1: <font color='red'> ResNet helps?</font></li>
 <li>Question 2: <font color='red'>How about compared with methods based on RGB or optical flow ?</font> In paper ST-GCN their model fails to those models.</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="Conclusion">Conclusion</h2>
 <ul>
 <li>An adaptive graph convolutional network is proposed.</li>
 <li>The second-order information of the skeleton data is explicitly formulated and combined with the first-order information using a two-stream framework, which brings notable improvement for the recognition performance.</li>
@@ -429,7 +466,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-look-at-st-gcn"><span class="toc-number">3.3.</span> <span class="toc-text">A look at ST-GCN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.4.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ablation-study"><span class="toc-number">4.1.</span> <span class="toc-text">Ablation study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compared-with-sota"><span class="toc-number">4.2.</span> <span class="toc-text">Compared with SOTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-look-at-ST-GCN"><span class="toc-number">3.3.</span> <span class="toc-text">A look at ST-GCN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.4.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ablation-study"><span class="toc-number">4.1.</span> <span class="toc-text">Ablation study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compared-with-SOTA"><span class="toc-number">4.2.</span> <span class="toc-text">Compared with SOTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -635,19 +672,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">applications</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ML</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">naive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">applications</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tendency</a>
               </li>
              
               <li class="article-tag-list-item">
