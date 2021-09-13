@@ -205,27 +205,26 @@
       
         <p>Paper I: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2007.02500.pdf">Deep Learning for Anomaly Detection: A Review</a></p>
 <a id="more"></a>
-<h1>Paper I: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2007.02500.pdf">Deep Learning for Anomaly Detection: A Review</a></h1>
-<h2 id="Why">Why?</h2>
+<h1 id="paper-i-deep-learning-for-anomaly-detection-a-review">Paper I: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2007.02500.pdf">Deep Learning for Anomaly Detection: A Review</a></h1>
+<h2 id="why">Why?</h2>
 <ul>
 <li>outlier detection or novelty detection</li>
 <li>Deep anomaly detection aims at learning feature representations or anomaly scores via neural networks for the sake of anomaly detection.</li>
 </ul>
-<h2 id="Problem-complexities-and-challenges">Problem complexities and challenges</h2>
-<h3 id="Major-problem-complexities">Major problem complexities</h3>
+<h2 id="problem-complexities-and-challenges">Problem complexities and challenges</h2>
+<h3 id="major-problem-complexities">Major problem complexities</h3>
 <ul>
 <li>Unknownness: Anomalies are associated with many unknowns</li>
 <li>Heterogeneous anomaly classes: one class of anomalies may demonstrate completely different abnormal characteristics from another class of anomalies.</li>
 <li>Rarity and class imbalance: it is difficult to collect a large amount of labeled abnormal instances.</li>
 <li>Diverse types of anomaly:
 <ul>
-<li>Point anomalies:  individual instances that are anomalous w.r.t. the majority of other individual instances</li>
+<li>Point anomalies: individual instances that are anomalous w.r.t. the majority of other individual instances</li>
 <li>Conditional anomalies: contextual anomalies, also refer to individual anomalous instances but in a specific context.</li>
 <li>Group anomalies: a subset of data instances anomalous as a whole w.r.t. the other data instances.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Main-challenges-tackled-by-deep-anomaly-detection">Main challenges tackled by deep anomaly detection</h3>
+<h3 id="main-challenges-tackled-by-deep-anomaly-detection">Main challenges tackled by deep anomaly detection</h3>
 <ul>
 <li>CH1: low anomaly detection recall rate: How to reduce false positives and enhance detection recall rates</li>
 <li>CH2: anomaly detection in high-dimensional and/or not-independent data:
@@ -234,16 +233,13 @@
 <ul>
 <li>Performing anomaly detection in a reduced lower dimensional space spanned by a small subsets of original features or newly constructed features.</li>
 <li>But challenges on identifying intricate (e.g., high-order, nonlinear and heterogeneous) feature interactions and couplings.</li>
-</ul>
-</li>
+</ul></li>
 <li>Guarantee the new feature space preserved proper information for specific detection methods.
 <ul>
 <li>Due to the aforementioned unknowns and heterogeneities of anomalies.</li>
-</ul>
-</li>
+</ul></li>
 <li>Detect anomalies from instances that may be dependent on each other.</li>
-</ul>
-</li>
+</ul></li>
 <li>CH3: data-efficient learning of normality/abnormality
 <ul>
 <li>Fully supervised anomaly detection is often impractical.</li>
@@ -252,38 +248,33 @@
 <ul>
 <li>How to learn expressive normality/abnormality representations with a small amount of labeled anomaly data.</li>
 <li>How to learn detection models that are generalized to novel anomalies uncovered by the given labeled anomaly data.</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>CH4： Noise-resilient anomaly detection
 <ul>
 <li>Large-scale anomaly-contaminated unlabeled data</li>
 <li>The amount of noises can differ significantly from datasets and noisy instances may be irregularly distributed in the data space.</li>
-</ul>
-</li>
+</ul></li>
 <li>CH5：Detection of complex anomalies
 <ul>
 <li>The generation from point anomalies to conditional anomalies and group anomalies</li>
-<li>How to  incorporate the concept of conditional/group anomalies into anomaly measures/models.</li>
+<li>How to incorporate the concept of conditional/group anomalies into anomaly measures/models.</li>
 <li>The detection of anomalies with multiple heterogeneous data sources.</li>
-</ul>
-</li>
+</ul></li>
 <li>CH6： Anomaly explanation
 <ul>
 <li>Have anomaly explanation algorithms that provide straightforward clues about why a specific data instance is identified as anomaly.</li>
 <li>A main challenge to well balance the model’s interpretability and effectiveness.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Addressing-the-challenges-with-deep-anomaly-detection">Addressing the challenges with deep anomaly detection</h2>
-<h3 id="Preliminaries">Preliminaries</h3>
+<h2 id="addressing-the-challenges-with-deep-anomaly-detection">Addressing the challenges with deep anomaly detection</h2>
+<h3 id="preliminaries">Preliminaries</h3>
 <ul>
-<li>Deep anomaly detection aims at learning a feature representation mapping function $\phi (·) : X\mapsto Z$ or an anomaly score learning function $\tau (·): X\mapsto R$ in a way that anomalies can be easily differentiated from the normal data instances in the space yielded by the $\phi$ or $\tau$ function.</li>
+<li>Deep anomaly detection aims at learning a feature representation mapping function <span class="math inline">\(\phi (·) : X\mapsto Z\)</span> or an anomaly score learning function <span class="math inline">\(\tau (·): X\mapsto R\)</span> in a way that anomalies can be easily differentiated from the normal data instances in the space yielded by the <span class="math inline">\(\phi\)</span> or <span class="math inline">\(\tau\)</span> function.</li>
 </ul>
-<h3 id="Categorization-of-deep-anomaly-detection">Categorization of deep anomaly detection</h3>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602121703067.png" alt="image-20210602121703067" style="zoom:70%;" />
-<h2 id="Deep-learning-for-feature-extraction">Deep learning for feature extraction</h2>
+<h3 id="categorization-of-deep-anomaly-detection">Categorization of deep anomaly detection</h3>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602121703067.png" alt="image-20210602121703067" style="zoom:70%;" /></p>
+<h2 id="deep-learning-for-feature-extraction">Deep learning for feature extraction</h2>
 <ul>
 <li>The deep learning components work purely as dimensionality reduction only.</li>
 <li>Assumptions: The feature representations extracted by deep learning models preserve the discriminative information that helps separate anomalies from normal instances.</li>
@@ -291,11 +282,10 @@
 <ul>
 <li>Directly use popular pre-trained deep learning models such as VGG etc.
 <ul>
-<li>An unmasking process:  iteratively train a binary classifier to separate one set of video frames from its subsequent video frames in a sliding window, with the most discriminant features removed in each iteration step. The power of unmasking framework relies heavily on the quality of the features.</li>
+<li>An unmasking process: iteratively train a binary classifier to separate one set of video frames from its subsequent video frames in a sliding window, with the most discriminant features removed in each iteration step. The power of unmasking framework relies heavily on the quality of the features.</li>
 <li>Using features extracted from a dynamically updated sampling pool of video frames is found to improve the performance of the framework.</li>
 <li>Pretrained model and fine-tuning.</li>
-</ul>
-</li>
+</ul></li>
 <li>Explicitly train a deep feature extraction model rather than a pre-trained model for the downstream anomaly scoring.
 <ul>
 <li>Methods
@@ -303,686 +293,483 @@
 <li>Three separate autoencoder networks are trained to learn low-dimensional features for respective appearance, motion, and appearance-motion joint representations for video anomaly detection.</li>
 <li>Unsupervised classification approaches to enable anomaly scoring in the projected space. Use cluster methods to assign pseudo labels and then do one-vs-the-rest classification. The classification probabilities are used to define frame-wise anomaly scores.</li>
 <li>Graph anomaly detection: learn the representations of graph vertices by minimizing autoencoder-based reconstruction loss and pairwise distances of neighbored graph vertices.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li>Advantages
 <ul>
 <li>A large number of state-of-the-art (pre-trained) deep models and off-the-shelf anomaly detectors are readily available.</li>
 <li>Deep feature extraction offers more powerful dimensionality reduction than popular linear methods.</li>
 <li>It is easy-to-implement given the public availability of the deep models and detection methods.</li>
-</ul>
-</li>
+</ul></li>
 <li>Disadvantages
 <ul>
 <li>The fully disjointed feature extraction and anomaly scoring often lead to suboptimal anomaly scores.</li>
 <li>Pre-trained deep models are typically limited to specific types of data.</li>
-</ul>
-</li>
+</ul></li>
 <li>Challenges Targeted
 <ul>
 <li>The lower-dimensional space often helps reveal hidden anomalies and reduces false positives (CH2).</li>
 <li>May not preserve sufficient information for anomaly detection as the data projection is fully decoupled with anomaly detection.</li>
 <li>Allows to leverage multiple types of features and learn semantic-rich detection models, and then reduce CH1.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Learning-feature-representation-of-normality">Learning feature representation of normality</h2>
-<h3 id="Generic-normality-feature-learning">Generic normality feature learning</h3>
+<h2 id="learning-feature-representation-of-normality">Learning feature representation of normality</h2>
+<h3 id="generic-normality-feature-learning">Generic normality feature learning</h3>
 <ul>
 <li>Learns the representations of data instances by optimizing a generic feature learning objective function that is not primarily designed for anomaly detection.</li>
-<li>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602130709282.png" alt="image-20210602130709282" style="zoom:67%;" />
-</li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602130709282.png" alt="image-20210602130709282" style="zoom:67%;" /></li>
 </ul>
-<h4 id="Autoencoders">Autoencoders</h4>
+<h4 id="autoencoders">Autoencoders</h4>
 <ul>
-<li>
-<p>Aims to learn some low-dimensional feature representation space on which the given data instances can be well reconstructed. The learned feature representations are enforced to learn important regularities of the data to minimize reconstruction errors, anomalies are difficult to be reconstructed from the resulting representations and thus have large reconstruction errors.</p>
-</li>
-<li>
-<p>Assumptions:  Normal instances can be better restructured from compressed space than anomalies.</p>
-</li>
-<li>
-<p>Formally,</p>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602132252366.png" alt="image-20210602132252366" style="zoom:70%;" />
-</li>
-<li>
-<p>Methods</p>
+<li><p>Aims to learn some low-dimensional feature representation space on which the given data instances can be well reconstructed. The learned feature representations are enforced to learn important regularities of the data to minimize reconstruction errors, anomalies are difficult to be reconstructed from the resulting representations and thus have large reconstruction errors.</p></li>
+<li><p>Assumptions: Normal instances can be better restructured from compressed space than anomalies.</p></li>
+<li><p>Formally,</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602132252366.png" alt="image-20210602132252366" style="zoom:70%;" /></p></li>
+<li><p>Methods</p>
 <ul>
 <li>Sparse AE: encourage sparsity in the activation units of the hidden layer.</li>
-<li>Denoising AE:  learning representations that are robust to small variations by learning to reconstruct data from some predefined corrupted data instances rather than original data.</li>
-<li>Contractive AE: takes a step further to learn feature representations that are robust to small variations of the instances around their neighbors. By adding a penalty term based on the Forbenius norm of the Jacobian matrix of the encoder’s activations.</li>
+<li>Denoising AE: learning representations that are robust to small variations by learning to reconstruct data from some predefined corrupted data instances rather than original data.</li>
+<li>Contractive AE: takes a step further to learn feature representations that are robust to small variations of the instances around their neighbors. By adding a penalty term based on the Forbenius norm of the Jacobian matrix of the encoder's activations.</li>
 <li>Variational AE: introduces regularization into the representation space by encoding data instances using a prior distribution over the latent space.</li>
-</ul>
-</li>
-<li>
-<p>Implementations</p>
+</ul></li>
+<li><p>Implementations</p>
 <ul>
 <li>Replicator NNs</li>
 <li>RandNet: learning an ensemble of AEs</li>
-<li><a target="_blank" rel="noopener" href="https://git.io/JfYG5">RDA</a>: motivated by robust PCA, it attempts to iteratively decompose term original data into 2 subsets, normal instance set and anomaly set. This is achieved by adding a sparsity penalty $\ell_1$ or grouped penalty $\ell_{2,1}$ into its RPCA-alike objective function to regularize the coefficients of the anomaly set.</li>
-</ul>
-</li>
-<li>
-<p>For more complex data</p>
+<li><a target="_blank" rel="noopener" href="https://git.io/JfYG5">RDA</a>: motivated by robust PCA, it attempts to iteratively decompose term original data into 2 subsets, normal instance set and anomaly set. This is achieved by adding a sparsity penalty <span class="math inline">\(\ell_1\)</span> or grouped penalty <span class="math inline">\(\ell_{2,1}\)</span> into its RPCA-alike objective function to regularize the coefficients of the anomaly set.</li>
+</ul></li>
+<li><p>For more complex data</p>
 <ul>
 <li>Adapting the network architecture to the type of input data, they embeds the encoder-decoder scheme into the full procedure of these methods, such as CNN-AE, LSTM-AE, Conv-LSTM-AE, GCN-AE etc.</li>
 <li>First use AEs to learn low-dimensional representations of the complex data and then learn to predict these learned representations.
 <ul>
 <li>denoising AE is combined with RNNs to learn normal patterns of multivariate sequence data,</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+</ul></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>The idea of AEs is straightforward and generic to different types of data.</li>
 <li>Different types of powerful AE variants can be leveraged to perform anomaly detection.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>The learned feature representations can be biased by infrequent regularities and the presence of outliers or anomalies in the training data.</li>
 <li>The objective function of the data reconstruction is designed for dimension reduction or data compression, rather than anomaly detection.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH2: attributed graph data etc.</li>
 <li>CH1: reduce false positives</li>
 <li>CH4: RPCA</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="GANs">GANs</h4>
+<h4 id="gans">GANs</h4>
 <p>Some form of residual between the real instance and the generated instance are then defined as anomaly score.</p>
 <ul>
-<li>
-<p>Assumption: Normal data instances can be better generated than anomalies from the latent feature space of the generative network in GANs</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>Assumption: Normal data instances can be better generated than anomalies from the latent feature space of the generative network in GANs</p></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfGgc">AnoGAN</a>: computational inefficiency in the iterative search of latent representation $\boldsymbol{\mathrm{z}}$.</p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfGgc">AnoGAN</a>: computational inefficiency in the iterative search of latent representation <span class="math inline">\(\boldsymbol{\mathrm{z}}\)</span>.</p>
 <ul>
 <li>To alleviate the inefficiency
 <ul>
-<li><a target="_blank" rel="noopener" href="https://git.io/JfGgG">EBGAN</a> : based on BiGAN, discriminate the pair of instances $(\mathrm{x}, 𝐸(\mathrm{x}))$ from the pair $(𝐺(\mathrm{z}),\mathrm{z})$.  EBGAN is extended to ALAD by adding two more discriminators with one discriminator trying to discriminate the pair $(\mathrm{x}, \mathrm{x})$ from $(\mathrm{x},𝐺(𝐸(\mathrm{x}))) $and another one trying to discriminate the pair $(\mathrm{z},\mathrm{z})$ from $(\mathrm{z}, 𝐸(𝐺(\mathrm{z})))$.</li>
+<li><a target="_blank" rel="noopener" href="https://git.io/JfGgG">EBGAN</a> : based on BiGAN, discriminate the pair of instances <span class="math inline">\((\mathrm{x}, 𝐸(\mathrm{x}))\)</span> from the pair <span class="math inline">\((𝐺(\mathrm{z}),\mathrm{z})\)</span>. EBGAN is extended to ALAD by adding two more discriminators with one discriminator trying to discriminate the pair <span class="math inline">\((\mathrm{x}, \mathrm{x})\)</span> from $(,𝐺(𝐸())) $and another one trying to discriminate the pair <span class="math inline">\((\mathrm{z},\mathrm{z})\)</span> from <span class="math inline">\((\mathrm{z}, 𝐸(𝐺(\mathrm{z})))\)</span>.</li>
 <li><a target="_blank" rel="noopener" href="https://git.io/JfZRn">fast AnoGAN</a>: share the same spirit of EBGAN.</li>
 <li><a target="_blank" rel="noopener" href="https://git.io/JfZ8v">ALAD</a>: the extension of EBGAN</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfGgn">GANomaly</a>: further improves the generator over the previous work by changing the generator network to an encoder-decoder-encoder network and adding two more extra loss function.</p>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602143617119.png" alt="image-20210602143617119" style="zoom:60%;" />
-</li>
-<li>
-<p>Combined with wassertein GAN or adversarially learn end-to-end one-class classification.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+</ul></li>
+</ul></li>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfGgn">GANomaly</a>: further improves the generator over the previous work by changing the generator network to an encoder-decoder-encoder network and adding two more extra loss function.</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602143617119.png" alt="image-20210602143617119" style="zoom:60%;" /></p></li>
+<li><p>Combined with wassertein GAN or adversarially learn end-to-end one-class classification.</p></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>Demonstrated superior capability in generating realistic instances, especially on images.</li>
 <li>A large number of existing GAN-based models and <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.07035">theories</a> may be adapted for anomaly detection.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>The training of GANs can suffer from multiple problems, such as failure to converge and mode collapse.</li>
 <li>The generator network can be misled and generates data instances out of the manifold of normal instances.</li>
 <li>The GANs-based anomaly scores can be suboptimal since they are built upon the generator network with the objective designed for data synthesis rather than anomaly detection.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH2， CH1</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Predictability-modeling">Predictability modeling</h4>
+<h4 id="predictability-modeling">Predictability modeling</h4>
 <p>Learn feature representations by predicting the current data instances using the representations of the previous instances within a temporal window as the context. The prediction errors can be used to define the anomaly scores</p>
 <ul>
-<li>
-<p>Assumptions: Normal instances are temporally more predictable than anomalies</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>Assumptions: Normal instances are temporally more predictable than anomalies</p></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/Jf4pc">FFP</a>: Using like U-net prediction, popular in video anomaly detection.</p>
-<p>U-Net as the frame generator, and measure the objective loss by intensity, gradient and optical flow. After training, for a given video frame $\mathrm{x}$, a normalized Peak Signal-to-Noise Ratio based on the prediction difference is used to define the anomaly score.</p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/Jf4pc">FFP</a>: Using like U-net prediction, popular in video anomaly detection.</p>
+<p>U-Net as the frame generator, and measure the objective loss by intensity, gradient and optical flow. After training, for a given video frame <span class="math inline">\(\mathrm{x}\)</span>, a normalized Peak Signal-to-Noise Ratio based on the prediction difference is used to define the anomaly score.</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://git.io/Jf4pW">LSA</a></li>
-</ul>
-</li>
-<li>
-<p>Another way is based on autoregressive models that assume each element in a sequence is linearly dependent on the previous elements.</p>
+</ul></li>
+<li><p>Another way is based on autoregressive models that assume each element in a sequence is linearly dependent on the previous elements.</p>
 <ul>
 <li>At the evaluation stage, the reconstruction error and the log-likelihood are combined to define the anomaly score.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+</ul></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>A number of sequence learning techniques can be adapted and incorporated into this approach.</li>
 <li>This approach enables the learning of different types of temporal and spatial dependencies.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>This approach is limited to anomaly detection in sequence data.</li>
 <li>The sequential predictions can be computationally expensive.</li>
 <li>The learned representations may suboptimal for anomaly detection as its underlying objective is for sequential predictions rather than anomaly detection.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH1&amp;CH2</li>
 <li>CH5</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Self-supervised-classification">Self-supervised classification</h4>
+<h4 id="self-supervised-classification">Self-supervised classification</h4>
 <ul>
-<li>
-<p>Learns representations of normality by building self-supervised classification models and identifies instances that are inconsistent to the classification models as anomalies.</p>
-</li>
-<li>
-<p>Evaluate the normality of data instances by their consistency to a set of predictive models, with each model learning to predict one feature based on the rest of the other feature.</p>
-</li>
-<li>
-<p>Focuses on image data and builds the predictive models by using feature transformation-based augmented data.</p>
-</li>
-<li>
-<p>Assumptions:  Normal instances are more consistent to self-supervised classifiers than anomalies.</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>Learns representations of normality by building self-supervised classification models and identifies instances that are inconsistent to the classification models as anomalies.</p></li>
+<li><p>Evaluate the normality of data instances by their consistency to a set of predictive models, with each model learning to predict one feature based on the rest of the other feature.</p></li>
+<li><p>Focuses on image data and builds the predictive models by using feature transformation-based augmented data.</p></li>
+<li><p>Assumptions: Normal instances are more consistent to self-supervised classifiers than anomalies.</p></li>
+<li><p>Methods</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://git.io/JfZRW">GT</a>: Like horizontal flipping, translations, and rotations. <strong>The classification scores of each test instance w.r.t. different $𝑇_𝑗$ are then aggregated to compute the anomaly score.</strong></li>
-<li><a target="_blank" rel="noopener" href="https://git.io/Jf4pl">$E^3$outlier</a> : Training data contains normal instances only. <a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2019/file/6c4bb406b3e7cd5447f7a76fd7008806-Paper.pdf">UOD</a>
+<li><a target="_blank" rel="noopener" href="https://git.io/JfZRW">GT</a>: Like horizontal flipping, translations, and rotations. <strong>The classification scores of each test instance w.r.t. different <span class="math inline">\(𝑇_𝑗\)</span> are then aggregated to compute the anomaly score.</strong></li>
+<li><a target="_blank" rel="noopener" href="https://git.io/Jf4pl"><span class="math inline">\(E^3\)</span>outlier</a> : Training data contains normal instances only. <a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2019/file/6c4bb406b3e7cd5447f7a76fd7008806-Paper.pdf">UOD</a>
 <ul>
 <li><em>The gradient magnitude induced by normal instances is normally substantially larger than outliers during the training of such self-supervised multiclass classification models;</em></li>
 <li><em>The network updating direction is also biased towards normal instances.</em></li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>Normal instances often have stronger agreement with the classification model than anomalies.</strong></p>
-<p>Negative entropy-based anomaly scores perform generally better than average prediction probability and maximum prediction probability.</p>
-</li>
-<li>
-<p>Advantages</p>
+<p>Negative entropy-based anomaly scores perform generally better than average prediction probability and maximum prediction probability.</p></li>
+<li><p>Advantages</p>
 <ul>
 <li>They work well in both the unsupervised and semi-supervised settings.</li>
 <li><em>Anomaly scoring is grounded by some intrinsic properties of gradient magnitude and its updating.</em></li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>The feature transformation operations are often data-dependent. And the operations (rotation) only work on images.</li>
 <li>The consistency-scores are derived upon the classification scores rather than an integrated module in the optimization, and thus they may be suboptimal.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH1 &amp; CH2</li>
 <li>CH4</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Anomaly-measure-dependent-feature-learning">Anomaly measure-dependent feature learning</h3>
-<p>Learning feature representations that are specifically optimized for one particular existing measure.  They  incorporates an existing anomaly measure $f$ into the feature learning objective function to optimize the feature representations specifically for $f$.</p>
-<h4 id="Distance-based-measure">Distance-based measure</h4>
+<h3 id="anomaly-measure-dependent-feature-learning">Anomaly measure-dependent feature learning</h3>
+<p>Learning feature representations that are specifically optimized for one particular existing measure. They incorporates an existing anomaly measure <span class="math inline">\(f\)</span> into the feature learning objective function to optimize the feature representations specifically for <span class="math inline">\(f\)</span>.</p>
+<h4 id="distance-based-measure">Distance-based measure</h4>
 <ul>
-<li>
-<p>Aims to learn feature representations that are specifically optimized for a specific type of distance-based anomaly measures.</p>
-</li>
-<li>
-<p>Like DB outliers, $k$-nearest neighbor distance, average $k$-nearest neighbor distance, relative distance and random nearest neighbor distance. But they fail to work effectively in high dimensional data.</p>
-</li>
-<li>
-<p>Assumption : anomalies are distributed far from their closet neighbors while normal instances are located in dense neighbors.</p>
-</li>
-<li>
-<p>Methods</p>
+<li>Aims to learn feature representations that are specifically optimized for a specific type of distance-based anomaly measures.</li>
+<li>Like DB outliers, <span class="math inline">\(k\)</span>-nearest neighbor distance, average <span class="math inline">\(k\)</span>-nearest neighbor distance, relative distance and random nearest neighbor distance. But they fail to work effectively in high dimensional data.</li>
+<li>Assumption : anomalies are distributed far from their closet neighbors while normal instances are located in dense neighbors.</li>
+<li>Methods
 <ul>
 <li><a target="_blank" rel="noopener" href="https://git.io/JfZRg">REPEN</a>: Random neighbor distance-based: The representations are optimized so that the nearest neighbor distance of pseudo-labeled anomalies in random subsamples is substantially larger than that of pseudo-labeled normal instances. The pseudo labels are generated by some off-the-shelf anomaly detectors. The loss function is built upon the hinge loss.</li>
-<li><a target="_blank" rel="noopener" href="https://git.io/RDP">RDP</a>: The other uses  the distance between optimized representations and randomly projected representations of the same instances to guide the representation learning. Solving <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602202900471.png" alt="image-20210602202900471" style="zoom:50%;" /> is equivalent to have a knowledge distillation from a random NNs and helps learn the frequency of different underlying patterns in the data.</li>
-<li>At the evaluation stage, the function of $f$ is used to compute the anomaly score.</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+<li><a target="_blank" rel="noopener" href="https://git.io/RDP">RDP</a>: The other uses the distance between optimized representations and randomly projected representations of the same instances to guide the representation learning. Solving <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602202900471.png" alt="image-20210602202900471" style="zoom:50%;" /> is equivalent to have a knowledge distillation from a random NNs and helps learn the frequency of different underlying patterns in the data.</li>
+<li>At the evaluation stage, the function of <span class="math inline">\(f\)</span> is used to compute the anomaly score.</li>
+</ul></li>
+<li>Advantages
 <ul>
 <li>The distance-based anomalies are straightforward and well defined with rich theoretical supports in the literature.</li>
 <li>They work in low-dimensional representation spaces and can effectively deal with high-dimensional data that traditional distance-based anomaly measures fail.</li>
 <li>They are able to learn representations specifically tailored for themselves.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li>Disadvantages
 <ul>
 <li>The extensive computation involved in most of distance-based anomaly measures</li>
 <li>Their capabilities may be limited by the inherent weaknesses of the distance-based anomaly measures.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li>Challenges
 <ul>
 <li>CH1&amp;CH2</li>
 <li>CH3,CH4</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="One-class-classification-measure">One-class classification measure</h4>
+<h4 id="one-class-classification-measure">One-class classification measure</h4>
 <p>Aims to learn feature representations customized to subsequent one-class classification-based anomaly detection. Learn a description of a set of data instances to detect whether new instances conform to the training data or not.</p>
 <ul>
-<li>
-<p>One way is to learn representations that are specifically optimized for these traditional one-class classification models, like one-class SVM.</p>
-</li>
-<li>
-<p>Assumption: all normal instances come from a single class and can be summarized by a compact model, to which anomalies do not conform.</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>One way is to learn representations that are specifically optimized for these traditional one-class classification models, like one-class SVM.</p></li>
+<li><p>Assumption: all normal instances come from a single class and can be summarized by a compact model, to which anomalies do not conform.</p></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfGgl">AE-1SVM</a>, <a target="_blank" rel="noopener" href="https://git.io/JfGgZ">OC_NN</a>: Deep one-class SVM, learn the one-class hyperplane from the neural network-enabled low-dimensional representation space rather than the original input space.</p>
-<p>The formula is <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602205007059.png" alt="image-20210602205007059" style="zoom:33%;" />   Any instances that have $𝑟 − \mathrm{w}^\top \mathrm{z}_𝑖 $ can be reported as anomalies. It has two benefits:</p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfGgl">AE-1SVM</a>, <a target="_blank" rel="noopener" href="https://git.io/JfGgZ">OC_NN</a>: Deep one-class SVM, learn the one-class hyperplane from the neural network-enabled low-dimensional representation space rather than the original input space.</p>
+<p>The formula is <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602205007059.png" alt="image-20210602205007059" style="zoom:33%;" /> Any instances that have $𝑟 − ^_𝑖 $ can be reported as anomalies. It has two benefits:</p>
 <ul>
 <li>It can leverage deep networks to learn more expressive features for downstream anomaly detection</li>
 <li>It can also help remove the computational expensive pairwise distance computation in the kernel functions.</li>
-<li>Based on one-class SVM, one may use a random mapping to map latent representation $\mathrm{z}$ to Fourier features since many kernel functions can be approximated by random Fourier features.</li>
-</ul>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfZRR">Deep SVDD</a>, <a target="_blank" rel="noopener" href="https://git.io/JfOkr">Deep SAD</a>: Another way is deep models for SVDD, which aims at Learning a minimum hyperplane characterized by a center $\mathrm{c}$ and a radius $r$ so that the sphere contains all training data instances.</p>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602210101160.png" alt="image-20210602210101160" style="zoom:67%;" />
-<p>It’s shown that $\mathrm{c}$ as trainable parameters can lead to trivial solutions. $\mathrm{c}$ can be fixed as the mean of the feature representations yield by performing a single initial forward pass. The key idea is to minimize the distance of labeled normal instances to the center while at the same time maximizing the distance of known anomalies to the center.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+<li>Based on one-class SVM, one may use a random mapping to map latent representation <span class="math inline">\(\mathrm{z}\)</span> to Fourier features since many kernel functions can be approximated by random Fourier features.</li>
+</ul></li>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfZRR">Deep SVDD</a>, <a target="_blank" rel="noopener" href="https://git.io/JfOkr">Deep SAD</a>: Another way is deep models for SVDD, which aims at Learning a minimum hyperplane characterized by a center <span class="math inline">\(\mathrm{c}\)</span> and a radius <span class="math inline">\(r\)</span> so that the sphere contains all training data instances.</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210602210101160.png" alt="image-20210602210101160" style="zoom:67%;" /></p>
+<p>It's shown that <span class="math inline">\(\mathrm{c}\)</span> as trainable parameters can lead to trivial solutions. <span class="math inline">\(\mathrm{c}\)</span> can be fixed as the mean of the feature representations yield by performing a single initial forward pass. The key idea is to minimize the distance of labeled normal instances to the center while at the same time maximizing the distance of known anomalies to the center.</p></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>The one-class classification-based anomalies are well studied in the literature and provides a strong foundation of deep one-class classification-based methods.</li>
 <li>The representation learning and one-class classification models can be unified to learn tailored and more optimal representations.</li>
 <li>They free the users from manually choosing suitable kernel functions in traditional one-class model.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>The one-class models may work ineffectively in datasets with complex distributions within the normal class.</li>
 <li>The detection performance is dependent on the one-class classification-based anomaly measure.</li>
+</ul></li>
+<li><p>Challenges : CH1&amp;CH2， CH3</p></li>
 </ul>
-</li>
-<li>
-<p>Challenges : CH1&amp;CH2， CH3</p>
-</li>
-</ul>
-<h4 id="Clustering-based-measure">Clustering-based measure</h4>
+<h4 id="clustering-based-measure">Clustering-based measure</h4>
 <p>Aims at learning representations so that anomalies are clearly deviated from the clusters in the newly learned representation space.</p>
 <ul>
-<li>
-<p>Methods use like cluster size, distance to cluster centers, distance between cluster centers, and cluster membership to define clusters.</p>
-</li>
-<li>
-<p>Assumptions: Normal instances have stronger adherence to clusters than anomalies.</p>
-</li>
-<li>
-<p>Many methods are explored based on the motivation that the performance of clustering methods is highly dependent on the input data.</p>
-</li>
-<li>
-<p>The deep clustering methods typically consist of two modules: performing clustering in the forward pass and learning representations using the cluster assignment as pseudo class labels in the backward pass.</p>
+<li><p>Methods use like cluster size, distance to cluster centers, distance between cluster centers, and cluster membership to define clusters.</p></li>
+<li><p>Assumptions: Normal instances have stronger adherence to clusters than anomalies.</p></li>
+<li><p>Many methods are explored based on the motivation that the performance of clustering methods is highly dependent on the input data.</p></li>
+<li><p>The deep clustering methods typically consist of two modules: performing clustering in the forward pass and learning representations using the cluster assignment as pseudo class labels in the backward pass.</p>
 <ul>
-<li>
-<p>The clustering loss can be initialized with a kmeans loss, a spectral clustering loss, an agglomerative loss or a GMM loss.</p>
-</li>
-<li>
-<p>The auxiliary loss can be an autoencoder-based reconstruction loss to learn robust and/or local structure preserved representations.</p>
-</li>
-<li>
-<p>The cluster assignments in the resulting function is used to compute anomaly scores.</p>
-</li>
-<li>
-<p>The aforementioned deep clustering methods are focused on learning optimal clustering results, but  the learned representations may not be able to well capture the abnormality of anomalies. <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/330625995_A_Unified_Unsupervised_Gaussian_Mixture_Variational_Autoencoder_for_High_Dimensional_Outlier_Detection">Papers</a></p>
+<li><p>The clustering loss can be initialized with a kmeans loss, a spectral clustering loss, an agglomerative loss or a GMM loss.</p></li>
+<li><p>The auxiliary loss can be an autoencoder-based reconstruction loss to learn robust and/or local structure preserved representations.</p></li>
+<li><p>The cluster assignments in the resulting function is used to compute anomaly scores.</p></li>
+<li><p>The aforementioned deep clustering methods are focused on learning optimal clustering results, but the learned representations may not be able to well capture the abnormality of anomalies. <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/330625995_A_Unified_Unsupervised_Gaussian_Mixture_Variational_Autoencoder_for_High_Dimensional_Outlier_Detection">Papers</a></p>
 <p><a target="_blank" rel="noopener" href="https://git.io/JfZR0">DAGMM</a>:</p>
 <ul>
 <li>The cluster loss is GMM loss and the auxiliary loss is autoencoder-based reconstruction loss.</li>
 <li>The auxiliary loss is an an autoencoder-based reconstruction loss, but to learn deviated representations of anomalies.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+</ul></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>A number of deep clustering methods and theories can be utilized to support the effectiveness and theoretical foundation of anomaly detection.</li>
 <li>Learn specifically optimized representations that help spot the anomalies easier than on the original data, especially when dealing with intricate data sets.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>The performance of anomaly detection is heavily dependent on the clustering results.</li>
 <li>The clustering process may be biased by contaminated anomalies in the training data, which in turn leads to less effective representations.</li>
+</ul></li>
+<li><p>Challenges: CH1&amp;CH2， CH4</p></li>
 </ul>
-</li>
-<li>
-<p>Challenges: CH1&amp;CH2， CH4</p>
-</li>
-</ul>
-<h2 id="End-to-end-anomaly-score-learning">End-to-end anomaly score learning</h2>
-<p>Aims at learning scalar anomaly scores in an end-to-end fashion. It has a NN that directly learns the anomaly scores. Methods here won’t be limited by the inherent disadvantages of the incorporated anomaly measures. There are two design directions: one focuses on how to synthesize existing anomaly measures and neural network models, while another focuses on devising novel loss functions for direct anomaly score learning.</p>
-<h3 id="Ranking-models">Ranking models</h3>
+<h2 id="end-to-end-anomaly-score-learning">End-to-end anomaly score learning</h2>
+<p>Aims at learning scalar anomaly scores in an end-to-end fashion. It has a NN that directly learns the anomaly scores. Methods here won't be limited by the inherent disadvantages of the incorporated anomaly measures. There are two design directions: one focuses on how to synthesize existing anomaly measures and neural network models, while another focuses on devising novel loss functions for direct anomaly score learning.</p>
+<h3 id="ranking-models">Ranking models</h3>
 <p>Aims to directly learn a ranking model, such that data instances can be sorted based on an observable ordinal variable associated with the absolute/relative ordering relation of the abnormality.</p>
 <ul>
-<li>
-<p>Assumptions: There exists an observable ordinal variable that captures some data abnormality.</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>Assumptions: There exists an observable ordinal variable that captures some data abnormality.</p></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p>One line is to devise ordinal regression -based loss functions to drive the anomaly scoring neural network.</p>
+<li><p>One line is to devise ordinal regression -based loss functions to drive the anomaly scoring neural network.</p>
 <ul>
 <li>Two-class ordinal regression.
 <ul>
-<li>The end-to-end anomaly scoring network takes $\mathcal{A}$ and $\mathcal{N}$ as inputs and learns to optimize the anomaly scores such that the data inputs of similar behaviors as those in $\mathcal{A(N)}$ receive large (small) scores as close $𝑐_1 (𝑐_2)$ as possible, resulting in larger anomaly scores assigned to anomalous frames than normal frames.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Weakly-supervision</p>
+<li>The end-to-end anomaly scoring network takes <span class="math inline">\(\mathcal{A}\)</span> and <span class="math inline">\(\mathcal{N}\)</span> as inputs and learns to optimize the anomaly scores such that the data inputs of similar behaviors as those in <span class="math inline">\(\mathcal{A(N)}\)</span> receive large (small) scores as close <span class="math inline">\(𝑐_1 (𝑐_2)\)</span> as possible, resulting in larger anomaly scores assigned to anomalous frames than normal frames.</li>
+</ul></li>
+</ul></li>
+<li><p>Weakly-supervision</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfZRz">MIL</a>: the model is optimized to learn larger anomaly scores for the pairs of two anomalies than the pairs with one anomaly or none.</p>
-<p>MIL ranking model, directly learn the anomaly score for each video segment. Its key objective is to guarantee that the maximum anomaly score for the segments in a video that contains anomalies somewhere is greater than the counterparts in a normal video.<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605124035832.png" alt="image-20210605124035832"></p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfZRz">MIL</a>: the model is optimized to learn larger anomaly scores for the pairs of two anomalies than the pairs with one anomaly or none.</p>
+<p>MIL ranking model, directly learn the anomaly score for each video segment. Its key objective is to guarantee that the maximum anomaly score for the segments in a video that contains anomalies somewhere is greater than the counterparts in a normal video.<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605124035832.png" alt="image-20210605124035832" /></p>
 <ul>
-<li><font color='red'>Why not $\min$ at the last term in the 1st term?</font></li>
+<li><font color='red'>Why not <span class="math inline">\(\min\)</span> at the last term in the 1st term?</font></li>
 <li>The first term is to guarantee the relative anomaly score order, i.e., the anomaly score of the most abnormal video segment in the positive instance bag is greater than that in the negative instance bag. The last two terms are extra optimization constraints, in which the former enforces score smoothness between consecutive video segments while the latter enforces anomaly sparsity, i.e., each video contains only a few abnormal segments.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages：</p>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Advantages：</p>
 <ul>
 <li>The anomaly scores can be optimized directly with adapted loss functions.</li>
 <li>They are generally free from the definitions of anomalies by imposing a weak assumption of the ordinal order between anomaly and normal instances.</li>
 <li>This approach may build upon well-established ranking techniques and theories from areas like learning to rank.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>At least some form of labeled anomalies are required.</li>
-<li>Methods  may not be able to generalize to unseen anomalies cause they are designed to detect labeled anomalies.</li>
-</ul>
-</li>
-<li>
-<p>Challenges:</p>
+<li>Methods may not be able to generalize to unseen anomalies cause they are designed to detect labeled anomalies.</li>
+</ul></li>
+<li><p>Challenges:</p>
 <ul>
 <li>CH1&amp;CH2;</li>
 <li>CH3</li>
 <li>CH6</li>
 <li>CH4</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Prior-driven-models">Prior-driven models</h3>
+<h3 id="prior-driven-models">Prior-driven models</h3>
 <p>Use a prior distribution to encode and drive the anomaly score learning. The prior may be imposed on either the internal module or the learning output of the score learning function.</p>
 <ul>
-<li>
-<p>Assumptions:  The imposed prior captures the underlying (ab)normality of the dataset.</p>
-</li>
-<li>
-<p>Methods</p>
+<li><p>Assumptions: The imposed prior captures the underlying (ab)normality of the dataset.</p></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfZRw">DevNet</a>: enforce a prior on the anomaly scores. It uses a Gaussian prior to encode the anomaly scores and enable the direct optimization very well.  The deviation loss is built upon contrastive loss.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605131355985.png" alt="image-20210605131355985"></p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfZRw">DevNet</a>: enforce a prior on the anomaly scores. It uses a Gaussian prior to encode the anomaly scores and enable the direct optimization very well. The deviation loss is built upon contrastive loss.</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605131355985.png" alt="image-20210605131355985" /><figcaption aria-hidden="true">image-20210605131355985</figcaption>
+</figure>
 <ul>
 <li>Driven by the deviation loss, it will push the anomaly scores of normal instances as close as possible to 𝜇 while guaranteeing at least 𝑚 standard deviations between 𝜇 and the anomaly scores of anomalies.</li>
 <li>The loss is equivalent to enforcing a statistically significant deviation of the anomaly score of the anomalies from that of normal instances in the upper tail.</li>
-<li>It’s also interpretable.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+<li>It's also interpretable.</li>
+</ul></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>The anomaly scores can be directly optimized w.r.t. a given prior.</li>
 <li>It provides a flexible framework for incorporating different prior distributions into the anomaly score learning.</li>
 <li>The prior can also result in more interpretable anomaly scores than the other methods.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
-<li>It’s difficult to design a universally effective prior for all anomaly detection application.</li>
+<li>It's difficult to design a universally effective prior for all anomaly detection application.</li>
 <li>The efficiency of model depends on how the picked prior fits the underlying distribution.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH1&amp;CH2</li>
 <li>CH1&amp;CH3</li>
 <li>CH4</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Softmax-Likelihood-models">Softmax Likelihood models</h3>
+<h3 id="softmax-likelihood-models">Softmax Likelihood models</h3>
 <p>Learning anomaly scores by maximizing the likelihood of events in the training data. Normal instances are presumed to be high-probability events whereas anomalies are prone to be low-probability events. Tools like NCE are used.</p>
 <ul>
 <li>Assumptions: Anomalies and normal instances are respectively low- and high-probability events.</li>
 <li>Methods
 <ul>
 <li>Use log negative likelihood. Learning the likelihood function 𝑝 is equivalent to directly optimizing the anomaly scoring function.</li>
-<li>But the original likelihood is computed costly, NCE is used to alleviate. For each instance $\mathrm{x}$, $k$ noise samples $\mathrm{x}_{1, \cdots,k}\sim Q$ are generated from some synthetic known ‘noise’ distribution $Q$.</li>
-</ul>
-</li>
+<li>But the original likelihood is computed costly, NCE is used to alleviate. For each instance <span class="math inline">\(\mathrm{x}\)</span>, <span class="math inline">\(k\)</span> noise samples <span class="math inline">\(\mathrm{x}_{1, \cdots,k}\sim Q\)</span> are generated from some synthetic known ‘noise’ distribution <span class="math inline">\(Q\)</span>.</li>
+</ul></li>
 <li>Advantages
 <ul>
 <li>Different types of interactions can be incorporated into the anomaly score learning process.</li>
 <li>The anomaly scores are faithfully optimized w.r.t. the specific abnormal interactions we aim to capture.</li>
-</ul>
-</li>
+</ul></li>
 <li>Disadvantages
 <ul>
 <li>The computation of the interactions can be very costly when the number of features/elements in each data instance is large.</li>
 <li>The anomaly score learning is heavily dependent on the quality of the generation of negative samples.</li>
-</ul>
-</li>
+</ul></li>
 <li>Challenges
 <ul>
 <li>CH2&amp;CH5</li>
 <li>CH1</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="End-to-end-one-class-classification">End-to-end one-class classification</h3>
-<p>Train a one-class classifier that learns to discriminate whether a given instance is normal or not. It does not rely on any existing one-class classification measures. Methods like adversarially learned one-class classification are used.  It  learns a one-class discriminator of the normal instances so that it well discriminates those instances from adversarially generated pseudo anomalies. The goal is to learn a discriminator and this discriminatory will be directly used as anomaly scorer.</p>
+<h3 id="end-to-end-one-class-classification">End-to-end one-class classification</h3>
+<p>Train a one-class classifier that learns to discriminate whether a given instance is normal or not. It does not rely on any existing one-class classification measures. Methods like adversarially learned one-class classification are used. It learns a one-class discriminator of the normal instances so that it well discriminates those instances from adversarially generated pseudo anomalies. The goal is to learn a discriminator and this discriminatory will be directly used as anomaly scorer.</p>
 <ul>
-<li>
-<p>Assumptions :</p>
+<li><p>Assumptions :</p>
 <ul>
 <li>Data instances that are approximated to anomalies can be effectively synthesized.</li>
 <li>All normal instances can be summarized by a discriminative one-class model.</li>
-</ul>
-</li>
-<li>
-<p>Methods</p>
+</ul></li>
+<li><p>Methods</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfZRw">ALOCC</a>:</p>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfZRw">ALOCC</a>:</p>
 <ul>
 <li>The key idea is to train two deep networks, with one network trained as the one-class model to separate normal instances from anomalies while the other network trained to enhance the normal instances and generate distorted outlier. The generator is based on a denoising AE.</li>
 <li>The outliers are randomly sampled from some classes other than the classes where the normal instances come from.</li>
 <li>But this method may be unavailable in many domains cause the reference outliers are beyond the given data.</li>
-</ul>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/JfYGb">OCAN</a>, <a target="_blank" rel="noopener" href="https://git.io/Jf4pR">FenceGAN</a>: generate fringe data instances based on the given training data and use them as negative reference instances to enable the training of the one-class discriminator.</p>
+</ul></li>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/JfYGb">OCAN</a>, <a target="_blank" rel="noopener" href="https://git.io/Jf4pR">FenceGAN</a>: generate fringe data instances based on the given training data and use them as negative reference instances to enable the training of the one-class discriminator.</p>
 <ul>
-<li>
-<p>OCAN: The generator is trained to generate data instances that are complementary to the training data.</p>
-<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605190140300.png" alt="image-20210605190140300" style="zoom:67%;" />
+<li><p>OCAN: The generator is trained to generate data instances that are complementary to the training data.</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605190140300.png" alt="image-20210605190140300" style="zoom:67%;" /></p>
 <p>The 1st two terms are devised to generate low-density instances in the original feature space, and the last term is to help better generate data instances within the original data space.</p>
-<p>The objective of the discriminatory is enhanced with an extrovert conditional entropy loss to enable the detection with high confidence.</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/Jf4pR">FenceGAN</a>: generate data instances tightly lying at the boundary of the distribution of the training data, which is achieved by introducing two loss functions into the generator that enforce the generated instances to be evenly distributed along a sphere boundary of the training data.</p>
-</li>
-<li>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605191312110.png" alt="image-20210605191312110"></p>
-<p>The first term is called encirclement loss that enforces the generated instances to have the same discrimination score, ideally resulting in instances tightly enclosing the training data. The second term is called dispersion loss that enforces the generated instances to evenly cover the whole boundary.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://git.io/Jf4p0">OCGAN</a>: uniformly distributed instances can be generated to enforce the normal instances to be distributed uniformly across the latent space.</p>
-</li>
-<li>
-<p>An ensemble of generator is used with each generator synthesizing boundary instances for one specific cluster of normal instances.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Advantages</p>
+<p>The objective of the discriminatory is enhanced with an extrovert conditional entropy loss to enable the detection with high confidence.</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/Jf4pR">FenceGAN</a>: generate data instances tightly lying at the boundary of the distribution of the training data, which is achieved by introducing two loss functions into the generator that enforce the generated instances to be evenly distributed along a sphere boundary of the training data.</p></li>
+<li><figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605191312110.png" alt="image-20210605191312110" /><figcaption aria-hidden="true">image-20210605191312110</figcaption>
+</figure>
+<p>The first term is called encirclement loss that enforces the generated instances to have the same discrimination score, ideally resulting in instances tightly enclosing the training data. The second term is called dispersion loss that enforces the generated instances to evenly cover the whole boundary.</p></li>
+</ul></li>
+<li><p><a target="_blank" rel="noopener" href="https://git.io/Jf4p0">OCGAN</a>: uniformly distributed instances can be generated to enforce the normal instances to be distributed uniformly across the latent space.</p></li>
+<li><p>An ensemble of generator is used with each generator synthesizing boundary instances for one specific cluster of normal instances.</p></li>
+</ul></li>
+<li><p>Advantages</p>
 <ul>
 <li>Its anomaly classification model is adversarially optimized in an end-to-end fashion.</li>
 <li>It can be developed and supported by the affluent techniques and theories of adversarial learning and one-class classification.</li>
-</ul>
-</li>
-<li>
-<p>Disadvantages</p>
+</ul></li>
+<li><p>Disadvantages</p>
 <ul>
 <li>It is difficult to guarantee that the generated reference instances well resemble the unknown anomalies.</li>
 <li>The instability of GANs may lead to generated instances with diverse quality and consequently unstable anomaly classification performance.</li>
 <li>Its applications are limited to semi-supervised anomaly detection scenarios.</li>
-</ul>
-</li>
-<li>
-<p>Challenges</p>
+</ul></li>
+<li><p>Challenges</p>
 <ul>
 <li>CH1 &amp; CH2</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Algorithms-and-datasets">Algorithms and datasets</h2>
-<h3 id="Representative-algorithms">Representative algorithms</h3>
+<h2 id="algorithms-and-datasets">Algorithms and datasets</h2>
+<h3 id="representative-algorithms">Representative algorithms</h3>
 <ul>
-<li>
-<p>Most methods operate in an unsupervised or semi-supervised mode.</p>
-</li>
-<li>
-<p>Deep learning tricks like data augmentation, dropout and pre-training are under-explored.</p>
-</li>
-<li>
-<p>The network architecture used is not that deep.</p>
-</li>
-<li>
-<p>(leaky) ReLU is the most popular one</p>
-</li>
-<li>
-<p>diverse backbone networks can be used to handle different types of input data.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605192143473.png" alt="image-20210605192143473"></p>
-</li>
+<li><p>Most methods operate in an unsupervised or semi-supervised mode.</p></li>
+<li><p>Deep learning tricks like data augmentation, dropout and pre-training are under-explored.</p></li>
+<li><p>The network architecture used is not that deep.</p></li>
+<li><p>(leaky) ReLU is the most popular one</p></li>
+<li><p>diverse backbone networks can be used to handle different types of input data.</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605192143473.png" alt="image-20210605192143473" /><figcaption aria-hidden="true">image-20210605192143473</figcaption>
+</figure></li>
 </ul>
-<h3 id="Datasets-with-Real-anomalies">Datasets with Real anomalies</h3>
+<h3 id="datasets-with-real-anomalies">Datasets with Real anomalies</h3>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/GuansongPang/anomaly-detection-datasets">The datasets</a></li>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605192324925.png" alt="image-20210605192324925"></li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210605192324925.png" title="fig:" alt="image-20210605192324925" /></li>
 </ul>
-<h2 id="Conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
-<li>
-<p>Contributions</p>
+<li>Contributions
 <ul>
-<li>Problem nature and challenges:  some unique problem complexities underlying anomaly detection and the resulting largely unsolved challenges.</li>
-<li>Categorization and formulation:  three principled frameworks: deep learning for generic feature extraction, learning representations of normality, and end-to-end anomaly score learning</li>
+<li>Problem nature and challenges: some unique problem complexities underlying anomaly detection and the resulting largely unsolved challenges.</li>
+<li>Categorization and formulation: three principled frameworks: deep learning for generic feature extraction, learning representations of normality, and end-to-end anomaly score learning</li>
 <li>Comprehensive literature review</li>
 <li>Future opportunities</li>
 <li>Source codes and datasets</li>
-</ul>
-</li>
-<li>
-<p>Exploring anomaly-supervisory signals</p>
+</ul></li>
+<li>Exploring anomaly-supervisory signals
 <ul>
 <li>The key issue for these formulations is that their objective functions are generic.</li>
 <li>Explore new sources of anomaly-supervisory signals that lie beyond the widely-used formulations such as data reconstruction and GANs, and have weak assumptions on the anomaly distribution.</li>
 <li>Develop domain-driven anomaly detection by leveraging domain knowledge.</li>
-</ul>
-</li>
-<li>
-<p>Deep weakly-supervised anomaly detection</p>
+</ul></li>
+<li>Deep weakly-supervised anomaly detection
 <ul>
 <li>Leveraging deep neural networks to learn anomaly-informed detection models with some weakly-supervised anomaly signals.
 <ul>
 <li>Utilize a small number of accurate labeled anomaly examples to enhance detection models.</li>
-</ul>
-</li>
+</ul></li>
 <li>Unknown anomaly detection: aim to build detection models that are generated from the limited labeled anomalies to unknown anomalies.</li>
 <li>Data-efficient anomaly detection or few-shot anomaly detection: given only limited anomaly examples.</li>
-</ul>
-</li>
-<li>
-<p>Large scale normality leaning</p>
+</ul></li>
+<li>Large scale normality leaning
 <ul>
-<li>Since  it is difficult to obtain sufficient labeled data</li>
+<li>Since it is difficult to obtain sufficient labeled data</li>
 <li>The goal is to first learn transferable pre-trained representation models from large-scale unlabeled data in an unsupervised/self-supervised mode, and then fine-tune detection models in a semi-supervised mode.</li>
 <li>May need to be domain/application-specific.</li>
-</ul>
-</li>
-<li>
-<p>Deep detection of complex anomalies</p>
+</ul></li>
+<li>Deep detection of complex anomalies
 <ul>
 <li>conditional/group anomalies</li>
 <li>Multimodal anomaly detection</li>
-</ul>
-</li>
-<li>
-<p>Interpretable and actionable deep anomaly detection</p>
+</ul></li>
+<li>Interpretable and actionable deep anomaly detection
 <ul>
 <li>The abnormal feature selection methods but may render the explanation less useful</li>
-</ul>
-</li>
-<li>
-<p>Novel applications and settings</p>
+</ul></li>
+<li>Novel applications and settings
 <ul>
 <li>Out-of-distribution detection: closely related area. It is generally assumed that fine-grained normal class labels are available during training.</li>
-<li>Curiosity learning: learning a bonus reward function in reinforcement learning with sparse rewards.  Augmenting the environment with a bonus reward in addition to the original sparse rewards from the environment.</li>
-<li>non-IID anomaly detection: e.g., the abnormality of different instances/features is interdependent and/or heterogeneous.  May be confused with anomaly instances.</li>
+<li>Curiosity learning: learning a bonus reward function in reinforcement learning with sparse rewards. Augmenting the environment with a bonus reward in addition to the original sparse rewards from the environment.</li>
+<li>non-IID anomaly detection: e.g., the abnormality of different instances/features is interdependent and/or heterogeneous. May be confused with anomaly instances.</li>
 <li>detection of adversarial examples, anti-spoofing in biometric systems, and early detection of rare catastrophic events.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -1073,7 +860,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Paper I: Deep Learning for Anomaly Detection: A Review</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-complexities-and-challenges"><span class="toc-number">1.2.</span> <span class="toc-text">Problem complexities and challenges</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Major-problem-complexities"><span class="toc-number">1.2.1.</span> <span class="toc-text">Major problem complexities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Main-challenges-tackled-by-deep-anomaly-detection"><span class="toc-number">1.2.2.</span> <span class="toc-text">Main challenges tackled by deep anomaly detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Addressing-the-challenges-with-deep-anomaly-detection"><span class="toc-number">1.3.</span> <span class="toc-text">Addressing the challenges with deep anomaly detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preliminaries"><span class="toc-number">1.3.1.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Categorization-of-deep-anomaly-detection"><span class="toc-number">1.3.2.</span> <span class="toc-text">Categorization of deep anomaly detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-learning-for-feature-extraction"><span class="toc-number">1.4.</span> <span class="toc-text">Deep learning for feature extraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-feature-representation-of-normality"><span class="toc-number">1.5.</span> <span class="toc-text">Learning feature representation of normality</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generic-normality-feature-learning"><span class="toc-number">1.5.1.</span> <span class="toc-text">Generic normality feature learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Autoencoders"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">Autoencoders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GANs"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">GANs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Predictability-modeling"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">Predictability modeling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Self-supervised-classification"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">Self-supervised classification</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anomaly-measure-dependent-feature-learning"><span class="toc-number">1.5.2.</span> <span class="toc-text">Anomaly measure-dependent feature learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Distance-based-measure"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Distance-based measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#One-class-classification-measure"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">One-class classification measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Clustering-based-measure"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Clustering-based measure</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End-to-end-anomaly-score-learning"><span class="toc-number">1.6.</span> <span class="toc-text">End-to-end anomaly score learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ranking-models"><span class="toc-number">1.6.1.</span> <span class="toc-text">Ranking models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prior-driven-models"><span class="toc-number">1.6.2.</span> <span class="toc-text">Prior-driven models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Softmax-Likelihood-models"><span class="toc-number">1.6.3.</span> <span class="toc-text">Softmax Likelihood models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-to-end-one-class-classification"><span class="toc-number">1.6.4.</span> <span class="toc-text">End-to-end one-class classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Algorithms-and-datasets"><span class="toc-number">1.7.</span> <span class="toc-text">Algorithms and datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Representative-algorithms"><span class="toc-number">1.7.1.</span> <span class="toc-text">Representative algorithms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Datasets-with-Real-anomalies"><span class="toc-number">1.7.2.</span> <span class="toc-text">Datasets with Real anomalies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">1.8.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#paper-i-deep-learning-for-anomaly-detection-a-review"><span class="toc-number">1.</span> <span class="toc-text">Paper I: Deep Learning for Anomaly Detection: A Review</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-complexities-and-challenges"><span class="toc-number">1.2.</span> <span class="toc-text">Problem complexities and challenges</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#major-problem-complexities"><span class="toc-number">1.2.1.</span> <span class="toc-text">Major problem complexities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-challenges-tackled-by-deep-anomaly-detection"><span class="toc-number">1.2.2.</span> <span class="toc-text">Main challenges tackled by deep anomaly detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#addressing-the-challenges-with-deep-anomaly-detection"><span class="toc-number">1.3.</span> <span class="toc-text">Addressing the challenges with deep anomaly detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#preliminaries"><span class="toc-number">1.3.1.</span> <span class="toc-text">Preliminaries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#categorization-of-deep-anomaly-detection"><span class="toc-number">1.3.2.</span> <span class="toc-text">Categorization of deep anomaly detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deep-learning-for-feature-extraction"><span class="toc-number">1.4.</span> <span class="toc-text">Deep learning for feature extraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#learning-feature-representation-of-normality"><span class="toc-number">1.5.</span> <span class="toc-text">Learning feature representation of normality</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#generic-normality-feature-learning"><span class="toc-number">1.5.1.</span> <span class="toc-text">Generic normality feature learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#autoencoders"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">Autoencoders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gans"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">GANs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#predictability-modeling"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">Predictability modeling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-supervised-classification"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">Self-supervised classification</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#anomaly-measure-dependent-feature-learning"><span class="toc-number">1.5.2.</span> <span class="toc-text">Anomaly measure-dependent feature learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#distance-based-measure"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">Distance-based measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#one-class-classification-measure"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">One-class classification measure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#clustering-based-measure"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">Clustering-based measure</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#end-to-end-anomaly-score-learning"><span class="toc-number">1.6.</span> <span class="toc-text">End-to-end anomaly score learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ranking-models"><span class="toc-number">1.6.1.</span> <span class="toc-text">Ranking models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prior-driven-models"><span class="toc-number">1.6.2.</span> <span class="toc-text">Prior-driven models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax-likelihood-models"><span class="toc-number">1.6.3.</span> <span class="toc-text">Softmax Likelihood models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#end-to-end-one-class-classification"><span class="toc-number">1.6.4.</span> <span class="toc-text">End-to-end one-class classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#algorithms-and-datasets"><span class="toc-number">1.7.</span> <span class="toc-text">Algorithms and datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#representative-algorithms"><span class="toc-number">1.7.1.</span> <span class="toc-text">Representative algorithms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#datasets-with-real-anomalies"><span class="toc-number">1.7.2.</span> <span class="toc-text">Datasets with Real anomalies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">1.8.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
