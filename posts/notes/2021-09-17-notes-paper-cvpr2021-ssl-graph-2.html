@@ -25,8 +25,20 @@
 <meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210919153758111.png">
 <meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210919154140301.png">
 <meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210919154511695.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920134338763.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920154704931.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200555554.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200744561.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200927480.png">
+<meta property="og:image" content="c:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920201450434.png">
+<meta property="og:image" content="c:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920202809962.png">
+<meta property="og:image" content="c:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920202919023.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921124235527.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921154102468.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921151131234.png">
+<meta property="og:image" content="c:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210921153951384.png">
 <meta property="article:published_time" content="2021-09-17T15:16:00.000Z">
-<meta property="article:modified_time" content="2021-09-19T20:22:12.255Z">
+<meta property="article:modified_time" content="2021-09-21T22:05:38.397Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
@@ -395,9 +407,335 @@
 <li>Then the combined features are passed through two 3DCNN layers for aggregating temporal information.</li>
 </ul>
 <h2 id="paper-25-learning-graph-representation-by-aggregating-subgraphs-via-mutual-information-maximization">Paper 25: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.13125">Learning graph representation by aggregating subgraphs via mutual information maximization</a></h2>
+<h3 id="why-3">Why</h3>
+<ul>
+<li>Labeling graphs procedurally using strong prior knowledge is costly.</li>
+<li>Previous work
+<ul>
+<li>Graph kernel methods
+<ul>
+<li>Decompose the graph into several subgraphs and then measure similarities between them</li>
+<li>much work on deciding the most suitable sub-structures by hand-craft similarity measures between sub-structures.</li>
+</ul></li>
+<li>Semi-supervised learning
+<ul>
+<li>pseudo label methods: regard the prediction of unlabeled data as a pseudo label of unlabeled data, then train the network with all data together, and use a low weight of the loss of the unlabeled data part</li>
+<li>Laddar network: combined supervised learning with unsupervised learning in DNNs to apply unlabeled data information to supervised learning reasonably.</li>
+</ul></li>
+<li>learning by mutual information
+<ul>
+<li>express the amount of information shared between two random variables</li>
+<li>But to alleviate computational cost, many approximation methods for mutual information are proposed.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="goal-3">Goal</h3>
+<ul>
+<li>SSL to enhance graph-level representations with a set of subgraphs</li>
+<li>Separate the aggregation into three aspects and they design three information aggregators: <strong>attribute-conv, layer-conv, subgraph-conv</strong>. The attribute-conv aggregate the original information from graphs, the layer-conv aggregate the multi-hop node representations from different GNN layers. The subgraph-conv aggregate the information from the generated subgraphs.</li>
+<li></li>
+</ul>
+<h3 id="how-3">How</h3>
+<ul>
+<li>To constraint, maximizes the mutual information between the reconstructed graph representations rather than between graph and node representations as in previous works.</li>
+<li>a head-tail contrastive construction to provide abundant negative samples.</li>
+<li>In subgraph-agg stage, they introduce an auto-regressive method which is a universal SSL framework for the graph generation.</li>
+</ul>
+<h4 id="node-agg-stage">Node-agg stage</h4>
+<ul>
+<li>Perform the MLP and AGG+MLP on node attributes and edge attributes firstly.</li>
+<li>The kernel size is <span class="math inline">\((2,1)\)</span>, which can squeeze each perspective of embeddings to one channel.</li>
+</ul>
+<h4 id="layer-agg-stage">Layer-agg stage</h4>
+<ul>
+<li>After perform convolution on the initial node representations for <span class="math inline">\(L\)</span> layers, to aggregate the node representations of different scales so that local and global information can be combined organically, they propose to use a <span class="math inline">\((L,1)\)</span> convolution kernel, named as layer-conv.</li>
+<li>Then the whole graph representations are obtained by a readout function.</li>
+</ul>
+<h4 id="subgraph-agg-stage">Subgraph-agg stage</h4>
+<ul>
+<li>Propose subgraph-agg, like an ensemble learning, since the nodes and graph representations do not express the same level of information</li>
+<li>Maximizing the mutual information between nodes and graph representation is not good enough to achieve the purpose of graph representations to express more information</li>
+<li>Steps
+<ul>
+<li>Build an autoregressive model to generate subgraphs from the original graph first</li>
+<li>Assemble these subgraphs into a reconstructed graph <span class="math inline">\(\mathrm{G}^{rec}\)</span>. Use layer-conv, by maximizing the mutual information between two graphs representations in the same level, the graph representation is learned.
+<ul>
+<li>This mutual contrastive leads to lower variance than node-graph constrain.</li>
+</ul></li>
+</ul></li>
+<li>Auto-regressive subgraph generation
+<ul>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920134338763.png" title="fig:" alt="image-20210920134338763" /></li>
+</ul></li>
+<li>Graph reconstruction
+<ul>
+<li>The readout function is used to aggregate each subgraph's representation.</li>
+<li>Since there are <span class="math inline">\(S\)</span> subgraphs, the kernel size of subgraph-conv is <span class="math inline">\((S,1)\)</span>, and the resulting representation is taken as the representation of the reconstructed graph <span class="math inline">\(\mathrm{G^{rec}}\)</span></li>
+</ul></li>
+</ul>
+<h4 id="implementation">Implementation</h4>
+<ul>
+<li>By softmax, the output matrix <span class="math inline">\(P\)</span> divides the original graph into two subgraphs, since <span class="math inline">\(p_{ij}\)</span> denotes the probability that the node <span class="math inline">\(i\)</span> is in the subgraph <span class="math inline">\(j\)</span>.</li>
+<li>To implement the auto-regressive paradigm of subgraph generation, there are two approaches
+<ul>
+<li>Tree-split generation
+<ul>
+<li>recursively utilize the basic operator to the newly generated subgraph. Just lie splitting a binary tree.</li>
+<li>At each non-leaf node, they execute the softmax to partition graphs.</li>
+<li>After <span class="math inline">\(T\)</span> rounds split, they will get <span class="math inline">\(2^T\)</span> subraphs.</li>
+</ul></li>
+<li>multi-head generation
+<ul>
+<li>Import <span class="math inline">\(S\)</span> learnable matrices to execute the softmax and get <span class="math inline">\(S\)</span> partition matrices.</li>
+<li>In this way, <span class="math inline">\(S\)</span> subgraphs are selected in parallel but they break the rule of auto-regressive generation.</li>
+<li>By assuming all subgraphs are conditionally independent concerning the original graph, one can take this method as an auto-regressive way.</li>
+</ul></li>
+</ul></li>
+<li>Loss function
+<ul>
+<li>The mutual information estimator is Jensen-Shannon divergence</li>
+<li>The positive samples are the output of subgraph-conv.</li>
+<li>Ways to get easy negative samples
+<ul>
+<li>using different graphs in the batch</li>
+<li>or use the corruption function to get negative samples from the original graph.</li>
+</ul></li>
+<li>For a graph, its hard negative pair sample can be built by shuffling the node embeddings.</li>
+</ul></li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920154704931.png" title="fig:" alt="image-20210920154704931" /></li>
+</ul>
 <h2 id="paper-26-mile-a-multi-level-framework-for-scalable-graph-embedding">Paper 26: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.09612">Mile: A multi-level framework for scalable graph embedding</a></h2>
+<h3 id="why-4">Why</h3>
+<ul>
+<li>None of the existing efforts examines how to scale up graph embedding in a generic way.</li>
+<li>HARP is familiar with this work: but it focuses on improving the quality of embeddings by using the learned embeddings from the previous level as the initialized embeddings for the next level. But the way it is extended to other graph embedding is not obvious.</li>
+<li>the quality of such embedding methods be strengthened by incorporating the holistic view of the graph.</li>
+</ul>
+<h3 id="goal-4">Goal</h3>
+<ul>
+<li>Obtain graph embedding efficiently and effectively (save computation cost), introduce MILE (multi-level embedding framework), allow contemporary graph embedding methods to scale to large graphs.</li>
+<li>Given a graph <span class="math inline">\(\mathcal{G} = (V, E)\)</span> and a graph embedding method <span class="math inline">\(f(\cdot)\)</span>, we aim to realize a strengthened graph embedding method <span class="math inline">\(\hat{f}(\cdot)\)</span> so that it is more scalable than <span class="math inline">\(f(\cdot)\)</span> while generating embeddings of comparable or even better quality.</li>
+</ul>
+<h3 id="how-4">How</h3>
+<ul>
+<li>repeatedly coarsen the graph into smaller ones by employing a hybrid matching strategy</li>
+<li>compute the embeddings on the coarsest graph using an existing embedding technique</li>
+<li>propose a novel refinement model based on learning a graph convolution network to refine the embedding from the coarsest graph to the original graph.</li>
+</ul>
+<h4 id="graph-coarsening">Graph coarsening</h4>
+<ul>
+<li>the set of nodes forming a super-node is called a matching</li>
+<li>Structural Equivalence Matching (SEM): Given two vertices <span class="math inline">\(u,v\)</span> in an unweighted graph <span class="math inline">\(\mathcal{G}\)</span>, we call they are structurally equivalent if they are incident on the same set of neighborhoods. Since if two vertices are structurally equivalent, then their node embeddings will be similar.</li>
+<li>Normalized Heavy Edge Matching (NHEM): select an unmatched node, say <span class="math inline">\(u\)</span>, in the graph and find a large weighted edge <span class="math inline">\((u, v)\)</span> incident on node <span class="math inline">\(u\)</span> such that node <span class="math inline">\(v\)</span> is also unmatched. Then collapse nodes <span class="math inline">\(u,v\)</span> into one super-node and mark them as matched. The edge weights are normalized. The normalized method penalizes the weights of edges connected with high-degree nodes.</li>
+<li>Define matching matrix to store the matching information from graph <span class="math inline">\(\mathcal{G}_i\)</span> to <span class="math inline">\(\mathcal{G}_{i+1}\)</span> as a binary matrix, the <span class="math inline">\(r\)</span>-the row and <span class="math inline">\(c\)</span>-the column of <span class="math inline">\(M_{i,i+1}\)</span> is set to 1 if node <span class="math inline">\(r\)</span> in <span class="math inline">\(\mathcal{G}_i\)</span> collapse to super-node <span class="math inline">\(c\)</span> in <span class="math inline">\(\mathcal{G}_{i+1}\)</span>, and is set to 0 if otherwise.</li>
+<li>vertices with a small number of neighbors have a limited choice of finding a match and should be given a higher priority for matching. Otherwise, once their neighbors are matched by others, these vertices cannot be matched.</li>
+<li>The embeddings learned by base embedding method on the coarsened graph can act as an effective initialization for the graph-topology aware refinement model.</li>
+<li>Choice of coarsening level: depends on the application domain and the graph properties</li>
+</ul>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200555554.png" alt="image-20210920200555554" /><figcaption aria-hidden="true">image-20210920200555554</figcaption>
+</figure>
+<h4 id="base-embedding-on-coarsened-graph">Base embedding on coarsened graph</h4>
+<ul>
+<li>They can use any graph embedding algorithm for base embedding.</li>
+</ul>
+<h4 id="refinement-of-embeddings">Refinement of embeddings</h4>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200744561.png" alt="image-20210920200744561" /><figcaption aria-hidden="true">image-20210920200744561</figcaption>
+</figure>
+<ul>
+<li><p>Given the series of coarsened graph and their corresponding matching matrix, and the node embeddings on <span class="math inline">\(\mathcal{G}_m\)</span>, they seek to develop an approach to derive the node embeddings of <span class="math inline">\(\mathcal{G}_0\)</span> from <span class="math inline">\(\mathcal{G}_m\)</span>.</p></li>
+<li><p>Subtask: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210920200927480.png" alt="image-20210920200927480" /></p>
+<ul>
+<li>Propose to use GCN. Since the simple project will induce <span class="math inline">\(\mathcal{E}_i^p\)</span> from <span class="math inline">\(\mathcal{E}_{i+1}\)</span>, but one limitation is that nodes will share the same embeddings if they are matched and collapsed into a super-node during the coarsening phase.</li>
+<li>The GCN uses the projected embedding <span class="math inline">\(\mathcal{E}_i^p\)</span> and the adjacency matrix <span class="math inline">\(A_i\)</span> from the input graph. Define the embedding refinement model as a <span class="math inline">\(l\)</span>-layer graph convolution model: <img src="C:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920201450434.png" alt="image-20210920201450434" style="zoom:25%;" /></li>
+<li>The intuition behind this refinement model is to integrate the structural information of the current graph <span class="math inline">\(\mathcal{G}_i\)</span> into the projected embedding <span class="math inline">\(\mathcal{E}_i^p\)</span> by repeatedly performing the spectral graph convolution.</li>
+</ul></li>
+<li><p>Choice of number of GCN layers: <span class="math inline">\(l\)</span> GCN layers correspond to aggregating structural information from all the <span class="math inline">\(l\)</span>-hop neighbours for each node.</p>
+<ul>
+<li>But large <span class="math inline">\(l\)</span> will make the node embeddings homogeneous and less distinguishable across the graph due to the small-world property of real-world graphs.</li>
+<li>In practice, they use 2.</li>
+</ul></li>
+<li><p>Train refinement model</p>
+<ul>
+<li><p>learn <span class="math inline">\(\Theta^{(k)}\)</span> on the coarsest graph and reuse them across all the levels for refinement</p></li>
+<li><p>The loss function is defined as the MSE, where the ground truth is a base embedding on <span class="math inline">\(\mathcal{G}_i\)</span>.</p>
+<ul>
+<li>But two drawbacks: The above loss function requires one more level of coarsening to construct <span class="math inline">\(\mathcal{G}_{m+1}\)</span> and an extra base embedding on <span class="math inline">\(\mathcal{G}_{m+1}\)</span>. Also, the embedding space of graph <span class="math inline">\(\mathcal{G}_{m}\)</span> and <span class="math inline">\(\mathcal{G}_{m+1}\)</span> can be totally different since the two embeddings are learned independently.</li>
+<li>One possible solution for these drawbacks may be force the embeddings to be aligned between the two graphs.</li>
+</ul></li>
+<li><p>Finally, this paper propose to construct a dummy coarsened graph by simply copying <span class="math inline">\(\mathcal{G}_m\)</span>, i.e. <span class="math inline">\(M_{m,m+1}=I, \mathcal{G}_{m+1}=\mathcal{G}_m\)</span>.</p>
+<ul>
+<li>reduce one iteration of graph coarsening</li>
+<li>avoid performing base embeddings on <span class="math inline">\(\mathcal{G}_{m+1}\)</span>.</li>
+</ul>
+<p><img src="C:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920202809962.png" alt="image-20210920202809962" style="zoom:33%;" /></p>
+<ul>
+<li>Adopt gradient-descent with BP to learn parameters.</li>
+</ul></li>
+</ul></li>
+<li><figure>
+<img src="C:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210920202919023.png" alt="image-20210920202919023" /><figcaption aria-hidden="true">image-20210920202919023</figcaption>
+</figure></li>
+<li><p>The shared <span class="math inline">\(\Theta^{(k)}\)</span> values do much better than alternative <span class="math inline">\(\Theta^{(k)}\)</span>.</p></li>
+</ul>
 <h2 id="paper-27-missing-data-estimation-in-temporal-multilayer-position-aware-graph-neural-network-tmp-gnn">Paper 27: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2108.03400.pdf">Missing Data Estimation in Temporal Multilayer Position-aware Graph Neural Network (TMP-GNN)</a></h2>
+<p><font color="blue">Not clear for me.</font></p>
+<h3 id="why-5">Why</h3>
+<ul>
+<li>The goal of node embedding methods: identify a vector representation that captures node location within a broader topological structure of the graph. But most focus on static graphs.</li>
+<li>To deal with dynamic graphs
+<ul>
+<li>One way is to use a GNN based node embedding for each individual time layer and aggregate the results accordingly.==&gt; ignore inter-layer correlation.</li>
+<li>P-GNN: learn position-aware node embedding that utilize local network structure and the global network position of a given node with respect to randomly selected nodes called anchor-sets that enables us to distinguish among isomorphic nodes.</li>
+</ul></li>
+</ul>
+<h3 id="goal-5">Goal</h3>
+<ul>
+<li>Propose TMP-GNN (Temporal multi-layered positio-aware GNN), a node embedding method for dynamic graphs. (change over time: edges, nodes attributes etc.)</li>
+<li>The method in this paper is an extension of static position-aware GNN (P-GNN).</li>
+</ul>
+<h3 id="how-5">How</h3>
+<ul>
+<li>exploit a supra-adjacency matrix to encode a temporal graph with its intra-layer and inter-layer coupling in a single graph.</li>
+<li>use hidden states learned from bi-directional GRU (bi-GRU) to learn the long-term temporal dependencies in both forward and backward directions to estimate missing values.</li>
+<li>conditional centrality derived from eigenvector based centrality to distinguish nodes of higher influence</li>
+</ul>
+<h4 id="notations-and-preliminaries">Notations and preliminaries</h4>
+<ul>
+<li>The existence of inter-layer edge is restricted between separate instances of same nodes from one layer to another. The inter0later edge weight between two layers is identical for all nodes in those layers.</li>
+<li>To model the coupling between two layers, this paper couples the adjacent time layers by neglecting the directionality of time, considering the short term dependencies between time layers.</li>
+<li>Supracentrality matrix
+<ul>
+<li>A temporal graph is represented through a sequence of adjacency matrices that each of which refers to one layer of a dynamic network at a specific point of time.</li>
+<li>The supracentrality matrix <span class="math inline">\(\mathbb{C}(\omega)\)</span> is built by linking up centrality matrices across time layers through a weighted inter-layer parameter <span class="math inline">\(\omega\)</span> (used to adjust the extent of coupling strength among pair of time layers.)
+<ul>
+<li>When <span class="math inline">\(\omega\rightarrow\infin\)</span>, the centrality measures change slowly over time, <span class="math inline">\(CC_{v}(\omega)\)</span> reaches to stationary that is equal to average <span class="math inline">\(CC_{v}(\omega)\)</span> over all time layers.</li>
+<li>On the other hand, small <span class="math inline">\(\omega\)</span> makes <span class="math inline">\(CC_{v}(\omega)\)</span> fluctuate fromega one time layer to the other.</li>
+</ul></li>
+<li>Each item of <span class="math inline">\(\mathbb{C}(\omega)\)</span> shows joint centrality, the importance of every node-layer pair <span class="math inline">\((v,t)\)</span>. Additionally marginal and conditional centralities are defined to represent the relative importance of a node compared to other nodes at time layer <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(\mathbb{C}(\omega)\)</span> consists of <span class="math inline">\(\hat{\mathbb{C}}=diag [\mathrm{C^{(1)},\cdots,C^{(T)}}]\)</span> and <span class="math inline">\(\omega\hat{\mathbb{A}}\)</span>, where <span class="math inline">\(\hat{\mathbb{C}}\)</span> represents a set of <span class="math inline">\(T\)</span> weighted centrality matrix of individual layers, and the latter encoder the uniform and diagonal coupling with strength parameter <span class="math inline">\(\omega\)</span> between the time layers. Only consider the coupling among same nodes between consecutive pair of layers.</li>
+</ul></li>
+<li>To solve, the dominant eigenvector <span class="math inline">\(\mathbb{V}(\omega)\)</span> is corresponds to largest eigenvalues <span class="math inline">\(\lambda_{max}\)</span>, <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921124235527.png" alt="image-20210921124235527" style="zoom:25%;" />. The elements in <span class="math inline">\(\mathbb{V}(\omega)\)</span> are interpreted as scores that measure the importance of node-layer pairs <span class="math inline">\((v,t)\)</span>.</li>
+<li>Conditional centrality of node <span class="math inline">\(v\)</span>, denoted as <span class="math inline">\(CC_{v}(\omega)\)</span>, shows the importance of the node relative to other nodes at layer <span class="math inline">\(t\)</span>.</li>
+</ul>
+<h4 id="tmp-gnn">TMP-GNN</h4>
+<ul>
+<li>Position-aware GNN rather than original one, which aggregates the positional and feature information of each node with randomly selected number of nodes called anchor-sets.</li>
+<li>The goal is to find the best position-aware embedding <span class="math inline">\(\mathrm{z}_v^t\)</span> with minimum distortion for a given node <span class="math inline">\(v\)</span> at time layer <span class="math inline">\(t\)</span>.</li>
+<li>Modifications to P-GNN:
+<ul>
+<li>Generalization of P-GNN to time varying graphs: Adopt the input of P-GNN as supracentrality matrix, the embedding <span class="math inline">\(\mathrm{z}_v^t\)</span> will then be aggregated from an RNN based representation to estimate missing data.</li>
+<li>modification of <span class="math inline">\(\mathcal{M}_j\)</span>: Using attention while calculating a message from anchor-set containing node <span class="math inline">\(u\)</span> with respect to a given node <span class="math inline">\(v\)</span>. Attention is used to learn the relative weights between the feature vector of <span class="math inline">\(v\)</span> and its neighbor <span class="math inline">\(u\)</span> from the anchor-set.
+<ul>
+<li>The <span class="math inline">\(\mathcal{M}_j\)</span> for anchor-set, denoted as <span class="math inline">\(M_v[j]\)</span>, is obtained by the shortest path between a pair of nodes and mean of <span class="math inline">\(\mathcal{M}_j\)</span>.</li>
+</ul></li>
+<li>Modification of <span class="math inline">\(AGG_{\mathcal{R}}\)</span>: <span class="math inline">\(\mathcal{R}\)</span> denotes the anchor-set. Corresponding informative anchor-sets contain at least 1-hop neighbours of node <span class="math inline">\(v\)</span>. Of those neighbor nodes, the ones with higher <span class="math inline">\(CC_v(\omega)\)</span> deserve to have higher <span class="math inline">\(r_j\)</span> for aggregation.
+<ul>
+<li>Large anchor-sets have higher probability of hitting <span class="math inline">\(v\)</span>, but are less informative of positional information of the node, as <span class="math inline">\(v\)</span> hits at least one of many nodes in the anchor-sets.</li>
+<li>Small anchor-sets have fewer chance of hitting <span class="math inline">\(v\)</span>, but provide positional information with high certainty.</li>
+</ul></li>
+</ul></li>
+<li>Edge embedding is estimated by averaging the embedding of the ending nodes.</li>
+</ul>
+<h4 id="bi-directional-rnn">Bi-directional RNN</h4>
+<ul>
+<li>Take <span class="math inline">\(Z_e,M_e,\Delta_e\)</span> as input, where <span class="math inline">\(Z_e\)</span> is randomly masked by removing missing points and set it to zero. The <span class="math inline">\(\Delta_e\)</span> illustrates the time difference between the current and the last layer which the measurement is recorded. It's defined to handle the different sampling rate associated with data heterogeneity from different sources.</li>
+<li>Goal: Find the best estimate <span class="math inline">\(\mathrm{\hat{x}_{e_d}^t}\)</span> with minimum RMSE for a particular missing point.</li>
+<li>Versions
+<ul>
+<li>The E-TMP-GNN I aims at extracting additional features out of the embedding yields from TMP-GNN, and use it to further enrich the edge feature sets.</li>
+<li>TMP-GNN II aims at reducing the number of feature streams by implementing a softmax layer.</li>
+</ul></li>
+</ul>
 <h2 id="paper-28-multi-level-graph-contrastive-learning">Paper 28: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.02639">Multi-Level Graph Contrastive Learning</a></h2>
+<h3 id="why-6">Why</h3>
+<ul>
+<li><p>Most graph representation learning methods using GNN focus on supervised fashion and heavily depend on label information.</p></li>
+<li><p>Unsupervised methods</p>
+<ul>
+<li>many reconstruction-based unsupervised algorithms have been proposed, either reconstruct the features of graph nodes or the topology structure of the graph.</li>
+</ul></li>
+<li><p>SSL methods</p>
+<ul>
+<li><p>contrastive methods, propose many data augmentation methods</p>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921154102468.png" alt="image-20210921154102468" /><figcaption aria-hidden="true">image-20210921154102468</figcaption>
+</figure>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210921151131234.png" alt="image-20210921151131234" /><figcaption aria-hidden="true">image-20210921151131234</figcaption>
+</figure>
+<ul>
+<li>shuffles node features to augment the training examples</li>
+<li>multi-view, maximizes MI between node representations of one view and graph representation of another view</li>
+<li>subgraphs: MI loss defined on central nodes and their sampled subgraphs representation.</li>
+<li>GCA: adaptive augmentation, extract the important connective structures of the original graph to the augmentation data based on node centrality measures.</li>
+<li>GraphCL: multiple augmentation, including edge perturbation, attribute masking, and maximizes the MI between the node and global semantic representations to learn node representations.</li>
+</ul></li>
+</ul></li>
+<li><p>GNN does not perform well on disassortative graphs. Constructing a KNN graph by feature similarity or dropping the links between nodes indifferent classes are feasible methods.</p></li>
+<li><p>Contrastive learning consists of three main components: data augmentation schemes, the learner model and loss function</p>
+<ul>
+<li>data augmentation: design according to the priors and properties of graph-structured data:
+<ul>
+<li>vertex and edge missing do not alter the graph semantics;</li>
+<li>the missing partial attributes of each node does not alter the robustness of the graph semantics;</li>
+<li>the subgraph structure of the graph can hint full semantics;</li>
+<li>correlated views of the same graph possess semantic consistency.</li>
+</ul></li>
+<li>Loss function
+<ul>
+<li>Probability loss: Deepwalk, node2vec. Maximizes the probability of nearest vertices of the given vertex to learn graph representation. Nodes occurring in the same sequence are viewed as the positive samples, and they should have similar representation.</li>
+<li>Adversarial loss: generative-contrastive</li>
+<li>Triplet loss: an important role in deep metric learning. Given an anchor <span class="math inline">\(x\)</span>, a positive <span class="math inline">\(x_p\)</span> of the same class as the anchor, a negative <span class="math inline">\(x_f\)</span> of a different class, the triple loss targets at achieving that the distance of <span class="math inline">\(x,x_f\)</span> greater than the distance of <span class="math inline">\(x,x_p\)</span> plus margin <span class="math inline">\(m\)</span>. <span class="math inline">\(\max(d(x,x_p)-d(x,x_f)+m)\)</span>.</li>
+<li>Contrastive loss: maximizing the similarity of the corresponding nodes between two views, or maximizes the MI between node and graph representation.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="goal-6">Goal</h3>
+<ul>
+<li>SSL for graph node representation learning</li>
+<li>propose a Multi-Level Graph Contrastive Learning (MLGCL) framework for learning robust representation of graph data by contrasting space views of graphs. Introduce a contrastive view-topological and feature space views. Adopt KNN graph (generated by encoding features preserves high-order proximity).</li>
+<li>Feature space+topology space. The correlated graphs have similar and intrinsic characteristics.</li>
+<li>Contrastive learning aims to learn an encoder model <span class="math inline">\(f(\cdot)\)</span> which can learn a robust representation for each node <span class="math inline">\(v_i\)</span> that is insensitive to the perturbation caused by data augmentations <span class="math inline">\(\tau\)</span>.</li>
+</ul>
+<h3 id="how-6">How</h3>
+<figure>
+<img src="C:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20210921153951384.png" alt="image-20210921153951384" /><figcaption aria-hidden="true">image-20210921153951384</figcaption>
+</figure>
+<ul>
+<li>First sample a pair of graph augmentation functions <span class="math inline">\(\tau_1,\tau_2\)</span> from augmentation pool <span class="math inline">\(\tau\)</span>, which is applied to the input graph to generate the augmented graph of two views. Then use a pair of the shared GNN-based encoder to extract node representation, and further employ the pooling layer to extract the graph representation. Then use the shared MLP layer to project the nodes representations from both views into the space where the node-level contrastive loss is computed. <span class="math inline">\(\tau_2\)</span> includes an encoder and KNN function.</li>
+</ul>
+<h4 id="data-augmentation">Data augmentation</h4>
+<ul>
+<li>exert perturbation on the input graph to generate two correlated graphs of the same graph. Extract augmentation graph structure from space view.</li>
+<li>Given the graph structure of topology space <span class="math inline">\(G(A,X)\)</span> , extraction is done
+<ul>
+<li>First employ GNN encoder to extract the encoding features <span class="math inline">\(Z\)</span> of topology graph</li>
+<li>Then apply kNN to <span class="math inline">\(Z\)</span> to construct KNN graph with community structure <span class="math inline">\(G_f(A_f,X)\)</span>, where <span class="math inline">\(A_f\)</span> is the adjacency matrix of KNN graph.
+<ul>
+<li>First calculate the similarity matrix <span class="math inline">\(S\)</span> based on <span class="math inline">\(N\)</span> encoding features <span class="math inline">\(Z\)</span>. The choice of similarity function can be Mahalanobis distance, cosine similar or gaussian kernel. They use cosine similarity in their experiments.</li>
+<li>Then choose top <span class="math inline">\(k\)</span> similar node pairs for each node to set edges and finally get the adjacency matrix of KNN graph <span class="math inline">\(A_f\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="gnn-encoder">GNN Encoder</h4>
+<ul>
+<li>Learn node representation <span class="math inline">\(z_1,z_2\)</span> for two augmented graphs. In inference phase, only use GNN encoder to learn node representation for downstream tasks.</li>
+<li>Given topology graph <span class="math inline">\(G(A,X)\)</span>, KNN graph <span class="math inline">\(G_f(A_f,X)\)</span>, employ a two-layer GCN as the encoder.</li>
+<li>For node representation <span class="math inline">\(Z_a,Z_b\)</span> of each view, use a graph pooling layer to derive their graph representation.</li>
+</ul>
+<h4 id="mlp-and-graph-pooling">MLP and graph pooling</h4>
+<ul>
+<li>MLP: maps the representation to the space in which the contrastive loss is computed. Since two views, there are two MLP.</li>
+<li>Graph pooling: readout layer, used to learn graph representation.</li>
+</ul>
+<h4 id="multi-level-loss-function">Multi-level loss function</h4>
+<ul>
+<li>Used to preserve the low-level "local" and high-level "global" agreement, simultaneously.</li>
+<li>Consists of two parts: the contrast of low-level node representation between two views, and the contrast of high-level graph representation between two views.</li>
+<li>Positive samples <span class="math inline">\((z_i^a,z_i^b)\)</span>, K-1 pair of negative samples <span class="math inline">\((z_i^a,z_j^a),(z_i^a,z_j^b)\)</span>.</li>
+</ul>
 <h2 id="paper-29-permutation-invariant-variational-autoencoder-for-graph-level-representation-learning">Paper 29: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.09856">Permutation-Invariant Variational Autoencoder for Graph-Level Representation Learning</a></h2>
 <h2 id="paper-30-pinet-attention-pooling-for-graph-classification">Paper 30: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2008.04575">PiNet: Attention Pooling for Graph Classification</a></h2>
 <h2 id="paper-31-power-law-graph-transformer-for-machine-translation-and-representation-learning">Paper 31: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.02039">Power Law Graph Transformer for Machine Translation and Representation Learning</a></h2>
@@ -489,7 +827,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-22-infograph-unsupervised-and-semi-supervised-graph-level-representation-learning-via-mutual-information-maximization"><span class="toc-number">1.</span> <span class="toc-text">Paper 22: Infograph: Unsupervised and semi-supervised graph-level representation learning via mutual information maximization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal"><span class="toc-number">1.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how"><span class="toc-number">1.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#infograph"><span class="toc-number">1.3.1.</span> <span class="toc-text">InfoGraph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#infograph-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">InfoGraph*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-23-iterative-graph-self-distillation"><span class="toc-number">2.</span> <span class="toc-text">Paper 23: Iterative graph self-distillation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-1"><span class="toc-number">2.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-1"><span class="toc-number">2.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-1"><span class="toc-number">2.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iterative-graph-self-distillation-framework"><span class="toc-number">2.3.1.</span> <span class="toc-text">Iterative graph self-distillation framework</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-supervised-learning-with-igsd"><span class="toc-number">2.3.2.</span> <span class="toc-text">Self-supervised learning with IGSD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#semi-supervised-learning-with-igsd"><span class="toc-number">2.3.3.</span> <span class="toc-text">Semi-supervised learning with IGSD</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-24-learning-by-aligning-videos-in-time"><span class="toc-number">3.</span> <span class="toc-text">Paper 24: Learning by Aligning Videos in Time</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-2"><span class="toc-number">3.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-2"><span class="toc-number">3.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-2"><span class="toc-number">3.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#temporal-alignment-loss"><span class="toc-number">3.3.1.</span> <span class="toc-text">Temporal alignment loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#temporal-regularization"><span class="toc-number">3.3.2.</span> <span class="toc-text">Temporal regularization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final-loss"><span class="toc-number">3.3.3.</span> <span class="toc-text">Final loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#encoder-network"><span class="toc-number">3.3.4.</span> <span class="toc-text">Encoder network</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-25-learning-graph-representation-by-aggregating-subgraphs-via-mutual-information-maximization"><span class="toc-number">4.</span> <span class="toc-text">Paper 25: Learning graph representation by aggregating subgraphs via mutual information maximization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-26-mile-a-multi-level-framework-for-scalable-graph-embedding"><span class="toc-number">5.</span> <span class="toc-text">Paper 26: Mile: A multi-level framework for scalable graph embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-27-missing-data-estimation-in-temporal-multilayer-position-aware-graph-neural-network-tmp-gnn"><span class="toc-number">6.</span> <span class="toc-text">Paper 27: Missing Data Estimation in Temporal Multilayer Position-aware Graph Neural Network (TMP-GNN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-28-multi-level-graph-contrastive-learning"><span class="toc-number">7.</span> <span class="toc-text">Paper 28: Multi-Level Graph Contrastive Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-29-permutation-invariant-variational-autoencoder-for-graph-level-representation-learning"><span class="toc-number">8.</span> <span class="toc-text">Paper 29: Permutation-Invariant Variational Autoencoder for Graph-Level Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-30-pinet-attention-pooling-for-graph-classification"><span class="toc-number">9.</span> <span class="toc-text">Paper 30: PiNet: Attention Pooling for Graph Classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-31-power-law-graph-transformer-for-machine-translation-and-representation-learning"><span class="toc-number">10.</span> <span class="toc-text">Paper 31: Power Law Graph Transformer for Machine Translation and Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-32-self-supervised-graph-level-representation-learning-with-local-and-global-structure"><span class="toc-number">11.</span> <span class="toc-text">Paper 32: Self-supervised Graph-level Representation Learning with Local and Global Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-33-self-supervised-heterogeneous-graph-neural-network-with-co-contrastive-learning"><span class="toc-number">12.</span> <span class="toc-text">Paper 33: Self-supervised Heterogeneous Graph Neural Network with Co-contrastive Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-34-sm-sge-a-self-supervised-multi-scale-skeleton-graph-encoding-framework-for-person-re-identification"><span class="toc-number">13.</span> <span class="toc-text">Paper 34: SM-SGE: A Self-Supervised Multi-Scale Skeleton Graph Encoding Framework for Person Re-Identification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-35-space-time-correspondence-as-a-contrastive-random-walk"><span class="toc-number">14.</span> <span class="toc-text">Paper 35: Space-time correspondence as a contrastive random walk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-36-spatially-consistent-representation-learning"><span class="toc-number">15.</span> <span class="toc-text">Paper 36: Spatially consistent representation learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-37-spatiotemporal-contrastive-video-representation-learning"><span class="toc-number">16.</span> <span class="toc-text">Paper 37: Spatiotemporal contrastive video representation learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-38-sportscap-monocular-3d-human-motion-capture-and-fine-grained-understanding-in-challenging-sports-videos"><span class="toc-number">17.</span> <span class="toc-text">Paper 38: SportsCap: Monocular 3D Human Motion Capture and Fine-grained Understanding in Challenging Sports Videos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-39-ssan-separable-self-attention-network-for-video-representation-learning"><span class="toc-number">18.</span> <span class="toc-text">Paper 39: SSAN: Separable Self-Attention Network for Video Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-40-tdgraphembed-temporal-dynamic-graph-level-embedding"><span class="toc-number">19.</span> <span class="toc-text">Paper 40: tdgraphembed: Temporal dynamic graph-level embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-41-videomoco-contrastive-video-representation-learning-with-temporally-adversarial-examples"><span class="toc-number">20.</span> <span class="toc-text">Paper 41: Videomoco: Contrastive video representation learning with temporally adversarial examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-42-visual-relationship-forecasting-in-videos"><span class="toc-number">21.</span> <span class="toc-text">Paper 42: Visual Relationship Forecasting in Videos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-43-wasserstein-embedding-for-graph-learning"><span class="toc-number">22.</span> <span class="toc-text">Paper 43: Wasserstein embedding for graph learning</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-22-infograph-unsupervised-and-semi-supervised-graph-level-representation-learning-via-mutual-information-maximization"><span class="toc-number">1.</span> <span class="toc-text">Paper 22: Infograph: Unsupervised and semi-supervised graph-level representation learning via mutual information maximization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal"><span class="toc-number">1.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how"><span class="toc-number">1.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#infograph"><span class="toc-number">1.3.1.</span> <span class="toc-text">InfoGraph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#infograph-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">InfoGraph*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-23-iterative-graph-self-distillation"><span class="toc-number">2.</span> <span class="toc-text">Paper 23: Iterative graph self-distillation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-1"><span class="toc-number">2.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-1"><span class="toc-number">2.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-1"><span class="toc-number">2.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iterative-graph-self-distillation-framework"><span class="toc-number">2.3.1.</span> <span class="toc-text">Iterative graph self-distillation framework</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#self-supervised-learning-with-igsd"><span class="toc-number">2.3.2.</span> <span class="toc-text">Self-supervised learning with IGSD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#semi-supervised-learning-with-igsd"><span class="toc-number">2.3.3.</span> <span class="toc-text">Semi-supervised learning with IGSD</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-24-learning-by-aligning-videos-in-time"><span class="toc-number">3.</span> <span class="toc-text">Paper 24: Learning by Aligning Videos in Time</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-2"><span class="toc-number">3.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-2"><span class="toc-number">3.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-2"><span class="toc-number">3.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#temporal-alignment-loss"><span class="toc-number">3.3.1.</span> <span class="toc-text">Temporal alignment loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#temporal-regularization"><span class="toc-number">3.3.2.</span> <span class="toc-text">Temporal regularization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final-loss"><span class="toc-number">3.3.3.</span> <span class="toc-text">Final loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#encoder-network"><span class="toc-number">3.3.4.</span> <span class="toc-text">Encoder network</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-25-learning-graph-representation-by-aggregating-subgraphs-via-mutual-information-maximization"><span class="toc-number">4.</span> <span class="toc-text">Paper 25: Learning graph representation by aggregating subgraphs via mutual information maximization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-3"><span class="toc-number">4.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-3"><span class="toc-number">4.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-3"><span class="toc-number">4.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#node-agg-stage"><span class="toc-number">4.3.1.</span> <span class="toc-text">Node-agg stage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#layer-agg-stage"><span class="toc-number">4.3.2.</span> <span class="toc-text">Layer-agg stage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#subgraph-agg-stage"><span class="toc-number">4.3.3.</span> <span class="toc-text">Subgraph-agg stage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#implementation"><span class="toc-number">4.3.4.</span> <span class="toc-text">Implementation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-26-mile-a-multi-level-framework-for-scalable-graph-embedding"><span class="toc-number">5.</span> <span class="toc-text">Paper 26: Mile: A multi-level framework for scalable graph embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-4"><span class="toc-number">5.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-4"><span class="toc-number">5.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-4"><span class="toc-number">5.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-coarsening"><span class="toc-number">5.3.1.</span> <span class="toc-text">Graph coarsening</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#base-embedding-on-coarsened-graph"><span class="toc-number">5.3.2.</span> <span class="toc-text">Base embedding on coarsened graph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#refinement-of-embeddings"><span class="toc-number">5.3.3.</span> <span class="toc-text">Refinement of embeddings</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-27-missing-data-estimation-in-temporal-multilayer-position-aware-graph-neural-network-tmp-gnn"><span class="toc-number">6.</span> <span class="toc-text">Paper 27: Missing Data Estimation in Temporal Multilayer Position-aware Graph Neural Network (TMP-GNN)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-5"><span class="toc-number">6.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-5"><span class="toc-number">6.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-5"><span class="toc-number">6.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#notations-and-preliminaries"><span class="toc-number">6.3.1.</span> <span class="toc-text">Notations and preliminaries</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tmp-gnn"><span class="toc-number">6.3.2.</span> <span class="toc-text">TMP-GNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bi-directional-rnn"><span class="toc-number">6.3.3.</span> <span class="toc-text">Bi-directional RNN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-28-multi-level-graph-contrastive-learning"><span class="toc-number">7.</span> <span class="toc-text">Paper 28: Multi-Level Graph Contrastive Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-6"><span class="toc-number">7.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal-6"><span class="toc-number">7.2.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-6"><span class="toc-number">7.3.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-augmentation"><span class="toc-number">7.3.1.</span> <span class="toc-text">Data augmentation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gnn-encoder"><span class="toc-number">7.3.2.</span> <span class="toc-text">GNN Encoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mlp-and-graph-pooling"><span class="toc-number">7.3.3.</span> <span class="toc-text">MLP and graph pooling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#multi-level-loss-function"><span class="toc-number">7.3.4.</span> <span class="toc-text">Multi-level loss function</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-29-permutation-invariant-variational-autoencoder-for-graph-level-representation-learning"><span class="toc-number">8.</span> <span class="toc-text">Paper 29: Permutation-Invariant Variational Autoencoder for Graph-Level Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-30-pinet-attention-pooling-for-graph-classification"><span class="toc-number">9.</span> <span class="toc-text">Paper 30: PiNet: Attention Pooling for Graph Classification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-31-power-law-graph-transformer-for-machine-translation-and-representation-learning"><span class="toc-number">10.</span> <span class="toc-text">Paper 31: Power Law Graph Transformer for Machine Translation and Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-32-self-supervised-graph-level-representation-learning-with-local-and-global-structure"><span class="toc-number">11.</span> <span class="toc-text">Paper 32: Self-supervised Graph-level Representation Learning with Local and Global Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-33-self-supervised-heterogeneous-graph-neural-network-with-co-contrastive-learning"><span class="toc-number">12.</span> <span class="toc-text">Paper 33: Self-supervised Heterogeneous Graph Neural Network with Co-contrastive Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-34-sm-sge-a-self-supervised-multi-scale-skeleton-graph-encoding-framework-for-person-re-identification"><span class="toc-number">13.</span> <span class="toc-text">Paper 34: SM-SGE: A Self-Supervised Multi-Scale Skeleton Graph Encoding Framework for Person Re-Identification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-35-space-time-correspondence-as-a-contrastive-random-walk"><span class="toc-number">14.</span> <span class="toc-text">Paper 35: Space-time correspondence as a contrastive random walk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-36-spatially-consistent-representation-learning"><span class="toc-number">15.</span> <span class="toc-text">Paper 36: Spatially consistent representation learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-37-spatiotemporal-contrastive-video-representation-learning"><span class="toc-number">16.</span> <span class="toc-text">Paper 37: Spatiotemporal contrastive video representation learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-38-sportscap-monocular-3d-human-motion-capture-and-fine-grained-understanding-in-challenging-sports-videos"><span class="toc-number">17.</span> <span class="toc-text">Paper 38: SportsCap: Monocular 3D Human Motion Capture and Fine-grained Understanding in Challenging Sports Videos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-39-ssan-separable-self-attention-network-for-video-representation-learning"><span class="toc-number">18.</span> <span class="toc-text">Paper 39: SSAN: Separable Self-Attention Network for Video Representation Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-40-tdgraphembed-temporal-dynamic-graph-level-embedding"><span class="toc-number">19.</span> <span class="toc-text">Paper 40: tdgraphembed: Temporal dynamic graph-level embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-41-videomoco-contrastive-video-representation-learning-with-temporally-adversarial-examples"><span class="toc-number">20.</span> <span class="toc-text">Paper 41: Videomoco: Contrastive video representation learning with temporally adversarial examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-42-visual-relationship-forecasting-in-videos"><span class="toc-number">21.</span> <span class="toc-text">Paper 42: Visual Relationship Forecasting in Videos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paper-43-wasserstein-embedding-for-graph-learning"><span class="toc-number">22.</span> <span class="toc-text">Paper 43: Wasserstein embedding for graph learning</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -739,6 +1077,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
              
@@ -748,10 +1090,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">remote sensing images</a>
               </li>
              
               <li class="article-tag-list-item">
