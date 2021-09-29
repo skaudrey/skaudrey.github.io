@@ -240,271 +240,215 @@
       
         <h2 id="泛函">泛函</h2>
 <center>
-    <img src="/assets/img/Rules/lines.png" width=500">
+<img src="/assets/img/Rules/lines.png" width=500">
 </center>
 <h3 id="不动点定理">不动点定理</h3>
-<ol>
-<li>
-<p>不动点定理的基本逻辑：对于一个存在性问题，构造一个度量空间和一个映射，使得存在性问题等价于这个映射的不动点。只要证明这个映射存在不动点，那么原来的存在性问题即得证。</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33885648">链接</a></p>
-</li>
+<ol type="1">
+<li><p>不动点定理的基本逻辑：对于一个存在性问题，构造一个度量空间和一个映射，使得存在性问题等价于这个映射的不动点。只要证明这个映射存在不动点，那么原来的存在性问题即得证。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33885648">链接</a></p></li>
 </ol>
 <h3 id="紧性的利用">紧性的利用</h3>
 <ul>
 <li>证明存在性</li>
 <li>在无限维空间中“模仿”有限维的欧式空间</li>
 </ul>
-<p>紧集是为了模仿描述欧式空间中的有界闭集合么？<br>
-紧=相对紧+闭</p>
-<h3 id="流形-Manifolds">流形(Manifolds)</h3>
-<ol>
+<p>紧集是为了模仿描述欧式空间中的有界闭集合么？ 紧=相对紧+闭</p>
+<h3 id="流形manifolds">流形(Manifolds)</h3>
+<ol type="1">
 <li>概念：高维空间中曲线、曲面概念的推广，如三维空间中的曲面为一二维流形。</li>
 </ol>
-<h3 id="支撑集-Support">支撑集(Support)</h3>
-<ol>
+<h3 id="支撑集support">支撑集(Support)</h3>
+<ol type="1">
 <li>概念：函数的非零部分子集；一个概率分布的支撑集为所有概率密度非零部分的集合</li>
 </ol>
 <a id="more"></a>
 <h2 id="数学分析">数学分析</h2>
-<h3 id="Lipschitz连续">Lipschitz连续</h3>
-<ol>
-<li>若存在一个常数K，使得定义域内的任意两点x1,x2满足：<br>
-$ \left|f\left(x_1\right)-f\left(x_2\right)\right|=K\left|x_1-x_2\right|$<br>
-则称函数为Lipschitz连续函数。此性质限定了f的导函数的绝对值不超过K，规定了函数的最大局部变动幅度。</li>
+<h3 id="lipschitz连续">Lipschitz连续</h3>
+<ol type="1">
+<li>若存在一个常数K，使得定义域内的任意两点x1,x2满足： $ |f(x_1)-f(x_2)|=K|x_1-x_2|$ 则称函数为Lipschitz连续函数。此性质限定了f的导函数的绝对值不超过K，规定了函数的最大局部变动幅度。</li>
 </ol>
-<h2 id="Statistical-learning-theory">Statistical learning theory</h2>
-<h3 id="Introduction">Introduction</h3>
+<h2 id="statistical-learning-theory">Statistical learning theory</h2>
+<h3 id="introduction">Introduction</h3>
 <p>Determine how well a model performs on unseen data</p>
-<h3 id="Preliminary">Preliminary</h3>
+<h3 id="preliminary">Preliminary</h3>
 <ul>
-<li>
-<p>Markov Inequality</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155914107.png" alt="image-20210210155914107" style="zoom:67%;" />, in the order of $\mathcal{O}(\frac{1}{deviation})$</p>
-</li>
-<li>
-<p>Chebyshev’s Inequality</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155723575.png" alt="image-20210210155723575" style="zoom:67%;" />, in the order of $\mathcal{O}(\frac{1}{deviation^2})$</p>
-</li>
-<li>
-<p>Generic Chernoff’s Bound</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160010328.png" alt="image-20210210160010328" style="zoom:67%;" />
-</li>
-<li>
-<p>Hoeffding’s Inequality</p>
+<li><p>Markov Inequality</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155914107.png" alt="image-20210210155914107" style="zoom:67%;" />, in the order of <span class="math inline">\(\mathcal{O}(\frac{1}{deviation})\)</span></p></li>
+<li><p>Chebyshev's Inequality</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155723575.png" alt="image-20210210155723575" style="zoom:67%;" />, in the order of <span class="math inline">\(\mathcal{O}(\frac{1}{deviation^2})\)</span></p></li>
+<li><p>Generic Chernoff's Bound</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160010328.png" alt="image-20210210160010328" style="zoom:67%;" /></p></li>
+<li><p>Hoeffding's Inequality</p>
 <ul>
-<li>
-<p>Hoeffding’s lemma</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160051227.png" alt="image-20210210160051227" style="zoom:67%;" />
-</li>
-<li>
-<p>Hoeffding’s Inequality</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160116965.png" alt="image-20210210160116965"></p>
-<p>Hoeffding’s inequality is useful to bound the probability of the gap between an empirical value and the true expectation of an average of <strong>bounded</strong> random variables.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>McDiarmid’s Inequality</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210181355241.png" alt="image-20210210181355241" style="zoom:50%;" />
+<li><p>Hoeffding's lemma</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160051227.png" alt="image-20210210160051227" style="zoom:67%;" /></p></li>
+<li><p>Hoeffding's Inequality</p>
+<figure>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210160116965.png" alt="image-20210210160116965" /><figcaption aria-hidden="true">image-20210210160116965</figcaption>
+</figure>
+<p>Hoeffding's inequality is useful to bound the probability of the gap between an empirical value and the true expectation of an average of <strong>bounded</strong> random variables.</p></li>
+</ul></li>
+<li><p>McDiarmid's Inequality</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210181355241.png" alt="image-20210210181355241" style="zoom:50%;" /></p>
 <ul>
 <li>A concentration inequality.</li>
 <li>This bound is useful because if we prove that an algorithm is β stable then we will have this property on a specific function.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="PAC">PAC</h3>
+<h3 id="pac">PAC</h3>
 <p>Check <a target="_blank" rel="noopener" href="http://mitliagkas.github.io/ift6085-2020/ift-6085-lecture-7-notes.pdf">here</a> for PAC, VC, uniform bound and others.</p>
 <ul>
-<li>
-<p><strong>PAC Learning (agnostic PAC learnable)</strong>–finite hypothesis class</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155242200.png" alt="image-20210210155242200"></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210090621996.png" alt="image-20210210090621996" style="zoom:70%;" />
+<li><p><strong>PAC Learning (agnostic PAC learnable)</strong>--finite hypothesis class</p>
+<figure>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210155242200.png" alt="image-20210210155242200" /><figcaption aria-hidden="true">image-20210210155242200</figcaption>
+</figure>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210090621996.png" alt="image-20210210090621996" style="zoom:70%;" /></p>
 <ul>
-<li>Consider a simple linear classifier with 2 weights $\vec{w} = (w_1;w_2)$, which are stored using a 32 bit floats. This implies that the hypothesis class is finite with $|\mathcal{H}| = 2^{32\times2}  $.</li>
-<li>This theorem <strong>works on finite hypothesis class</strong>, and answers that for a hypothesis class $\mathcal{H}$, to make the generation gap is smaller than $\epsilon$ with at least $1-\delta$, the required samples complexity.</li>
-<li><em>Once a hypothesis class is PAC learnable, with high probability the training set is $\epsilon$-representative.</em></li>
-<li>Note Suppose $\mathcal{H}$ is PAC learnable, there <strong>is not a unique function</strong> $m_{\mathcal{H}}$ that satisfies the requirements given in the definition of PAC learnability.</li>
+<li>Consider a simple linear classifier with 2 weights <span class="math inline">\(\vec{w} = (w_1;w_2)\)</span>, which are stored using a 32 bit floats. This implies that the hypothesis class is finite with $|| = 2^{32} $.</li>
+<li>This theorem <strong>works on finite hypothesis class</strong>, and answers that for a hypothesis class <span class="math inline">\(\mathcal{H}\)</span>, to make the generation gap is smaller than <span class="math inline">\(\epsilon\)</span> with at least <span class="math inline">\(1-\delta\)</span>, the required samples complexity.</li>
+<li><em>Once a hypothesis class is PAC learnable, with high probability the training set is <span class="math inline">\(\epsilon\)</span>-representative.</em></li>
+<li>Note Suppose <span class="math inline">\(\mathcal{H}\)</span> is PAC learnable, there <strong>is not a unique function</strong> <span class="math inline">\(m_{\mathcal{H}}\)</span> that satisfies the requirements given in the definition of PAC learnability.</li>
 <li>Finite classes are PAC Learnable, also agnostic PAC Learnable.</li>
-</ul>
-</li>
-<li>
-<p><strong>Uniform convergence</strong></p>
+</ul></li>
+<li><p><strong>Uniform convergence</strong></p>
 <ul>
-<li>Formalize that over all hypothesis in $\mathcal{H}$, the empirical risk is close to the true risk. This will <strong>make sure the ERM to work.</strong></li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210161725993.png" alt="image-20210210161725993" style="zoom:80%;" />
-</li>
-</ul>
-</li>
-<li>
-<p>VC dimension</p>
+<li>Formalize that over all hypothesis in <span class="math inline">\(\mathcal{H}\)</span>, the empirical risk is close to the true risk. This will <strong>make sure the ERM to work.</strong></li>
+<li><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210161725993.png" alt="image-20210210161725993" style="zoom:80%;" /></li>
+</ul></li>
+<li><p>VC dimension</p>
 <ul>
-<li>
-<p>measure the complexity of hypothesis class other than cardinality.</p>
-</li>
-<li>
-<p><strong>Shattering</strong></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210163136908.png" alt="image-20210210163136908"></p>
-</li>
-<li>
-<p><strong>VC Dimension</strong></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210163157194.png" alt="image-20210210163157194"></p>
-<p>Informally VC dimension is the maximum number of distinct points that a hypothesis in $\mathcal{H}$ can correctly classify every possible labeling with zero error.</p>
+<li><p>measure the complexity of hypothesis class other than cardinality.</p></li>
+<li><p><strong>Shattering</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210163136908.png" alt="image-20210210163136908" /><figcaption aria-hidden="true">image-20210210163136908</figcaption>
+</figure></li>
+<li><p><strong>VC Dimension</strong></p>
+<figure>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210163157194.png" alt="image-20210210163157194" /><figcaption aria-hidden="true">image-20210210163157194</figcaption>
+</figure>
+<p>Informally VC dimension is the maximum number of distinct points that a hypothesis in <span class="math inline">\(\mathcal{H}\)</span> can correctly classify every possible labeling with zero error.</p>
 <ul>
-<li>With infinite VC dimension, the hypothesis class won’t be PAC learnable.</li>
+<li>With infinite VC dimension, the hypothesis class won't be PAC learnable.</li>
 <li>There exist hypothesis classes with uncountable cardinality but finite VC dimension.</li>
-<li>For every two hypothesis classes if $\mathcal{H}_0 \subset \mathcal{H}$ then $VCdim(\mathcal{H}_0) \leq VCdim(\mathcal{H})$.</li>
+<li>For every two hypothesis classes if <span class="math inline">\(\mathcal{H}_0 \subset \mathcal{H}\)</span> then <span class="math inline">\(VCdim(\mathcal{H}_0) \leq VCdim(\mathcal{H})\)</span>.</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
+<h3 id="occams-bound">Occam's bound</h3>
+<ul>
+<li><p>The PAC bound can be treated as Occam's bound with a uniform prior .</p></li>
+<li><p>Occam's bound will put a distribution over the countably infinite hypothesis class <span class="math inline">\(\mathcal{H}\)</span> that is independent of dataset <span class="math inline">\(S\)</span> we will receive. In doing so we will <strong>get bounds on the generalization gap that no longer depend on the size of the hypothesis class</strong>, <span class="math inline">\(|\mathcal{H}|\)</span>. These bounds now become variable depending on how we weigh each individual hypothesis <span class="math inline">\(h\)</span>, i.e. <span class="math inline">\(P(h)\)</span>.</p></li>
+<li><p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210090847116.png" alt="image-20210210090847116" style="zoom:80%;" /></p>
+<ul>
+<li><p><strong>Regularizers offers higher probability assigned to <span class="math inline">\(\vec{w}\)</span> near the origin and thus a tighter bound,</strong> it won't influence the algorithm (loss). Specifically , when an <span class="math inline">\(\ell_2\)</span> regularization term is added to the learning algorithm, it adds concavity to the loss function.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210092846655.png" alt="image-20210210092846655" style="zoom:80%;" /></p></li>
+</ul></li>
+<li><p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210091000849.png" alt="image-20210210091000849" style="zoom:80%;" />, where <span class="math inline">\(D(Q\|P)\)</span> is the KL divergence which serves as a complexity measure.</p>
+<ul>
+<li><p>It tells that with a good posterior that is close to the prior, then the KL-divergence will become smaller and out bound will be tighter. <strong>Even though it's tight, the bound is tight for hypothesis that we may not care about, e.g. tight on the bound with respect to <span class="math inline">\(P\)</span> prior on hypothesis.</strong></p></li>
+<li><p><em>Note that the posterior is after applying the prior <span class="math inline">\(P\)</span> on hypothesis, and seeing the data, then one can get this posterior <span class="math inline">\(Q\)</span>.</em></p></li>
+<li><p><strong>Why posterior?</strong></p>
+<p>different choices of prior and posterior hypotheses can be made, each resulting in a new bound without us touching the algorithm.</p></li>
+<li><p>The dropout PAC-Bayes is a lower bound on the PAC-Bayes bound that becomes tight when the dropout factor is 0.</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Occam’s-bound">Occam’s bound</h3>
+<h3 id="stability-generalization">Stability, Generalization</h3>
 <ul>
-<li>
-<p>The PAC bound can be treated as Occam’s bound with a uniform prior .</p>
-</li>
-<li>
-<p>Occam’s bound will put a distribution over the countably infinite hypothesis class $\mathcal{H}$ that is independent of dataset $S$ we will receive. In doing so we will <strong>get bounds on the generalization gap that no longer depend on the size of the hypothesis class</strong>, $|\mathcal{H}|$. These bounds now become variable depending on how we weigh each individual hypothesis $h$, i.e. $P(h)$.</p>
-</li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210090847116.png" alt="image-20210210090847116" style="zoom:80%;" />
+<li><p>PAC learning and Occam's bound work as algorithm-agnostic bounds.</p></li>
+<li><p>Stability</p>
 <ul>
-<li>
-<p><strong>Regularizers offers higher probability assigned to $\vec{w}$ near the origin and thus a tighter bound,</strong> it won’t influence the algorithm (loss). Specifically , when  an $\ell_2$ regularization term is added to the learning algorithm, it adds concavity to the loss function.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210092846655.png" alt="image-20210210092846655" style="zoom:80%;" />
-</li>
-</ul>
-</li>
-<li>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210091000849.png" alt="image-20210210091000849" style="zoom:80%;" />, where $D(Q|P)$ is the KL divergence which serves as a complexity measure.</p>
+<li><p>Hint: a change in data distribution does not change the predictions.</p></li>
+<li><p>Definition: <strong>uniform stability</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210183949427.png" alt="image-20210210183949427" style="zoom:67%;" /></p>
+<p>An algorithm with this property can be understood as one that produces a hypothesis such that the loss function <span class="math inline">\(\ell\)</span> is not drastically affected by perturbing the dataset in this manner.</p></li>
+<li><p><font color='blue'>EMR with regularization is <span class="math inline">\(\beta\)</span>-stable.</font></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210211826259.png" alt="image-20210210211826259" style="zoom:50%;" /></p>
 <ul>
-<li>
-<p>It tells that with a good posterior that is close to the prior, then the KL-divergence will become smaller and out bound will be tighter. <strong>Even though it’s tight, the bound is tight for hypothesis that we may not care about, e.g. tight on the bound with respect to $P$  prior on hypothesis.</strong></p>
-</li>
-<li>
-<p><em>Note that the posterior is after applying the prior $P$ on hypothesis, and seeing the data, then one can get this posterior $Q$.</em></p>
-</li>
-<li>
-<p><strong>Why posterior?</strong></p>
-<p>different choices of prior and posterior hypotheses can be made, each resulting in a new bound without us touching the algorithm.</p>
-</li>
-<li>
-<p>The dropout PAC-Bayes is a lower bound on the PAC-Bayes bound that becomes tight when the dropout factor is 0.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Stability-Generalization">Stability, Generalization</h3>
+<li><em>If we perturb the data by a single element, we learn <span class="math inline">\(\mathcal{A}\)</span> that can become arbitrarily close for large <span class="math inline">\(n\)</span>.</em></li>
+</ul></li>
+<li><p><font color='blue'>SGD is stable</font></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210214207908.png" alt="image-20210210214207908" style="zoom:57%;" /></p>
 <ul>
-<li>
-<p>PAC learning and Occam’s bound work as algorithm-agnostic bounds.</p>
-</li>
-<li>
-<p>Stability</p>
-<ul>
-<li>
-<p>Hint: a change in data distribution does not change the predictions.</p>
-</li>
-<li>
-<p>Definition: <strong>uniform stability</strong></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210183949427.png" alt="image-20210210183949427" style="zoom:67%;" />
-<p>An algorithm with this property can be understood as one that produces a hypothesis such that the loss function $\ell$ is not drastically affected by perturbing the dataset in this<br>
-manner.</p>
-</li>
-<li>
-<p><font color='blue'>EMR with regularization is $\beta$-stable.</font></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210211826259.png" alt="image-20210210211826259" style="zoom:50%;" />
-<ul>
-<li><em>If we perturb the data by a single element, we learn $\mathcal{A}$ that can become arbitrarily close for large $n$.</em></li>
-</ul>
-</li>
-<li>
-<p><font color='blue'>SGD is stable</font></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210214207908.png" alt="image-20210210214207908" style="zoom:57%;" />
-<ul>
-<li><strong>It holds for a finite number of steps $T$</strong></li>
+<li><strong>It holds for a finite number of steps <span class="math inline">\(T\)</span></strong></li>
 <li></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Defect</strong>:</p>
-<p>$D[h_S]=R[h_S]-\hat{R}_S[h_S]$</p>
+</ul></li>
+</ul></li>
+<li><p><strong>Defect</strong>:</p>
+<p><span class="math inline">\(D[h_S]=R[h_S]-\hat{R}_S[h_S]\)</span></p>
 <ul>
-<li>
-<p>Defect $D[h_S]$ for a hypothesis $h_S$ derived from an algorithm after seeing the dataset $S$ is defined as the difference between the population risk and the empirical risk.</p>
-</li>
-<li>
-<p><strong>It’s expectation is not zero.</strong></p>
-</li>
-<li>
-<p><strong>The expectation value of defect can be bounded under certain conditions.</strong></p>
-<p><font color='blue'>If $ \mathcal{A}$ is a $\beta$-uniformly stable algorithm, then $-\beta\le \mathbb{E}[D[h_S]]\le\beta$. </font></p>
-</li>
-<li>
-<p><font color='blue'>Let $\mathcal{A}$ be a $\beta$-uniformly stable learning algorithm with respect to a loss function $\ell:\mathcal{Y\times Y}\rightarrow [0，M]$. <strong>The absolute difference of the defect calculated on a dataset $S$ and on a perturbed version of the dataset</strong> $S^{i,z}$ is bounded by $|D[h_S]-D[h_{S^{i,z}}]|\le 2\beta +\frac{M}{n}$. </font></p>
-</li>
-</ul>
-</li>
-<li>
-<p><font color='blue'>For a $\beta$-uniformly stable algorithm, the relationship between the empirical and the population risk is $\mathbb{E}[R[h_S]]\le\mathbb{E}_S[\hat{R}_S[h_S]]+\beta$. </font></p>
+<li><p>Defect <span class="math inline">\(D[h_S]\)</span> for a hypothesis <span class="math inline">\(h_S\)</span> derived from an algorithm after seeing the dataset <span class="math inline">\(S\)</span> is defined as the difference between the population risk and the empirical risk.</p></li>
+<li><p><strong>It's expectation is not zero.</strong></p></li>
+<li><p><strong>The expectation value of defect can be bounded under certain conditions.</strong></p>
+<p><font color='blue'>If $ $ is a <span class="math inline">\(\beta\)</span>-uniformly stable algorithm, then <span class="math inline">\(-\beta\le \mathbb{E}[D[h_S]]\le\beta\)</span>. </font></p></li>
+<li><p><font color='blue'>Let <span class="math inline">\(\mathcal{A}\)</span> be a <span class="math inline">\(\beta\)</span>-uniformly stable learning algorithm with respect to a loss function <span class="math inline">\(\ell:\mathcal{Y\times Y}\rightarrow [0，M]\)</span>. <strong>The absolute difference of the defect calculated on a dataset <span class="math inline">\(S\)</span> and on a perturbed version of the dataset</strong> <span class="math inline">\(S^{i,z}\)</span> is bounded by <span class="math inline">\(|D[h_S]-D[h_{S^{i,z}}]|\le 2\beta +\frac{M}{n}\)</span>. </font></p></li>
+</ul></li>
+<li><p><font color='blue'>For a <span class="math inline">\(\beta\)</span>-uniformly stable algorithm, the relationship between the empirical and the population risk is <span class="math inline">\(\mathbb{E}[R[h_S]]\le\mathbb{E}_S[\hat{R}_S[h_S]]+\beta\)</span>. </font></p>
 <ul>
-<li>It’s a bound on the expectation value of the population risk. But this bound does not hold for all possible $h_S$.</li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210205331186.png" alt="image-20210210205331186" style="zoom:40%;" />
-</li>
-</ul>
-</li>
-<li>
-<p><font color='blue'>For a $\beta$-uniformly stable algorithm $\mathcal{A}$ with respect to a loss function $\ell:\mathcal{Y\times Y}\rightarrow [0，M]$ and a hypothesis $h_S$ with $|S|=n$. <strong>The relationship between the empirical and the population risk holds with probability $1-\delta$</strong>: $R[h_S]\le \hat{R}_S[h_S]+\beta +(n\beta+\frac{M}{2})\sqrt{\frac{2\log\frac{2}{\delta}}{n}}$. </font></p>
+<li>It's a bound on the expectation value of the population risk. But this bound does not hold for all possible <span class="math inline">\(h_S\)</span>.</li>
+<li><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/image-20210210205331186.png" alt="image-20210210205331186" style="zoom:40%;" /></li>
+</ul></li>
+<li><p><font color='blue'>For a <span class="math inline">\(\beta\)</span>-uniformly stable algorithm <span class="math inline">\(\mathcal{A}\)</span> with respect to a loss function <span class="math inline">\(\ell:\mathcal{Y\times Y}\rightarrow [0，M]\)</span> and a hypothesis <span class="math inline">\(h_S\)</span> with <span class="math inline">\(|S|=n\)</span>. <strong>The relationship between the empirical and the population risk holds with probability <span class="math inline">\(1-\delta\)</span></strong>: <span class="math inline">\(R[h_S]\le \hat{R}_S[h_S]+\beta +(n\beta+\frac{M}{2})\sqrt{\frac{2\log\frac{2}{\delta}}{n}}\)</span>. </font></p>
 <ul>
-<li>The last term is a concentration Inequality (McDiramid’s)</li>
-<li>For this bound, as $n$ goes up, it becomes less tight.</li>
+<li>The last term is a concentration Inequality (McDiramid's)</li>
+<li>For this bound, as <span class="math inline">\(n\)</span> goes up, it becomes less tight.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Convex-Optimization">Convex Optimization</h2>
+<h2 id="convex-optimization">Convex Optimization</h2>
 <p>Book <a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a>, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a></p>
 <table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Terminology</th>
 <th>Definition</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Convex function: origin</td>
-<td>$f(\theta x+(1-\theta)y)\le \theta f(x)+(1-\theta)f(y)$</td>
+<td><span class="math inline">\(f(\theta x+(1-\theta)y)\le \theta f(x)+(1-\theta)f(y)\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Convex function: 1st order (once differential )</td>
-<td>$f(y)\ge f(x)+\nabla f(x)^T (y-x) $</td>
+<td>$f(y)f(x)+f(x)^T (y-x) $</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Convex function: 2nd order (twice differential )</td>
-<td>$\nabla^2f(x)\succeq0$, the eigenvalues won’t be negative</td>
+<td><span class="math inline">\(\nabla^2f(x)\succeq0\)</span>, the eigenvalues won't be negative</td>
 </tr>
-<tr>
-<td>$L$-Lipschitz</td>
-<td>$|f(x)-f(y)|\le L|x-y|$</td>
+<tr class="even">
+<td><span class="math inline">\(L\)</span>-Lipschitz</td>
+<td><span class="math inline">\(\|f(x)-f(y)\|\le L\|x-y\|\)</span></td>
 </tr>
-<tr>
-<td>$\beta$-smooth: $\beta$-Lipschitz on gradient</td>
-<td>$|\nabla f(x)-\nabla f(y)|\le \beta|x-y|\Rightarrow \nabla^2f(x)\preceq\beta\mathrm{I}$</td>
+<tr class="odd">
+<td><span class="math inline">\(\beta\)</span>-smooth: <span class="math inline">\(\beta\)</span>-Lipschitz on gradient</td>
+<td><span class="math inline">\(\|\nabla f(x)-\nabla f(y)\|\le \beta\|x-y\|\Rightarrow \nabla^2f(x)\preceq\beta\mathrm{I}\)</span></td>
 </tr>
-<tr>
-<td>$\alpha$-strong convex, limited the domain mostly.</td>
-<td>$f(y)-f(x)\le\nabla f(x)^T (y-x)-\frac{\alpha}{2}|y-x|^2\Rightarrow \nabla^2f(x)\succeq\alpha\mathrm{I}$</td>
+<tr class="even">
+<td><span class="math inline">\(\alpha\)</span>-strong convex, limited the domain mostly.</td>
+<td><span class="math inline">\(f(y)-f(x)\le\nabla f(x)^T (y-x)-\frac{\alpha}{2}\|y-x\|^2\Rightarrow \nabla^2f(x)\succeq\alpha\mathrm{I}\)</span></td>
 </tr>
 </tbody>
 </table>
-<center><strong>Table: Optimizer in different conditions</strong></center></br> For each optimizer, from the top line downwarding, the rate of convergence is increasing. The optimal step size is gotten by minimizing the bound.</center>
+<center>
+<strong>Table: Optimizer in different conditions</strong>
+</center>
+</br> For each optimizer, from the top line downwarding, the rate of convergence is increasing. The optimal step size is gotten by minimizing the bound.
+</center>
 <table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Optimizer</th>
 <th>Condition</th>
 <th>Converge rate</th>
@@ -514,453 +458,341 @@ manner.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>GD after $T$ steps</td>
+<tr class="odd">
+<td>GD after <span class="math inline">\(T\)</span> steps</td>
 <td>L-Lipschitz convex</td>
-<td>$\mathcal{O}(\frac{1}{\sqrt{T}})$</td>
-<td>$\gamma=\frac{|x_1-x^*|_2}{L\sqrt{T}}$</td>
-<td>$f(\frac{1}{T}\sum\limits_{k=1}^{T}x_k)-f(x^*)$</td>
-<td>$\le\frac{|x_1-x^*|L}{\sqrt{T}}$, <br />the initial point matters</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{\sqrt{T}})\)</span></td>
+<td><span class="math inline">\(\gamma=\frac{\|x_1-x^*\|_2}{L\sqrt{T}}\)</span></td>
+<td><span class="math inline">\(f(\frac{1}{T}\sum\limits_{k=1}^{T}x_k)-f(x^*)\)</span></td>
+<td><span class="math inline">\(\le\frac{\|x_1-x^*\|L}{\sqrt{T}}\)</span>, <br />the initial point matters</td>
 </tr>
-<tr>
+<tr class="even">
 <td>GD</td>
-<td>$\beta$-smooth<br />+convex</td>
-<td>$\mathcal{O}(\frac{1}{T})$</td>
-<td>$\gamma=\frac{1}{\beta}$, <br />constant and independent of $T$</td>
-<td>$f(x_k)-f(x^*)$<br />Notice the average on all samples can be erased</td>
-<td>$\le\frac{2\beta|x_1-x^*|^2}{k-1}$, <br />$k$ means the $k$ step. <br />Bound depends on initial point</td>
+<td><span class="math inline">\(\beta\)</span>-smooth<br />+convex</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{T})\)</span></td>
+<td><span class="math inline">\(\gamma=\frac{1}{\beta}\)</span>, <br />constant and independent of <span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(f(x_k)-f(x^*)\)</span><br />Notice the average on all samples can be erased</td>
+<td><span class="math inline">\(\le\frac{2\beta\|x_1-x^*\|^2}{k-1}\)</span>, <br /><span class="math inline">\(k\)</span> means the <span class="math inline">\(k\)</span> step. <br />Bound depends on initial point</td>
 </tr>
-<tr>
-<td>Projected subGD after $T$ steps</td>
-<td>$\alpha$-strong<br /> + $L$-Lipschitz</td>
-<td>$\mathcal{O}(\frac{1}{T})$</td>
-<td>$\gamma_k=\frac{2}{\alpha (k+1)}$,<br /> diminish at every step</td>
-<td>$f(\sum\limits_{k=1}^T\frac{2k}{T(T+1)}x_k)-f(x^*)$</td>
-<td>$\le\frac{2L^2}{\alpha (T+1)}$</td>
+<tr class="odd">
+<td>Projected subGD after <span class="math inline">\(T\)</span> steps</td>
+<td><span class="math inline">\(\alpha\)</span>-strong<br /> + <span class="math inline">\(L\)</span>-Lipschitz</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{T})\)</span></td>
+<td><span class="math inline">\(\gamma_k=\frac{2}{\alpha (k+1)}\)</span>,<br /> diminish at every step</td>
+<td><span class="math inline">\(f(\sum\limits_{k=1}^T\frac{2k}{T(T+1)}x_k)-f(x^*)\)</span></td>
+<td><span class="math inline">\(\le\frac{2L^2}{\alpha (T+1)}\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>GD</td>
-<td>$\lambda$-strong <br />+ $\beta$-smooth</td>
-<td>$\mathcal{O}(\exp{(-T)})$</td>
-<td>$\gamma=\frac{2}{\lambda+\beta}$</td>
-<td>$f(x_{t+1})-f(x^*)$<br />Notice the average on all samples can be erased</td>
-<td>$\le\frac{\beta}{2}\exp{(-\frac{4t}{\kappa+1})}|x_1-x^*|^2$,<br />$ \kappa=\frac{\beta}{\lambda}$. <br />$k$ is the same meaning of $t$,<br /> rather than the $\kappa$ in denominator.</td>
+<td><span class="math inline">\(\lambda\)</span>-strong <br />+ <span class="math inline">\(\beta\)</span>-smooth</td>
+<td><span class="math inline">\(\mathcal{O}(\exp{(-T)})\)</span></td>
+<td><span class="math inline">\(\gamma=\frac{2}{\lambda+\beta}\)</span></td>
+<td><span class="math inline">\(f(x_{t+1})-f(x^*)\)</span><br />Notice the average on all samples can be erased</td>
+<td><span class="math inline">\(\le\frac{\beta}{2}\exp{(-\frac{4t}{\kappa+1})}\|x_1-x^*\|^2\)</span>,<br />$ =<span class="math inline">\(. &lt;br /&gt;\)</span>k$ is the same meaning of <span class="math inline">\(t\)</span>,<br /> rather than the <span class="math inline">\(\kappa\)</span> in denominator.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Polyak (heavy ball)</td>
 <td>Quadratic loss</td>
-<td>$\mathcal{O} ((\frac{\sqrt\kappa-1}{\sqrt\kappa+1})^t)\\approx\exp(-\frac{C}{\sqrt\kappa})$,<br />$\kappa=\frac{h_{max}}{h_{min}}$</td>
-<td>$\gamma^*=\frac{(1+\sqrt\mu)^2}{h_{max}}\=\frac{(1-\sqrt\mu)^2}{h_{min}}$</td>
-<td>$\left|\left[ \begin{matrix}   x_{t+1}-x*\ x_t-x^*    \end{matrix}  \right]\right|_2$</td>
-<td>$\le\mathcal{O} (\rho(A)^T)=\mathcal{O} (\sqrt{\mu}^T)$.<br /> $\mu$ is the curvature</td>
+<td><span class="math inline">\(\mathcal{O} ((\frac{\sqrt\kappa-1}{\sqrt\kappa+1})^t)\\\approx\exp(-\frac{C}{\sqrt\kappa})\)</span>,<br /><span class="math inline">\(\kappa=\frac{h_{max}}{h_{min}}\)</span></td>
+<td><span class="math inline">\(\gamma^*=\frac{(1+\sqrt\mu)^2}{h_{max}}\\=\frac{(1-\sqrt\mu)^2}{h_{min}}\)</span></td>
+<td><span class="math inline">\(\left\|\left[ \begin{matrix} x_{t+1}-x*\\ x_t-x^* \end{matrix} \right]\right\|_2\)</span></td>
+<td><span class="math inline">\(\le\mathcal{O} (\rho(A)^T)=\mathcal{O} (\sqrt{\mu}^T)\)</span>.<br /> <span class="math inline">\(\mu\)</span> is the curvature</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Nesterov NAG</td>
-<td>$\beta$-smooth</td>
-<td>$\mathcal{O}(\frac{1}{T^2})$</td>
+<td><span class="math inline">\(\beta\)</span>-smooth</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{T^2})\)</span></td>
 <td></td>
-<td>$f(y_t)-f(x^*)$</td>
+<td><span class="math inline">\(f(y_t)-f(x^*)\)</span></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Nesterov NAG</td>
-<td>$\alpha$-strong <br />+$\beta$-smooth</td>
-<td>$\mathcal{O}(\exp(-\frac{T}{\sqrt{\kappa}}))$</td>
+<td><span class="math inline">\(\alpha\)</span>-strong <br />+<span class="math inline">\(\beta\)</span>-smooth</td>
+<td><span class="math inline">\(\mathcal{O}(\exp(-\frac{T}{\sqrt{\kappa}}))\)</span></td>
 <td></td>
-<td>$f(y_t)-f(x^*)$</td>
-<td>$\le\frac{\alpha+\beta}{2}|x_k -x^*|^2\exp(-\frac{t-1}{\sqrt\kappa})$</td>
+<td><span class="math inline">\(f(y_t)-f(x^*)\)</span></td>
+<td><span class="math inline">\(\le\frac{\alpha+\beta}{2}\|x_k -x^*\|^2\exp(-\frac{t-1}{\sqrt\kappa})\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>SGD</td>
-<td>$L$-Lipschitz by<br /> $|\tilde{g}(x)|\le L$ with prob. 1</td>
-<td>$\mathcal{O}(\frac{1}{\sqrt T})$<br />If wants a $\epsilon$-tolerance, $T\ge\frac{B^2L^2}{\epsilon^2}$</td>
-<td>$\gamma=\frac{B}{L\sqrt{T}}$</td>
-<td>$\mathbb{E}[f(\bar{x})]-f(x^<em>)$, where <br />$x^</em>\in\arg\min_{x:|x|&lt;B}f(x)$</td>
-<td>$\le\frac{BL}{\sqrt T}$</td>
+<td><span class="math inline">\(L\)</span>-Lipschitz by<br /> <span class="math inline">\(\|\tilde{g}(x)\|\le L\)</span> with prob. 1</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{\sqrt T})\)</span><br />If wants a <span class="math inline">\(\epsilon\)</span>-tolerance, <span class="math inline">\(T\ge\frac{B^2L^2}{\epsilon^2}\)</span></td>
+<td><span class="math inline">\(\gamma=\frac{B}{L\sqrt{T}}\)</span></td>
+<td><span class="math inline">\(\mathbb{E}[f(\bar{x})]-f(x^*)\)</span>, where <br /><span class="math inline">\(x^*\in\arg\min_{x:\|x\|&lt;B}f(x)\)</span></td>
+<td><span class="math inline">\(\le\frac{BL}{\sqrt T}\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>SGD</td>
-<td>$\alpha$-strong+ $\mathbb{E}|\tilde{g}(x)|_*^2\le B^2$ (kind of $B$-smooth)</td>
-<td>$\mathcal{O}(\frac{1}{T})$</td>
-<td>$\gamma=\frac{2}{\alpha(s+1)}$</td>
-<td>$f(\sum\limits_{s=1}^t\frac{2s}{t(t+1)}x_s)-f(x^*)$</td>
-<td>$\le\frac{2B^2}{\alpha(t+1)}$</td>
+<td><span class="math inline">\(\alpha\)</span>-strong+ <span class="math inline">\(\mathbb{E}\|\tilde{g}(x)\|_*^2\le B^2\)</span> (kind of <span class="math inline">\(B\)</span>-smooth)</td>
+<td><span class="math inline">\(\mathcal{O}(\frac{1}{T})\)</span></td>
+<td><span class="math inline">\(\gamma=\frac{2}{\alpha(s+1)}\)</span></td>
+<td><span class="math inline">\(f(\sum\limits_{s=1}^t\frac{2s}{t(t+1)}x_s)-f(x^*)\)</span></td>
+<td><span class="math inline">\(\le\frac{2B^2}{\alpha(t+1)}\)</span></td>
 </tr>
 </tbody>
 </table>
-<h3 id="Estimate-sequence"><a target="_blank" rel="noopener" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.693.855&amp;rep=rep1&amp;type=pdf">Estimate sequence</a></h3>
+<h3 id="estimate-sequence"><a target="_blank" rel="noopener" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.693.855&amp;rep=rep1&amp;type=pdf">Estimate sequence</a></h3>
 <ul>
-<li>
-<p>Definition</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210129143844.png" alt="image-20210129143844647" style="zoom:67%;" />
-</li>
-<li>
-<p>Properties</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131115340.png" alt="image-20210131115338221" style="zoom:50%;" />
-<p>for any sequence ${\lambda_k}$, satisfying $(2.2.2)$ we can derive <strong>the rate of convergence of the minimization process directly from the rate of convergence of the sequence ${\lambda_k}$.</strong></p>
-<p>Note: below in estimate sequence, all $L$ means $L$-smooth function</p>
-</li>
-<li>
-<p>How to form an estimate sequence?</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131150937.png" alt="image-20210131150935371" style="zoom:40%;" />
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131151028.png" alt="image-20210131151028446" style="zoom:40%;" />
-</li>
-<li>
-<p>How to ensure $(2.2.2)$?</p>
+<li><p>Definition</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210129143844.png" alt="image-20210129143844647" style="zoom:67%;" /></p></li>
+<li><p>Properties</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131115340.png" alt="image-20210131115338221" style="zoom:50%;" /></p>
+<p>for any sequence <span class="math inline">\(\{\lambda_k\}\)</span>, satisfying <span class="math inline">\((2.2.2)\)</span> we can derive <strong>the rate of convergence of the minimization process directly from the rate of convergence of the sequence <span class="math inline">\(\{\lambda_k\}\)</span>.</strong></p>
+<p>Note: below in estimate sequence, all <span class="math inline">\(L\)</span> means <span class="math inline">\(L\)</span>-smooth function</p></li>
+<li><p>How to form an estimate sequence?</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131150937.png" alt="image-20210131150935371" style="zoom:40%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210131151028.png" alt="image-20210131151028446" style="zoom:40%;" /></p></li>
+<li><p>How to ensure <span class="math inline">\((2.2.2)\)</span>?</p>
 <ul>
-<li>
-<p>Method 1: Do scheme (2.2.6), it will generate a sequence ${x_k}_{k=0}^\infin$ such that $f(x_k)-f^<em>\le \lambda_k[f(x_0)-f^</em>+\frac{\gamma_0}{2}|x_0-x^*|^2]$. It will make sequence satisfy $(2.2.2)$</p>
-</li>
-<li>
-<p>Method 2: Using gradient step</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210201094020.png" alt="image-20210201094020408" style="zoom:50%;" />
-</li>
-</ul>
-</li>
-<li>
-<p>Some cases</p>
+<li><p>Method 1: Do scheme (2.2.6), it will generate a sequence <span class="math inline">\(\{x_k\}_{k=0}^\infin\)</span> such that <span class="math inline">\(f(x_k)-f^*\le \lambda_k[f(x_0)-f^*+\frac{\gamma_0}{2}\|x_0-x^*\|^2]\)</span>. It will make sequence satisfy <span class="math inline">\((2.2.2)\)</span></p></li>
+<li><p>Method 2: Using gradient step</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210201094020.png" alt="image-20210201094020408" style="zoom:50%;" /></p></li>
+</ul></li>
+<li><p>Some cases</p>
 <ul>
-<li><font color='orange'>If in the scheme (2.2.6) we choose $\gamma_0\ge\mu$, then  $\lambda_k\le\min{(1-\sqrt{\frac{\mu}{L}})^k,\frac{4L}{(2\sqrt{L}+k\sqrt{\gamma})^2}}$.</font></li>
-<li><font color='blue'>If in the scheme (2.2.6) we choose $\gamma_0=L$, then this scheme generates a sequence ${x_k}<em>{k=0}^{\infin}$ such that $f(x_k)-f^<em>\le L\min {(1-\sqrt{\frac{\mu}{L}})^k,\frac{4}{(k+2)^2}}|x_0-x^</em>|^2$. This  means that it’s optimal for the class $\mathcal{S}</em>{\mu,L}^{1，1}(R^n)$ with $\mu\ge0$. </font></li>
-<li><font color='blue'>If in the scheme $(2.2.8)$ we choose $\alpha_0\ge \sqrt{\frac{\mu}{L}}$, then this scheme generates a sequence ${x_k}_{k=0}^{\infin}$ such that $f(x_k)-f^<em>\le \min {(1-\sqrt{\frac{\mu}{L}})^k,\frac{4L}{(2\sqrt{L}+k\sqrt{\gamma_0})^2}}[f(x_0)-f^</em>+\frac{\gamma_0}{2}|x_0-x^*|^2]$, where $\gamma_0=\frac{\alpha_0(\alpha_0L-\mu)}{1-\alpha_0}$. Here $\alpha_0\ge \sqrt{\frac{\mu}{L}}$ is equivalent to $\gamma_0\ge\mu$. </font></li>
+<li><font color='orange'>If in the scheme (2.2.6) we choose <span class="math inline">\(\gamma_0\ge\mu\)</span>, then <span class="math inline">\(\lambda_k\le\min\{(1-\sqrt{\frac{\mu}{L}})^k,\frac{4L}{(2\sqrt{L}+k\sqrt{\gamma})^2}\}\)</span>.</font></li>
+<li><font color='blue'>If in the scheme (2.2.6) we choose <span class="math inline">\(\gamma_0=L\)</span>, then this scheme generates a sequence <span class="math inline">\(\{x_k\}_{k=0}^{\infin}\)</span> such that <span class="math inline">\(f(x_k)-f^*\le L\min \{(1-\sqrt{\frac{\mu}{L}})^k,\frac{4}{(k+2)^2}\}\|x_0-x^*\|^2\)</span>. This  means that it's optimal for the class <span class="math inline">\(\mathcal{S}_{\mu,L}^{1，1}(R^n)\)</span> with <span class="math inline">\(\mu\ge0\)</span>. </font></li>
+<li><font color='blue'>If in the scheme <span class="math inline">\((2.2.8)\)</span> we choose <span class="math inline">\(\alpha_0\ge \sqrt{\frac{\mu}{L}}\)</span>, then this scheme generates a sequence <span class="math inline">\(\{x_k\}_{k=0}^{\infin}\)</span> such that <span class="math inline">\(f(x_k)-f^*\le \min \{(1-\sqrt{\frac{\mu}{L}})^k,\frac{4L}{(2\sqrt{L}+k\sqrt{\gamma_0})^2}\}[f(x_0)-f^*+\frac{\gamma_0}{2}\|x_0-x^*\|^2]\)</span>, where <span class="math inline">\(\gamma_0=\frac{\alpha_0(\alpha_0L-\mu)}{1-\alpha_0}\)</span>. Here <span class="math inline">\(\alpha_0\ge \sqrt{\frac{\mu}{L}}\)</span> is equivalent to <span class="math inline">\(\gamma_0\ge\mu\)</span>. </font></li>
 <li></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Convex-sets">Convex sets</h3>
-<h4 id="Affine-sets">Affine sets</h4>
+<h3 id="convex-sets">Convex sets</h3>
+<h4 id="affine-sets">Affine sets</h4>
 <ul>
 <li>Affine sets:
 <ul>
-<li>Definition : A set $C\subseteq R^n$ is affine if the line through any two distinct points in $C$ lies in $C$, aka for any $x_1 ,x_2\in C$ and $\theta\in R$, one has $\theta x_1+(1-\theta)x_2\in C$. It indicates that the $C$ contains the linear combination of any two points in $C$.</li>
-<li>Induction: If $C$ is an affine set, $x_1，\cdots,x_k\in C$ and $\theta_1+\cdots+\theta_k=1$, then the point $\theta_1 x_1+\cdots+\theta_kx_k$ also belongs to $C$.</li>
-</ul>
-</li>
+<li>Definition : A set <span class="math inline">\(C\subseteq R^n\)</span> is affine if the line through any two distinct points in <span class="math inline">\(C\)</span> lies in <span class="math inline">\(C\)</span>, aka for any <span class="math inline">\(x_1 ,x_2\in C\)</span> and <span class="math inline">\(\theta\in R\)</span>, one has <span class="math inline">\(\theta x_1+(1-\theta)x_2\in C\)</span>. It indicates that the <span class="math inline">\(C\)</span> contains the linear combination of any two points in <span class="math inline">\(C\)</span>.</li>
+<li>Induction: If <span class="math inline">\(C\)</span> is an affine set, <span class="math inline">\(x_1，\cdots,x_k\in C\)</span> and <span class="math inline">\(\theta_1+\cdots+\theta_k=1\)</span>, then the point <span class="math inline">\(\theta_1 x_1+\cdots+\theta_kx_k\)</span> also belongs to <span class="math inline">\(C\)</span>.</li>
+</ul></li>
 <li>Affine hull
 <ul>
-<li>Definition: the set of all affine combinations of points in some set $C\subseteq R^n$, denoted as $\mathrm{aff}C$</li>
-<li>It’s the smallest affine set that contains $C$</li>
-</ul>
-</li>
+<li>Definition: the set of all affine combinations of points in some set <span class="math inline">\(C\subseteq R^n\)</span>, denoted as <span class="math inline">\(\mathrm{aff}C\)</span></li>
+<li>It's the smallest affine set that contains <span class="math inline">\(C\)</span></li>
+</ul></li>
 <li>Affine dimension
 <ul>
 <li>Definition: as the dimension of its affine hull.</li>
-<li>E.g.: ${x\in R^2|x_1 ^2+x_2^2=1}$, the affine dimension is 2.</li>
+<li>E.g.: <span class="math inline">\(\{x\in R^2|x_1 ^2+x_2^2=1\}\)</span>, the affine dimension is 2.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Convex-sets-2">Convex sets</h4>
+<h4 id="convex-sets-1">Convex sets</h4>
 <ul>
 <li>Definition: If every point in the set can be seen by every other point, along an unobstructed straight path between them, where unobstructed means lying in the set.</li>
 <li>Every affine set is also convex.</li>
-<li>Convex hull, denotes as $\mathrm{conv} C$, is the set of all convex combinations of points in $C$. It is always convex, and it’s the smallest convex set that contains $C$</li>
-<li>More generally, suppose $p: R^n \rightarrow R$ satisfies $p(x)\ge0$ for all $x\in C$ and $\int_Cp(x)dx=1$, where $C\subseteq R^n$ is convex, then $\int_Cp(x)x dx \in C$, if the integral exists.</li>
+<li>Convex hull, denotes as <span class="math inline">\(\mathrm{conv} C\)</span>, is the set of all convex combinations of points in <span class="math inline">\(C\)</span>. It is always convex, and it's the smallest convex set that contains <span class="math inline">\(C\)</span></li>
+<li>More generally, suppose <span class="math inline">\(p: R^n \rightarrow R\)</span> satisfies <span class="math inline">\(p(x)\ge0\)</span> for all <span class="math inline">\(x\in C\)</span> and <span class="math inline">\(\int_Cp(x)dx=1\)</span>, where <span class="math inline">\(C\subseteq R^n\)</span> is convex, then <span class="math inline">\(\int_Cp(x)x dx \in C\)</span>, if the integral exists.</li>
 </ul>
-<h3 id="Convex-functions">Convex functions</h3>
-<h4 id="Convex-functions-2">Convex functions</h4>
+<h3 id="convex-functions">Convex functions</h3>
+<h4 id="convex-functions-1">Convex functions</h4>
 <ul>
-<li>
-<p>Definition</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117165609.png" alt="image-20210117165609361" style="zoom:50%;" />
-</li>
-<li>
-<p>All affine function are both convex and concave.</p>
-</li>
-<li>
-<p>$f$ is convex if and only if for all $x\in \mathrm{dom}f$ and all $v$, the function $g(t)=f(x+tv)$ is convex.</p>
-</li>
+<li><p>Definition</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117165609.png" alt="image-20210117165609361" style="zoom:50%;" /></p></li>
+<li><p>All affine function are both convex and concave.</p></li>
+<li><p><span class="math inline">\(f\)</span> is convex if and only if for all <span class="math inline">\(x\in \mathrm{dom}f\)</span> and all <span class="math inline">\(v\)</span>, the function <span class="math inline">\(g(t)=f(x+tv)\)</span> is convex.</p></li>
 </ul>
-<h4 id="Extended-value-extensions">Extended-value extensions</h4>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117170246.png" alt="image-20210117170246166" style="zoom:50%;" />
-<h4 id="First-order-conditions">First-order conditions</h4>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117171410.png" alt="image-20210117171410378" style="zoom:50%;" />
+<h4 id="extended-value-extensions">Extended-value extensions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117170246.png" alt="image-20210117170246166" style="zoom:50%;" /></p>
+<h4 id="first-order-conditions">First-order conditions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117171410.png" alt="image-20210117171410378" style="zoom:50%;" /></p>
 <p>The inequality (3.2) states that for a convex function, the first-order Taylor approximation is in fact a global <em>underestimator</em> of the function. Conversely, if the first-order Taylor approximation of a function is always a global <em>underestimator</em> of the function, then the function is convex.</p>
 <ul>
-<li>The inequality (3.2) shows that if $\nabla f(x) = 0$, then for all $y \in \mathrm{dom} f, f(y) ≥ f(x)$, i.e., $x$ is a global minimizer of the function $f$.</li>
+<li>The inequality (3.2) shows that if <span class="math inline">\(\nabla f(x) = 0\)</span>, then for all <span class="math inline">\(y \in \mathrm{dom} f, f(y) ≥ f(x)\)</span>, i.e., <span class="math inline">\(x\)</span> is a global minimizer of the function <span class="math inline">\(f\)</span>.</li>
 </ul>
-<h4 id="Second-order-conditions">Second-order conditions</h4>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117173919.png" alt="image-20210117173919136" style="zoom:67%;" />
-<h4 id="More-constraints-on-convex-function">More constraints on convex function</h4>
-<h5 id="beta-smooth">$\beta$-smooth</h5>
+<h4 id="second-order-conditions">Second-order conditions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117173919.png" alt="image-20210117173919136" style="zoom:67%;" /></p>
+<h4 id="more-constraints-on-convex-function">More constraints on convex function</h4>
+<h5 id="beta-smooth"><span class="math inline">\(\beta\)</span>-smooth</h5>
 <ul>
-<li>Definition: a continuously function $f$ is $\beta$-smooth if the gradient $\nabla f$ is $\beta$-Lipschitz, that is $|\nabla f(x)-\nabla f(y)|\le\beta|x-y|$.</li>
-<li><em><strong>If $f$ is twice differentiable then this is equivalent to the eigenvalues of the Hessians being smaller than $\beta$ at any point.</strong></em> , $\nabla^2f(x)\preceq\beta \mathrm{I}_n,\forall x$.</li>
-<li><font color='green'>smoothness removes dependency from the averaging scheme</font></li>
-<li><font color='cyan'>If extend the $\beta$-smooth to multi power, it’s called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H">Holder condition</a></font></li>
+<li>Definition: a continuously function <span class="math inline">\(f\)</span> is <span class="math inline">\(\beta\)</span>-smooth if the gradient <span class="math inline">\(\nabla f\)</span> is <span class="math inline">\(\beta\)</span>-Lipschitz, that is <span class="math inline">\(\|\nabla f(x)-\nabla f(y)\|\le\beta\|x-y\|\)</span>.</li>
+<li><strong><em>If <span class="math inline">\(f\)</span> is twice differentiable then this is equivalent to the eigenvalues of the Hessians being smaller than <span class="math inline">\(\beta\)</span> at any point.</em></strong> , <span class="math inline">\(\nabla^2f(x)\preceq\beta \mathrm{I}_n,\forall x\)</span>.</li>
+<li><font color='green'>smoothness removes dependency from the averaging scheme</font><br />
+</li>
+<li><font color='cyan'>If extend the <span class="math inline">\(\beta\)</span>-smooth to multi power, it's called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/H">Holder condition</a></font><br />
+</li>
 <li>The bigger your function changes in gradients, the upper you have to explore.</li>
 </ul>
-<h5 id="alpha-strong-convexity">$\alpha$-strong convexity</h5>
+<h5 id="alpha-strong-convexity"><span class="math inline">\(\alpha\)</span>-strong convexity</h5>
 <p>Strong convexity can significantly speed-up the convergence of first order methods.</p>
 <ul>
-<li>
-<p>Definition</p>
-<p>We say that $f:\mathcal{X}\rightarrow\mathbb{R}$ is a $\alpha$<em>-strongly convex</em> if it satisfies the following improved subgradient inequality:</p>
-<p>$f(x)-f(y)\le\nabla f(x)^T(x-y)-\frac{\alpha}{2}|x-y|^2$. A large value of $\alpha$ will lead to a faster rate.  A $\alpha$<strong>-strong convexity for twice differential function $f$ can also be interpreted as $\nabla^2f(x)\succeq\alpha \mathrm{I}_n,\forall x$</strong>.</p>
-</li>
-<li>
-<p>Strong convexity plus $\beta$-smoothness will lead to the gradient descent with a constant step-size achieves a linear rate of convergence, precisely the oracle complexity will be $O(\frac{\beta}{\alpha}\log(1/\varepsilon)), \beta\ge\alpha$. In some sense strong convexity is a dual assumption to smoothness, and in fact this can be made precise within the framework of Fenchel duality.</p>
-</li>
-<li>
-<p>$\alpha$ can often be reviewed as large as the sample size. Thus reducing the number of step from <strong>sample size</strong> to $\sqrt{\mathrm{sample \quad size}}$ (cause $\kappa=\frac{\beta}{\alpha}$ for $\beta$-smooth and $\alpha$-strong function, and in basic gradient descent algorithm, to reach $\epsilon$-accuracy, it requires $\mathcal{O}(\kappa\log(\frac{1}{\epsilon}))$, and for Nesterov’s Accelerated Gradient Descent attains the improved oracle complexity of $\mathcal{O}(\sqrt{\kappa}\log(\frac{1}{\epsilon}))$) can be a huge deal, especially in large scale applications.</p>
-</li>
+<li><p>Definition</p>
+<p>We say that <span class="math inline">\(f:\mathcal{X}\rightarrow\mathbb{R}\)</span> is a <span class="math inline">\(\alpha\)</span><em>-strongly convex</em> if it satisfies the following improved subgradient inequality:</p>
+<p><span class="math inline">\(f(x)-f(y)\le\nabla f(x)^T(x-y)-\frac{\alpha}{2}\|x-y\|^2\)</span>. A large value of <span class="math inline">\(\alpha\)</span> will lead to a faster rate. A <span class="math inline">\(\alpha\)</span><strong>-strong convexity for twice differential function <span class="math inline">\(f\)</span> can also be interpreted as <span class="math inline">\(\nabla^2f(x)\succeq\alpha \mathrm{I}_n,\forall x\)</span></strong>.</p></li>
+<li><p>Strong convexity plus <span class="math inline">\(\beta\)</span>-smoothness will lead to the gradient descent with a constant step-size achieves a linear rate of convergence, precisely the oracle complexity will be <span class="math inline">\(O(\frac{\beta}{\alpha}\log(1/\varepsilon)), \beta\ge\alpha\)</span>. In some sense strong convexity is a dual assumption to smoothness, and in fact this can be made precise within the framework of Fenchel duality.</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> can often be reviewed as large as the sample size. Thus reducing the number of step from <strong>sample size</strong> to <span class="math inline">\(\sqrt{\mathrm{sample \quad size}}\)</span> (cause <span class="math inline">\(\kappa=\frac{\beta}{\alpha}\)</span> for <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strong function, and in basic gradient descent algorithm, to reach <span class="math inline">\(\epsilon\)</span>-accuracy, it requires <span class="math inline">\(\mathcal{O}(\kappa\log(\frac{1}{\epsilon}))\)</span>, and for Nesterov's Accelerated Gradient Descent attains the improved oracle complexity of <span class="math inline">\(\mathcal{O}(\sqrt{\kappa}\log(\frac{1}{\epsilon}))\)</span>) can be a huge deal, especially in large scale applications.</p></li>
 </ul>
-<h4 id="Examples-of-Convex-functions">Examples of Convex functions</h4>
+<h4 id="examples-of-convex-functions">Examples of Convex functions</h4>
 <ul>
 <li><em>Norms</em></li>
 <li><em>Max function</em></li>
-<li><em>Quadratic-over-linear function</em> $\frac{x^2}{y}$</li>
-<li><em>Log-sum-exp</em>: $\log(e^{x_1}+\cdots+e^{x_n})$, which is regarded as a differentiable approximation of the max function</li>
-<li><em>Geometric mean</em>: $(\prod\limits_{i=1}^{n}x_i)^{1/n}$, concave</li>
-<li><em>Log-determinant</em>: $\log\det X$, concave</li>
+<li><em>Quadratic-over-linear function</em> <span class="math inline">\(\frac{x^2}{y}\)</span></li>
+<li><em>Log-sum-exp</em>: <span class="math inline">\(\log(e^{x_1}+\cdots+e^{x_n})\)</span>, which is regarded as a differentiable approximation of the max function</li>
+<li><em>Geometric mean</em>: <span class="math inline">\((\prod\limits_{i=1}^{n}x_i)^{1/n}\)</span>, concave</li>
+<li><em>Log-determinant</em>: <span class="math inline">\(\log\det X\)</span>, concave</li>
 </ul>
-<p>For proofs, check Chapter $3.1.5$ of <a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a>.</p>
-<h4 id="Sublevel-sets">Sublevel sets</h4>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181258.png" alt="image-20210117181258728" style="zoom:50%;" />
-<h4 id="Epigraph">Epigraph</h4>
+<p>For proofs, check Chapter <span class="math inline">\(3.1.5\)</span> of <a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a>.</p>
+<h4 id="sublevel-sets">Sublevel sets</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181258.png" alt="image-20210117181258728" style="zoom:50%;" /></p>
+<h4 id="epigraph">Epigraph</h4>
 <p>A function is convex if and only if its epigraph is a convex set.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181415.png" alt="image-20210117181415039" style="zoom:50%;" />
-<h4 id="Jensen’s-inequality-and-extensions">Jensen’s inequality and extensions</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117181415.png" alt="image-20210117181415039" style="zoom:50%;" /></p>
+<h4 id="jensens-inequality-and-extensions">Jensen's inequality and extensions</h4>
 <p>Once a function is convex, then you can get</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117185801.png" alt="image-20210117185801678" style="zoom:50%;" /> the simplest version of it is $f(\frac{x+y}{2})\le\frac{f(x)+f(y)}{2}$.</p>
-<h4 id="Holder’s-inequality">Holder’s inequality</h4>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190336.png" alt="image-20210117190336823" style="zoom:50%;" />
-<h4 id="Operations-that-preserve-convexity">Operations that preserve convexity</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117185801.png" alt="image-20210117185801678" style="zoom:50%;" /> the simplest version of it is <span class="math inline">\(f(\frac{x+y}{2})\le\frac{f(x)+f(y)}{2}\)</span>.</p>
+<h4 id="holders-inequality">Holder's inequality</h4>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190336.png" alt="image-20210117190336823" style="zoom:50%;" /></p>
+<h4 id="operations-that-preserve-convexity">Operations that preserve convexity</h4>
 <ul>
-<li>
-<p>Nonnegative weighted sums: $f=w_1f_1+\cdots+w_mf_m$</p>
-</li>
-<li>
-<p>Composition with an affine mapping: $g(x)=f(Ax+b)$. If $f$ is convex, so is $g$; if $f$ is concave, so is $g$.</p>
-</li>
-<li>
-<p>Pointwise maximum and suprenum: $f(x)=\max{f_1(x),f_2(x)}$ and $f(x)=\max{f_1(x),\cdots,f_m(x)}$</p>
-</li>
-<li>
-<p>Composition: $f(x)=h(g(x))$</p>
+<li><p>Nonnegative weighted sums: <span class="math inline">\(f=w_1f_1+\cdots+w_mf_m\)</span></p></li>
+<li><p>Composition with an affine mapping: <span class="math inline">\(g(x)=f(Ax+b)\)</span>. If <span class="math inline">\(f\)</span> is convex, so is <span class="math inline">\(g\)</span>; if <span class="math inline">\(f\)</span> is concave, so is <span class="math inline">\(g\)</span>.</p></li>
+<li><p>Pointwise maximum and suprenum: <span class="math inline">\(f(x)=\max\{f_1(x),f_2(x)\}\)</span> and <span class="math inline">\(f(x)=\max\{f_1(x),\cdots,f_m(x)\}\)</span></p></li>
+<li><p>Composition: <span class="math inline">\(f(x)=h(g(x))\)</span></p>
 <ul>
-<li>
-<p>Scalar composition</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190943.png" alt="image-20210117190943043" style="zoom:50%;" />
-</li>
-<li>
-<p>Vector composition $f(x)=h(g(x))=h(g_1(x),\cdots,g_k(x))$</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117191112.png" alt="image-20210117191112754" style="zoom:50%;" />
-</li>
-<li>
-<p>Minimization</p>
-</li>
+<li><p>Scalar composition</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117190943.png" alt="image-20210117190943043" style="zoom:50%;" /></p></li>
+<li><p>Vector composition <span class="math inline">\(f(x)=h(g(x))=h(g_1(x),\cdots,g_k(x))\)</span></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117191112.png" alt="image-20210117191112754" style="zoom:50%;" /></p></li>
+<li><p>Minimization</p></li>
+</ul></li>
 </ul>
-</li>
+<h3 id="typical-numerical-optimization">Typical Numerical optimization</h3>
+<h4 id="gradient-descent">Gradient descent</h4>
+<p>The basic principle behind <strong>gradient descent</strong> is to make a small step in the direction that minimizes the local first order Taylor approximation of <span class="math inline">\(f\)</span> (also known as the steepest descent direction). This kind of methods will <strong>obtain an oracle complexity <em>independent of the dimension</em>.</strong></p>
+<p><span class="math inline">\(x_{t+1}=x_t-\eta\nabla f(x_t)\)</span></p>
+<p>Taking <span class="math inline">\(f(w)=\frac{1}{2}w^TAw-b^Tw,w\in\mathbb{R}^n\)</span> into consideration, suppose <span class="math inline">\(A\)</span> is symmetric and invertible, then <span class="math inline">\(A=Q\Lambda Q^T,\Lambda=(\lambda_1,\cdots,\lambda_n),\lambda_1\le\lambda_2\le\cdots\le\lambda_{n-1}\le\lambda_n\)</span>.</p>
+<ul>
+<li><p>All errors are not made equal. Indeed, there are different kinds of errors, <span class="math inline">\(n\)</span> to be exact, one for each of the eigenvectors of <span class="math inline">\(A\)</span>.</p>
+<p><span class="math inline">\(f(w^k)-f(w^*)=\sum(1-\alpha\lambda_i)^{2k}\lambda_i[x_i^0]^2\)</span></p></li>
+<li><p><strong>Denote the condition number <span class="math inline">\(\kappa=\frac{\lambda_n}{\lambda_1}\)</span>, then the bigger the <span class="math inline">\(\kappa\)</span> is, the slower gradient descent will be</strong>, cause the condition number is a direct description of pathological curvature.</p></li>
+<li><p><strong>The optimal step-size causes the first and last eigenvectors to converge at the same rate.</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124212843.png" alt="image-20210124212843050" style="zoom:50%;" /></p></li>
 </ul>
-<h3 id="Typical-Numerical-optimization">Typical Numerical optimization</h3>
-<h4 id="Gradient-descent">Gradient descent</h4>
-<p>The basic principle behind <strong>gradient descent</strong> is to make a small step in the direction that minimizes the local first order Taylor approximation of $f$ (also known as the steepest descent direction). This kind of methods will <strong>obtain an oracle complexity <em>independent of the dimension</em>.</strong></p>
-<p>$x_{t+1}=x_t-\eta\nabla f(x_t)$</p>
-<p>Taking $f(w)=\frac{1}{2}w^TAw-b^Tw,w\in\mathbb{R}^n$ into consideration, suppose $A$ is symmetric and invertible, then $A=Q\Lambda Q^T,\Lambda=(\lambda_1,\cdots,\lambda_n),\lambda_1\le\lambda_2\le\cdots\le\lambda_{n-1}\le\lambda_n$.</p>
+<h4 id="projected-gradient-descent">Projected gradient descent</h4>
 <ul>
-<li>
-<p>All errors are not made equal. Indeed, there are different kinds of errors, $n$ to be exact, one for each of the eigenvectors of $A$.</p>
-<p>$f(w^k)-f(w^*)=\sum(1-\alpha\lambda_i)^{2k}\lambda_i[x_i^0]^2$</p>
-</li>
-<li>
-<p><strong>Denote the condition number $\kappa=\frac{\lambda_n}{\lambda_1}$, then the bigger the $\kappa$ is, the slower gradient descent will be</strong>, cause the condition number is a direct description of pathological curvature.</p>
-</li>
-<li>
-<p><strong>The optimal step-size causes the first and last eigenvectors to converge at the same rate.</strong></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124212843.png" alt="image-20210124212843050" style="zoom:50%;" />
-</li>
+<li><p>Subgradient</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222307.png" alt="image-20210117222306873" style="zoom:40%;" /></p></li>
+<li><p>Projected subgradient descent</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222725.png" alt="image-20210117222725673" style="zoom:50%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117223015.png" alt="image-20210117222937543" style="zoom:40%;" /></p></li>
 </ul>
-<h4 id="Projected-gradient-descent">Projected gradient descent</h4>
+<h4 id="gradient-descent-with-momentum-polyaks-momentum"><a target="_blank" rel="noopener" href="https://distill.pub/2017/momentum/">Gradient descent with momentum</a> : Polyak's Momentum</h4>
 <ul>
-<li>
-<p>Subgradient</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222307.png" alt="image-20210117222306873" style="zoom:40%;" />
-</li>
-<li>
-<p>Projected subgradient descent</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117222725.png" alt="image-20210117222725673" style="zoom:50%;" />
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117223015.png" alt="image-20210117222937543" style="zoom:40%;" />
-</li>
+<li><p>Sometimes SGD fail with a reason of pathological curvature of objective. (like valley, trench)</p></li>
+<li><p>Momentum modify gradient descent by adding a short-term memory</p>
+<p><span class="math inline">\(y_{t+1}=\beta y_t+\nabla f(x_t)\\x_{t+1}=x_{t}-\alpha y_{t+1}\)</span>.</p>
+<p>When <span class="math inline">\(\beta=0\)</span>, it's gradient descent.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124224747.png" alt="image-20210124224747333" style="zoom:50%;" /></p></li>
+<li><p>Momentum allows us to crank up the step-size up by a factor of 2 before diverging.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124225628.png" alt="image-20210124225628085" style="zoom:50%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124225657.png" alt="image-20210124225656929" style="zoom:50%;" /></p></li>
+<li><p>Optimize over <span class="math inline">\(\beta\)</span>: The critical value of <span class="math inline">\(\beta = (1 - \sqrt{\alpha \lambda_i})^2\)</span> gives us a convergence rate (in eigenspace <span class="math inline">\(i\)</span>) of <span class="math inline">\(1 - \sqrt{\alpha\lambda_i}\)</span>. A square root improvement over gradient descent, <span class="math inline">\(1-\alpha\lambda_i\)</span>! Alas, this only applies to the error in the <span class="math inline">\(i^{th}\)</span> eigenspace, with <span class="math inline">\(\alpha\)</span> fixed.</p></li>
+<li><p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124231402.png" alt="image-20210124231402777" style="zoom:50%;" /></p></li>
+<li><p><strong>Failing</strong>: there exist strongly-convex and smooth functions for which, by choosing carefully the hyperparameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> and the initial condition <span class="math inline">\(x_0\)</span>, the heavy-ball method fails to converge.</p></li>
 </ul>
-<h4 id="Gradient-descent-with-momentum-Polyak’s-Momentum"><a target="_blank" rel="noopener" href="https://distill.pub/2017/momentum/">Gradient descent with momentum</a> : Polyak’s Momentum</h4>
+<h4 id="nesterovs-accelerated-gradient-descent">Nesterov’s Accelerated Gradient Descent</h4>
 <ul>
-<li>
-<p>Sometimes SGD fail with a reason of pathological curvature of objective. (like valley, trench)</p>
-</li>
-<li>
-<p>Momentum modify gradient descent by adding a short-term memory</p>
-<p>$y_{t+1}=\beta y_t+\nabla f(x_t)\x_{t+1}=x_{t}-\alpha y_{t+1}$.</p>
-<p>When $\beta=0$, it’s gradient descent.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124224747.png" alt="image-20210124224747333" style="zoom:50%;" />
-</li>
-<li>
-<p>Momentum allows us to crank up the step-size up by a factor of 2 before diverging.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124225628.png" alt="image-20210124225628085" style="zoom:50%;" />
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124225657.png" alt="image-20210124225656929" style="zoom:50%;" />
-</li>
-<li>
-<p>Optimize over $\beta$: The critical value of $\beta = (1 - \sqrt{\alpha \lambda_i})^2$ gives us a convergence rate (in eigenspace $i$) of $1 - \sqrt{\alpha\lambda_i}$. A square root improvement over gradient descent, $1-\alpha\lambda_i$! Alas, this only applies to the error in the $i^{th}$ eigenspace, with $\alpha$ fixed.</p>
-</li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124231402.png" alt="image-20210124231402777" style="zoom:50%;" />
-</li>
-<li>
-<p><strong>Failing</strong>: there exist strongly-convex and smooth functions for which, by choosing carefully the hyperparameters $\alpha$ and $\beta$ and the initial condition $x_0$, the heavy-ball method fails to converge.</p>
-</li>
+<li><p><a target="_blank" rel="noopener" href="https://blogs.princeton.edu/imabandit/2014/03/06/nesterovs-accelerated-gradient-descent-for-smooth-and-strongly-convex-optimization/">Some notes of it</a></p></li>
+<li><p>Iterations: starting at an arbitrary initial point <span class="math inline">\(x_1=y_1\)</span></p>
+<p><span class="math display">\[y_{s+1}=x_s-\frac{1}{\beta}\nabla f(x_s),\\x_{s+1}=(1+\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})y_{s+1}-\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}y_s\]</span></p></li>
+<li><p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex, then Nesterov's gradient descent satisfies for <span class="math inline">\(t\ge0\)</span>, <span class="math inline">\(f(y_t)-f(x^*)\le\frac{\alpha+\beta}{2}\|x_1-x^*\|^2\exp{(-\frac{t-1}{\sqrt{\kappa}})}\)</span> .</font></p></li>
+<li><p><strong>Converge in <span class="math inline">\(\mathcal{O}(\frac{1}{T^2})\)</span> for smooth case, and <span class="math inline">\(\mathcal{O}(\exp(-\frac{T}{\sqrt{\kappa}}))\)</span>, it guaranteed convergence for quadratic functions (and not piece-wise quadractic)</strong></p></li>
 </ul>
-<h4 id="Nesterov’s-Accelerated-Gradient-Descent">Nesterov’s Accelerated Gradient Descent</h4>
+<h4 id="stochastic-gradient-descent">Stochastic gradient descent</h4>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://blogs.princeton.edu/imabandit/2014/03/06/nesterovs-accelerated-gradient-descent-for-smooth-and-strongly-convex-optimization/">Some notes of it</a></p>
-</li>
-<li>
-<p>Iterations: starting at an arbitrary initial point $x_1=y_1$</p>
-<p>$$y_{s+1}=x_s-\frac{1}{\beta}\nabla f(x_s),\x_{s+1}=(1+\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})y_{s+1}-\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}y_s$$</p>
-</li>
-<li>
-<p><font color='blue'>Let $f$ be $\beta$-smooth and $\alpha$-strongly convex, then Nesterov’s gradient descent satisfies for $t\ge0$, $f(y_t)-f(x^<em>)\le\frac{\alpha+\beta}{2}|x_1-x^</em>|^2\exp{(-\frac{t-1}{\sqrt{\kappa}})}$ .</font></p>
-</li>
-<li>
-<p><strong>Converge in $\mathcal{O}(\frac{1}{T^2})$ for smooth case, and $\mathcal{O}(\exp(-\frac{T}{\sqrt{\kappa}}))$, it guaranteed convergence for quadratic functions (and not piece-wise quadractic)</strong></p>
-</li>
-</ul>
-<h4 id="Stochastic-gradient-descent">Stochastic gradient descent</h4>
+<li><p>Cases: one is <span class="math inline">\(\mathbb{E}_{\xi}\nabla_x\ell(x,\xi)\in\part f(x)\)</span>, where <span class="math inline">\(\xi\)</span> is sampled. This method cannot be reproduced; the other is directly minimize <span class="math inline">\(f(x)=\frac{1}{m}\sum\limits_{i=1}^{m}f_i(x)\)</span>, here gradient is reported as <span class="math inline">\(\nabla f_I(x)\)</span>, where <span class="math inline">\(I\in[m]\)</span>, this method can be reproduced.</p></li>
+<li><p>Non-smooth stochastic optimization</p>
 <ul>
-<li>
-<p>Cases: one is $\mathbb{E}<em>{\xi}\nabla_x\ell(x,\xi)\in\part f(x)$, where $\xi$ is sampled. This method cannot be reproduced; the other is directly minimize $f(x)=\frac{1}{m}\sum\limits</em>{i=1}^{m}f_i(x)$, here gradient is reported as $\nabla f_I(x)$, where $I\in[m]$, this method can be reproduced.</p>
-</li>
-<li>
-<p>Non-smooth stochastic optimization</p>
+<li>Definition: there exists <span class="math inline">\(B&gt;0\)</span> such that <span class="math inline">\(\mathbb{E}\|\tilde{g}(x)\|_*^2\le B^2\)</span> for all <span class="math inline">\(x\in\mathcal{X}\)</span></li>
+<li><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202153046.png" alt="image-20210202153043826" style="zoom:67%;" /></li>
+<li><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202153117.png" alt="image-20210202153116696" style="zoom:67%;" /></li>
+</ul></li>
+<li><p>Smooth stochastic optimization and mini-batch SGD</p>
 <ul>
-<li>Definition: there exists $B&gt;0$ such that $\mathbb{E}|\tilde{g}(x)|_*^2\le B^2$ for all $x\in\mathcal{X}$</li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202153046.png" alt="image-20210202153043826" style="zoom:67%;" />
-</li>
-<li>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202153117.png" alt="image-20210202153116696" style="zoom:67%;" />
-</li>
-</ul>
-</li>
-<li>
-<p>Smooth stochastic optimization and mini-batch SGD</p>
-<ul>
-<li>
-<p>Definition: there exists $\sigma&gt;0$ such that $\mathbb{E}|\tilde{g}(x)-\nabla f(x)|_*^2\le \sigma^2$ for all $x\in\mathcal{X}$.</p>
-</li>
-<li>
-<p><font color='orange'>smoothness does not bring any acceleration for a general stochastic<br>
-oracle , while in exact orale case it does.</font></p>
-</li>
-<li>
-<p><font color='blue'>Stochastic smooth optimization converge in $\frac{1}{\sqrt{t}}$. Deterministic smooth optimization converge in $\frac{1}{t}$</font></p>
-</li>
-<li>
-<p><font color='blue'>Mini-batch SGD converges between $\frac{1}{\sqrt{t}}$ and  $\frac{1}{t}$.</font></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202154653.png" alt="image-20210202154653243" style="zoom:67%;" />
-</li>
+<li><p>Definition: there exists <span class="math inline">\(\sigma&gt;0\)</span> such that <span class="math inline">\(\mathbb{E}\|\tilde{g}(x)-\nabla f(x)\|_*^2\le \sigma^2\)</span> for all <span class="math inline">\(x\in\mathcal{X}\)</span>.</p></li>
+<li><p><font color='orange'>smoothness does not bring any acceleration for a general stochastic oracle , while in exact orale case it does.</font></p></li>
+<li><p><font color='blue'>Stochastic smooth optimization converge in <span class="math inline">\(\frac{1}{\sqrt{t}}\)</span>. Deterministic smooth optimization converge in <span class="math inline">\(\frac{1}{t}\)</span></font></p></li>
+<li><p><font color='blue'>Mini-batch SGD converges between <span class="math inline">\(\frac{1}{\sqrt{t}}\)</span> and  <span class="math inline">\(\frac{1}{t}\)</span>.</font></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210202154653.png" alt="image-20210202154653243" style="zoom:67%;" /></p></li>
 <li></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Relations">Relations</h4>
-<h5 id="Generalization">Generalization</h5>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124232634.png" alt="image-20210124232634072" style="zoom:50%;" />
-<h5 id="The-momentum-SGD-and-Adaptive-optimizers">The momentum SGD and Adaptive optimizers</h5>
+<h4 id="relations">Relations</h4>
+<h5 id="generalization">Generalization</h5>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124232634.png" alt="image-20210124232634072" style="zoom:50%;" /></p>
+<h5 id="the-momentum-sgd-and-adaptive-optimizers">The momentum SGD and Adaptive optimizers</h5>
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03471.pdf">YellowFin and the Art of Momentum Tuning</a></p>
 <ul>
-<li>Summary:  hand-tuning a single learning rate and momentum makes it competitive with Adam.  The proposed YellowFin (an automatic fine tuner for momentum and learning rate in SGD), can converge in fewer iterations than Adam on ResNets and LSTMs for image recognition, language modeling and constituency parsing.</li>
+<li>Summary: hand-tuning a single learning rate and momentum makes it competitive with Adam. The proposed YellowFin (an automatic fine tuner for momentum and learning rate in SGD), can converge in fewer iterations than Adam on ResNets and LSTMs for image recognition, language modeling and constituency parsing.</li>
 <li>Adaptive optimizers: like Adam, AdaGrad, RmsProp</li>
 <li>For details of paper check <a href="">here</a></li>
 </ul>
-<h3 id="Dimension-free-convex-optimization">Dimension-free convex optimization</h3>
-<h4 id="Projected-subgradient-descent-for-Lipschitz-functions">Projected subgradient descent for Lipschitz functions</h4>
+<h3 id="dimension-free-convex-optimization">Dimension-free convex optimization</h3>
+<h4 id="projected-subgradient-descent-for-lipschitz-functions">Projected subgradient descent for Lipschitz functions</h4>
 <ul>
-<li>
-<p><strong>Theorem</strong></p>
-<p>Assume that $\mathcal{X}$ is contained in an Euclidean ball centered at $x_1\in \mathcal{X}$ and of radius $R$. Assume that $f$ is such that for any $x\in \mathcal{X}$ and of any $g\in\part f(x)$ (assume $\part f(x)\ne \emptyset$) one has $|g|\le L$. (This implies that $f$ is L-Lipschitz on $\mathcal{X}$, that is $|f(x)-f(y)|\le L|x-y|$)</p>
-<p><font color='blue'><strong>The projected subgradient descent method with $\eta=\frac{R}{L\sqrt{t}}$ satisfies</strong> $f(\frac{1}{t}\sum\limits_{s=1}^{t}x_s)-f(x^*)\le\frac{RL}{\sqrt{t}}$</font></p>
+<li><p><strong>Theorem</strong></p>
+<p>Assume that <span class="math inline">\(\mathcal{X}\)</span> is contained in an Euclidean ball centered at <span class="math inline">\(x_1\in \mathcal{X}\)</span> and of radius <span class="math inline">\(R\)</span>. Assume that <span class="math inline">\(f\)</span> is such that for any <span class="math inline">\(x\in \mathcal{X}\)</span> and of any <span class="math inline">\(g\in\part f(x)\)</span> (assume <span class="math inline">\(\part f(x)\ne \emptyset\)</span>) one has <span class="math inline">\(\|g\|\le L\)</span>. (This implies that <span class="math inline">\(f\)</span> is L-Lipschitz on <span class="math inline">\(\mathcal{X}\)</span>, that is <span class="math inline">\(\|f(x)-f(y)\|\le L\|x-y\|\)</span>)</p>
+<p><font color='blue'><strong>The projected subgradient descent method with <span class="math inline">\(\eta=\frac{R}{L\sqrt{t}}\)</span> satisfies</strong> <span class="math inline">\(f(\frac{1}{t}\sum\limits_{s=1}^{t}x_s)-f(x^*)\le\frac{RL}{\sqrt{t}}\)</span></font></p>
 <ul>
-<li>
-<p>Proof</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117225400.png" alt="image-20210117225359857" style="zoom:40%;" />
-</li>
-<li>
-<p><font color='blue'><strong>The rate is unimprovable from a black-box perspective.</strong></font></p>
-</li>
+<li><p>Proof</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117225400.png" alt="image-20210117225359857" style="zoom:40%;" /></p></li>
+<li><p><font color='blue'><strong>The rate is unimprovable from a black-box perspective.</strong></font></p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Gradient-descent-for-smooth-functions">Gradient descent for smooth functions</h4>
-<h5 id="Theorems-under-unconstrained-cases">Theorems under unconstrained cases</h5>
-<p>In this section all $f$ is a convex and $\beta$-smooth function on $\mathbb{R}^n$.</p>
+<h4 id="gradient-descent-for-smooth-functions">Gradient descent for smooth functions</h4>
+<h5 id="theorems-under-unconstrained-cases">Theorems under unconstrained cases</h5>
+<p>In this section all <span class="math inline">\(f\)</span> is a convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <ul>
-<li>
-<p><strong>Theorem</strong></p>
-<p><font color='blue'>Let $f$ be convex and $\beta$-smooth function on $\mathbb{R}^n$. Then gradient descent with $\eta=\frac{1}{\beta}$ satisfies $f(x_t)-f(x^<em>)\le\frac{2\beta|x_1-x^</em>|^2}{t-1}$ .</font></p>
-<p>For the proof check $3.2$ in  <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a>.</p>
-</li>
-<li>
-<p>Gradient descent attains a much faster rate in $\beta$-smooth situation than in the non-smooth case of the previous section.</p>
-</li>
-<li>
-<p>The Definition of smooth convex functions</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117233245.png" alt="image-20210117233244773" style="zoom:50%;" />
-</li>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathbb{R}^n\)</span>. Then gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies <span class="math inline">\(f(x_t)-f(x^*)\le\frac{2\beta\|x_1-x^*\|^2}{t-1}\)</span> .</font></p>
+<p>For the proof check <span class="math inline">\(3.2\)</span> in <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a>.</p></li>
+<li><p>Gradient descent attains a much faster rate in <span class="math inline">\(\beta\)</span>-smooth situation than in the non-smooth case of the previous section.</p></li>
+<li><p>The Definition of smooth convex functions</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210117233245.png" alt="image-20210117233244773" style="zoom:50%;" /></p></li>
 </ul>
-<h5 id="The-constrained-cases">The constrained cases</h5>
-<p>This time <em>consider the projected gradient descent algorithm $x_{t+1}=\prod_{\mathcal{X}}(x_t-\eta\nabla f(x_t))$</em></p>
+<h5 id="the-constrained-cases">The constrained cases</h5>
+<p>This time <em>consider the projected gradient descent algorithm <span class="math inline">\(x_{t+1}=\prod_{\mathcal{X}}(x_t-\eta\nabla f(x_t))\)</span></em></p>
 <ul>
 <li><strong>Lemma</strong></li>
 </ul>
-<p><font color='orange'>Let $x,y\in \mathcal{X},x^+=\prod_{\mathcal{X}}(x-\frac{1}{\beta}\nabla f(x))$ and $g_{\mathcal{X}}(x)=\beta (x-x^+)$ , then the following holds true: $f(x^+)-f(y)\le g_{\mathcal{X}}(x)^T(x-y)-\frac{1}{2\beta}|g_{\mathcal{X}}(x)|^2$.</font></p>
+<p><font color='orange'>Let <span class="math inline">\(x,y\in \mathcal{X},x^+=\prod_{\mathcal{X}}(x-\frac{1}{\beta}\nabla f(x))\)</span> and <span class="math inline">\(g_{\mathcal{X}}(x)=\beta (x-x^+)\)</span> , then the following holds true: <span class="math inline">\(f(x^+)-f(y)\le g_{\mathcal{X}}(x)^T(x-y)-\frac{1}{2\beta}\|g_{\mathcal{X}}(x)\|^2\)</span>.</font></p>
 <ul>
 <li><strong>Theorem</strong></li>
 </ul>
-<p><font color='blue'>Let $f$ be convex and $\beta$-smooth function on $\mathcal{X}$. Then projected gradient descent with $\eta=\frac{1}{\beta}$ satisfies $f(x_t)-f(x^<em>)\le\frac{3\beta|x_1-x^</em>|^2+f(x_1)-f(x^*)}{t}$ .</font></p>
-<h4 id="Strong-convexity">Strong convexity</h4>
-<h5 id="Strongly-convex-and-Lipschitz-functions"><strong>Strongly convex and Lipschitz functions</strong></h5>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210118152328.png" alt="image-20210118152328268" style="zoom:50%;" />
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be convex and <span class="math inline">\(\beta\)</span>-smooth function on <span class="math inline">\(\mathcal{X}\)</span>. Then projected gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies <span class="math inline">\(f(x_t)-f(x^*)\le\frac{3\beta\|x_1-x^*\|^2+f(x_1)-f(x^*)}{t}\)</span> .</font></p>
+<h4 id="strong-convexity">Strong convexity</h4>
+<h5 id="strongly-convex-and-lipschitz-functions"><strong>Strongly convex and Lipschitz functions</strong></h5>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210118152328.png" alt="image-20210118152328268" style="zoom:50%;" /></p>
 <ul>
 <li><strong>Theorem</strong></li>
 </ul>
-<p><font color='blue'>Let $f$ be $L$-Lipschitz and $\alpha$-strongly convex  on $\mathcal{X}$. Then projected gradient descent with $\eta_s=\frac{2}{\alpha(s+1)}$ satisfies $f(\sum\limits_{s=1}^{t}\frac{2s}{t(t+1)}x_s)-f(x^*)\le\frac{2L^2}{\alpha(t+1)}$ .</font></p>
-<p><em>The combination of $\alpha$-strongly convex and $L$-Lipschitz means that function has to be constrained in  a bounded domain.</em></p>
-<h5 id="Strongly-convex-and-smooth-functions"><strong>Strongly convex and smooth functions</strong></h5>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(L\)</span>-Lipschitz and <span class="math inline">\(\alpha\)</span>-strongly convex  on <span class="math inline">\(\mathcal{X}\)</span>. Then projected gradient descent with <span class="math inline">\(\eta_s=\frac{2}{\alpha(s+1)}\)</span> satisfies <span class="math inline">\(f(\sum\limits_{s=1}^{t}\frac{2s}{t(t+1)}x_s)-f(x^*)\le\frac{2L^2}{\alpha(t+1)}\)</span> .</font></p>
+<p><em>The combination of <span class="math inline">\(\alpha\)</span>-strongly convex and <span class="math inline">\(L\)</span>-Lipschitz means that function has to be constrained in a bounded domain.</em></p>
+<h5 id="strongly-convex-and-smooth-functions"><strong>Strongly convex and smooth functions</strong></h5>
 <ul>
-<li>
-<p><strong>Theorem</strong></p>
-<p><font color='blue'>Let $f$ be $\beta$-smooth and $\alpha$-strongly convex  on $\mathcal{X}$, then projected gradient descent with $\eta=\frac{1}{\beta}$ satisfies for $t\ge0$, $|x_{t+1}-x^<em>|^2\le\exp(-\frac{t}{\kappa})|x_a -x^</em>|^2$ .</font></p>
-<p>The intuition of changing $\alpha$ and $\beta$: If increasing $\beta$, the upper bound will be decreased, and if increasing $\alpha$, the lower bound will be increased.  <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121112619.png" alt="image-20210121112605020" style="zoom:33%;" /></p>
-</li>
-<li>
-<p><strong>Lemma</strong></p>
-<p><font color='orange'>Let $f$ be $\beta$-smooth and $\alpha$-strongly convex  on $\mathbb{R}^n$, then  for all $x,y\in \mathbb{R}^n$, one has $(\nabla f(x)-\nabla f(y))^T(x-y)\ge\frac{\alpha\beta}{\alpha+\beta}|x-y|^2+\frac{1}{\beta+\alpha}|\nabla f(x)-\nabla f(y)|^2$ .</font></p>
-</li>
-<li>
-<p><strong>Theorem</strong></p>
-<p><font color='blue'> Let $f$ be $\beta$-smooth and $\alpha$-strongly convex  on $\mathbb{R}^n$, $\kappa=\frac{\beta}{\alpha}$ as the condition number. Then gradient descent with $\eta=\frac{2}{\beta+\alpha}$ satisfies $f(x_{t+1})-f(x^<em>)\le\frac{\beta}{2}\exp(-\frac{4t}{\kappa+1}|x_1-x^</em>|^2)$   </font></p>
-</li>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex on <span class="math inline">\(\mathcal{X}\)</span>, then projected gradient descent with <span class="math inline">\(\eta=\frac{1}{\beta}\)</span> satisfies for <span class="math inline">\(t\ge0\)</span>, <span class="math inline">\(\|x_{t+1}-x^*\|^2\le\exp(-\frac{t}{\kappa})\|x_a -x^*\|^2\)</span> .</font></p>
+<p>The intuition of changing <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>: If increasing <span class="math inline">\(\beta\)</span>, the upper bound will be decreased, and if increasing <span class="math inline">\(\alpha\)</span>, the lower bound will be increased. <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121112619.png" alt="image-20210121112605020" style="zoom:33%;" /></p></li>
+<li><p><strong>Lemma</strong></p>
+<p><font color='orange'>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex on <span class="math inline">\(\mathbb{R}^n\)</span>, then for all <span class="math inline">\(x,y\in \mathbb{R}^n\)</span>, one has <span class="math inline">\((\nabla f(x)-\nabla f(y))^T(x-y)\ge\frac{\alpha\beta}{\alpha+\beta}\|x-y\|^2+\frac{1}{\beta+\alpha}\|\nabla f(x)-\nabla f(y)\|^2\)</span> .</font></p></li>
+<li><p><strong>Theorem</strong></p>
+<p><font color='blue'> Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex  on <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\(\kappa=\frac{\beta}{\alpha}\)</span> as the condition number. Then gradient descent with <span class="math inline">\(\eta=\frac{2}{\beta+\alpha}\)</span> satisfies <span class="math inline">\(f(x_{t+1})-f(x^*)\le\frac{\beta}{2}\exp(-\frac{4t}{\kappa+1}\|x_1-x^*\|^2)\)</span>   </font></p></li>
 </ul>
-<h4 id="Lower-bound-–-black-box">Lower bound – black box</h4>
+<h4 id="lower-bound----black-box">Lower bound -- black box</h4>
 <ul>
-<li>
-<p>A black-box procedure is a mapping from “history” to the next query point, that is it maps ($x_a ,g_1,\cdots,x_t,g_t$) (with $g_s\in\part f(x_s)$) to $x_{t+1}$. To simplify, make the following assumption on the black-box procedure: $x_1=0$  and for any $t\ge0，x_{t+1}$ is in the linear span of $g_1,\cdots,g_t$, that is $$x_{t+1}\in\mathrm{Span}(g_t ,\cdots,g_t)\tag{3.15}\label{eq315}$$</p>
-</li>
-<li>
-<p><strong>Theorem</strong></p>
+<li><p>A black-box procedure is a mapping from "history" to the next query point, that is it maps (<span class="math inline">\(x_a ,g_1,\cdots,x_t,g_t\)</span>) (with <span class="math inline">\(g_s\in\part f(x_s)\)</span>) to <span class="math inline">\(x_{t+1}\)</span>. To simplify, make the following assumption on the black-box procedure: <span class="math inline">\(x_1=0\)</span> and for any <span class="math inline">\(t\ge0，x_{t+1}\)</span> is in the linear span of <span class="math inline">\(g_1,\cdots,g_t\)</span>, that is <span class="math display">\[x_{t+1}\in\mathrm{Span}(g_t ,\cdots,g_t)\tag{3.15}\label{eq315}\]</span></p></li>
+<li><p><strong>Theorem</strong></p>
 <ul>
-<li><font color='blue'> Let $t\le n,L,R&gt;0$. There exists a convex and $L$-Lipschitz function $f$ such that for any black-box procedure satisfying  $\eqref{eq315}$, $\min\limits_{1\le s\le t}f(x_s)-\min\limits_{x\in B_2®}f(x_s)\ge\frac{RL}{2(1+\sqrt{t})}$, where $B_2®={x\in\mathbb{R}^n:|x|\le R}$ . There also exists an $\alpha$-strongly convex and  $L$-Lipschitz function $f$ such that for any black-box procedure satisfying  $\eqref{eq315}$, $\min\limits_{1\le s\le t}f(x_s)-\min\limits_{x\in B_2(\frac{L}{2\alpha})}f(x_s)\ge\frac{L^2}{8\alpha t}$</font></li>
-<li><font color='blue'> Let $t\le (n-1)/2,\beta&gt;0$. There exists a $\beta$-smooth convex function $f$ such that for any black-box procedure satisfying  $\eqref{eq315}$, $\min\limits_{1\le s\le t}f(x_s)-f(x^<em>)\ge\frac{3\beta}{32}\frac{|x_1-x^</em>|^2}{(t+1)^2}$.</font></li>
-<li><font color='blue'> Let $\kappa\ge 1$. There exists a $\beta$-smooth and $\alpha$-strongly convex function $f:\ell_2\rightarrow \mathbb{R}$ with $\kappa=\frac{\beta}{\alpha}$ such that for any $t\ge1$ and black-box procedure satisfying  $\eqref{eq315}$ one has $f(x_t)-f(x^<em>)\ge\frac{\alpha}{2}(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^{2(t-1)}|x_1-x^</em>|^2$. Note that for large values of the condition number $\kappa$ one has $(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^{2(t-1)}\approx\exp(-\frac{4(t-1)}{\sqrt{\kappa}})$</font></li>
+<li><font color='blue'> Let <span class="math inline">\(t\le n,L,R&gt;0\)</span>. There exists a convex and <span class="math inline">\(L\)</span>-Lipschitz function <span class="math inline">\(f\)</span> such that for any black-box procedure satisfying  <span class="math inline">\(\eqref{eq315}\)</span>, <span class="math inline">\(\min\limits_{1\le s\le t}f(x_s)-\min\limits_{x\in B_2(R)}f(x_s)\ge\frac{RL}{2(1+\sqrt{t})}\)</span>, where <span class="math inline">\(B_2(R)=\{x\in\mathbb{R}^n:\|x\|\le R\}\)</span> . There also exists an <span class="math inline">\(\alpha\)</span>-strongly convex and <span class="math inline">\(L\)</span>-Lipschitz function <span class="math inline">\(f\)</span> such that for any black-box procedure satisfying <span class="math inline">\(\eqref{eq315}\)</span>, <span class="math inline">\(\min\limits_{1\le s\le t}f(x_s)-\min\limits_{x\in B_2(\frac{L}{2\alpha})}f(x_s)\ge\frac{L^2}{8\alpha t}\)</span></font></li>
+<li><font color='blue'> Let <span class="math inline">\(t\le (n-1)/2,\beta&gt;0\)</span>. There exists a <span class="math inline">\(\beta\)</span>-smooth convex function <span class="math inline">\(f\)</span> such that for any black-box procedure satisfying <span class="math inline">\(\eqref{eq315}\)</span>, <span class="math inline">\(\min\limits_{1\le s\le t}f(x_s)-f(x^*)\ge\frac{3\beta}{32}\frac{\|x_1-x^*\|^2}{(t+1)^2}\)</span>.</font></li>
+<li><font color='blue'> Let <span class="math inline">\(\kappa\ge 1\)</span>. There exists a <span class="math inline">\(\beta\)</span>-smooth and <span class="math inline">\(\alpha\)</span>-strongly convex function <span class="math inline">\(f:\ell_2\rightarrow \mathbb{R}\)</span> with <span class="math inline">\(\kappa=\frac{\beta}{\alpha}\)</span> such that for any <span class="math inline">\(t\ge1\)</span> and black-box procedure satisfying <span class="math inline">\(\eqref{eq315}\)</span> one has <span class="math inline">\(f(x_t)-f(x^*)\ge\frac{\alpha}{2}(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^{2(t-1)}\|x_1-x^*\|^2\)</span>. Note that for large values of the condition number <span class="math inline">\(\kappa\)</span> one has <span class="math inline">\((\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^{2(t-1)}\approx\exp(-\frac{4(t-1)}{\sqrt{\kappa}})\)</span></font></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="References">References</h2>
+<h2 id="references">References</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103359560">【凸优化笔记5】-次梯度方法（Subgradient method）</a></li>
 <li><a target="_blank" rel="noopener" href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1405.4980.pdf">Convex Optimization: Algorithms and Complexity</a></li>
-<li>‘Understanding Analysis’ by Stephen Abbott. It’s a nice and light intro to analysis</li>
+<li>'Understanding Analysis' by Stephen Abbott. It's a nice and light intro to analysis</li>
 </ul>
 
       
@@ -1043,7 +875,7 @@ oracle , while in exact orale case it does.</font></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%87%BD"><span class="toc-number">1.</span> <span class="toc-text">泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8A%A8%E7%82%B9%E5%AE%9A%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">不动点定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E6%80%A7%E7%9A%84%E5%88%A9%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">紧性的利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%BD%A2-Manifolds"><span class="toc-number">1.3.</span> <span class="toc-text">流形(Manifolds)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%92%91%E9%9B%86-Support"><span class="toc-number">1.4.</span> <span class="toc-text">支撑集(Support)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">数学分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lipschitz%E8%BF%9E%E7%BB%AD"><span class="toc-number">2.1.</span> <span class="toc-text">Lipschitz连续</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistical-learning-theory"><span class="toc-number">3.</span> <span class="toc-text">Statistical learning theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">3.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Preliminary"><span class="toc-number">3.2.</span> <span class="toc-text">Preliminary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PAC"><span class="toc-number">3.3.</span> <span class="toc-text">PAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Occam%E2%80%99s-bound"><span class="toc-number">3.4.</span> <span class="toc-text">Occam’s bound</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stability-Generalization"><span class="toc-number">3.5.</span> <span class="toc-text">Stability, Generalization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convex-Optimization"><span class="toc-number">4.</span> <span class="toc-text">Convex Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Estimate-sequence"><span class="toc-number">4.1.</span> <span class="toc-text">Estimate sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convex-sets"><span class="toc-number">4.2.</span> <span class="toc-text">Convex sets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Affine-sets"><span class="toc-number">4.2.1.</span> <span class="toc-text">Affine sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convex-sets-2"><span class="toc-number">4.2.2.</span> <span class="toc-text">Convex sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convex-functions"><span class="toc-number">4.3.</span> <span class="toc-text">Convex functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Convex-functions-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">Convex functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Extended-value-extensions"><span class="toc-number">4.3.2.</span> <span class="toc-text">Extended-value extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#First-order-conditions"><span class="toc-number">4.3.3.</span> <span class="toc-text">First-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Second-order-conditions"><span class="toc-number">4.3.4.</span> <span class="toc-text">Second-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#More-constraints-on-convex-function"><span class="toc-number">4.3.5.</span> <span class="toc-text">More constraints on convex function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#beta-smooth"><span class="toc-number">4.3.5.1.</span> <span class="toc-text">$\beta$-smooth</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#alpha-strong-convexity"><span class="toc-number">4.3.5.2.</span> <span class="toc-text">$\alpha$-strong convexity</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Examples-of-Convex-functions"><span class="toc-number">4.3.6.</span> <span class="toc-text">Examples of Convex functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sublevel-sets"><span class="toc-number">4.3.7.</span> <span class="toc-text">Sublevel sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Epigraph"><span class="toc-number">4.3.8.</span> <span class="toc-text">Epigraph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Jensen%E2%80%99s-inequality-and-extensions"><span class="toc-number">4.3.9.</span> <span class="toc-text">Jensen’s inequality and extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Holder%E2%80%99s-inequality"><span class="toc-number">4.3.10.</span> <span class="toc-text">Holder’s inequality</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Operations-that-preserve-convexity"><span class="toc-number">4.3.11.</span> <span class="toc-text">Operations that preserve convexity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Typical-Numerical-optimization"><span class="toc-number">4.4.</span> <span class="toc-text">Typical Numerical optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-descent"><span class="toc-number">4.4.1.</span> <span class="toc-text">Gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Projected-gradient-descent"><span class="toc-number">4.4.2.</span> <span class="toc-text">Projected gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-descent-with-momentum-Polyak%E2%80%99s-Momentum"><span class="toc-number">4.4.3.</span> <span class="toc-text">Gradient descent with momentum : Polyak’s Momentum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nesterov%E2%80%99s-Accelerated-Gradient-Descent"><span class="toc-number">4.4.4.</span> <span class="toc-text">Nesterov’s Accelerated Gradient Descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stochastic-gradient-descent"><span class="toc-number">4.4.5.</span> <span class="toc-text">Stochastic gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Relations"><span class="toc-number">4.4.6.</span> <span class="toc-text">Relations</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Generalization"><span class="toc-number">4.4.6.1.</span> <span class="toc-text">Generalization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#The-momentum-SGD-and-Adaptive-optimizers"><span class="toc-number">4.4.6.2.</span> <span class="toc-text">The momentum SGD and Adaptive optimizers</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dimension-free-convex-optimization"><span class="toc-number">4.5.</span> <span class="toc-text">Dimension-free convex optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Projected-subgradient-descent-for-Lipschitz-functions"><span class="toc-number">4.5.1.</span> <span class="toc-text">Projected subgradient descent for Lipschitz functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gradient-descent-for-smooth-functions"><span class="toc-number">4.5.2.</span> <span class="toc-text">Gradient descent for smooth functions</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Theorems-under-unconstrained-cases"><span class="toc-number">4.5.2.1.</span> <span class="toc-text">Theorems under unconstrained cases</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#The-constrained-cases"><span class="toc-number">4.5.2.2.</span> <span class="toc-text">The constrained cases</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Strong-convexity"><span class="toc-number">4.5.3.</span> <span class="toc-text">Strong convexity</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Strongly-convex-and-Lipschitz-functions"><span class="toc-number">4.5.3.1.</span> <span class="toc-text">Strongly convex and Lipschitz functions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Strongly-convex-and-smooth-functions"><span class="toc-number">4.5.3.2.</span> <span class="toc-text">Strongly convex and smooth functions</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lower-bound-%E2%80%93-black-box"><span class="toc-number">4.5.4.</span> <span class="toc-text">Lower bound – black box</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%87%BD"><span class="toc-number">1.</span> <span class="toc-text">泛函</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8A%A8%E7%82%B9%E5%AE%9A%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">不动点定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E6%80%A7%E7%9A%84%E5%88%A9%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">紧性的利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%BD%A2manifolds"><span class="toc-number">1.3.</span> <span class="toc-text">流形(Manifolds)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%92%91%E9%9B%86support"><span class="toc-number">1.4.</span> <span class="toc-text">支撑集(Support)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">数学分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lipschitz%E8%BF%9E%E7%BB%AD"><span class="toc-number">2.1.</span> <span class="toc-text">Lipschitz连续</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#statistical-learning-theory"><span class="toc-number">3.</span> <span class="toc-text">Statistical learning theory</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction"><span class="toc-number">3.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preliminary"><span class="toc-number">3.2.</span> <span class="toc-text">Preliminary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pac"><span class="toc-number">3.3.</span> <span class="toc-text">PAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#occams-bound"><span class="toc-number">3.4.</span> <span class="toc-text">Occam&#39;s bound</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stability-generalization"><span class="toc-number">3.5.</span> <span class="toc-text">Stability, Generalization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#convex-optimization"><span class="toc-number">4.</span> <span class="toc-text">Convex Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#estimate-sequence"><span class="toc-number">4.1.</span> <span class="toc-text">Estimate sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convex-sets"><span class="toc-number">4.2.</span> <span class="toc-text">Convex sets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#affine-sets"><span class="toc-number">4.2.1.</span> <span class="toc-text">Affine sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#convex-sets-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">Convex sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#convex-functions"><span class="toc-number">4.3.</span> <span class="toc-text">Convex functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convex-functions-1"><span class="toc-number">4.3.1.</span> <span class="toc-text">Convex functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extended-value-extensions"><span class="toc-number">4.3.2.</span> <span class="toc-text">Extended-value extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#first-order-conditions"><span class="toc-number">4.3.3.</span> <span class="toc-text">First-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#second-order-conditions"><span class="toc-number">4.3.4.</span> <span class="toc-text">Second-order conditions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#more-constraints-on-convex-function"><span class="toc-number">4.3.5.</span> <span class="toc-text">More constraints on convex function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#beta-smooth"><span class="toc-number">4.3.5.1.</span> <span class="toc-text">\(\beta\)-smooth</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#alpha-strong-convexity"><span class="toc-number">4.3.5.2.</span> <span class="toc-text">\(\alpha\)-strong convexity</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#examples-of-convex-functions"><span class="toc-number">4.3.6.</span> <span class="toc-text">Examples of Convex functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sublevel-sets"><span class="toc-number">4.3.7.</span> <span class="toc-text">Sublevel sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#epigraph"><span class="toc-number">4.3.8.</span> <span class="toc-text">Epigraph</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jensens-inequality-and-extensions"><span class="toc-number">4.3.9.</span> <span class="toc-text">Jensen&#39;s inequality and extensions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#holders-inequality"><span class="toc-number">4.3.10.</span> <span class="toc-text">Holder&#39;s inequality</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#operations-that-preserve-convexity"><span class="toc-number">4.3.11.</span> <span class="toc-text">Operations that preserve convexity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typical-numerical-optimization"><span class="toc-number">4.4.</span> <span class="toc-text">Typical Numerical optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gradient-descent"><span class="toc-number">4.4.1.</span> <span class="toc-text">Gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#projected-gradient-descent"><span class="toc-number">4.4.2.</span> <span class="toc-text">Projected gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gradient-descent-with-momentum-polyaks-momentum"><span class="toc-number">4.4.3.</span> <span class="toc-text">Gradient descent with momentum : Polyak&#39;s Momentum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nesterovs-accelerated-gradient-descent"><span class="toc-number">4.4.4.</span> <span class="toc-text">Nesterov’s Accelerated Gradient Descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stochastic-gradient-descent"><span class="toc-number">4.4.5.</span> <span class="toc-text">Stochastic gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#relations"><span class="toc-number">4.4.6.</span> <span class="toc-text">Relations</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#generalization"><span class="toc-number">4.4.6.1.</span> <span class="toc-text">Generalization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#the-momentum-sgd-and-adaptive-optimizers"><span class="toc-number">4.4.6.2.</span> <span class="toc-text">The momentum SGD and Adaptive optimizers</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dimension-free-convex-optimization"><span class="toc-number">4.5.</span> <span class="toc-text">Dimension-free convex optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#projected-subgradient-descent-for-lipschitz-functions"><span class="toc-number">4.5.1.</span> <span class="toc-text">Projected subgradient descent for Lipschitz functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gradient-descent-for-smooth-functions"><span class="toc-number">4.5.2.</span> <span class="toc-text">Gradient descent for smooth functions</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#theorems-under-unconstrained-cases"><span class="toc-number">4.5.2.1.</span> <span class="toc-text">Theorems under unconstrained cases</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#the-constrained-cases"><span class="toc-number">4.5.2.2.</span> <span class="toc-text">The constrained cases</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#strong-convexity"><span class="toc-number">4.5.3.</span> <span class="toc-text">Strong convexity</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#strongly-convex-and-lipschitz-functions"><span class="toc-number">4.5.3.1.</span> <span class="toc-text">Strongly convex and Lipschitz functions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#strongly-convex-and-smooth-functions"><span class="toc-number">4.5.3.2.</span> <span class="toc-text">Strongly convex and smooth functions</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lower-bound----black-box"><span class="toc-number">4.5.4.</span> <span class="toc-text">Lower bound -- black box</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1221,14 +1053,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1242,6 +1066,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,15 +1097,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1477,22 +1309,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

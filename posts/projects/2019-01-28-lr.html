@@ -191,7 +191,7 @@
       
         <p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p>
 <p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p>
-<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
+<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land's IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
 <p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/cloud">here</a>.</p>
 
       
@@ -439,14 +439,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -460,6 +452,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,15 +483,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,22 +695,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

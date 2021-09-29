@@ -10,12 +10,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
+  <meta name="description" content="Paper Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-12-notes-paper-anomaly-stgcn.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
+<meta property="og:description" content="Paper Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition Code here">
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png">
@@ -201,8 +201,8 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1801.07455.pdf">Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition</a></p>
 <p>Code <a target="_blank" rel="noopener" href="https://github.com/yysijie/st-gcn">here</a></p>
 <a id="more"></a>
-<h2 id="Why">Why?</h2>
-<h3 id="Previous-work">Previous work</h3>
+<h2 id="why">Why?</h2>
+<h3 id="previous-work">Previous work</h3>
 <ul>
 <li>Human action recognition: can be solved by appearance, depth, optical flows, and body skeletons.</li>
 <li>Models for graph
@@ -212,239 +212,184 @@
 <ul>
 <li>Spectral perspective: the locality of the graph convolution is considered in the form of spectral analysis.</li>
 <li><strong>Spatial perspective</strong>: the convolution filters are applied directly on the graph nodes and their neighbors.</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>Skeleton Based Action Recognition
 <ul>
 <li>Handcrafted feature based methods: design several handcrafted features to capture the dynamics of joint motion. E.g., covariance matrices of joint trajectories, relative positions of joints, rotations and translations between body parts.</li>
 <li>Deep learning methods: recurrent neural networks and temporal CNNs. Many emphasize <strong>the importance of modeling the joints within parts of human bodies.</strong></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Summary">Summary</h3>
+<h3 id="summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
-<li>Earlier methods of using skeletons for action recognition simply employ the joint coordinates at individual time steps to form feature vectors, and apply temporal analysis thereon.  <strong>They do not explicitly exploit the spatial relationships among the joint</strong>.</li>
+<li>Earlier methods of using skeletons for action recognition simply employ the joint coordinates at individual time steps to form feature vectors, and apply temporal analysis thereon. <strong>They do not explicitly exploit the spatial relationships among the joint</strong>.</li>
 <li>Most existing methods which explore spatial relationship rely on hand-crafted parts or rules to analyze the spatial patterns.</li>
 <li>Traditional CNNs are not suitable for 2D or 3D skeletons (graphs rather than data in grids).</li>
-</ul>
-</li>
+</ul></li>
 <li>Limitations:
 <ul>
 <li>Conventional approaches for modeling skeletons usually rely on hand-crafted parts or traversal rules, thus resulting in limited expressive power and difficulties of generalization.</li>
 <li>Models using hand-crafted parts are difficult to be generalized to others</li>
 <li>These parts used in DL based methods are usually explicitly assigned using domain knowledge, which is not automatic and practical.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Goals">Goals</h2>
-<p>Build a better model for dynamics of human body skeletons. Specifically, a new method that can automatically capture the patterns embedded in the <strong>spatial configuration of the joints as well as the  temporal dynamics</strong> is required.</p>
-<h2 id="How">How?</h2>
-<h3 id="Idea">Idea</h3>
+<h2 id="goals">Goals</h2>
+<p>Build a better model for dynamics of human body skeletons. Specifically, a new method that can automatically capture the patterns embedded in the <strong>spatial configuration of the joints as well as the temporal dynamics</strong> is required.</p>
+<h2 id="how">How?</h2>
+<h3 id="idea">Idea</h3>
 <p>Skeletons in frames are connected as natural spatial-temporal graph, then using GCN.</p>
-<h3 id="Data-Preparation">Data Preparation</h3>
+<h3 id="data-preparation">Data Preparation</h3>
 <ul>
-<li>The feature vector on a node $F(v_{ti})$ consists of coordinate vectors, as well as estimation confidence, of the i-th joint on frame t.</li>
+<li>The feature vector on a node <span class="math inline">\(F(v_{ti})\)</span> consists of coordinate vectors, as well as estimation confidence, of the i-th joint on frame t.</li>
 <li>Construct the spatial temporal graph on the skeleton sequences in two steps. First, the joints within one frame are connected with edges according to the connectivity of human body structure. Then each joint will be connected to the same joint in the consecutive frame.</li>
 <li>Both 18 joints skeleton model or 25 joints skeleton model work fine.</li>
 </ul>
-<h3 id="Implementation">Implementation</h3>
+<h3 id="implementation">Implementation</h3>
 <ul>
-<li>
-<p>Model</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png" alt="image-20210113115429152" style="zoom:50%;" />
+<li><p>Model</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113115442.png" alt="image-20210113115429152" style="zoom:50%;" /></p>
 <p>ResNet mechanism is applied on each ST-GCN unit.</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Layer name</th>
 <th>configuration</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>$1\sim3$</td>
+<tr class="odd">
+<td><span class="math inline">\(1\sim3\)</span></td>
 <td>64 channels</td>
 </tr>
-<tr>
-<td>$4\sim6$</td>
+<tr class="even">
+<td><span class="math inline">\(4\sim6\)</span></td>
 <td>128 channels</td>
 </tr>
-<tr>
-<td>$7\sim9$</td>
+<tr class="odd">
+<td><span class="math inline">\(7\sim9\)</span></td>
 <td>256 channels, 9 temporal kernel size</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Global pooling+softmax</td>
 <td></td>
 </tr>
 </tbody>
-</table>
-</li>
-<li>
-<p>Loss function</p>
+</table></li>
+<li><p>Loss function</p>
 <ul>
-<li>
-<p><strong>Sampling function</strong> $\mathbb{p}$ enumerates the neighbors of location $x$.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png" alt="image-20210113155452481" style="zoom:40%;" />
-<p>In this paper, <strong>the 1-neighbor set</strong> of joint nodes are used.</p>
-</li>
-<li>
-<p><strong>The filter weights</strong> $\mathrm{w} (v_{ti},v_{tj})$ are shared everywhere on the input image.</p>
-<p>Build a mapping $l_{ti}:B(v_{ti})\rightarrow{0,\cdots,K−1}$ which maps a node in the neighborhood to its subset label. The weight function $\mathrm{w}(v_{ti}, v_{tj}):B(v_{ti})\rightarrow R^c$ can be implemented by indexing a tensor of $(c,K)$ dimension or</p>
-<p>$\mathrm{w}(v_{ti},v_{tj})=\mathrm{w}'(l_{ti}(v_{tj})$</p>
+<li><p><strong>Sampling function</strong> <span class="math inline">\(\mathbb{p}\)</span> enumerates the neighbors of location <span class="math inline">\(x\)</span>.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113155452.png" alt="image-20210113155452481" style="zoom:40%;" /></p>
+<p>In this paper, <strong>the 1-neighbor set</strong> of joint nodes are used.</p></li>
+<li><p><strong>The filter weights</strong> <span class="math inline">\(\mathrm{w} (v_{ti},v_{tj})\)</span> are shared everywhere on the input image.</p>
+<p>Build a mapping <span class="math inline">\(l_{ti}:B(v_{ti})\rightarrow\{0,\cdots,K−1\}\)</span> which maps a node in the neighborhood to its subset label. The weight function <span class="math inline">\(\mathrm{w}(v_{ti}, v_{tj}):B(v_{ti})\rightarrow R^c\)</span> can be implemented by indexing a tensor of <span class="math inline">\((c,K)\)</span> dimension or</p>
+<p><span class="math inline">\(\mathrm{w}(v_{ti},v_{tj})=\mathrm{w}&#39;(l_{ti}(v_{tj})\)</span></p>
 <ul>
-<li>
-<p>Labeling strategies (the definition of $l_{ti}$)</p>
-<img src="C:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png" alt="image-20210113195834069" style="zoom:50%;" />
+<li><p>Labeling strategies (the definition of <span class="math inline">\(l_{ti}\)</span>)</p>
+<p><img src="C:%5CUsers%5C10457%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210113195834069.png" alt="image-20210113195834069" style="zoom:50%;" /></p>
 <ul>
-<li>
-<p>Uni-labeling</p>
-<p>Make the whole neighbor set itself as subset. Then feature vectors on every neighboring node will have a inner product with the same weight vector. Formally, $K=1,l_{ti}(v_{tj})=0,\forall i,j\in V$</p>
-</li>
-<li>
-<p>Distance partitioning</p>
-<p>$d=0$ refers to the root node itself and remaining neighbor nodes are in the $d =1$ subset. Formally , $K=2,l_{ti}(v_{tj})=d(v_{tj},v_{ti})$</p>
-</li>
-<li>
-<p>Spatial configuration partitioning</p>
-<p>Three subsets: 1) the root node itself; 2)centripetal group and 3)  centrifugal group.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113200600.png" alt="image-20210113200600480" style="zoom:33%;" />, where $r_i$ is the average distance from gravity center to joint $i$ over all frames in the training set.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Learnable edge importance weighting</p>
-<p>One joint appears in multiple body parts should have different importance in modeling the dynamics of these parts. A  learnable mask M is added on every layer of spatial temporal graph convolution.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>The <strong>spatial graph convolution</strong></p>
-<p>$f_{out}(v_{ti})=\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(\mathbb{p}(v_{ti},v_{tj}))\cdot \mathrm{w}(v_{ti},v_{tj})=\\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{tj})\cdot \mathrm{w}(l_{ti}(v_{tj}))$, $Z_{ti}(v_{tj})=|{v_{tk}|l_{ti}(v_{tk})=l_{ti}(v_{tj})}|$ is the cardinality of the corresponding subset. It’s for balancing the contributions of different subsets to the output.</p>
-</li>
-<li>
-<p><strong>Spatial temporal modeling</strong></p>
+<li><p>Uni-labeling</p>
+<p>Make the whole neighbor set itself as subset. Then feature vectors on every neighboring node will have a inner product with the same weight vector. Formally, <span class="math inline">\(K=1,l_{ti}(v_{tj})=0,\forall i,j\in V\)</span></p></li>
+<li><p>Distance partitioning</p>
+<p><span class="math inline">\(d=0\)</span> refers to the root node itself and remaining neighbor nodes are in the <span class="math inline">\(d =1\)</span> subset. Formally , <span class="math inline">\(K=2,l_{ti}(v_{tj})=d(v_{tj},v_{ti})\)</span></p></li>
+<li><p>Spatial configuration partitioning</p>
+<p>Three subsets: 1) the root node itself; 2)centripetal group and 3) centrifugal group.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113200600.png" alt="image-20210113200600480" style="zoom:33%;" />, where <span class="math inline">\(r_i\)</span> is the average distance from gravity center to joint <span class="math inline">\(i\)</span> over all frames in the training set.</p></li>
+</ul></li>
+<li><p>Learnable edge importance weighting</p>
+<p>One joint appears in multiple body parts should have different importance in modeling the dynamics of these parts. A learnable mask M is added on every layer of spatial temporal graph convolution.</p></li>
+</ul></li>
+<li><p>The <strong>spatial graph convolution</strong></p>
+<p><span class="math inline">\(f_{out}(v_{ti})=\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(\mathbb{p}(v_{ti},v_{tj}))\cdot \mathrm{w}(v_{ti},v_{tj})=\\\sum\limits_{v_{tj}\in B(v_{ti})}\frac{1}{Z_{ti}(v_{tj})}f_{in}(v_{tj})\cdot \mathrm{w}(l_{ti}(v_{tj}))\)</span>, <span class="math inline">\(Z_{ti}(v_{tj})=|\{v_{tk}|l_{ti}(v_{tk})=l_{ti}(v_{tj})\}|\)</span> is the cardinality of the corresponding subset. It's for balancing the contributions of different subsets to the output.</p></li>
+<li><p><strong>Spatial temporal modeling</strong></p>
 <p>Extend neighbors so as to include temporally connected joints</p>
-<p>$B(v_{ti})={v_{qj}|d(v_{tj},v_{ti})\le K,|q-t|\le \lfloor\Gamma/2\rfloor}$, where $\Gamma$ is temporal kernel size (controls the temporal range to be included in the neighbor graph). Then , the sampling function is $l_{ST}(v_{qj})=l_{ti}(v_{tj})+(q-t+\lfloor\Sigma/2\rfloor)\times K$.</p>
-</li>
-<li>
-<p>The final convolution formula:</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113222927.png" alt="image-20210113222926988" style="zoom:40%;" />, where $\Lambda_j^{ii}=\sum_k(A_j^{ik})+\alpha$, $\alpha=0.001$ is to avoid empty rows in $A_j$. To add learnable  mask $M$, displace $A_j$ as $A_j\otimes M$.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Why does it work?</p>
+<p><span class="math inline">\(B(v_{ti})={v_{qj}|d(v_{tj},v_{ti})\le K,|q-t|\le \lfloor\Gamma/2\rfloor}\)</span>, where <span class="math inline">\(\Gamma\)</span> is temporal kernel size (controls the temporal range to be included in the neighbor graph). Then , the sampling function is <span class="math inline">\(l_{ST}(v_{qj})=l_{ti}(v_{tj})+(q-t+\lfloor\Sigma/2\rfloor)\times K\)</span>.</p></li>
+<li><p>The final convolution formula:</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210113222927.png" alt="image-20210113222926988" style="zoom:40%;" />, where <span class="math inline">\(\Lambda_j^{ii}=\sum_k(A_j^{ik})+\alpha\)</span>, <span class="math inline">\(\alpha=0.001\)</span> is to avoid empty rows in <span class="math inline">\(A_j\)</span>. To add learnable mask <span class="math inline">\(M\)</span>, displace <span class="math inline">\(A_j\)</span> as <span class="math inline">\(A_j\otimes M\)</span>.</p></li>
+</ul></li>
+<li><p>Why does it work?</p>
 <ul>
 <li>Parts restrict the modeling of joints trajectories within “local regions” compared with the whole skeleton, thus forming a hierarchical representation of the skeleton sequences.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Experiments">Experiments</h2>
+<h2 id="experiments">Experiments</h2>
 <ul>
-<li>
-<p>Dataset:</p>
+<li><p>Dataset:</p>
 <ul>
-<li>
-<p>Kinetics (unconstrained action recognition dataset), provides only raw video clips without skeleton data.</p>
+<li><p>Kinetics (unconstrained action recognition dataset), provides only raw video clips without skeleton data.</p>
 <ul>
-<li>
-<p>Augmentation: To avoid overfitting,two kinds of augmentation are used to replace dropout layers when training on the Kinetics dataset. 1) affine transformations, 2) sampling part of the frames from the whole frame and testing by a whole frame. <font color=Blue>May that’s a way for avoiding the two consecutive frame are too similar?</font></p>
-</li>
-<li>
-<p>Videos to skeletons</p>
-<p>To work on skeletons, openpose is used for extracting. Concretely, resize all videos to the resolution of 340 × 256 and convert the frame rate to 30 FPS. Then OpenPose toolbox is used to estimate the location of 18 joints on every frame of the clips.</p>
-</li>
-<li>
-<p>Final features:</p>
-<p>Finally <strong>the clips are represented by a tensor in shape</strong> $(3,T,18,2)$, where 18 is the number of joints, 2 is the number of people and 3 is the number of features (X,Y,C), C is the confidence.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>NTU-RGBD ( in-house captured action recognition dataset)</p>
+<li><p>Augmentation: To avoid overfitting,two kinds of augmentation are used to replace dropout layers when training on the Kinetics dataset. 1) affine transformations, 2) sampling part of the frames from the whole frame and testing by a whole frame. <font color=Blue>May that's a way for avoiding the two consecutive frame are too similar?</font></p></li>
+<li><p>Videos to skeletons</p>
+<p>To work on skeletons, openpose is used for extracting. Concretely, resize all videos to the resolution of 340 × 256 and convert the frame rate to 30 FPS. Then OpenPose toolbox is used to estimate the location of 18 joints on every frame of the clips.</p></li>
+<li><p>Final features:</p>
+<p>Finally <strong>the clips are represented by a tensor in shape</strong> <span class="math inline">\((3,T,18,2)\)</span>, where 18 is the number of joints, 2 is the number of people and 3 is the number of features (X,Y,C), C is the confidence.</p></li>
+</ul></li>
+<li><p>NTU-RGBD ( in-house captured action recognition dataset)</p>
 <ul>
 <li>Already annotated with 25 3D joints</li>
 <li>Each clip is guaranteed to have at most 2 subjects</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Training: SGD with a learning rate of 0.01. $lr$ decay by 0.1 after every 10 epochs.</p>
-</li>
-<li>
-<p>Evaluation metrics</p>
+</ul></li>
+</ul></li>
+<li><p>Training: SGD with a learning rate of 0.01. <span class="math inline">\(lr\)</span> decay by 0.1 after every 10 epochs.</p></li>
+<li><p>Evaluation metrics</p>
 <ul>
-<li>
-<p>Kinetics</p>
-<p>Test on validation set. Using <strong>top-1 and top-5 classification accuracy</strong></p>
-</li>
-<li>
-<p>NTU-RGBD</p>
+<li><p>Kinetics</p>
+<p>Test on validation set. Using <strong>top-1 and top-5 classification accuracy</strong></p></li>
+<li><p>NTU-RGBD</p>
 <p>Report top-1 recognition accuracy.</p>
 <ul>
 <li><strong>Cross-subject</strong>: Train on one subset of actors and test on the remaining actors.</li>
 <li><strong>Cross-view</strong>: Train on skeletons from camera views 2 and 3, and test on those from camera view 1.</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Ablation-study">Ablation study</h3>
+<h3 id="ablation-study">Ablation study</h3>
 <p>Applied on Kinetics dataset.</p>
 <ul>
-<li>
-<p>Spatial temporal graph convolution</p>
+<li><p>Spatial temporal graph convolution</p>
 <table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 75%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Model</th>
 <th>configuration</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><em>baseline-TCN</em></td>
-<td>squeeze Spatial dimension, concatenate all input joint locations to form the input features at each frame $t$.</td>
+<td>squeeze Spatial dimension, concatenate all input joint locations to form the input features at each frame <span class="math inline">\(t\)</span>.</td>
 </tr>
-<tr>
+<tr class="even">
 <td><em>local convolution</em></td>
 <td>The input data are the same format, but with unshared convolution filters.</td>
 </tr>
 </tbody>
-</table>
-</li>
-<li>
-<p>Partition strategies: same as what described before. <em>Distance partitioning*</em> is as intermediate between the distance partitioning and uni-labeling. The filters in this setting only differs with a scaling factor -1, or to say $\mathrm{w}_0=-\mathrm{w}_1$.</p>
-</li>
-<li>
-<p>Learnable edge importance weighting</p>
-<p>This setting is named as <em>ST-GCN+Imp</em>.</p>
-</li>
-<li>
-<p>Results</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114194501.png" alt="image-20210114194452831" style="zoom:50%;" />
+</table></li>
+<li><p>Partition strategies: same as what described before. <em>Distance partitioning*</em> is as intermediate between the distance partitioning and uni-labeling. The filters in this setting only differs with a scaling factor -1, or to say <span class="math inline">\(\mathrm{w}_0=-\mathrm{w}_1\)</span>.</p></li>
+<li><p>Learnable edge importance weighting</p>
+<p>This setting is named as <em>ST-GCN+Imp</em>.</p></li>
+<li><p>Results</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114194501.png" alt="image-20210114194452831" style="zoom:50%;" /></p>
 <ul>
 <li>Better performance of ST-GCN based models could justify the power of the spatial temporal graph convolution in skeleton based action recognition</li>
 <li>Distance partitioning* achieves better performance than uni-labeling, which again demonstrate <strong>the importance of the partitioning with multiple subsets</strong>.</li>
 <li>ST-GCN model with learnable edge importance weights can learn to express the joint importance.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Compared-with-SOTA">Compared with SOTA</h3>
+<h3 id="compared-with-sota">Compared with SOTA</h3>
 <p><strong>Model setting: ST-GCN+Learnable weights+Spatial configuration partitioning</strong></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204800.png" alt="image-20210114204800283" style="zoom:30%;" />     <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204722.png" alt="image-20210114204722008" style="zoom:30%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204800.png" alt="image-20210114204800283" style="zoom:30%;" /> <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210114204722.png" alt="image-20210114204722008" style="zoom:30%;" /></p>
 <ul>
 <li>Kinetics: ST-GCN is able to outperform previous representative approaches, but under-perform methods in RGB or optical flow.</li>
 <li>NTU-RGBD: No data augmentation before training. It outperforms all other selected candidates.</li>
 <li>The skeleton based model ST-GCN can provide complementary information to RGB and optical flow models.</li>
 </ul>
-<h2 id="Conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>Propose ST-GCN, a generic graph-based formulation for modeling dynamic skeletons, which is the first that applies graph-based neural networks for action recognition.</li>
 <li>Propose several principles in designing convolution kernels in ST-GCN to meet the specific demands in skeleton modeling.</li>
@@ -539,7 +484,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ablation-study"><span class="toc-number">4.1.</span> <span class="toc-text">Ablation study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compared-with-SOTA"><span class="toc-number">4.2.</span> <span class="toc-text">Compared with SOTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ablation-study"><span class="toc-number">4.1.</span> <span class="toc-text">Ablation study</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compared-with-sota"><span class="toc-number">4.2.</span> <span class="toc-text">Compared with SOTA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -717,14 +662,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -738,6 +675,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,15 +706,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">da</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">da</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,22 +918,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
