@@ -194,55 +194,61 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1406.6909.pdf">Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks</a></p>
 <a id="more"></a>
-<h2 id="why">Why?</h2>
-<h3 id="previous-work">Previous work</h3>
+<h2 id="Why">Why?</h2>
+<h3 id="Previous-work">Previous work</h3>
 <ul>
 <li>Supervised : labeled data with a specific CNN
 <ul>
 <li>directly penalizing the derivative of the output with respect to the magnitude of the transformations, but will be sensitive to the magnitude of the applied transformation.</li>
-</ul></li>
+</ul>
+</li>
 <li>Unsupervised: learning invariant representations
 <ul>
 <li>Directly modeling the input distribution and are hard for jointly training multiple layers of a CNN
 <ul>
-<li><strong>autoencoders</strong>: denoising auto encoders, say reconstruct data from randomly perturbed input samples; or learn representations from videos by enforcing a temporal slowness constraint on the feature representation learned by a linear autoencoder.</li>
+<li><strong>autoencoders</strong>:  denoising auto encoders, say reconstruct data from randomly perturbed input samples; or learn representations from videos by  enforcing a temporal slowness constraint on the feature representation learned by a linear autoencoder.</li>
 <li>invariant to local transformations</li>
-</ul></li>
+</ul>
+</li>
 <li>most aims at regularization of the latent representation</li>
-</ul></li>
+</ul>
+</li>
 <li>Semi-supervised
 <ul>
 <li>Regularization supervised algorithms by unlabeled data: self-training, entropy regularization</li>
-</ul></li>
 </ul>
-<h3 id="summary">Summary</h3>
+</li>
+</ul>
+<h3 id="Summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
 <li>the features learned by one network often generalize to new datasets</li>
 <li>a network can be adapted to a new task by replacing the loss function and possibly the last few layers of the network and fine-tuning it to the new problem</li>
-</ul></li>
+</ul>
+</li>
 <li>Limitations:
 <ul>
 <li>the need for huge labeled datasets to be used for the initial supervised training</li>
 <li>the transfer becomes less efficient the more the new task differs from the original training task</li>
-</ul></li>
 </ul>
-<h2 id="goals">Goals</h2>
+</li>
+</ul>
+<h2 id="Goals">Goals</h2>
 <p>a more general extractor using unlabeled data. The extractor should satisfy two requirements:</p>
 <ul>
-<li>there must be at least one feature that is similar for images of the same category <span class="math inline">\(y\)</span> (invariance);</li>
+<li>there must be at least one feature that is similar for images of the same category $y$ (invariance);</li>
 <li>there must be at least one feature that is sufficiently different for images of different categories (ability to discriminate)</li>
 </ul>
-<h2 id="how">How?</h2>
-<h3 id="idea">Idea</h3>
+<h2 id="How">How?</h2>
+<h3 id="Idea">Idea</h3>
 <ul>
 <li>creating an auxiliary task + invariant features to transformations</li>
 </ul>
-<h3 id="implementation">Implementation</h3>
-<h4 id="data-preparation">Data preparation</h4>
+<h3 id="Implementation">Implementation</h3>
+<h4 id="Data-preparation">Data preparation</h4>
 <ul>
-<li>Do random selected transformation (from a predefined family of transformations) for sampled patches (regions containing considerable gradients so that sample a patch with probability proportional to mean squared gradient magnitude within the patch )</li>
+<li>Do random selected transformation (from  a predefined  family of transformations) for sampled patches (regions containing considerable gradients so that sample a patch with probability proportional to mean squared gradient magnitude within the patch )</li>
 <li>The family of transformations
 <ul>
 <li>translation</li>
@@ -251,130 +257,142 @@
 <li>contrast: PCA and HSV</li>
 <li>color: works on HSV space</li>
 <li>blur etc.</li>
-</ul></li>
+</ul>
+</li>
 <li>Before feeding into model, do normalization (subtract the mean of each pixel over the whole resulting dataset)</li>
 <li>Labeling: all transformed patches from the same seed patch are labeled by the same index</li>
 </ul>
-<h4 id="learning-algorithm">Learning algorithm</h4>
+<h4 id="Learning-algorithm">Learning algorithm</h4>
 <ul>
-<li><p>Loss function :</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png" alt="image-20210107155618997" style="zoom:50%;" /></p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png" alt="image-20210107155854389" style="zoom:30%;" /></p>
+<li>
+<p>Loss function :</p>
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155621.png" alt="image-20210107155618997" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107155911.png" alt="image-20210107155854389" style="zoom:30%;" />
 <ul>
-<li><p>After transformations, the loss for a whole class (augmented by the same seed patch ) can be taken as</p>
+<li>
+<p>After transformations, the loss for a whole class (augmented by the same seed patch ) can be taken as</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210107162118.png" alt="image-20210107162118193" style="zoom:50%;" />, notice the 2nd and the 4th can be canceled.</p>
 <ul>
-<li>The 1st term: enforces correct classification of the average representation <span class="math inline">\(\mathbb{E}_\alpha[g(T_\alpha x_i)]\)</span> for a given input sample</li>
-<li>The 2nd term: a regularizer enforcing all $ h(T_x_i)$ to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations $ T_$, note the convergence to global minimum is listed at appendix.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Why does it works?</strong></p>
-<ul>
-<li>Previous works mostly focus on modeling the input distribution <span class="math inline">\(p(x)\)</span>, based on the assumption that a good model of <span class="math inline">\(p(x)\)</span> contains information about the category distribution <span class="math inline">\(p(y|x)\)</span>. Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
-<li>Their work does not directly model the input distribution <span class="math inline">\(p(x)\)</span> but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong></li>
-<li>However, their work will <strong>fail on color-relied task</strong></li>
-</ul></li>
+<li>The 1st term: enforces correct classification of the average representation $\mathbb{E}<em>\alpha[g(T</em>\alpha x_i)]$ for a given input sample</li>
+<li>The 2nd term: a regularizer enforcing all $ h(T_\alpha x_i)$ to be close to their average value, i.e., the feature representation is sought to be approximately invariant to the transformations $ T_\alpha$, note the convergence to global minimum is listed at appendix.</li>
 </ul>
-<h2 id="experiments">Experiments</h2>
-<h3 id="classification">Classification</h3>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Why does it works?</strong></p>
 <ul>
-<li><p>Datasets: <strong>STL-10</strong>, CIFAR-10, Caltech-101 and Caltech-256. report mean and standard deviation</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 24%" />
-<col style="width: 35%" />
-<col style="width: 33%" />
-</colgroup>
+<li>Previous works mostly focus on modeling the input distribution $p(x)$, based on the assumption that a good model of  $p(x)$ contains information about the category distribution  $p(y|x)$.  Therefore, to get the invariance, one will do regularization of the latent representation and obtain representation by reconstruction .</li>
+<li>Their work  does not directly model the input distribution  $p(x)$  but learns a representation that discriminates between input samples. They argue that this <strong>allows more DOF to model the desired variability of a sample and avoid task-unnecessary reconstruction.</strong></li>
+<li>However, their work will <strong>fail on color-relied task</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Experiments">Experiments</h2>
+<h3 id="Classification">Classification</h3>
+<ul>
+<li>
+<p>Datasets: <strong>STL-10</strong>, CIFAR-10, Caltech-101 and Caltech-256. report mean and standard deviation</p>
+<table>
 <thead>
-<tr class="header">
+<tr>
 <th>Datasets</th>
-<th style="text-align: center;">Resizing</th>
+<th style="text-align:center">Resizing</th>
 <th>Train</th>
 <th>Test</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>STL-10</td>
-<td style="text-align: center;">64c5-64c5-128f</td>
+<td style="text-align:center">64c5-64c5-128f</td>
 <td>10 pre-defined folds of the training data</td>
 <td>fixed test set</td>
 </tr>
-<tr class="even">
+<tr>
 <td>CIFAR-10</td>
-<td style="text-align: center;">resize from <span class="math inline">\(32\times 32\)</span> to <span class="math inline">\(64\times 64\)</span></td>
+<td style="text-align:center">resize from $32\times 32$ to $64\times 64$</td>
 <td>1. whole training set<br />2. 10 random selections of 400 training samples per class</td>
 <td>1. results on CIFAR-10<br />2. average results on 10 sets.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Caltech-101</td>
-<td style="text-align: center;">to <span class="math inline">\(150\times 150\)</span></td>
+<td style="text-align:center">to $150\times 150$</td>
 <td>30 random samples per class</td>
 <td>not more than 50 samples per class</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Caltech-256</td>
-<td style="text-align: center;"><span class="math inline">\(256\times 256\)</span></td>
+<td style="text-align:center">$256\times 256$</td>
 <td>randomly selected 30 samples per class</td>
 <td>those except for training</td>
 </tr>
 </tbody>
-</table></li>
-<li><p>backbones of network</p>
+</table>
+</li>
+<li>
+<p>backbones of network</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Network</th>
-<th style="text-align: center;">Structure</th>
+<th style="text-align:center">Structure</th>
 <th>Training</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>small</td>
-<td style="text-align: center;">64c5-64c5-128f</td>
+<td style="text-align:center">64c5-64c5-128f</td>
 <td>1.5 days, SGD with fixed momentum of 0.9</td>
 </tr>
-<tr class="even">
+<tr>
 <td>medium</td>
-<td style="text-align: center;">64c5-128c5-256c5-512f</td>
+<td style="text-align:center">64c5-128c5-256c5-512f</td>
 <td>4 days, SGD with fixed momentum of 0.9</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>large</td>
-<td style="text-align: center;">92c5-256c5-512c5-1024f</td>
+<td style="text-align:center">92c5-256c5-512c5-1024f</td>
 <td>9 days, SGD with fixed momentum of 0.9</td>
 </tr>
 </tbody>
-</table></li>
-<li><p>Training: learning rate starts at 0.01， then when there was no improvement in validation error, decreased the learning rate by a factor of 3. All networks are trained on one Titan</p></li>
-<li><p>Test features: one-vs-all linear SVM.</p></li>
-<li><p>Summary</p>
+</table>
+</li>
+<li>
+<p>Training: learning rate starts at 0.01， then when there was no improvement in validation error, decreased the learning rate by a factor of 3. All networks are trained on one Titan</p>
+</li>
+<li>
+<p>Test features: one-vs-all linear SVM.</p>
+</li>
+<li>
+<p>Summary</p>
 <ul>
 <li>with increasing feature vector dimensionality and number of labeled samples, training an SVM becomes less dependent on the quality of the features</li>
-<li>Relation of <strong>the number of surrogate classes</strong> : <strong>sampling too many, too similar images for training can even decrease the performance of the learned features</strong>. ( the discriminative loss is no longer reasonable with too many similar surrogate classes.) --&gt; fix: e.g. clustering the output features then do augmentation for clusters and feed these augmented classes as surrogate data</li>
-<li>Relation of <strong>the number of samples per surrogate class</strong> : around 100 samples is sufficient</li>
-<li>Relation of <strong>types of transformations </strong> : each time remove a group of transformations and check how the performance is decreased , e.g. scaling, rotation etc. Translations, color variations and contrast variations are significantly more important. For the matching task, using blur as an additional transformation improves the performance.</li>
-<li>Relation of <strong>Influence of the dataset </strong>: the learned features generalize well to other datasets</li>
+<li>Relation of <strong>the number of surrogate classes</strong> :  <strong>sampling too many, too similar images for training can even decrease the performance of the learned features</strong>. ( the discriminative loss is no longer reasonable with too many similar surrogate classes.) --&gt; fix: e.g. clustering the output features then do augmentation for clusters and feed these augmented classes as surrogate data</li>
+<li>Relation of <strong>the number of samples per surrogate class</strong> :  around 100 samples is sufficient</li>
+<li>Relation of **types of transformations ** : each time remove a group of transformations and check how the performance is decreased , e.g. scaling, rotation etc.  Translations, color variations and contrast variations are significantly more important. For the matching task, using blur as an additional transformation improves the performance.</li>
+<li>Relation of **Influence of the dataset  **:  the learned features generalize well to other datasets</li>
 <li>Relation of <strong>Influence of the Network Architecture on Classification Performance</strong>: Classification accuracy generally improves with the network size</li>
-</ul></li>
 </ul>
-<h3 id="descriptor-matching">Descriptor matching</h3>
+</li>
+</ul>
+<h3 id="Descriptor-matching">Descriptor matching</h3>
 <ul>
 <li>Task: Matching of interest points</li>
-<li>Datasets: by Mikolajczyk et al., augmented by applying 6 different types of transformations with varying strengths to 16 base images from Flickr. In addition to the transformations used before, also change the lighting and blur .</li>
+<li>Datasets: by Mikolajczyk et al., augmented by applying  6 different types of transformations with varying strengths to 16 base images from Flickr. In addition to the transformations used before, also change the lighting and blur .</li>
 <li>Backbones: 64c7s2-128c5-256c5-512f, named as Exemplar-CNN-blur</li>
-<li>Training: use unlabeled images from Flickr for training</li>
-<li>Test and measurements: prediction is <span class="math inline">\(TP\)</span> if <span class="math inline">\(IOU\ge 0.5\)</span>. Compared with SIFT and Alexnet</li>
+<li>Training:  use unlabeled images from Flickr for training</li>
+<li>Test and measurements: prediction is $TP$ if $IOU\ge 0.5$. Compared with SIFT and Alexnet</li>
 <li>Summary
 <ul>
 <li>Optimum patch size (or layer in CNNs): SIFT is based on normalized finite differences, and thus very robust to blurred edges caused by interpolation. In contrast, for the networks, especially for their lower layers, there is an optimal patch size. They argue that features from higher layers have access to larger receptive fields and, thus, can again benefit from larger patch sizes.</li>
 <li>A loss function that focuses on the invariance properties (rather than class-specific features) required for descriptor matching yields better results.</li>
 <li>Features obtained with the unsupervised training procedure outperform the features from AlexNet on both datasets</li>
-</ul></li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+</li>
+</ul>
+<h2 id="Conclusion">Conclusion</h2>
 <ul>
 <li>Pretty good on tasks: object classification , descriptor matching</li>
 <li>emphasizes the value of data augmentation in general and suggests the use of more diverse transformations.</li>
@@ -464,7 +482,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#classification"><span class="toc-number">4.1.</span> <span class="toc-text">Classification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#descriptor-matching"><span class="toc-number">4.2.</span> <span class="toc-text">Descriptor matching</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Classification"><span class="toc-number">4.1.</span> <span class="toc-text">Classification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Descriptor-matching"><span class="toc-number">4.2.</span> <span class="toc-text">Descriptor matching</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -722,19 +740,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,6 +916,22 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
