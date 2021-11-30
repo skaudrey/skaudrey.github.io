@@ -196,17 +196,13 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Kolesnikov_Revisiting_Self-Supervised_Visual_Representation_Learning_CVPR_2019_paper.pdf">Revisiting Self-Supervised Visual Representation Learning</a></p>
 <p>Code <a target="_blank" rel="noopener" href="https://github.com/google/revisiting-self-supervised">here</a></p>
 <a id="more"></a>
-<h2 id="Why">Why?</h2>
-<h3 id="Previous-work">Previous work</h3>
-<ul>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
 <li>robotics: the result of interacting with the world, and the fact that multiple perception modalities simultaneously get sensory inputs are strong signals for pretext</li>
 <li>videos: the synchronized cross-modality stream of audio, video, and potentially subtitles, or of the consistency in the temporal dimension</li>
-<li>image  datasets:
-<ul>
+<li>image  datasets: <ul>
 <li>Patch-based methods: E.g.: predicting the relative location of image patches; “jigsaw puzzle”</li>
-<li>Image-level classification tasks:
-<ul>
-<li>RotNet, create class labels by clustering images, image inpaiting, image colorization, split-brain and motion segmentation prediction;</li>
+<li>Image-level classification tasks: <ul>
+<li>RotNet, create class labels by clustering images, image inpaiting, image colorization, split-brain and motion segmentation prediction; </li>
 <li>Enforce structural constraints on the representation space: an equivariance relation to match the sum of multiple tiled representations to a single scaled representation;  predict future patches in via autoregressive predictive coding</li>
 <li>Combining multiple pretext task: E.g. extend the “jigsaw puzzle” task by combining it with colorization and inpainting; Combining the jigsaw puzzle task with clustering-based pseudo labels ( Jigsaw++) ;  make one single neural network learn all of four different SSL methdos in a multi-task setting; combined the selfsupervised loss GANs objective</li>
 </ul>
@@ -214,68 +210,49 @@
 </ul>
 </li>
 </ul>
-<h3 id="Summary">Summary</h3>
-<ul>
-<li>Observations
-<ul>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Observations<ul>
 <li>Expensive labeled data for supervised task</li>
 </ul>
 </li>
-<li>Limitations:
-<ul>
+<li>Limitations:<ul>
 <li>Previous works mostly concentrate on pretext task, but didn’t pay much attention to the choice of backbones etc.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Goals">Goals</h2>
-<p><strong>An optimal CNN architecture for pretext task</strong>,  investigating the influence of architecture design on the representation quality.</p>
-<h2 id="How">How?</h2>
-<h3 id="Idea">Idea</h3>
-<ul>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p><strong>An optimal CNN architecture for pretext task</strong>,  investigating the influence of architecture design on the representation quality.</p>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
 <li>a comparison of different self-supervision methods using a unified neural network architecture, but with the goal of combining all these tasks into a single self-supervision task</li>
 </ul>
-<h3 id="Implementation">Implementation</h3>
-<h4 id="Family-of-CNNs">Family of CNNs</h4>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><h4 id="Family-of-CNNs"><a href="#Family-of-CNNs" class="headerlink" title="Family of CNNs"></a>Family of CNNs</h4><ul>
+<li><p>variants of ResNet:</p>
 <ul>
-<li>
-<p>variants of ResNet:</p>
+<li><strong>ResNet50</strong>, the output before task-specific logits layer is named as $pre-logits$. explore $k \in \{4, 8, 12, 16\}$, resulting in pre-logits of size $2048, 4096, 6144$ and $8192$ respectively. $k$ is the widening factor.</li>
+<li><strong>ResNet v1</strong>: ???batch normalization (BN) right after each convolution and before activation???</li>
+<li><strong>ResNet v2</strong>: ?</li>
+<li><strong>ResNet (-)</strong>: without ReLU preceding the global average pooling</li>
+</ul>
 </li>
-<li>
-<p><strong>ResNet50</strong>, the output before task-specific logits layer is named as $pre-logits$. explore $k \in {4, 8, 12, 16}$, resulting in pre-logits of size $2048, 4096, 6144$ and $8192$ respectively. $k$ is the widening factor.</p>
+<li><p>a batch-normalized <strong>VGG</strong> architecture since VGG is structurally close to AlexNet. BN between CNN and activation, VGG19.</p>
 </li>
-<li>
-<p><strong>ResNet v1</strong>: ???batch normalization (BN) right after each convolution and before activation???</p>
-</li>
-<li>
-<p><strong>ResNet v2</strong>: ?</p>
-</li>
-<li>
-<p><strong>ResNet (-)</strong>: without ReLU preceding the global average pooling</p>
-</li>
-<li>
-<p>a batch-normalized <strong>VGG</strong> architecture since VGG is structurally close to AlexNet. BN between CNN and activation, VGG19.</p>
-</li>
-<li>
-<p><strong>RevNets</strong>: stronger invertibility guarantees so as to compare with ResNets. The residual unit used here is equivalent to double application of the residual unit.</p>
+<li><p><strong>RevNets</strong>: stronger invertibility guarantees so as to compare with ResNets. The residual unit used here is equivalent to double application of the residual unit.</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110133429.png" alt="image-20210110133429332" style="zoom:50%;" />, check <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/2017/file/f9be311e65d81a9ad8150a60844bb94c-Paper.pdf">here</a> for details. Apart from this slightly complex residual unit, others are the same as ResNet.</p>
 </li>
 </ul>
-<h4 id="Family-of-pretext-tasks">Family of pretext tasks</h4>
-<ul>
-<li><strong>Rotation</strong>: same as RotNet, ${0^{\circ}, 90^{\circ}, 180^{\circ}, 270^{\circ}}$</li>
+<h4 id="Family-of-pretext-tasks"><a href="#Family-of-pretext-tasks" class="headerlink" title="Family of pretext tasks"></a>Family of pretext tasks</h4><ul>
+<li><strong>Rotation</strong>: same as RotNet, $\{0^{\circ}, 90^{\circ}, 180^{\circ}, 270^{\circ}\}$</li>
 <li><strong>Exemplar</strong>: triplet loss</li>
 <li><strong>Jigsaw</strong>: recover relative spatial position of 9 randomly sampled image patches after a random permutation of these patches was performed. Patches are sampled with a random gap between them. Each patch is then independently converted to grayscale with probability $\frac{2}{3}$ and normalized to zero mean and unit standard deviation. Extract final image representations by averaging representations of 9 cropped patches.</li>
 <li><strong>Relative patch location</strong>: predicting the relative location of two given patches of an image. Extract final image representations by averaging representations of 9 cropped patches.</li>
 </ul>
-<h4 id="Evaluation-of-the-quality-of-learned-representations">Evaluation of the quality of learned representations</h4>
-<ul>
-<li>Idea: <strong>Using learned representations for training a linear logistic regression model to solve multiclass image classification tasks</strong> (downstream tasks). All representations come from pre-logits level.</li>
+<h4 id="Evaluation-of-the-quality-of-learned-representations"><a href="#Evaluation-of-the-quality-of-learned-representations" class="headerlink" title="Evaluation of the quality of learned representations"></a>Evaluation of the quality of learned representations</h4><ul>
+<li>Idea: <strong>Using learned representations for training a linear logistic regression model to solve multiclass image classification tasks</strong> (downstream tasks). All representations come from pre-logits level. </li>
 <li>Details: the linear logistic regression model is trained by L-BFGS. But for comparison, using SGD with momentum and use data augmentation during training.</li>
 </ul>
-<h2 id="Experiments">Experiments</h2>
-<ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
 <li>Datasets</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -297,50 +274,42 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Pretext-CNNs-Downstream">Pretext? CNNs? Downstream?</h3>
-<ul>
-<li>
-<p>Pretext and its preferred CNN architecture: <strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110151545.png" alt="image-20210110151545316" style="zoom:30%;" />
+</div>
+<h3 id="Pretext-CNNs-Downstream"><a href="#Pretext-CNNs-Downstream" class="headerlink" title="Pretext? CNNs? Downstream?"></a>Pretext? CNNs? Downstream?</h3><ul>
+<li><p>Pretext and its preferred CNN architecture: <strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110151545.png" alt="image-20210110151545316" style="zoom:30%;" /></p>
 </li>
-<li>
-<p>The generalization of representations from pretext tasks: each pretext task can be generalized to other dataset. Check the trendings in figure 2.</p>
+<li><p>The generalization of representations from pretext tasks: each pretext task can be generalized to other dataset. Check the trendings in figure 2.</p>
 </li>
-<li>
-<p>Optimal CNNs for Pretext and downstream tasks: not consistent. But after selecting the right architecture for each self-supervision and increasing the widening factor, models significantly outperform previously reported results.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155158.png" alt="image-20210110155157874" style="zoom:45%;" />
+<li><p>Optimal CNNs for Pretext and downstream tasks: not consistent. But after selecting the right architecture for each self-supervision and increasing the widening factor, models significantly outperform previously reported results.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155158.png" alt="image-20210110155157874" style="zoom:45%;" /></p>
 </li>
-<li>
-<p><strong>Better performance on the pretext task does not always translate to better representations</strong>: Performance on pretext cannot be used to reliably select the model architecture.</p>
+<li><p><strong>Better performance on the pretext task does not always translate to better representations</strong>: Performance on pretext cannot be used to reliably select the model architecture.</p>
 </li>
 </ul>
-<h3 id="CNNs-architecture">CNNs architecture</h3>
-<ul>
+<h3 id="CNNs-architecture"><a href="#CNNs-architecture" class="headerlink" title="CNNs architecture"></a>CNNs architecture</h3><ul>
 <li>Skip-connection: For VGG, representations deteriorate towards the end of the network cause models specialize to the pretext task in the later layers. ResNet prevent this deterioration. They argue that this is because <strong>ResNet’s residual units being invertible under some conditions</strong> and confirm this by RevNet.</li>
 <li>Depth of CNNs: For residual architectures, the pre-logits are always best.</li>
-<li>Model-width and representation size:
-<ul>
-<li>whether the increase in performance is due to increased network capacity or to the use of higher-dimensional representations, or to the interplay of both? To answer it, authors disentangle the network width from the representation size by adding an additional linear layer to control the size of the pre-logits layer.</li>
+<li>Model-width and representation size: <ul>
+<li>whether the increase in performance is due to increased network capacity or to the use of higher-dimensional representations, or to the interplay of both? To answer it, authors disentangle the network width from the representation size by adding an additional linear layer to control the size of the pre-logits layer. </li>
 <li><strong>Model-width and representation size both matter independently, and larger is always better.</strong></li>
 <li>SSL techniques are likely to <strong>benefit from using CNNs with increased number of channels</strong> across wide range of scenarios, even under low-data regime.</li>
 </ul>
 </li>
 </ul>
-<h3 id="Evaluate-the-quality-of-representations">Evaluate the quality of representations</h3>
-<ul>
-<li><strong>A linear model is adequate</strong>:  MLP provides only marginal improvement over the linear evaluation and the relative performance of various settings is mostly unchanged</li>
+<h3 id="Evaluate-the-quality-of-representations"><a href="#Evaluate-the-quality-of-representations" class="headerlink" title="Evaluate the quality of representations"></a>Evaluate the quality of representations</h3><ul>
+<li><p><strong>A linear model is adequate</strong>:  MLP provides only marginal improvement over the linear evaluation and the relative performance of various settings is mostly unchanged</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155830.png" alt="image-20210110155829820" style="zoom:50%;" /></p>
+</li>
+<li><p>To train <strong>linear model, SGD optimization hyperparameters:</strong>  very long training (≈ 500 epochs) results in higher accuracy</p>
+</li>
 </ul>
-  <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210110155830.png" alt="image-20210110155829820" style="zoom:50%;" />
-<ul>
-<li>To train <strong>linear model, SGD optimization hyperparameters:</strong>  very long training (≈ 500 epochs) results in higher accuracy</li>
-</ul>
-<h2 id="Conclusion">Conclusion</h2>
-<ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
 <li>Most affect performance in the fully labeled setting, may significantly affect performance in the selfsupervised setting.</li>
 <li>the quality of learned representations in CNN architectures with skip-connections does not degrade towards the end of the model.</li>
 <li>Increasing the number of filters in a CNN model and, consequently, the size of the representation significantly and consistently increases the quality of the learned visual representations</li>
 <li>The evaluation procedure, where a linear model is trained on a fixed visual representation using stochastic gradient descent, is sensitive to the learning rate schedule and may take many epochs to converge</li>
-<li><strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong>–&gt;<strong>pretext tasks for self-supervised learning</strong> should not <strong>be considered</strong> in isolation, but <strong>in conjunction with underlying architectures</strong>.</li>
+<li><strong>neither is the ranking of architectures consistent across different methods, nor is the ranking of methods consistent across architectures.</strong>—&gt;<strong>pretext tasks for self-supervised learning</strong> should not <strong>be considered</strong> in isolation, but <strong>in conjunction with underlying architectures</strong>.</li>
 </ul>
 
       
@@ -605,14 +574,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -629,15 +590,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">

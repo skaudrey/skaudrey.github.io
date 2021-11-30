@@ -190,26 +190,16 @@
       
         <p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p>
 <a id="more"></a>
-<h2 id="Big-Question">Big Question</h2>
-<h3 id="reason">reason</h3>
-<h3 id="background">background</h3>
-<h2 id="Region-Proposal-Network">Region Proposal Network</h2>
-<h3 id="Some-numbers">Some numbers</h3>
-<ul>
+<h2 id="Big-Question"><a href="#Big-Question" class="headerlink" title="Big Question"></a>Big Question</h2><h3 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h3><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul>
 <li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li>
-<li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes.</li>
+<li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li>
 <li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by $k$ regressors.</li>
 </ul>
-<h2 id="Experiments">Experiments</h2>
-<h3 id="prove">prove</h3>
-<ul>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul>
 <li>The top-ranked RPN proposals are accurate.</li>
 <li>NMS does not harm the detection mAP and may reduce false alarms.</li>
 </ul>
-<h2 id="Construct">Construct</h2>
-<h3 id="Add-loss">Add loss</h3>
-<h3 id="Problems-using-it-processing-typhoon-data">Problems using it processing typhoon data</h3>
-<ul>
+<h2 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h2><h3 id="Add-loss"><a href="#Add-loss" class="headerlink" title="Add loss"></a>Add loss</h3><h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul>
 <li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li>
 </ul>
 
@@ -475,14 +465,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -499,15 +481,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">

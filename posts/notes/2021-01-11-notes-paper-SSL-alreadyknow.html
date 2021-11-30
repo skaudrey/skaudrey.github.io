@@ -194,11 +194,8 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2008.01064.pdf">Predicting What You Already Know Helps: Provable Self-Supervised Learning</a></p>
 <a id="more"></a>
-<h2 id="Why">Why?</h2>
-<h3 id="Previous-work">Previous work</h3>
-<ul>
-<li>
-<p>Pretext tasks</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
+<li><p>Pretext tasks</p>
 <ul>
 <li><strong>Reconstruct images from corrupted versions or just part it</strong>: including denoising auto-encoders, image inpainting, and split-brain autoencoder</li>
 <li><strong>Using visual common sense</strong>, including predicting rotation angle, relative patch position, recovering color channels, solving jigsaw puzzle games, and discriminating images created from distortion.</li>
@@ -206,53 +203,16 @@
 <li><strong>Create auxiliary tasks</strong>: The natural ordering or topology of data is also exploited in video-based, graph-based or map-based self-supervised learning. For instance, the pretext task is to determine the correct temporal order for video frames.</li>
 </ul>
 </li>
-<li>
-<p>Theory for self-supervised learning: contrastive learning</p>
+<li><p>Theory for self-supervised learning: contrastive learning</p>
 <ul>
 <li>Contrastive learning may not work when conditional independence holds only with additional latent variables</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Theory</th>
-<th style="text-align:left">Limitations</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption</td>
-<td style="text-align:left">Not handle approximate conditional independence</td>
-</tr>
-<tr>
-<td style="text-align:left">Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text</td>
-<td style="text-align:left">The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images</td>
-</tr>
-<tr>
-<td style="text-align:left">Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations</td>
-<td style="text-align:left">No connection made to downstream tasks</td>
-</tr>
-<tr>
-<td style="text-align:left">A mutual information maximization view of contrastive learning</td>
-<td style="text-align:left">Some issues point by paper [45]</td>
-</tr>
-<tr>
-<td style="text-align:left">Explain negative sampling based methods use the theory of noise contrastive estimation</td>
-<td style="text-align:left"><strong>guarantees are only asymptotic and not for downstream tasks.</strong></td>
-</tr>
-<tr>
-<td style="text-align:left">Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training</td>
-<td style="text-align:left">not for downstream task</td>
-</tr>
-</tbody>
-</table>
+<p>| Theory                                                       | Limitations                                                  |<br>| :—————————————————————————————- | :—————————————————————————————- |<br>| Shows shows guarantees for contrastive learning representations on linear classification tasks using a class conditional independence assumption | Not handle approximate conditional independence              |<br>| Contrastive learning representations can linearly recover any continuous functions of the underlying topic posterior under a topic modeling assumption for text | The <strong>assumption of independent sampling of words</strong> that they exploit is <strong>strong</strong> and <strong>not generalizable to other domains</strong> like images |<br>| Studies contrastive learning on the hypersphere through intuitive properties like alignment and uniformity of representations | No connection made to downstream tasks                       |<br>| A mutual information maximization view of contrastive learning | Some issues point by paper [45]                              |<br>| Explain negative sampling based methods use the theory of noise contrastive estimation | <strong>guarantees are only asymptotic and not for downstream tasks.</strong> |<br>| Conditional independence assumptions and redundancy assumptions on multiple views are used to analyze co-training | not for downstream task                                      |</p>
 </li>
 </ul>
-<h3 id="Summary">Summary</h3>
-<ul>
-<li>Observations
-<ul>
-<li>Forming the pretext tasks:
-<ul>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Observations<ul>
+<li>Forming the pretext tasks:<ul>
 <li>Colorization: can be interpreted as $p(X_1,X_2|Y)=p(X_1|Y)\times p(X_2|Y)$, aka $X_1,X_2$ are independently conditioned on $Y$</li>
 <li>Inpainting: $p(X_1,X_2|Y,Z)=p(X_1|Y,Z)\times p(X_2|Y,Z)$,aka the inpainted $X_2$ is conditionally independent of $X_2$ (the remainder) given $Y,Z$.</li>
 </ul>
@@ -260,17 +220,14 @@
 <li>The only way to solve the pretext task is to first implicitly predict $Y$ and then predict $X_2$ from $Y$</li>
 </ul>
 </li>
-<li>Limitations:
-<ul>
+<li>Limitations:<ul>
 <li>The underlying principles of self-supervised learning are still mysterious since it is a-priori unclear why predicting what we already know should help.</li>
 </ul>
 </li>
 </ul>
-<h2 id="Goals">Goals</h2>
-<p><em><strong>What conceptual connection between pretext and downstream tasks ensures good representations?</strong></em></p>
-<p><em><strong>What is a good way to quantify this?</strong></em></p>
-<h2 id="How">How?</h2>
-<h3 id="Notations">Notations</h3>
+<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p><strong><em>What conceptual connection between pretext and downstream tasks ensures good representations?</em></strong> </p>
+<p><strong><em>What is a good way to quantify this?</em></strong></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -282,10 +239,12 @@
 <tr>
 <td style="text-align:left">$\mathbb{E}^L[Y</td>
 <td style="text-align:left">X]$</td>
+<td>the best linear predictor of $Y$ given $X$</td>
 </tr>
 <tr>
 <td style="text-align:left">$\Sigma_{XY</td>
 <td style="text-align:left">Z}$</td>
+<td>partial covariance matrix between $X$ and $Y$ given $Z$</td>
 </tr>
 <tr>
 <td style="text-align:left">$X_1,X_2$</td>
@@ -301,26 +260,22 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Idea">Idea</h3>
-<ul>
-<li>Under approximate condition independence (CI) (quantified by the norm of a certain partial covariance matrix), show similar sample complexity improvements.</li>
+</div>
+<h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><ul>
+<li>Under approximate condition independence (CI) (quantified by the norm of a certain partial covariance matrix), show similar sample complexity improvements. </li>
 <li>Testify pretext task helps when CI is approximately satisfied in text domain.</li>
 <li>Demonstrate on a real-world image dataset that a pretext task-based linear model outperforms or is comparable to many baselines.</li>
 </ul>
-<h3 id="Formalize-SSL-with-pretext-task">Formalize SSL with pretext task</h3>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" />
+<h3 id="Formalize-SSL-with-pretext-task"><a href="#Formalize-SSL-with-pretext-task" class="headerlink" title="Formalize SSL with pretext task"></a>Formalize SSL with pretext task</h3><p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111171426.png" alt="image-20210111171415185" style="zoom:50%;" /></p>
 <p>It will be estimated by:</p>
 <ul>
 <li><strong>approximation erro</strong>r:<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173318.png" alt="image-20210111173318840" style="zoom:33%;" />, where $f^*=\mathbb{E}[Y|X_1]$ is the optimal predictor for the task</li>
 <li><strong>estimation error</strong>: <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210111173520.png" alt="image-20210111173520930" style="zoom:25%;" />, it’s the difference between Predicting $Y$ directly by $X_1$ and Predicting by the representations from pretext task</li>
 </ul>
-<h2 id="Experiments">Experiments</h2>
-<ul>
-<li></li>
-</ul>
-<h2 id="Conclusion">Conclusion</h2>
-<ul>
-<li>This paper posits a mechanism based on conditional independence to formalize how solving certain pretext tasks can learn representations that provably decreases the sample complexity of downstream supervised tasks</li>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<li><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2></li>
+<li><p>This paper posits a mechanism based on conditional independence to formalize how solving certain pretext tasks can learn representations that provably decreases the sample complexity of downstream supervised tasks</p>
+</li>
 <li>Quantify how approximate independence between the components of the pretext task (conditional on the label and latent variables) <strong>allows us to learn representations that can solve the downstream task with drastically reduced sample complexity</strong> by just training a linear layer on top of the learned representation.</li>
 </ul>
 
@@ -586,14 +541,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -610,15 +557,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
