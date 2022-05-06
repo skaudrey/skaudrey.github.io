@@ -190,16 +190,26 @@
       
         <p>Some understanding about the details in Faster RCNN, based on the codes in tensorflow.</p>
 <a id="more"></a>
-<h2 id="Big-Question"><a href="#Big-Question" class="headerlink" title="Big Question"></a>Big Question</h2><h3 id="reason"><a href="#reason" class="headerlink" title="reason"></a>reason</h3><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><h2 id="Region-Proposal-Network"><a href="#Region-Proposal-Network" class="headerlink" title="Region Proposal Network"></a>Region Proposal Network</h2><h3 id="Some-numbers"><a href="#Some-numbers" class="headerlink" title="Some numbers"></a>Some numbers</h3><ul>
-<li>The number of anchor boxes for one anchor target $k = scale \times ratios$,</li>
-<li>The number of anchor boxes for one feature layer (which has $W \times H$ grids), will get $ W \times H \times k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have $k$ anchor boxes. </li>
-<li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by $k$ regressors.</li>
+<h2 id="big-question">Big Question</h2>
+<h3 id="reason">reason</h3>
+<h3 id="background">background</h3>
+<h2 id="region-proposal-network">Region Proposal Network</h2>
+<h3 id="some-numbers">Some numbers</h3>
+<ul>
+<li>The number of anchor boxes for one anchor target <span class="math inline">\(k = scale \times ratios\)</span>,</li>
+<li>The number of anchor boxes for one feature layer (which has <span class="math inline">\(W \times H\)</span> grids), will get $ W H k $ anchor boxes. Every grid in the feature map (the output of a popular CNN without FC layers) will have <span class="math inline">\(k\)</span> anchor boxes.</li>
+<li>Not like the ROI method, the size of features are fixed, but anchor boxes are rescaled by <span class="math inline">\(k\)</span> regressors.</li>
 </ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h3><ul>
+<h2 id="experiments">Experiments</h2>
+<h3 id="prove">prove</h3>
+<ul>
 <li>The top-ranked RPN proposals are accurate.</li>
 <li>NMS does not harm the detection mAP and may reduce false alarms.</li>
 </ul>
-<h2 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h2><h3 id="Add-loss"><a href="#Add-loss" class="headerlink" title="Add loss"></a>Add loss</h3><h3 id="Problems-using-it-processing-typhoon-data"><a href="#Problems-using-it-processing-typhoon-data" class="headerlink" title="Problems using it processing typhoon data"></a>Problems using it processing typhoon data</h3><ul>
+<h2 id="construct">Construct</h2>
+<h3 id="add-loss">Add loss</h3>
+<h3 id="problems-using-it-processing-typhoon-data">Problems using it processing typhoon data</h3>
+<ul>
 <li>Does NMS lead to loss of typhoon? Not really, the texture of typhoon is obvious in image.</li>
 </ul>
 
@@ -287,7 +297,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Question"><span class="toc-number">1.</span> <span class="toc-text">Big Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Region-Proposal-Network"><span class="toc-number">2.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-numbers"><span class="toc-number">2.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">3.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">3.1.</span> <span class="toc-text">prove</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Construct"><span class="toc-number">4.</span> <span class="toc-text">Construct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-loss"><span class="toc-number">4.1.</span> <span class="toc-text">Add loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-using-it-processing-typhoon-data"><span class="toc-number">4.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#big-question"><span class="toc-number">1.</span> <span class="toc-text">Big Question</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reason"><span class="toc-number">1.1.</span> <span class="toc-text">reason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.2.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#region-proposal-network"><span class="toc-number">2.</span> <span class="toc-text">Region Proposal Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#some-numbers"><span class="toc-number">2.1.</span> <span class="toc-text">Some numbers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">3.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prove"><span class="toc-number">3.1.</span> <span class="toc-text">prove</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#construct"><span class="toc-number">4.</span> <span class="toc-text">Construct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#add-loss"><span class="toc-number">4.1.</span> <span class="toc-text">Add loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#problems-using-it-processing-typhoon-data"><span class="toc-number">4.2.</span> <span class="toc-text">Problems using it processing typhoon data</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -316,7 +326,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Mia Feng
+    		&copy; 2022 Mia Feng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -513,6 +523,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -521,11 +539,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,7 +551,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3d shape</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fall</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,34 +596,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3d shape</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fall</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
             
             <div class="clearfix"></div>
@@ -721,22 +731,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

@@ -10,12 +10,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Graph Embedded Pose Clustering for Anomaly Detection | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Graph Embedded Pose Clustering for Anomaly Detection Code here">
+  <meta name="description" content="Paper Graph Embedded Pose Clustering for Anomaly Detection Code here">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Graph Embedded Pose Clustering for Anomaly Detection">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-15-notes-paper-anomaly-gepc.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Graph Embedded Pose Clustering for Anomaly Detection Code here">
+<meta property="og:description" content="Paper Graph Embedded Pose Clustering for Anomaly Detection Code here">
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115162120.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115185527.png">
@@ -25,8 +25,8 @@
 <meta property="article:published_time" content="2021-01-15T20:17:13.000Z">
 <meta property="article:modified_time" content="2021-01-21T22:51:24.000Z">
 <meta property="article:author" content="Mia Feng">
-<meta property="article:tag" content="paper">
 <meta property="article:tag" content="gcn">
+<meta property="article:tag" content="paper">
 <meta property="article:tag" content="skeleton">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115162120.png">
@@ -198,189 +198,202 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1912.11850.pdf">Graph Embedded Pose Clustering for Anomaly Detection</a></p>
 <p>Code <a target="_blank" rel="noopener" href="https://github.com/amirmk89/gepc">here</a></p>
 <a id="more"></a>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h3 id="Previous-work"><a href="#Previous-work" class="headerlink" title="Previous work"></a>Previous work</h3><ul>
+<h2 id="why">Why?</h2>
+<h3 id="previous-work">Previous work</h3>
+<ul>
 <li><p>Anomaly detection task</p>
 <ul>
 <li>Fine-grained anomaly detection: Detecting abnormal variations of an action: e.g. an abnormal type of walking</li>
 <li>Coarse-grained anomaly detection: Defining normal actions and regard other action as abnormal. Aka there are multiple poses regarded as normal actions, rather than a single normal action.</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Video anomaly detection</p>
 <ul>
-<li>Reconstructive models:  learn a feature representation for each sample and attempt to reconstruct a sample based on that embedding, often using <strong>Autoencoder</strong>. Samples poorly reconstructed are considered anomalous.</li>
+<li>Reconstructive models: learn a feature representation for each sample and attempt to reconstruct a sample based on that embedding, often using <strong>Autoencoder</strong>. Samples poorly reconstructed are considered anomalous.</li>
 <li>Predictive models: model the current frame based on a set of previous frames, often relying on recurrent neural networks or 3D convolutions. Samples poorly predicted are considered anomalous.</li>
 <li>Reconstructive + predictive models</li>
 <li>Generative models: used to reconstruct, predict or model the distribution of the data, often using Variational Autoencoders (VAEs) or GANs. E.g. the differences in gradient-based features and optical flow.</li>
-</ul>
-</li>
+</ul></li>
 <li><p>GNNs</p>
 <p>The point is the weighted adjacency matrix.</p>
 <ul>
 <li>Temporal and multiple adjacency extensions. (ST-GCN)</li>
 <li>Graph attention networks. (2s-AGCN)</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Deep clustering models</p>
-<p>Provide useful cluster assignments by optimizing a deep model under a cluster inducing objective.</p>
-</li>
+<p>Provide useful cluster assignments by optimizing a deep model under a cluster inducing objective.</p></li>
 </ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Observations<ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Observations
+<ul>
 <li>Skeleton-based methods make the analysis independent of nuisance parameters such as viewpoint or illumination.</li>
-</ul>
-</li>
-<li>Limitations<ul>
+</ul></li>
+<li>Limitations
+<ul>
 <li>Traditional RGB-based anomaly detection methods have to consider many trivial information (viewing direction, illumination, background clutter etc.), and those data are sparse in human pose.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>Generating action words from skeleton-based graphs and then classify actions into normal and abnormal (anomaly detection). With an aim at it can work both on fine-grained and coarse-grained task.</p>
-<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>Map graphs into representation space and then cluster them so as to get action words. At last, Dirichlet process based mixture is used for classifying normal and abnormal.</p>
+<h2 id="goals">Goals</h2>
+<p>Generating action words from skeleton-based graphs and then classify actions into normal and abnormal (anomaly detection). With an aim at it can work both on fine-grained and coarse-grained task.</p>
+<h2 id="how">How?</h2>
+<h3 id="idea">Idea</h3>
+<p>Map graphs into representation space and then cluster them so as to get action words. At last, Dirichlet process based mixture is used for classifying normal and abnormal.</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115162120.png" alt="image-20210115162120660" style="zoom:50%;" /></p>
-<h3 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h3><ul>
+<h3 id="data-preparation">Data Preparation</h3>
+<ul>
 <li>Similar skeleton graph as what used in ST-GCN.</li>
 </ul>
-<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><ul>
-<li><p>Backbone: ST-GCN</p>
-</li>
+<h3 id="implementation">Implementation</h3>
+<ul>
+<li><p>Backbone: ST-GCN</p></li>
 <li><p>ST-GCAE network</p>
 <ul>
 <li><p>GCN block</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115185527.png" alt="image-20210115185526918" style="zoom:50%;" /></p>
-<p>The block will be used in SAGC</p>
-</li>
+<p>The block will be used in SAGC</p></li>
 <li><p><strong>SAGC</strong> block</p>
 <p>Each adjacency type is applied with its own GCN, using separate weights.</p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210115190041.png" alt="image-20210115190041541" style="zoom:50%;" /></p>
 <ul>
 <li><p>Adjacency matrices</p>
-<p>| matrix       | sharing                                                  | level                                      | Dimension                           |<br>| —————— | ———————————————————————————— | ————————————————————— | —————————————————- |<br>| $\mathrm{A}$ | fixed and shared by all layers                           | body-part connectivity over node relations | $[V,V]$, $V$ is the number of nodes |<br>| $\mathrm{B}$ | individual at each layer, applied equally to all samples | dataset level keypoint relations           | $[V,V]$                             |<br>| $\mathrm{C}$ | is different for different sample                        | sample specific relations                  | $[N,V,V]$, $N$ is the batch size    |</p>
-</li>
-</ul>
-</li>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 38%" />
+<col style="width: 28%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>matrix</th>
+<th>sharing</th>
+<th>level</th>
+<th>Dimension</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathrm{A}\)</span></td>
+<td>fixed and shared by all layers</td>
+<td>body-part connectivity over node relations</td>
+<td><span class="math inline">\([V,V]\)</span>, <span class="math inline">\(V\)</span> is the number of nodes</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+<td>individual at each layer, applied equally to all samples</td>
+<td>dataset level keypoint relations</td>
+<td><span class="math inline">\([V,V]\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathrm{C}\)</span></td>
+<td>is different for different sample</td>
+<td>sample specific relations</td>
+<td><span class="math inline">\([N,V,V]\)</span>, <span class="math inline">\(N\)</span> is the batch size</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
 <li><p>ST-GCAE</p>
-<p>The encoder uses large temporal strides with an increasing channel number to compress an input sequence to a latent vector. The decoder uses temporal up-sampling layers and additional graph convolutional blocks. </p>
-</li>
-</ul>
-</li>
+<p>The encoder uses large temporal strides with an increasing channel number to compress an input sequence to a latent vector. The decoder uses temporal up-sampling layers and additional graph convolutional blocks.</p></li>
+</ul></li>
 <li><p><strong>Deep embedded cluster</strong></p>
 <ul>
-<li><p>The input is the embedding from ST-GCAE, denoted as $\mathrm{z}_i$ for sample $i$</p>
-</li>
-<li><p>Soft-assignment —clustering layer</p>
-<p>The probability $p_{ik}$ for the $i$-th sample to be assigned to the $k$-th cluster is:</p>
-<p>$p_{ik}=Pr(y_i=k|\mathrm{z}_i,\Theta)=\frac{exp(\theta^T_k\mathrm{z}_i)}{\sum\limits_{k’=1}^{K}exp(\theta^T_{k’}\mathrm{z}_i)}$, where $\Theta$ is the clustering layer’s parameters. (Simple softmax)</p>
-</li>
+<li><p>The input is the embedding from ST-GCAE, denoted as <span class="math inline">\(\mathrm{z}_i\)</span> for sample <span class="math inline">\(i\)</span></p></li>
+<li><p>Soft-assignment --clustering layer</p>
+<p>The probability <span class="math inline">\(p_{ik}\)</span> for the <span class="math inline">\(i\)</span>-th sample to be assigned to the <span class="math inline">\(k\)</span>-th cluster is:</p>
+<p><span class="math inline">\(p_{ik}=Pr(y_i=k|\mathrm{z}_i,\Theta)=\frac{exp(\theta^T_k\mathrm{z}_i)}{\sum\limits_{k&#39;=1}^{K}exp(\theta^T_{k&#39;}\mathrm{z}_i)}\)</span>, where <span class="math inline">\(\Theta\)</span> is the clustering layer’s parameters. (Simple softmax)</p></li>
 <li><p><strong>Optimize clustering layer</strong></p>
 <ul>
-<li>Objective: Minimize the KL-divergence between the current model probability clustering prediction $P$ and a target distribution $Q$. The target distribution aims to strengthen current cluster assignments by normalizing and pushing each value closer to a value of either 0 or 1. </li>
-<li><strong>EM</strong> style. In expectation step, the entire model is fixed and the target distribution $Q$ is updated. In maximization stage, the model is optimized to minimize the clustering loss $L_{cluster}$.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Anomaly classifier—<strong>normality scoring??</strong></p>
+<li>Objective: Minimize the KL-divergence between the current model probability clustering prediction <span class="math inline">\(P\)</span> and a target distribution <span class="math inline">\(Q\)</span>. The target distribution aims to strengthen current cluster assignments by normalizing and pushing each value closer to a value of either 0 or 1.</li>
+<li><strong>EM</strong> style. In expectation step, the entire model is fixed and the target distribution <span class="math inline">\(Q\)</span> is updated. In maximization stage, the model is optimized to minimize the clustering loss <span class="math inline">\(L_{cluster}\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>Anomaly classifier--<strong>normality scoring??</strong></p>
 <ul>
 <li>Two types of multimodal distributions. One is at the cluster assignment level; the other is at the soft-assignment vector level.</li>
-<li>DPMM based. Classifier is fitted by soft-assignment vector (e.g., for class $i$ the softmax result) and then it can do inference.</li>
-</ul>
-</li>
+<li>DPMM based. Classifier is fitted by soft-assignment vector (e.g., for class <span class="math inline">\(i\)</span> the softmax result) and then it can do inference.</li>
+</ul></li>
 <li><p>Model</p>
 <p>Feeding the embedding from ST-GCAE to clustering layer, then fixing decoder, fine-tune the encoder in ST-GCAE and clustering layer by combined loss. After fine tuning, using DPMM-based classifier for final inference.</p>
 <ul>
 <li><p>Loss function</p>
 <ul>
-<li><p><strong>Reconstruction loss</strong> $L_{rec}$: $\ell_2$ loss between the original temporal pose graphs and those reconstructed by ST-GCAE, <strong>used in pre-training stage</strong>, for training the whole ST-GCAE.</p>
-</li>
-<li><p><strong>Clustering loss</strong> $L_{cluster}$, combined with reconstruction loss and used for fine-tuning encoder of ST-GCAE+clustering layer</p>
-<p>$L_{cluster}=KL(Q||P)=\sum\limits_i\sum\limits_kq_{ik}\log\frac{q_{ik}}{p_{ik}},\ q_{ik}=\frac{p_{ik}/(\sum_{i’}p_{i’k})^{\frac{1}{2}}}{\sum_{k’}p_{ik’}/(\sum_{i’}p_{i’k’})^{\frac{1}{2}}}$</p>
-</li>
+<li><p><strong>Reconstruction loss</strong> <span class="math inline">\(L_{rec}\)</span>: <span class="math inline">\(\ell_2\)</span> loss between the original temporal pose graphs and those reconstructed by ST-GCAE, <strong>used in pre-training stage</strong>, for training the whole ST-GCAE.</p></li>
+<li><p><strong>Clustering loss</strong> <span class="math inline">\(L_{cluster}\)</span>, combined with reconstruction loss and used for fine-tuning encoder of ST-GCAE+clustering layer</p>
+<p><span class="math inline">\(L_{cluster}=KL(Q||P)=\sum\limits_i\sum\limits_kq_{ik}\log\frac{q_{ik}}{p_{ik}},\\ q_{ik}=\frac{p_{ik}/(\sum_{i&#39;}p_{i&#39;k})^{\frac{1}{2}}}{\sum_{k&#39;}p_{ik&#39;}/(\sum_{i&#39;}p_{i&#39;k&#39;})^{\frac{1}{2}}}\)</span></p></li>
 <li><p>Combined loss</p>
-<p>$L_{combined}=L_{rec}+\lambda\cdot L_{cluster}$, this loss is for training encoder and clustering layer, which means the decoder is fixed while using it.</p>
-</li>
-</ul>
-</li>
+<p><span class="math inline">\(L_{combined}=L_{rec}+\lambda\cdot L_{cluster}\)</span>, this loss is for training encoder and clustering layer, which means the decoder is fixed while using it.</p></li>
+</ul></li>
 <li><p>Optimization</p>
 <ul>
 <li>encoder: reconstruction loss + cluster loss</li>
 <li>decoder: reconstruction loss</li>
 <li>clustering layer: cluster loss</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><ul>
+<h2 id="experiments">Experiments</h2>
+<ul>
 <li><p>Dataset</p>
 <ul>
-<li>ShanghaiTech: 130 abnormal events captured in 13 different scenes with complex lighting conditions and camera angles. <ul>
+<li>ShanghaiTech: 130 abnormal events captured in 13 different scenes with complex lighting conditions and camera angles.
+<ul>
 <li>training set contains only normal examples</li>
 <li>test set contains both normal and abnormal examples</li>
 <li>2D pose</li>
-</ul>
-</li>
-<li>Kinetics-based: Kinetics-250 and NTU-RGBD. Actions in each set are sampled randomly or meaningfully. In Kinetics dataset, remove actions that focus only on slightly part joints’ movements, like hair braiding.<ul>
-<li><em>Few vs. Many</em>: few normal actions ($3\sim5$) in the training set and many abnormal  ($10\sim 11$ hundreds) actions in the test set</li>
+</ul></li>
+<li>Kinetics-based: Kinetics-250 and NTU-RGBD. Actions in each set are sampled randomly or meaningfully. In Kinetics dataset, remove actions that focus only on slightly part joints' movements, like hair braiding.
+<ul>
+<li><em>Few vs. Many</em>: few normal actions (<span class="math inline">\(3\sim5\)</span>) in the training set and many abnormal (<span class="math inline">\(10\sim 11\)</span> hundreds) actions in the test set</li>
 <li><em>Many vs. Few</em>: switch the training set and test set in experiment above.</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><p>Preprocessing</p>
 <ul>
 <li>Pre-extracting 2D pose from ShanghaiTech Campus</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Input features</p>
 <ul>
 <li>The coordinates of joints</li>
-<li>For ShanghaiTech: The embeddings of the patch around each joint (from one of the pose estimation model’s hidden layers)</li>
-</ul>
-</li>
+<li>For ShanghaiTech: The embeddings of the patch around each joint (from one of the pose estimation model's hidden layers)</li>
+</ul></li>
 <li><p>Test Algorithms on coarse-grained (Kinetics and NTU-RGBD)</p>
 <ul>
-<li>Autoencoder reconstruction loss: ST-GCAE reached convergence prior to the deep clustering fine-tuning stage.</li>
-<li>Autoencoder based one-class SVM: fit a one-class SVM using the encoded pose sequence representation</li>
-<li>Video anomaly detection methods: Train Future frame prediction model and the skeleton trajectory model. Anomaly scores for each video are obtained by averaging the per-frame scores.</li>
-<li><p>Classifier softmax scores: supervised baseline. Anomaly score is by either using the softmax vector’s max value or by using the Dirichlet normality score </p>
-</li>
-<li><p>Test video in fixed size but with sliding-window if the test video with unknown frames</p>
-</li>
-</ul>
-</li>
+<li><p>Autoencoder reconstruction loss: ST-GCAE reached convergence prior to the deep clustering fine-tuning stage.</p></li>
+<li><p>Autoencoder based one-class SVM: fit a one-class SVM using the encoded pose sequence representation</p></li>
+<li><p>Video anomaly detection methods: Train Future frame prediction model and the skeleton trajectory model. Anomaly scores for each video are obtained by averaging the per-frame scores.</p></li>
+<li><p>Classifier softmax scores: supervised baseline. Anomaly score is by either using the softmax vector's max value or by using the Dirichlet normality score</p></li>
+<li><p>Test video in fixed size but with sliding-window if the test video with unknown frames</p></li>
+</ul></li>
 <li><p>Evaluation metrics</p>
 <ul>
 <li>Frame-level score: the maximal score over all the people in the frame</li>
 <li>AUC as the combined score over all frames of one test</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Summary</p>
 <ul>
 <li><p>On ShanghaiTech (fine-grained): Patches ST-GCAE outstands.</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121170448.png" alt="image-20210121170448502" style="zoom:40%;" /></p>
-</li>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121170448.png" alt="image-20210121170448502" style="zoom:40%;" /></p></li>
 <li><p>On coarse grained dataset, ST-GCAE outperforms, but better on meaningful actions. <em>A good skeleton help ST-GCAE</em> (NTU-RGBD has better detection on skeletons cause the depth data is known.)</p>
-<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121171357.png" alt="image-20210121171357539" style="zoom:30%;" /></p>
-</li>
-<li><p><em>Failed cases</em>: occlusions, high-speed action like cycling, non-person related abnormal like bursting into a vehicle.</p>
-</li>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121171357.png" alt="image-20210121171357539" style="zoom:30%;" /></p></li>
+<li><p><em>Failed cases</em>: occlusions, high-speed action like cycling, non-person related abnormal like bursting into a vehicle.</p></li>
 <li><p><strong>Ablation study:</strong> adding some abnormal actions into normal actions</p>
 <ul>
-<li>ST-GACE on NTU-RGBD (<strong><em>only dropping, touching and Rand8 dataset are tested</em></strong>): ST-GCAE loses on average less than $10\%$ of performance when trained with $5\%$ abnormal actions added as noises.</li>
+<li>ST-GACE on NTU-RGBD (<strong><em>only dropping, touching and Rand8 dataset are tested</em></strong>): ST-GCAE loses on average less than <span class="math inline">\(10\%\)</span> of performance when trained with <span class="math inline">\(5\%\)</span> abnormal actions added as noises.</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
 <li>The use of embedded pose graphs and a Dirichlet process mixture for video anomaly detection;</li>
-<li>A new coarse-grained setting for exploring broader aspects of video anomaly detection; </li>
+<li>A new coarse-grained setting for exploring broader aspects of video anomaly detection;</li>
 <li>State-of-the-art AUC of 0.761 for the ShanghaiTech Campus anomaly detection benchmark.</li>
 </ul>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a><font color='blue'>Remarks</font></h2><ul>
-<li>The reconstruction (learning representations of graph) is mixed with clustering in the final loss, will this be good? Won’t the trivial information of clustering influence the reconstruction?</li>
-<li>The training set for clustering layer is initialized by the K-Means centroids, won’t the initialization methods matter?</li>
-<li><strong>The embeddings of patches around each joint outperforms the simple joint coordinates</strong> </li>
+<h2 id="remarks"><font color='blue'>Remarks</font></h2>
+<ul>
+<li>The reconstruction (learning representations of graph) is mixed with clustering in the final loss, will this be good? Won't the trivial information of clustering influence the reconstruction?</li>
+<li>The training set for clustering layer is initialized by the K-Means centroids, won't the initialization methods matter?</li>
+<li><strong>The embeddings of patches around each joint outperforms the simple joint coordinates</strong></li>
 </ul>
 
       
@@ -395,11 +408,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -471,7 +484,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remarks"><span class="toc-number">6.</span> <span class="toc-text">Remarks</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.</span> <span class="toc-text">Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.3.</span> <span class="toc-text">Implementation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#remarks"><span class="toc-number">6.</span> <span class="toc-text">Remarks</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -500,7 +513,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Mia Feng
+    		&copy; 2022 Mia Feng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -697,6 +710,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
@@ -705,11 +726,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,7 +738,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3d shape</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fall</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,34 +783,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3d shape</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fall</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
             
             <div class="clearfix"></div>
@@ -905,22 +918,6 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
