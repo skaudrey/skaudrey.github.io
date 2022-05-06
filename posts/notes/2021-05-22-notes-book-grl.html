@@ -237,8 +237,8 @@
       
         <p>Book <a target="_blank" rel="noopener" href="https://www.cs.mcgill.ca/~wlh/grl_book/files/GRL_Book.pdf">Graph Representation Learning</a></p>
 <a id="more"></a>
-<h2 id="chapter-1-introduction">Chapter 1: Introduction</h2>
-<h3 id="graphs">Graphs</h3>
+<h2 id="Chapter-1-Introduction">Chapter 1: Introduction</h2>
+<h3 id="Graphs">Graphs</h3>
 <ul>
 <li>Types and represent edges
 <ul>
@@ -247,226 +247,327 @@
 <li>Heterogeneous and multiplex graphs
 <ul>
 <li>Heterogeneous graphs: both nodes and graphs are heterogeneous.</li>
-<li>Multiplex: graph can be decomposed in a set of <span class="math inline">\(k\)</span> layers. Every layers corresponds to a unique relation, denoted as intra-layer edge, and those between layers are inter-layer edges. <strong>E.g., the graph of skeleton clips.</strong></li>
-</ul></li>
-</ul></li>
+<li>Multiplex: graph can be decomposed in a set of $k$ layers. Every layers corresponds to a unique relation, denoted as intra-layer edge, and those between layers are inter-layer edges. <strong>E.g., the graph of skeleton clips.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Feature information
 <ul>
 <li>If heterogeneous, each types of nodes may have different dimensions of attributes.</li>
-</ul></li>
+</ul>
+</li>
 <li>Tasks on graphs with machine learning
 <ul>
 <li>node classification: like whether users are bots or not, aka predict the label of node.
 <ul>
-<li>Note that the <strong>nodes in a graph</strong> are not independently and identically distributed, which <strong>doesn't satisfy the requirements of i.i.d. in supervised learning.</strong></li>
+<li>Note that the <strong>nodes in a graph</strong> are not independently and identically distributed, which <strong>doesn’t satisfy the requirements of i.i.d. in supervised learning.</strong></li>
 <li>To inference the label, one idea is to use <em>homophily</em>, which assume that nodes tend to shared attributes with their neighbors in the graph. The other idea is <em>structural equivalence</em>, which assumes that nodes with similar local neighborhood structures will have similar labels.</li>
-</ul></li>
+</ul>
+</li>
 <li>Relation prediction
 <ul>
 <li>Like predicting the missing interactions.</li>
 <li>Similar problems met in node classification (i.i.d.), and requires inductive biases that are specific to the graph domain.</li>
-</ul></li>
+</ul>
+</li>
 <li>Clustering and community detection
 <ul>
 <li>infer latent community structures given only the input graph.</li>
-</ul></li>
+</ul>
+</li>
 <li>Graph classification, regression and clustering.
 <ul>
 <li>In graph clustering, the goal is to learn an unsupervised measure of similarity between pairs of graphs.</li>
-</ul></li>
-</ul></li>
 </ul>
-<h2 id="chapter-2-background-traditional-approaches">Chapter 2: Background &amp; Traditional Approaches</h2>
-<h3 id="graph-statistics-and-kernel-methods">Graph statistics and kernel methods</h3>
-<h4 id="node-level-statistics">Node-level statistics</h4>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-2-Background-Traditional-Approaches">Chapter 2: Background &amp; Traditional Approaches</h2>
+<h3 id="Graph-statistics-and-kernel-methods">Graph statistics and kernel methods</h3>
+<h4 id="Node-level-statistics">Node-level statistics</h4>
 <ul>
-<li><p>Node degree: simply counts the number of edges incident to a node, which will measure how many neighbors a node has.</p></li>
-<li><p>Node centrality: To measure the importance of a node in a graph.</p>
+<li>
+<p>Node degree: simply counts the number of edges incident to a node, which will measure how many neighbors a node has.</p>
+</li>
+<li>
+<p>Node centrality: To measure the importance of a node in a graph.</p>
 <ul>
-<li><p>Eigenvector centrality <span class="math inline">\(e_u\)</span></p>
+<li>
+<p>Eigenvector centrality $e_u$</p>
 <ul>
-<li><p><span class="math inline">\(e_u=\frac{1}{\lambda}\sum\limits_{v\in V} \mathrm{A}[u,v]e_v,\forall u\in \mathcal{V}\)</span>., it measures that satisfies the recurrence in above equation corresponds to an eigenvector of the adjacency matrix.</p></li>
-<li><p>The vector of centrality values is given by the eigenvector corresponding to the largest eigenvalues of <span class="math inline">\(\mathrm{A}\)</span>.</p></li>
-<li><p><strong>The eigenvector centrality ranks the likelihood that a node is visited on a random walk of infinite length on the graph.</strong></p></li>
-<li><p>After <span class="math inline">\(t\)</span> iteration, the eigenvector centrality will contain the number of length-<span class="math inline">\(t\)</span> paths arriving at each node.</p></li>
-</ul></li>
-<li><p>Betweeness centrality</p>
+<li>
+<p>$e_u=\frac{1}{\lambda}\sum\limits_{v\in V} \mathrm{A}[u,v]e_v,\forall u\in \mathcal{V}$., it measures that satisfies the recurrence in above equation corresponds to an eigenvector of the adjacency matrix.</p>
+</li>
+<li>
+<p>The vector of centrality values is given by the eigenvector corresponding to the largest eigenvalues of $\mathrm{A}$.</p>
+</li>
+<li>
+<p><strong>The eigenvector centrality ranks the likelihood that a node is visited on a random walk of infinite length on the graph.</strong></p>
+</li>
+<li>
+<p>After $t$ iteration, the eigenvector centrality will contain the number of length-$t$ paths arriving at each node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Betweeness centrality</p>
 <ul>
 <li>Measures how often a node lies on the shortest path between two other nodes.</li>
-</ul></li>
-<li><p>Closeness centrality</p>
+</ul>
+</li>
+<li>
+<p>Closeness centrality</p>
 <ul>
 <li>Measures the average shortest path length between a node and all other nodes.</li>
-</ul></li>
-<li><p>More: M. Newman. Networks. Oxford University Press, 2018. 1, 12, 13, 108, 109</p></li>
-</ul></li>
-<li><p>The clustering coefficient</p>
-<ul>
-<li><p>Measure the structural distinction using variations of the clustering coefficient, which Measures the proportion of closed triangles in a node's local neighborhood.</p></li>
-<li><p>The local variant of clustering coefficient is calculated by:</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522153036032.png" alt="image-20210522153036032" style="zoom:50%;" /></p></li>
-<li><p>It Measures how tightly clustered a node's neighborhood is.</p></li>
-<li><p>In social and biological sciences, they tend to have far higher clustering coefficients than one would expect if edges were sampled randomly.</p></li>
-</ul></li>
-<li><p>Closed Triangles, Ego Graphs, and Motifs</p>
-<ul>
-<li>The global clustering coefficient. Similar equation but this time count in the node's ego graph.</li>
-<li>A node's ego graph: the subgraph containing that node, its neighbors, and all the edges between nodes in its neighborhood.</li>
-<li>The general version of these ideas is counting arbitrary motifs or graphlets within a node's ego graph. E.g.: triangles, cycles of particular length etc.</li>
-</ul></li>
 </ul>
-<h4 id="graph-level-features-and-graph-kernels">Graph-level features and graph kernels</h4>
+</li>
+<li>
+<p>More: M. Newman. Networks. Oxford University Press, 2018. 1, 12, 13, 108, 109</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The clustering coefficient</p>
 <ul>
-<li><p>Bag of nodes</p>
+<li>
+<p>Measure the structural distinction using variations of the clustering coefficient, which Measures the proportion of closed triangles in a node’s local neighborhood.</p>
+</li>
+<li>
+<p>The local variant of clustering coefficient is calculated by:</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522153036032.png" alt="image-20210522153036032" style="zoom:50%;" />
+</li>
+<li>
+<p>It Measures how tightly clustered a node’s neighborhood is.</p>
+</li>
+<li>
+<p>In social and biological sciences, they tend to have far higher clustering coefficients than one would expect if edges were sampled randomly.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Closed Triangles, Ego Graphs, and Motifs</p>
+<ul>
+<li>The global clustering coefficient. Similar equation but this time count in the node’s ego graph.</li>
+<li>A node’s ego graph: the subgraph containing that node, its neighbors, and all the edges between nodes in its neighborhood.</li>
+<li>The general version of these ideas is counting arbitrary motifs or graphlets within a node’s ego graph. E.g.: triangles, cycles of particular length etc.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Graph-level-features-and-graph-kernels">Graph-level features and graph kernels</h4>
+<ul>
+<li>
+<p>Bag of nodes</p>
 <ul>
 <li>Aggregate node-level statistics</li>
 <li>E.g., the histograms, the statistics based on the degrees, centralities and clustering coefficients of the nodes.</li>
 <li>May miss important global properties in graph</li>
-</ul></li>
-<li><p>The Weisfieler-Lehman Kernel</p>
+</ul>
+</li>
+<li>
+<p>The Weisfieler-Lehman Kernel</p>
 <ul>
-<li><p>Iterative neighborhood aggregation. Extract node-level features that contain more information than just their local Ego graph, and then to aggregate these features into a representation.</p></li>
-<li><p>The most well-known one is the Weisfieler-Lehman (WL) algorithm.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522162120249.png" alt="image-20210522162120249" style="zoom:57%;" /></p>
+<li>
+<p>Iterative neighborhood aggregation. Extract node-level features that contain more information than just their local Ego graph, and then to aggregate these features into a representation.</p>
+</li>
+<li>
+<p>The most well-known one is the Weisfieler-Lehman (WL) algorithm.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522162120249.png" alt="image-20210522162120249" style="zoom:57%;" />
 <ul>
 <li>In other words, the WL kernel is computed by measuring the difference between the resultant label sets for two graphs.</li>
-<li>Useful while solving the isomorphism problem: approximate graph isomorphism is to check whether or not two graphs have the same label set after <span class="math inline">\(K\)</span> rounds of the WL algorithm.</li>
-</ul></li>
-</ul></li>
-<li><p>Graphlets and path-base methods</p>
-<ul>
-<li>Graphlets: count the occurrence of different small subgraph structures, but it's computationally difficult.</li>
-<li>Path-based methods: examine the different kinds of paths that occur in the graph. E.g. <a target="_blank" rel="noopener" href="https://www.aaai.org/Papers/ICML/2003/ICML03-044.pdf">random walk</a> , the <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1565664">shortest path kernel</a> that is similar as random walk but uses only the shortest-paths between nodes.</li>
-</ul></li>
+<li>Useful while solving the isomorphism problem: approximate graph isomorphism is to check whether or not two graphs have the same label set after $K$ rounds of the WL algorithm.</li>
 </ul>
-<h3 id="neighborhood-overlap-detection">Neighborhood overlap detection</h3>
+</li>
+</ul>
+</li>
+<li>
+<p>Graphlets and path-base methods</p>
 <ul>
-<li>The features mentioned above don't quantify the relationships among nodes, and thus won't work well on relation prediction.</li>
+<li>Graphlets: count the occurrence of different small subgraph structures, but it’s computationally difficult.</li>
+<li>Path-based methods: examine the different kinds of paths that occur in the graph. E.g. <a target="_blank" rel="noopener" href="https://www.aaai.org/Papers/ICML/2003/ICML03-044.pdf">random walk</a> , the <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1565664">shortest path kernel</a> that is similar as random walk but uses only the shortest-paths between nodes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Neighborhood-overlap-detection">Neighborhood overlap detection</h3>
+<ul>
+<li>The features mentioned above don’t quantify the relationships among nodes, and thus won’t work well on relation prediction.</li>
 <li>The simplest neighborhood overlap measure: just counts the number of neighbors that two nodes share.</li>
 <li>Hope that node-node similarity Measures computed on the training edges will lead to accurate predictions about the existence of test edges.</li>
 </ul>
-<h4 id="local-overlap-measures">Local overlap measures</h4>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522180625718.png" alt="image-20210522180625718" style="zoom:80%;" /></p>
+<h4 id="Local-overlap-measures">Local overlap measures</h4>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522180625718.png" alt="image-20210522180625718" style="zoom:80%;" />
 <ul>
 <li>Use the functions of the number of common neighbors two nodes share.
 <ul>
 <li>Sorensen index: normalized by the sum of the node degrees.</li>
 <li>Salton index that normalizes by the product of the degrees of u and v.</li>
-<li>Jaccard overlap: normalized by the degree of union u and v.</li>
-</ul></li>
+<li>Jaccard overlap: normalized by the degree of union  u and v.</li>
+</ul>
+</li>
 <li>Consider the importance of common neighbours, give more weight to common neighbours that have low degree.
 <ul>
 <li>Resource Allocation index (RA): counts the inverse degrees of the common neighbours.</li>
 <li>Adamic-Adar index (AA): similar as RA but use the inverse logarithm of the degrees.</li>
-</ul></li>
 </ul>
-<h4 id="global-overlap-measures">Global overlap measures</h4>
+</li>
+</ul>
+<h4 id="Global-overlap-measures">Global overlap measures</h4>
 <ul>
-<li><p>Katz Index</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522180701697.png" alt="image-20210522180701697" style="zoom:67%;" /></p>
+<li>
+<p>Katz Index</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522180701697.png" alt="image-20210522180701697" style="zoom:67%;" />
 <ul>
 <li>The most basic global overlap statistic. Simply count the number of paths of all lengths between a pair of nodes.</li>
 <li>This index is a geometric series of matrices.</li>
-<li>It's strongly biased by node degree which will give higher overall similarity scores when considering high-degree nodes cause they will generally be with more paths.</li>
-</ul></li>
-<li><p>Leicht, Holme, and Newman (LHN) similarity</p>
+<li>It’s strongly biased by node degree which will give higher overall similarity scores when considering high-degree nodes cause they will generally be with more paths.</li>
+</ul>
+</li>
+<li>
+<p>Leicht, Holme, and Newman (LHN) similarity</p>
 <ul>
-<li><p>Considering the ratio between the actual number of observed paths and the number of expected paths between two nodes.</p></li>
-<li><p>To compute expectation, the <em>configuration model</em> is relied on. Under a random configuration model, the likelihood of an edge is simply proportional to the product of the two node degrees. But this heuristic calculation is intractable.</p></li>
-<li><p>To approximate, the number of paths between two nodes grows by the largest eigenvalue of adjacent matrix. (The fact that the largest eigenvalue can be used to approximate the growth in the number of paths).</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522182722632.png" alt="image-20210522182722632" style="zoom:67%;" />, and the solution to the matrix series can be written as <span class="math display">\[
-\mathrm{S_{LNH}}=2\alpha m\lambda_1 \mathrm{D^{-1}(I-\frac{\beta}{\lambda_1}A)^{-1}D^{-1}}
-\]</span></p></li>
-</ul></li>
-<li><p>Random walk methods</p>
+<li>
+<p>Considering the ratio between the actual number of observed paths and the number of expected paths between two nodes.</p>
+</li>
+<li>
+<p>To compute expectation, the <em>configuration model</em> is relied on. Under a random configuration model, the likelihood of an edge is simply proportional to the product of the two node degrees. But this heuristic calculation is intractable.</p>
+</li>
+<li>
+<p>To approximate, the number of paths between two nodes grows by the largest eigenvalue of adjacent matrix. (The fact that the largest eigenvalue can be used to approximate the growth in the number of paths).</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522182722632.png" alt="image-20210522182722632" style="zoom:67%;" />, and the solution to the matrix series can be written as<br>
+$$<br>
+\mathrm{S_{LNH}}=2\alpha m\lambda_1 \mathrm{D^{-1}(I-\frac{\beta}{\lambda_1}A)^{-1}D^{-1}}<br>
+$$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Random walk methods</p>
 <ul>
 <li>rather than exact count of paths over the graph in previous introduced index, consider random walks.</li>
 <li>A measure of importance specific to node u will be obtained since the random walks are continually being teleported back to that node.</li>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522183303798.png" alt="image-20210522183303798" style="zoom:80%;" /></li>
-</ul></li>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210522183303798.png" alt="image-20210522183303798" style="zoom:80%;" />
+</li>
 </ul>
-<h3 id="graph-laplacians-and-spectral-methods">Graph Laplacians and spectral methods</h3>
+</li>
+</ul>
+<h3 id="Graph-Laplacians-and-spectral-methods">Graph Laplacians and spectral methods</h3>
 <p>learning to cluster the nodes in a graph.</p>
-<h4 id="graph-laplacians">Graph Laplacians</h4>
+<h4 id="Graph-Laplacians">Graph Laplacians</h4>
 <ul>
-<li><p>Unnormalized Laplacian</p>
+<li>
+<p>Unnormalized Laplacian</p>
 <ul>
-<li><p><span class="math inline">\(\mathrm{L=D-A}\)</span></p></li>
-<li><p>It's symmetric and positive semi-definite. <span class="math inline">\(\mathrm{L}\)</span> has <span class="math inline">\(|V|\)</span> non-negative eigenvalues.</p></li>
-<li><p><span class="math inline">\(\mathrm{x^TLx}=\sum\limits_{(u,v)\in\mathcal{E}}(\mathrm{x}[u]-\mathrm{x}[v])^2\)</span></p></li>
-<li><p>If the graph contains <span class="math inline">\(K\)</span> connected components, then there exists an ordering of the nodes in the graph such that the Laplacian matrix can be written as <span class="math display">\[
-\mathrm{L}={
-\begin{bmatrix}
-\mathrm{L}_1 &amp;  &amp; &amp; \\
-&amp; \mathrm{L}_2 &amp; &amp; \\
- &amp;  &amp; \ddots&amp; \\
-  &amp;  &amp; &amp;  \mathrm{L}_K\\
-\end{bmatrix}
-},
-\]</span> where each blocks is a valid graph Laplacian of a fully connected subgraph of the original graph. The spectrum of <span class="math inline">\(\mathrm{L}\)</span> is the union of the eigenvalues of the <span class="math inline">\(\mathrm{L}_K\)</span> matrices and the eigenvectors are the union of the eigenvectors of all the <span class="math inline">\(\mathrm{L}_K\)</span> matrices with 0 values filled at the positions of the other blocks.</p></li>
-</ul></li>
-<li><p>Normalized Laplacians</p>
-<ul>
-<li><span class="math inline">\(\mathrm{L_{sym}=D^{-\frac{1}{2}}LD^{-\frac{1}{2}}}\)</span>, while random walk Laplacian is defined as <span class="math inline">\(\mathrm{L_{RW}=D^{-1}L}\)</span>.</li>
-<li>For <span class="math inline">\(\mathrm{L_{sym}}\)</span>, the properties of previous mentioned holds but with the eigenvectors for the 0 eigenvalue scaled by <span class="math inline">\(\mathrm{D^{\frac{1}{2}}}\)</span>. For <span class="math inline">\(\mathrm{L_{RW}}\)</span>, the properties hold exactly.</li>
-</ul></li>
-<li><p>These methods just allow to cluster nodes that are already in disconnected components. The Laplacian can be used to get an optimal clustering of nodes within a fully connected graph.</p></li>
+<li>
+<p>$\mathrm{L=D-A}$</p>
+</li>
+<li>
+<p>It’s symmetric and positive semi-definite. $\mathrm{L}$ has $|V|$ non-negative eigenvalues.</p>
+</li>
+<li>
+<p>$\mathrm{x^TLx}=\sum\limits_{(u,v)\in\mathcal{E}}(\mathrm{x}[u]-\mathrm{x}[v])^2$</p>
+</li>
+<li>
+<p>If  the graph contains $K$ connected components, then there exists an ordering of the nodes in the graph such that the Laplacian matrix can be written as<br>
+$$<br>
+\mathrm{L}={<br>
+\begin{bmatrix}<br>
+\mathrm{L}_1 &amp;  &amp; &amp; \<br>
+&amp; \mathrm{L}_2 &amp; &amp; \<br>
+&amp;  &amp; \ddots&amp; \<br>
+&amp;  &amp; &amp;  \mathrm{L}_K\<br>
+\end{bmatrix}<br>
+},<br>
+$$<br>
+where each blocks is a valid graph Laplacian of a fully connected subgraph of the original graph. The spectrum of $\mathrm{L}$ is the union of the eigenvalues of the $\mathrm{L}_K$ matrices and the eigenvectors are the union of the eigenvectors of all the $\mathrm{L}_K$ matrices with 0 values filled at the positions of the other blocks.</p>
+</li>
 </ul>
-<h4 id="graph-cuts-and-clustering">Graph cuts and clustering</h4>
+</li>
+<li>
+<p>Normalized Laplacians</p>
 <ul>
-<li><p>Graph cuts</p>
+<li>$\mathrm{L_{sym}=D^{-\frac{1}{2}}LD^{-\frac{1}{2}}}$, while random walk Laplacian is defined as $\mathrm{L_{RW}=D^{-1}L}$.</li>
+<li>For $\mathrm{L_{sym}}$, the properties of previous mentioned holds but with the eigenvectors for the 0 eigenvalue scaled by $\mathrm{D^{\frac{1}{2}}}$. For $\mathrm{L_{RW}}$, the properties hold exactly.</li>
+</ul>
+</li>
+<li>
+<p>These methods just allow to cluster nodes that are already in disconnected components. The Laplacian can be used to get an optimal clustering of nodes within a fully connected graph.</p>
+</li>
+</ul>
+<h4 id="Graph-cuts-and-clustering">Graph cuts and clustering</h4>
+<ul>
+<li>
+<p>Graph cuts</p>
 <ul>
 <li>An optimal cluster means that a partition that minimizes the cut value, which is the count of how many edges cross the boundary between the partition of nodes. Theoretically the methods tend to simply make clusters that consists of a single node.</li>
 <li>One way to solve this is minimizing the <em>Ratio Cut</em>, which penalizes the solution of choosing small cluster sizes.</li>
 <li>Another popular solution is minimize the Normalized Cut (NCut), which enforces that all clusters have a similar number of edges incident to their a nodes.</li>
-</ul></li>
-<li><p>Approximating the RatioCut with the Laplacian Spectrum</p>
-<ul>
-<li><p>The ratio cut minimization problem can be approximated as</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082410207.png" alt="image-20210524082410207" style="zoom:40%;" /><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082433260.png" alt="image-20210524082433260" style="zoom:50%;" /></p></li>
-<li><p>The formula above is NP-hard, after simplification, it will be :</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082658389.png" alt="image-20210524082658389" style="zoom:67%;" />, and the solution of this problem is the second smallest eigenvector of <span class="math inline">\(\mathrm{L}\)</span>.</p></li>
-</ul></li>
-<li><p>Generalized spectral clustering</p>
-<ul>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524104844842.png" title="fig:" alt="image-20210524104844842" /></li>
-</ul></li>
 </ul>
-<h1 id="part-i-node-embeddings">Part I: Node Embeddings</h1>
-<h2 id="chapter-3-neighborhood-reconstruction-methods">Chapter 3 Neighborhood Reconstruction Methods</h2>
+</li>
+<li>
+<p>Approximating the RatioCut with the Laplacian Spectrum</p>
+<ul>
+<li>
+<p>The ratio cut minimization problem can be approximated as</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082410207.png" alt="image-20210524082410207" style="zoom:40%;" /><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082433260.png" alt="image-20210524082433260" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>The formula above is NP-hard, after simplification, it will be :</p>
+<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524082658389.png" alt="image-20210524082658389" style="zoom:67%;" />, and the solution of this problem is the second smallest eigenvector of $\mathrm{L}$.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Generalized spectral clustering</p>
+<ul>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524104844842.png" alt="image-20210524104844842"></li>
+</ul>
+</li>
+</ul>
+<h1>Part I: Node Embeddings</h1>
+<h2 id="Chapter-3-Neighborhood-Reconstruction-Methods">Chapter 3 Neighborhood Reconstruction Methods</h2>
 <p>Goal: encode nodes as low-dimensional vectors that summarize their graph position and the structure of their local graph neighborhood.</p>
-<h3 id="an-encoder-decoder-perspective">An encoder-decoder perspective</h3>
-<p>An encoder maps each node in the graph into a low-dimensional vector or embedding, a decoder takes the embeddings and uses them to reconstruct information about each node's neighborhood.</p>
-<h4 id="the-encoder">The encoder</h4>
+<h3 id="An-encoder-decoder-perspective">An encoder-decoder perspective</h3>
+<p>An encoder maps each node in the graph into a low-dimensional vector or embedding, a decoder takes the embeddings and uses them to reconstruct information about each node’s neighborhood.</p>
+<h4 id="The-encoder">The encoder</h4>
 <ul>
 <li>Most works rely on <em>shallow embedding</em>, where this encoder function is simply an embedding lookup based on the node ID.</li>
 <li>The generalized encoders are called GNNs.</li>
 </ul>
-<h4 id="the-decoder">The decoder</h4>
+<h4 id="The-decoder">The decoder</h4>
 <ul>
 <li>They might predict the neighbors of one given node or one row in the graph adjacency matrix.</li>
 <li>The standard practice is to define pairwise decoders, which can be interpreted as predicting the relationship or similarity between pairs of nodes.</li>
 <li>While reconstruction, the goal is to optimize the encoder and decoder to minimize the reconstruction loss.</li>
 </ul>
-<h4 id="optimizing-an-encoder-decoder-model">Optimizing an encoder-decoder model</h4>
+<h4 id="Optimizing-an-encoder-decoder-model">Optimizing an encoder-decoder model</h4>
 <ul>
 <li>Usually use SGD, and minimize the disparity of decoded latent distance and real distance.</li>
 </ul>
-<h4 id="typical-encoder-decoder-methods">Typical encoder-decoder methods</h4>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524113343676.png" alt="image-20210524113343676" style="zoom:67%;" /></p>
-<h3 id="factorization-based-approaches">Factorization-based approaches</h3>
+<h4 id="Typical-encoder-decoder-methods">Typical encoder-decoder methods</h4>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524113343676.png" alt="image-20210524113343676" style="zoom:67%;" />
+<h3 id="Factorization-based-approaches">Factorization-based approaches</h3>
 <p>Methods below are classified as factorization methods case their loss functions can be minimized using factorization algorithms like SVD.</p>
 <p>The goal of these methods is to learn embeddings for each node such that the inner product between the learned embedding vectors approximates some deterministic measure of node similarity.</p>
 <p>The inner product methods all employ deterministic measures of node similarity.</p>
-<h4 id="laplacian-eigenmaps-le">Laplacian eigenmaps (LE)</h4>
+<h4 id="Laplacian-eigenmaps-LE">Laplacian eigenmaps (LE)</h4>
 <ul>
-<li><p>Builds upon the spectral clustering</p></li>
-<li><p>Formula: <span class="math display">\[
-\mathcal{L}=\sum\limits_{(u,v)\in\mathcal{D}}\mathrm{DEC}(\mathrm{z}_u,\mathrm{z}_v)\cdot\mathrm{S}[u,v],
-\]</span> which penalizes the model when very similar nodes have embeddings that are far apart.</p></li>
-<li><p>If the reconstructed <span class="math inline">\(\mathrm{S}\)</span> satisfies the properties of a Laplacian matrix, then the node embeddings that minimize the loss are identical to the solution for a spectral clustering.</p></li>
+<li>
+<p>Builds upon the spectral clustering</p>
+</li>
+<li>
+<p>Formula:<br>
+$$<br>
+\mathcal{L}=\sum\limits_{(u,v)\in\mathcal{D}}\mathrm{DEC}(\mathrm{z}_u,\mathrm{z}_v)\cdot\mathrm{S}[u,v],<br>
+$$<br>
+which penalizes the model when very similar nodes have embeddings that are far apart.</p>
+</li>
+<li>
+<p>If the reconstructed $\mathrm{S}$ satisfies the properties of a Laplacian matrix, then the node embeddings that minimize the loss are identical to the solution for a spectral clustering.</p>
+</li>
 </ul>
-<h4 id="inner-product-methods">Inner-product methods</h4>
+<h4 id="Inner-product-methods">Inner-product methods</h4>
 <ul>
 <li>More recent work employs inner-product, which assumes that the similarity between two nodes, e.g., the overlap between their local neighborhoods is proportional to the dot product of their embeddings.</li>
 <li>Examples:
@@ -474,400 +575,555 @@
 <li>Graph factorization: <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2488388.2488393">Distributed large-scale natural graph factorization</a></li>
 <li>GraRep: <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2806416.2806512">Learning graph representations with global structural information</a></li>
 <li>HOPE: <a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/2939672.2939751">Asymmetric transitivity preserving graph embedding</a></li>
-<li>All of them used the mean squared error as loss function. They differ primarily in how they define <span class="math inline">\(\mathrm{S[u,v]}\)</span>. GF uses the adjacency matrix and sets <span class="math inline">\(\mathrm{S=A}\)</span>, GraRep defines <span class="math inline">\(\mathrm{S}\)</span> based on powers of the adjacency matrix and HOPE supports general neighborhood overlap measures.</li>
-</ul></li>
+<li>All of them used the mean squared error as loss function. They differ primarily in how they define $\mathrm{S[u,v]}$. GF uses the adjacency matrix and sets $\mathrm{S=A}$, GraRep defines $\mathrm{S}$ based on powers of the adjacency matrix and HOPE supports general neighborhood overlap measures.</li>
 </ul>
-<h3 id="random-walk-embedding">Random walk embedding</h3>
+</li>
+</ul>
+<h3 id="Random-walk-embedding">Random walk embedding</h3>
 <p>Use stochastic measures of node neighborhood overlap.</p>
-<h4 id="deepwalk-and-node2vec">Deepwalk and node2vec</h4>
+<h4 id="Deepwalk-and-node2vec">Deepwalk and node2vec</h4>
 <ul>
-<li><p>The two methods differ on the inner-product decoder (the notions of node similarity and neighborhood reconstruction). They all optimize embeddings to encode the statistics of random walks. Mathematically, the goal is to learn embeddings so that <span class="math display">\[
-\mathrm{DEC(z}_u,\mathrm{z}_v)\triangleq\frac{\mathrm{z}_u^\top\mathrm{z}_v}{\sum\limits_{v_k\in\mathcal{V}}\mathrm{z}_u^\top\mathrm{z}_k}\approx p_{\mathcal{G,T}}(v|u),\label{4}
-\]</span> where <span class="math inline">\(p_{\mathcal{G,T}}(v|u)\)</span> is the probability of visiting <span class="math inline">\(v\)</span> on a length-<span class="math inline">\(T\)</span> random walk starting at <span class="math inline">\(u\)</span>, and <span class="math inline">\(T\)</span> is the range.</p></li>
-<li><p>To train the random walk embeddings, use the cross-entropy loss.</p></li>
-<li><p>DeepWalk employs a hierarchical softmax to approximate equation above, where the normalizing factor is approximated using <em>negative samples</em> in the <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1607.00653">following way</a> <span class="math display">\[
-\mathcal{L}=\sum\limits_{(u,v)\in\mathcal{D}}-\log(\sigma(\mathrm{z}_u^\top\mathrm{z}_v))-\gamma\mathbb{E}_{v_n\sim P_n{\mathcal{V}}}[\log(-\sigma(\mathrm{z}_u^\top\mathrm{z}_v))]
-\]</span></p></li>
-<li><p>DeepWalk employ uniformly random walks to define the visiting probability and node2vec use hyperparameters to allow the probabilities to smoothly interpolate between walks.</p></li>
+<li>
+<p>The two methods differ on the inner-product decoder (the notions of node similarity and neighborhood reconstruction). They all optimize embeddings to encode the statistics of random walks. Mathematically, the goal is to learn embeddings so that<br>
+$$<br>
+\mathrm{DEC(z}_u,\mathrm{z}_v)\triangleq\frac{\mathrm{z}_u^\top\mathrm{z}<em>v}{\sum\limits</em>{v_k\in\mathcal{V}}\mathrm{z}<em>u^\top\mathrm{z}<em>k}\approx p</em>{\mathcal{G,T}}(v|u),\label{4}<br>
+$$<br>
+where $p</em>{\mathcal{G,T}}(v|u)$ is the probability of visiting $v$ on a length-$T$ random walk starting at $u$, and $T$ is the range.</p>
+</li>
+<li>
+<p>To train the random walk embeddings, use the cross-entropy loss.</p>
+</li>
+<li>
+<p>DeepWalk employs a hierarchical softmax to approximate equation above,  where the normalizing factor is approximated using <em>negative samples</em> in the <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1607.00653">following way</a><br>
+$$<br>
+\mathcal{L}=\sum\limits_{(u,v)\in\mathcal{D}}-\log(\sigma(\mathrm{z}_u^\top\mathrm{z}<em>v))-\gamma\mathbb{E}</em>{v_n\sim P_n{\mathcal{V}}}[\log(-\sigma(\mathrm{z}_u^\top\mathrm{z}_v))]<br>
+$$</p>
+</li>
+<li>
+<p>DeepWalk employ uniformly random walks to define the visiting probability and node2vec use hyperparameters to allow the probabilities to smoothly interpolate between walks.</p>
+</li>
 </ul>
-<h4 id="line">LINE</h4>
+<h4 id="LINE">LINE</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/2736277.2741093">Large-scale information network embeddings</a>. Rather than explicitly leverage random walks, it shares ideas from DeepWalk and node2vec. It combines two encoder-decoder objectives.</li>
-<li>It has two objectives, the 1starting is <span class="math inline">\(\mathrm{DEC(z}_u,\mathrm{z}_v)=\frac{1}{1+e^{-\mathrm{z}_u^\top\mathrm{z}_v}}\)</span>, and the 2nd has the same equation as <span class="math display">\[\eqref{4}\]</span>,but takes the KL-divergence to encode two-hop adjacency information.</li>
+<li>It has two objectives, the 1starting is $\mathrm{DEC(z}_u,\mathrm{z}_v)=\frac{1}{1+e^{-\mathrm{z}_u^\top\mathrm{z}_v}}$, and the 2nd has the same equation as $$\eqref{4}$$,but takes the KL-divergence to encode two-hop adjacency information.</li>
 <li>Instead of random walks, it explicitly reconstructs 1st and 2nd order neighborhood information.</li>
 </ul>
-<h4 id="additional-variants-of-the-random-walk">Additional variants of the random-walk</h4>
+<h4 id="Additional-variants-of-the-random-walk">Additional variants of the random-walk</h4>
 <ul>
 <li>biasing or modifying the random walks.
 <ul>
 <li>consider random walks that skip over nodes, <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1605.02115.pdf">Perozzi et al.</a></li>
 <li>define random walks based on the structural relationships between nodes: <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/3097983.3098061">Ribeiro et al.</a></li>
-</ul></li>
 </ul>
-<h3 id="random-walk-and-matrix-factorization">Random walk and matrix factorization</h3>
+</li>
+</ul>
+<h3 id="Random-walk-and-matrix-factorization">Random walk and matrix factorization</h3>
 <ul>
-<li>https://dl.acm.org/doi/10.1145/3159652.3159706</li>
+<li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3159652.3159706">https://dl.acm.org/doi/10.1145/3159652.3159706</a></li>
 <li>Random walk are closely related to matrix factorization.</li>
 <li>The embeddings learned by DeepWalk are closely related to the spectral clustering embeddings, but DeepWalk embeddings control the influence of different eigenvalues through T.</li>
 <li>The disadvantages of shallow embedding
 <ul>
-<li>It doesn't share any parameters between noes in the encoder, and therefore statistically and computationally inefficient.</li>
-<li>It doesn't leverage node features in the encoder.</li>
-<li>It's inherently trans-ductive, which means it only generate embeddings for nodes that were present during the training phase.</li>
-</ul></li>
+<li>It doesn’t share any parameters between noes in the encoder, and therefore statistically and computationally inefficient.</li>
+<li>It doesn’t leverage node features in the encoder.</li>
+<li>It’s inherently trans-ductive, which means it only generate embeddings for nodes that were present during the training phase.</li>
 </ul>
-<h2 id="chapter-4-multi-relational-data-and-knowledge-graphs">Chapter 4: Multi-relational data and knowledge graphs</h2>
+</li>
+</ul>
+<h2 id="Chapter-4-Multi-relational-data-and-knowledge-graphs">Chapter 4: Multi-relational data and knowledge graphs</h2>
 <p>The knowledge graph completion is to predict missing edges in the graph, generally. Below only covers the node embeddings way in graph completion.</p>
-<h3 id="reconstruction-multi-relational-data">Reconstruction multi-relational data</h3>
+<h3 id="Reconstruction-multi-relational-data">Reconstruction multi-relational data</h3>
 <ul>
-<li><p>Note the edges have multiple types, and the input for decoder will be a pair of nodes and types of the edge.</p></li>
-<li><p>One simple way is <a target="_blank" rel="noopener" href="https://icml.cc/2011/papers/438_icmlpaper.pdf">RESCAL</a>: <span class="math display">\[
-\mathrm{DEC}(u,\tau,v)=\mathrm{z}_u^\top\,\mathrm{R}_\tau\mathrm{z}_v,
-\]</span> where the embeddings <span class="math inline">\(\mathrm{z}\)</span> and relation matrices <span class="math inline">\(\mathrm{R}\)</span> are all learnable.</p></li>
-<li><p>While solving the Reconstruction error, it's like tensor factorization.</p></li>
-<li><p>Nearly all multi-relational embedding methods simply define the similarity measure directly based on the adjacency tensor, or to say they all try to reconstruct immediate neighbors from the low-dimensional embeddings.</p></li>
+<li>
+<p>Note the edges have multiple types, and the input for decoder will be a pair of nodes and types of the edge.</p>
+</li>
+<li>
+<p>One simple way is <a target="_blank" rel="noopener" href="https://icml.cc/2011/papers/438_icmlpaper.pdf">RESCAL</a>:<br>
+$$<br>
+\mathrm{DEC}(u,\tau,v)=\mathrm{z}<em>u^\top,\mathrm{R}</em>\tau\mathrm{z}_v,<br>
+$$<br>
+where the embeddings $\mathrm{z}$ and relation matrices $\mathrm{R}$ are all learnable.</p>
+</li>
+<li>
+<p>While solving the Reconstruction error, it’s like tensor factorization.</p>
+</li>
+<li>
+<p>Nearly all multi-relational embedding methods simply define the similarity measure directly based on the adjacency tensor, or to say they all try to reconstruct immediate neighbors from the low-dimensional embeddings.</p>
+</li>
 </ul>
-<h3 id="loss-functions">Loss functions</h3>
-<h4 id="cross-entropy-with-negative-sampling">Cross-entropy with negative sampling</h4>
+<h3 id="Loss-functions">Loss functions</h3>
+<h4 id="Cross-entropy-with-negative-sampling">Cross-entropy with negative sampling</h4>
 <ul>
 <li>The formula</li>
 </ul>
-<p><span class="math display">\[
-\mathcal{L}=\sum\limits_{(u,\tau,v)\in\mathcal{E}}-\log(\sigma(\mathrm{DEC(z}_u,\tau,\mathrm{z}_v)))-\gamma\mathbb{E}_{v_n\sim P_{n,u}{\mathcal{V}}}[\log(\sigma(-\mathrm{DEC(z}_u,\tau,\mathrm{z}_{v_n}))],
-\]</span></p>
-<p>where <span class="math inline">\(P_{n,u}(\mathcal{V})\)</span> denotes a negative sampling distribution. The 1st term denotes the log-likelihood that we predict "true" for an edge that does actually exist in the graph, and the 2nd term is the expected log-likelihood that is correctly predicted "false" for an edge that does not exist in the graph.</p>
-<p>After approximating with Monte Carlo, the loss will be <span class="math display">\[
-\mathcal{L}=\sum\limits_{(u,\tau,v)\in\mathcal{E}}-\log(\sigma(\mathrm{DEC(z}_u,\tau,\mathrm{z}_v)))-\sum\limits_{v_n\in \mathcal{P}_{n,u}}[\log(\sigma(-\mathrm{DEC(z}_u,\tau,\mathrm{z}_{v_n}))],
-\]</span> , where <span class="math inline">\(\mathcal{P}_{n,u}\)</span> is a set of nodes sampled from <span class="math inline">\(P_{n,u}(\mathcal{V})\)</span>.</p>
+<p>$$<br>
+\mathcal{L}=\sum\limits_{(u,\tau,v)\in\mathcal{E}}-\log(\sigma(\mathrm{DEC(z}<em>u,\tau,\mathrm{z}<em>v)))-\gamma\mathbb{E}</em>{v_n\sim P</em>{n,u}{\mathcal{V}}}[\log(\sigma(-\mathrm{DEC(z}<em>u,\tau,\mathrm{z}</em>{v_n}))],<br>
+$$</p>
+<p>where $P_{n,u}(\mathcal{V})$ denotes a negative sampling distribution. The 1st term denotes the log-likelihood that we predict “true” for an edge that does actually exist in the graph, and the 2nd term is the expected log-likelihood that is correctly predicted “false” for an edge that does not exist in the graph.</p>
+<p>After approximating with Monte Carlo, the loss will be<br>
+$$<br>
+\mathcal{L}=\sum\limits_{(u,\tau,v)\in\mathcal{E}}-\log(\sigma(\mathrm{DEC(z}<em>u,\tau,\mathrm{z}<em>v)))-\sum\limits</em>{v_n\in \mathcal{P}</em>{n,u}}[\log(\sigma(-\mathrm{DEC(z}<em>u,\tau,\mathrm{z}</em>{v_n}))],<br>
+$$<br>
+, where $\mathcal{P}<em>{n,u}$ is a set of nodes sampled from $P</em>{n,u}(\mathcal{V})$.</p>
 <ul>
 <li>How to define negative sampling distribution?
 <ul>
 <li>Simply use a uniform distribution over all nodes, but this may get false negative.</li>
 <li>Sample negative samples that satisfy a predefined type constraints.</li>
 <li>Draw negative samples for both the head node and the tail node of the relation.</li>
-</ul></li>
 </ul>
-<h4 id="max-margin-loss">Max-Margin loss</h4>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524174533295.png" alt="image-20210524174533295" style="zoom:67%;" /></p>
+</li>
+</ul>
+<h4 id="Max-Margin-loss">Max-Margin loss</h4>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524174533295.png" alt="image-20210524174533295" style="zoom:67%;" />
 <p>Contrastive estimation to get the negative sample.</p>
-<h3 id="multi-relational-decoders">Multi-relational decoders</h3>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524233843533.png" alt="image-20210524233843533" style="zoom:80%;" /></p>
-<h4 id="methods">Methods</h4>
+<h3 id="Multi-relational-decoders">Multi-relational decoders</h3>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210524233843533.png" alt="image-20210524233843533" style="zoom:80%;" />
+<h4 id="Methods">Methods</h4>
 <ul>
 <li>RESCAL</li>
 </ul>
-<p>But it's computationally expensive.</p>
+<p>But it’s computationally expensive.</p>
 <ul>
-<li>Translational Decoders
+<li>
+<p>Translational Decoders</p>
 <ul>
-<li><p><em><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf">TransE</a></em>, the likelihood of an edge is proportional to the distance between the embedding of the head node and the tail node, after translating the head node according to the relation embedding. <span class="math display">\[
-\mathrm{DEC(z}_u,\tau,\mathrm{z}_{v})=-\|\mathrm{z}_u+\mathrm{r}_\tau-\mathrm{z}_{v}\|
-\]</span></p></li>
-<li><p>Limitation: simplicity.</p></li>
-<li><p>The variants of TransE</p>
+<li>
+<p><em><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf">TransE</a></em>, the likelihood of an edge is proportional to the distance between the embedding of the head node and the tail node, after translating the head node according to the relation embedding.<br>
+$$<br>
+\mathrm{DEC(z}<em>u,\tau,\mathrm{z}</em>{v})=-|\mathrm{z}<em>u+\mathrm{r}</em>\tau-\mathrm{z}_{v}|<br>
+$$</p>
+</li>
+<li>
+<p>Limitation: simplicity.</p>
+</li>
+<li>
+<p>The variants of TransE</p>
 <ul>
-<li><p><a href="">TransX</a></p>
-<p>Import a trainable transformation that depend on the relation <span class="math inline">\(\tau\)</span>. <span class="math display">\[
-\mathrm{DEC(z}_u,\tau,\mathrm{z}_{v})=-\|g_{1,\tau}(\mathrm{z}_u)+\mathrm{r}_\tau-g_{2,\tau}(\mathrm{z}_{v})\|
-\]</span></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://persagen.com/files/misc/wang2014knowledge.pdf">TransH</a></p>
-<p>Project the entity embeddings onto a learnable relation-specific hyperplane-defined by the normal vector <span class="math inline">\(\mathrm{w}_r\)</span>-before performing translation.</p></li>
-</ul></li>
-</ul></li>
-<li>Multi-Liner dot products
+<li>
+<p><a href="">TransX</a></p>
+<p>Import a trainable transformation that depend on the relation $\tau$.<br>
+$$<br>
+\mathrm{DEC(z}<em>u,\tau,\mathrm{z}</em>{v})=-|g_{1,\tau}(\mathrm{z}<em>u)+\mathrm{r}</em>\tau-g_{2,\tau}(\mathrm{z}_{v})|<br>
+$$</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://persagen.com/files/misc/wang2014knowledge.pdf">TransH</a></p>
+<p>Project the entity embeddings onto a learnable relation-specific hyperplane-defined by the normal vector $\mathrm{w}_r$-before performing translation.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Multi-Liner dot products</p>
 <ul>
 <li>Also known as <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6575">DistMult</a>.</li>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525081148389.png" alt="image-20210525081148389" style="zoom:80%;" /></li>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525081148389.png" alt="image-20210525081148389" style="zoom:80%;" />
+</li>
 <li>Generalizing the dot-product decoder from simple graphs.</li>
 <li>One <strong>limitation</strong> is that it can only encode symmetric relations while there are many directed graph and thus they are asymmetric.</li>
-</ul></li>
-<li>Complex decoders
-<ul>
-<li><p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a>, augmenting the DistMult by employing complex-valued embeddings. It's defined as</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525081551755.png" alt="image-20210525081551755" style="zoom:80%;" /></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.10197">RotatE</a> defies the decoder as rotations in the complex plane as:</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525082511044.png" alt="image-20210525082511044" style="zoom:80%;" /></p>
-<p>each dimension of the relation embedding can be represented as <span class="math inline">\(\mathrm{r}_\tau[i]=e^{i\theta_{r,i}}\)</span> and thus corresponds to a rotation in the complex plane.</p></li>
-</ul></li>
 </ul>
-<h4 id="representational-abilities">Representational abilities</h4>
+</li>
+<li>
+<p>Complex decoders</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v48/trouillon16.pdf">ComplEx</a>, augmenting the DistMult by employing complex-valued embeddings. It’s defined as</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525081551755.png" alt="image-20210525081551755" style="zoom:80%;" />
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.10197">RotatE</a> defies the decoder as rotations in the complex plane as:</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525082511044.png" alt="image-20210525082511044" style="zoom:80%;" />
+<p>each dimension of the relation embedding can be represented as $\mathrm{r}<em>\tau[i]=e^{i\theta</em>{r,i}}$ and thus corresponds to a rotation in the complex plane.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Representational-abilities">Representational abilities</h4>
 <p>The Multi-relational decoders can represent different logical patterns on relations.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525083801306.png" alt="image-20210525083801306" style="zoom:80%;" /></p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525083801306.png" alt="image-20210525083801306" style="zoom:80%;" />
 <ul>
 <li>Symmetry and anti-symmetry
 <ul>
 <li>Symmetric decoders: DistMult</li>
 <li>Anti-symmetric decoders: TransE</li>
-</ul></li>
+</ul>
+</li>
 <li>Inversion: implies the existence of another with opposite directionality.</li>
 <li>Compositionality:
 <ul>
-<li>RESCAL: <span class="math inline">\(\mathrm{R_{\tau_3}=R_{\tau_2}R_{\tau_1}}\)</span></li>
-<li>TransE: <span class="math inline">\(\mathrm{r_{\tau_3}=r_{\tau_2}+r_{\tau_1}}\)</span></li>
-</ul></li>
+<li>RESCAL: $\mathrm{R_{\tau_3}=R_{\tau_2}R_{\tau_1}}$</li>
+<li>TransE: $\mathrm{r_{\tau_3}=r_{\tau_2}+r_{\tau_1}}$</li>
 </ul>
-<h1 id="part-ii-gnns">Part II: GNNs</h1>
-<h2 id="chapter-5-the-gnn-model">Chapter 5 The GNN model</h2>
+</li>
+</ul>
+<h1>Part II: GNNs</h1>
+<h2 id="Chapter-5-The-GNN-model">Chapter 5 The GNN model</h2>
 <p>GNNs are more complex than shallow embedding, they will generate representations of nodes that actually depend on the structure of the graph.</p>
 <p>A key desideratum of GNNs is that they should be permutation invariant.</p>
-<h3 id="neural-message-passing">Neural message passing</h3>
+<h3 id="Neural-message-passing">Neural message passing</h3>
 <p>After GNN, the embeddings contain structure-based information and feature-based information. However, the feature based information is in their k-hop neighborhoods.</p>
 <p>The message passing in GNN can be taken as using update and aggregate functions.</p>
-<h4 id="the-basic-gnn">The basic GNN</h4>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525122930060.png" alt="image-20210525122930060" style="zoom:67%;" /></p>
+<h4 id="The-basic-GNN">The basic GNN</h4>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210525122930060.png" alt="image-20210525122930060" style="zoom:67%;" />
 <ul>
 <li>The message passing in basic GNN framework is like a standard multi-layer perception.</li>
 </ul>
-<h4 id="with-self-loop">With self-loop</h4>
+<h4 id="With-self-loop">With self-loop</h4>
 <ul>
 <li>Add self-loops to omit the explicit update step.</li>
 <li>This can alleviate overfitting, but also limit the expressivity of the GNN, sample the information coming the nodes neighbours cannot be differentiated from the information from the node itself.</li>
-<li>In basic GNN, adding self-loops means sharing parameters between the <span class="math inline">\(\mathrm{W}_{self}\)</span> and <span class="math inline">\(\mathrm{W}_{neigh}\)</span> matrices.</li>
+<li>In basic GNN, adding self-loops means sharing parameters between the $\mathrm{W}<em>{self}$ and $\mathrm{W}</em>{neigh}$ matrices.</li>
 </ul>
-<h3 id="generalized-neighborhood-aggregation">Generalized neighborhood aggregation</h3>
-<h4 id="neighborhood-normalization">Neighborhood normalization</h4>
+<h3 id="Generalized-neighborhood-aggregation">Generalized neighborhood aggregation</h3>
+<h4 id="Neighborhood-normalization">Neighborhood normalization</h4>
 <ul>
-<li><p>Simply normalized the aggregation operation based upon the degrees of the nodes involved: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114126952.png" alt="image-20210526114126952" style="zoom:50%;" /></p></li>
-<li><p>Symmetric normalization: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114205704.png" alt="image-20210526114205704" style="zoom:50%;" /></p></li>
-<li><p>Combining the symmetric-normalized aggregation along with the basic GNNs update function results in a first-order approximation of a spectral graph convolution.</p></li>
-<li><p>GCNs</p>
+<li>
+<p>Simply normalized the aggregation operation based upon the degrees of the nodes involved: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114126952.png" alt="image-20210526114126952" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>Symmetric normalization: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114205704.png" alt="image-20210526114205704" style="zoom:50%;" /></p>
+</li>
+<li>
+<p>Combining the symmetric-normalized aggregation along with the basic GNNs update function results in a first-order approximation of a spectral graph convolution.</p>
+</li>
+<li>
+<p>GCNs</p>
 <ul>
-<li><p>They use symmetric-normalized aggregation as well as the self-loop update approach.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114617065.png" alt="image-20210526114617065" style="zoom:67%;" /></p></li>
-<li><p>In GNN, the use of normalization can lead to a loss of information.</p></li>
-<li><p>Normalization is most helpful in tasks where noes feature information is far more useful than structural information, or where there is a very wide range of node degrees that can lead to instabilities during optimization.</p></li>
-</ul></li>
+<li>
+<p>They use symmetric-normalized aggregation as well as the self-loop update approach.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526114617065.png" alt="image-20210526114617065" style="zoom:67%;" />
+</li>
+<li>
+<p>In GNN, the use of normalization can lead to a loss of information.</p>
+</li>
+<li>
+<p>Normalization is most helpful in tasks where noes feature information is far more useful than structural information, or where there is a very wide range of node degrees that can lead to instabilities during optimization.</p>
+</li>
 </ul>
-<h4 id="set-aggregation">Set aggregation</h4>
-<p>The embeddings of neighbours, there is no natural ordering of a nodes' neighbours, and any aggregation function we define must thus be permutation invariant.</p>
+</li>
+</ul>
+<h4 id="Set-aggregation">Set aggregation</h4>
+<p>The embeddings of neighbours, there is no natural ordering of a nodes’ neighbours, and  any aggregation function we define must thus be permutation invariant.</p>
 <ul>
-<li><p>Set pooling</p>
+<li>
+<p>Set pooling</p>
 <ul>
-<li><p>Define an aggregation function based on permutation invariant, can be implemented by just adding some MLP layers, e.g.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526122458994.png" alt="image-20210526122458994" style="zoom:67%;" /></p>
-<p>this always lead to small increases in performance, though with the risk of overfitting.</p></li>
-<li><p>Or use element-wise maximum or minimum to replace summation.</p></li>
-</ul></li>
-<li><p>Janossy pooling</p>
+<li>
+<p>Define an aggregation function based on permutation invariant, can be implemented by just adding some MLP layers, e.g.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526122458994.png" alt="image-20210526122458994" style="zoom:67%;" />
+<p>this always lead to small increases in performance, though with the risk of overfitting.</p>
+</li>
+<li>
+<p>Or use element-wise maximum or minimum to replace summation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Janossy pooling</p>
 <ul>
-<li><p>More powerful, apply a permutation-sensitive function and average the result over many possible permutations. In practice, the permutation-sensitive function is defined to be an LSTM.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526124251769.png" alt="image-20210526124251769" style="zoom:80%;" /></p></li>
-<li><p>If the set of permutations <span class="math inline">\(\prod\)</span> is equal to all possible permutations, then the aggregator is also a universal function approximator for sets. Like simple summation based set pooling.</p></li>
-<li><p>In practice, Janossy pooling employs one of two approaches</p>
+<li>
+<p>More powerful, apply a permutation-sensitive function and average the result over many possible permutations. In practice, the permutation-sensitive function is defined to be an LSTM.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526124251769.png" alt="image-20210526124251769" style="zoom:80%;" />
+</li>
+<li>
+<p>If the set of permutations $\prod$ is equal to all possible permutations, then the aggregator is also a universal function approximator for sets. Like simple summation based set pooling.</p>
+</li>
+<li>
+<p>In practice, Janossy pooling employs one of two approaches</p>
 <ul>
 <li>Sample a random subsets of possible permutations during each application of the aggregator, and only sum over that random subset.</li>
 <li>Employ a canonical ordering of the nodes in the neighborhood set, e.g., order the nodes in descending order according to their degree, with ties broken randomly.</li>
-</ul></li>
-<li><p>Janossy-style pooling can improve upon set pooling in a number of synthetic evaluation setups.</p></li>
-</ul></li>
 </ul>
-<h4 id="neighborhood-attention">Neighborhood attention</h4>
+</li>
+<li>
+<p>Janossy-style pooling can improve upon set pooling in a number of synthetic evaluation setups.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Neighborhood-attention">Neighborhood attention</h4>
 <ul>
-<li><p>Assign an attention weight or importance to each neighbour, which is used to weigh this neighbor's influence during the aggregation step.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526130931074.png" alt="image-20210526130931074" style="zoom:67%;" /></p></li>
-<li><p>Popular variants of attention include the bilinear attention model and variations of attention layers using MLPs.</p></li>
-<li><p>Multi heads methods are popular, which is also known as transformer.</p>
+<li>
+<p>Assign an attention weight or importance to each neighbour, which is used to weigh this neighbor’s influence during the aggregation step.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526130931074.png" alt="image-20210526130931074" style="zoom:67%;" />
+</li>
+<li>
+<p>Popular variants of attention include the bilinear attention model and variations of attention layers using MLPs.</p>
+</li>
+<li>
+<p>Multi heads methods are popular, which is also known as transformer.</p>
 <ul>
 <li>The basic idea behind transformers is to define neural network layers entirely based n the attention operation. The basic transformer layer is extractly equivalent to a GNNs layer using multi-headed attention if we assume that the GNNs receives a fully connected graph input.</li>
 <li>The time complexity is the square of the number of nodes cause each pairs attention need to be calculated.</li>
 <li>Attention can influence the inductive bias of GNNs.</li>
-</ul></li>
 </ul>
-<h3 id="generalized-update-methods">Generalized update methods</h3>
+</li>
+</ul>
+<h3 id="Generalized-update-methods">Generalized update methods</h3>
 <ul>
-<li><p>One popular way is <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.02216">GraphSAGE</a>, which introduced the idea of generalized Neighborhood aggregation.</p></li>
-<li><p>Over-smoothing of GNN: after several iterations of GNN message passing, the representations for all the nodes in the graph can become very similar to one another.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526135929759.png" alt="image-20210526135929759" style="zoom:80%;" /></p></li>
-<li><p>The measure of how much the initial embedding of node <span class="math inline">\(u\)</span> influences the final embedding of node <span class="math inline">\(v\)</span> in the GNN is proportional to the probability of visiting node <span class="math inline">\(v\)</span> on a length-<span class="math inline">\(k\)</span> random walk starting from node <span class="math inline">\(u\)</span>.</p></li>
+<li>
+<p>One popular way is <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.02216">GraphSAGE</a>, which introduced the idea of generalized Neighborhood aggregation.</p>
+</li>
+<li>
+<p>Over-smoothing of GNN: after several iterations of GNN message passing, the representations for all the nodes in the graph can become very similar to one another.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526135929759.png" alt="image-20210526135929759" style="zoom:80%;" />
+</li>
+<li>
+<p>The measure of how much the initial embedding of node $u$ influences the final embedding of node $v$ in the GNN is proportional to the probability of visiting node $v$ on a length-$k$ random walk starting from node $u$.</p>
+</li>
 </ul>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526140143590.png" alt="image-20210526140143590" style="zoom:80%;" /></p>
-<p>As <span class="math inline">\(k\rightarrow\infin\)</span>, the influence of every node approaches the stationary distribution of random walks over the graph, meaning that local neighborhood information is lost.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526140143590.png" alt="image-20210526140143590" style="zoom:80%;" />
+<p>As $k\rightarrow\infin$, the influence of every node approaches the stationary distribution of random walks over the graph, meaning that local neighborhood information is lost.</p>
 <ul>
 <li>When using simple GNN models, and especially those with the self-loop update approach-building deeper models can actually hurt performance.</li>
 </ul>
-<h4 id="concatenation-and-skip-connections">Concatenation and skip-connections</h4>
-<p>Like using vector concatenation or skip connection that try to directly preserve information from previous rounds of message passing during the update step.</p>
+<h4 id="Concatenation-and-skip-connections">Concatenation and skip-connections</h4>
+<p>Like using  vector concatenation or skip connection that try to directly preserve information from previous rounds of message passing during the update step.</p>
 <ul>
 <li>Do concatenation to preserve more node-level information during message passing
 <ul>
-<li>The key intuition is that we encourage the model to disentangle information during message passing--separating the information coming from the neighbors from the current representation of each model.</li>
-</ul></li>
+<li>The key intuition is that we encourage the model to disentangle information during message passing–separating the information coming from the neighbors from the current representation of each model.</li>
+</ul>
+</li>
 <li>Do linear interpolation between the previous representation and the representation that was updated based on the neighborhood information.</li>
 <li>In practice, these techniques tend to be most useful for node classification tasks with moderately deep GNNs, and excel on tasks that exhibit homophily.</li>
 </ul>
-<h4 id="gated-updates">Gated updates</h4>
-<p>One way to view the GNN meaning passing is that the aggregation function is receiving an observation from the neighbors, which is then used to update the hidden state of each node. Simply replace the hidden state argument of the RNN update function with the node's hidden state, and replace the observation vector with the message aggregated from the local neighborhood.</p>
+<h4 id="Gated-updates">Gated updates</h4>
+<p>One way to view the GNN meaning passing is that the aggregation function is receiving an observation from the neighbors, which is then used to update the hidden state of each node. Simply replace the hidden state argument of the RNN update function with the node’s hidden state, and replace the observation vector with the message aggregated from the local neighborhood.</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.05493">GRU based</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.03685">LSTM based</a></li>
 </ul>
-<h4 id="jumping-knowledge-connection">Jumping knowledge connection</h4>
+<h4 id="Jumping-knowledge-connection">Jumping knowledge connection</h4>
 <p>To improve the quality of the final node representations</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.03536">Jumping knowledge connections</a>: One simple way is to simply leverage the representations at each layer of message passing, rather than only using the final layer output.</li>
 <li>With max-pooling and LSTM attention layers the result is improved.</li>
 </ul>
-<h3 id="edge-features-and-multi-relational-gnns">Edge features and Multi-relational GNNs</h3>
-<h4 id="relational-gnns">Relational GNNs</h4>
+<h3 id="Edge-features-and-Multi-relational-GNNs">Edge features and Multi-relational GNNs</h3>
+<h4 id="Relational-GNNs">Relational GNNs</h4>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06103">RGCN</a>: relational graph convolutional network</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526152624397.png" alt="image-20210526152624397" style="zoom:67%;" /></p>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06103">RGCN</a>: relational graph convolutional network</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526152624397.png" alt="image-20210526152624397" style="zoom:67%;" />
 <ul>
 <li>Augment the aggregation function to accommodate multiple relation types by specifying a separate transformation matrix per relation type.</li>
 <li>The Multi-relational aggregation in RGCN is thus analogous to the basic a GNN approach with normalization, but we separately aggregate information across different edge types.</li>
-</ul></li>
-<li><p>Parameter sharing</p>
+</ul>
+</li>
+<li>
+<p>Parameter sharing</p>
 <ul>
-<li><p>For RGCN, the increase of number of parameters is caused by that each edge type requires a trainable matrix.</p></li>
-<li><p>To fix this, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06103">Schlichtkrull et al.</a> proposed to share with basis matrices, aka an alternative view of the parameter sharing RGCN approach is that we are learning an embedding for each relation, as well as a tensor that is shared across all relations.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526160241907.png" alt="image-20210526160241907" style="zoom:80%;" /></p></li>
-</ul></li>
-<li><p>Extensions and variations</p>
+<li>
+<p>For RGCN, the increase of number of parameters is caused by that each edge type requires a trainable matrix.</p>
+</li>
+<li>
+<p>To fix this, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06103">Schlichtkrull et al.</a> proposed to share with basis matrices, aka an alternative view of the parameter sharing RGCN approach is that we are learning an embedding for each relation, as well as a tensor that is shared across all relations.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526160241907.png" alt="image-20210526160241907" style="zoom:80%;" />
+</li>
+</ul>
+</li>
+<li>
+<p>Extensions and variations</p>
 <ul>
 <li>define separate aggregation matrices per relation as relational GNNs.
 <ul>
 <li><a target="_blank" rel="noopener" href="http://dx.doi.org/10.1093/bioinformatics/bty294">without parameter sharing</a></li>
-<li>http://dx.doi.org/10.18653/v1/d17-1159</li>
+<li><a target="_blank" rel="noopener" href="http://dx.doi.org/10.18653/v1/d17-1159">http://dx.doi.org/10.18653/v1/d17-1159</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1911.06962.pdf">RGCN+attention</a></li>
-</ul></li>
-</ul></li>
 </ul>
-<h4 id="attention-and-feature-concatenation">Attention and feature concatenation</h4>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526161216469.png" alt="image-20210526161216469" style="zoom:80%;" /></p>
-<p>https://www.aclweb.org/anthology/D19-1458/</p>
-<h3 id="graph-pooling">Graph pooling</h3>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Attention-and-feature-concatenation">Attention and feature concatenation</h4>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526161216469.png" alt="image-20210526161216469" style="zoom:80%;" />
+<p><a target="_blank" rel="noopener" href="https://www.aclweb.org/anthology/D19-1458/">https://www.aclweb.org/anthology/D19-1458/</a></p>
+<h3 id="Graph-pooling">Graph pooling</h3>
 <p>To get <strong>representations in graph-level</strong> cause the goal is to pool together the node embedding in order to learn an embedding of the entire graph.</p>
 <ul>
-<li><p>Set pooling approaches</p>
+<li>
+<p>Set pooling approaches</p>
 <ul>
 <li>One popular way it taking a sum or mean of the node embeddings. This is sufficient for small graphs.</li>
 <li>The other popular way is using a combination of LSTM and attention to pool the node embeddings.
 <ul>
-<li>The way is like what's done is one-head bert, the output of graph-level representation is the concatenation of output from different timestep.</li>
-</ul></li>
-</ul></li>
-<li><p>Graph coarsening approaches</p>
+<li>The way is like what’s done is one-head bert, the output of graph-level representation is the concatenation of output from different timestep.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Graph coarsening approaches</p>
 <p>To exploit the structure of the graph. One popular strategy to accomplish this is to perform graph clustering or coarseing as a means to pool the node representations.</p>
 <ul>
 <li>Estimate assignment matrices
 <ul>
 <li>Use spectral clustering (the decomposition of adjacent matrix to estimate assignment matrix (from node representations to graph-level representations.))</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.08804">Employ another GNN to predict cluster assignments</a></li>
-</ul></li>
-<li>Use the assignment matrices to coarsen the graph.</li>
-</ul></li>
 </ul>
-<h3 id="generalized-message-passing">Generalized message passing</h3>
+</li>
+<li>Use the assignment matrices to coarsen the graph.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Generalized-message-passing">Generalized message passing</h3>
 <p>Leverage edge and graph-level information at each stage of message passing</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526164837669.png" alt="image-20210526164837669" style="zoom:67%;" /></p>
-<h2 id="chapter-6-gnns-in-practice">Chapter 6 GNNs in practice</h2>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526164837669.png" alt="image-20210526164837669" style="zoom:67%;" />
+<h2 id="Chapter-6-GNNs-in-practice">Chapter 6 GNNs in practice</h2>
 <p>optimization, regularization and application-based</p>
-<h3 id="applications-and-loss-functions">Applications and loss functions</h3>
+<h3 id="Applications-and-loss-functions">Applications and loss functions</h3>
 <ul>
-<li><p>GNNs for node classification</p>
+<li>
+<p>GNNs for node classification</p>
 <ul>
 <li>If fully supervised, use the negative log-likelihood loss and softmax to denote the predicted probability.</li>
 <li>transductive and inductive nodes
 <ul>
 <li>transductive nodes: nodes used while training but not covered while calculating loss. Semi-supervised means that the GNN is tested on transductive nodes.</li>
 <li>inductive: not used in either the loss computation or the GNN message passing operations during training.</li>
-</ul></li>
-</ul></li>
-<li><p>GNNs for graph classification</p>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>GNNs for graph classification</p>
 <ul>
 <li>similar loss functions but use graph-level representations.</li>
-</ul></li>
-<li><p>GNNs for relation prediction</p>
+</ul>
+</li>
+<li>
+<p>GNNs for relation prediction</p>
 <ul>
 <li>use the pairwise node embedding loss functions.</li>
-</ul></li>
-<li><p>Pretraining</p>
-<ul>
-<li><p>Pre-training the GNN using one of the neighborhood reconstruction losses.</p>
-<ul>
-<li><p>E.g., pre-train a GNN to reconstruct missing edges in the graph before fine-tuning on a node classification loss. However, <strong><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.10341">Veličković et al</a> found that a randomly initialized GNN is equally strong compared to one pre-trained on a neighborhood reconstruction loss.</strong></p></li>
-<li><p>DGI (deep graph infomax): maximize the mutual information between node embeddings and graph embeddings. The basic idea is the GNN model must learn to generate node embeddings that can distinguish between the real graph and its corrupted counterpart.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526172943470.png" alt="image-20210526172943470" style="zoom:67%;" /></p></li>
-</ul></li>
-</ul></li>
 </ul>
-<h3 id="efficiency-concerns-and-node-sampling">Efficiency concerns and node sampling</h3>
+</li>
+<li>
+<p>Pretraining</p>
 <ul>
-<li><p>Graph-level implementations</p>
+<li>
+<p>Pre-training the GNN using one of the neighborhood reconstruction losses.</p>
+<ul>
+<li>
+<p>E.g., pre-train a GNN to reconstruct missing edges in the graph before fine-tuning on a node classification loss. However, <strong><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1809.10341">Veličković et al</a> found that a randomly initialized GNN is equally strong compared to one pre-trained on a neighborhood reconstruction loss.</strong></p>
+</li>
+<li>
+<p>DGI (deep graph infomax): maximize the mutual information between node embeddings and graph embeddings. The basic idea is the GNN model must learn to generate node embeddings that can distinguish between the real graph and its corrupted counterpart.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210526172943470.png" alt="image-20210526172943470" style="zoom:67%;" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Efficiency-concerns-and-node-sampling">Efficiency concerns and node sampling</h3>
+<ul>
+<li>
+<p>Graph-level implementations</p>
 <ul>
 <li>Use sparse matrix multiplications and add self-loops to avoid redundant computations, but it requires operating on tested entire graph and all node features simultaneously, which may not be feasible due to memory limitations.</li>
-</ul></li>
-<li><p>Sampling and mini-batch</p>
+</ul>
+</li>
+<li>
+<p>Sampling and mini-batch</p>
 <p>Work with a subset of nodes during message passing.</p>
 <ul>
 <li>The challenge is we cannot simply Run message passing on a subsets of the nodes in a graph without losing information.</li>
 <li>One way is subsampling node neighbors. First select a set of target nodes for a batch and then to recursively sample the neighbors of these nodes in order to ensure that the connectivity of the graph is maintained. Subsample the neighbors of each node, using a fixed sample size to improve the efficiency of batched tensor operations.</li>
-</ul></li>
 </ul>
-<h3 id="parameter-sharing-and-regularization">Parameter sharing and regularization</h3>
+</li>
+</ul>
+<h3 id="Parameter-sharing-and-regularization">Parameter sharing and regularization</h3>
 <p>Like L2 regularization, dropout and layer normalization that both work on GNNs and CNNs.</p>
 <ul>
 <li>Parameter sharing across layers
 <ul>
-<li>use the same parameters in all the aggregate and update functions in the GNN. It's most effective in GNNs with more than six layers, and is often used in conjunction with gated update functions.</li>
-</ul></li>
+<li>use the same parameters in all the aggregate and update functions in the GNN. It’s most effective in GNNs with more than six layers, and is often used in conjunction with gated update functions.</li>
+</ul>
+</li>
 <li>Edge dropout
 <ul>
 <li>randomly remove edges in the adjacency matrix during training, with the intuition that this will make the GNN less prone to overfitting and more robust to noise in the adjacency matrix.</li>
 <li>The neighborhood subsampling approaches lead to this kind of regularization as a side effect, making it a very common strategy in large-scale GNN applications.</li>
-</ul></li>
 </ul>
-<h2 id="chapter-7-theoretical-motivations">Chapter 7 Theoretical motivations</h2>
-<h3 id="gnns-and-graph-convolutions">GNNs and graph convolutions</h3>
+</li>
+</ul>
+<h2 id="Chapter-7-Theoretical-motivations">Chapter 7 Theoretical motivations</h2>
+<h3 id="GNNs-and-graph-convolutions">GNNs and graph convolutions</h3>
 <p>Generalize the notion of convolutions to general graph structured data.</p>
-<h4 id="convolutions-and-the-fourier-transform">Convolutions and the Fourier transform</h4>
+<h4 id="Convolutions-and-the-Fourier-transform">Convolutions and the Fourier transform</h4>
 <ul>
 <li>The Fourier analysis
 <ul>
-<li>The coefficients of Fourier series tell the amplitude if the complex sinusoidal component <span class="math inline">\(e^{-\frac{i2\pi}{N}k}\)</span>.</li>
-<li>The high-frequency components have a large <span class="math inline">\(k\)</span> and vary quickly while the low-frequency components have small <span class="math inline">\(k\)</span> and vary more slowly.</li>
-</ul></li>
-<li>Translation equivalent: translating a signal and then convolving it by a filter is equivalent to convolving the signal and then translating the result.</li>
+<li>The coefficients of Fourier series tell the amplitude if the complex sinusoidal component $e^{-\frac{i2\pi}{N}k}$.</li>
+<li>The high-frequency components have a large $k$ and vary quickly while the low-frequency components have small $k$ and vary more slowly.</li>
 </ul>
-<h4 id="from-time-signals-to-graph-signals">From time signals to graph signals</h4>
+</li>
+<li>Translation equivalent:  translating a signal and then convolving it by a filter is equivalent to convolving the signal and then translating the result.</li>
+</ul>
+<h4 id="From-time-signals-to-graph-signals">From time signals to graph signals</h4>
 <ul>
-<li>Each point in time <span class="math inline">\(t\)</span> is represented as a node and the edges in graph thus represent how the signal propagates</li>
+<li>Each point in time $t$ is represented as a node and the edges in graph thus represent how the signal propagates</li>
 <li>Represent operations such as time-shifts using the adjacency and Laplacian matrices of the graph.</li>
 <li>Multiplying a signal by the adjacency matrix propagates signals from node to node, and multiplication by the Laplacian computes the difference between a signal at each node and its immediate neighbors.</li>
 <li>shifts and convolutions on time-varying discrete signals can be represented based on the adjacency matrix and Laplacian matrix of a chain graph.</li>
 <li>The convolution operation matrix satisfies translation equivalence.</li>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210527233655918.png" alt="image-20210527233655918" style="zoom:80%;" />, which means that the convolved signal <span class="math inline">\(\mathrm{Q_hx}[u]\)</span> at each node <span class="math inline">\(u\in\mathcal{V}\)</span> will correspond to some mixture of the information in the node's <span class="math inline">\(N\)</span>-hop neighborhood, with the <span class="math inline">\(\alpha_0,\alpha_1,\cdots,\alpha_N\)</span> controlling the strength of the information coming from different hops. Defining <span class="math inline">\(\mathrm{Q_h}\)</span> in this way guarantees that our filter commutes with the adjacency matrix, satisfying a generalized notion of translation equivariance.</li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210527233655918.png" alt="image-20210527233655918" style="zoom:80%;" />, which means that the convolved signal $\mathrm{Q_hx}[u]$ at each node $u\in\mathcal{V}$ will correspond to some mixture of the information in the node’s $N$-hop neighborhood, with the $\alpha_0,\alpha_1,\cdots,\alpha_N$ controlling the strength of the information coming from different hops. Defining $\mathrm{Q_h}$ in this way guarantees that our filter commutes with the adjacency matrix, satisfying a generalized notion of translation equivariance.</li>
 <li><strong>By stacking multiple message passing layers, GNNs are able to implicitly operate on higher-order polynomials of the adjacency matrix.</strong></li>
-<li>The symmetric normalized Laplacian or symmetric normalized adjacency matrix are usually taken as the convolutional filters cause
+<li>The symmetric normalized Laplacian or  symmetric normalized adjacency matrix are usually taken as the convolutional filters cause
 <ul>
 <li>They have bounded spectrums and thus numerically stable.</li>
 <li>They are simultaneously diagonalizable, which means that they share the same eigenvectors.</li>
-</ul></li>
 </ul>
-<h4 id="spectral-graph-convolutions">Spectral graph convolutions</h4>
+</li>
+</ul>
+<h4 id="Spectral-graph-convolutions">Spectral graph convolutions</h4>
 <ul>
-<li><p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210527235621190.png" alt="image-20210527235621190" style="zoom:80%;" /></p>
-<p>The Laplace operator (<span class="math inline">\(\Delta\)</span>) tells us the average difference between the function value at a point and function values in the neighboring regions surrounding this point. The Laplacian matrix is regarded as a discrete analog of the Laplace operator since it allows to quantity the difference between the value at a node and the values at that node's neighbors.</p></li>
-<li><p>The eigenfunctions of Laplace operator is corresponds to the complex exponentials, which means the eigenfunctions of <span class="math inline">\(-\Delta e^{2\pi ist}\)</span> are the same complex exponentials that make up the modes of the frequency domain in the Fourier transform, with the corresponding eigenvalue indicating the frequency.</p></li>
-<li><p>Graph convolution can be represented as polynomials of the Laplacian (or one of its normalized variants).</p></li>
-<li><p>Given the graph Fourier coefficients <span class="math inline">\(\mathrm{U^\top f}\)</span> of a signal <span class="math inline">\(\mathrm{f}\)</span> as well as the graph Fourier coefficients <span class="math inline">\(\mathrm{U^\top h}\)</span> of some filter <span class="math inline">\(\mathrm{h}\)</span>, we can compute a graph convolution via element-wise products as <span class="math display">\[
-  \mathrm{f\star_\mathcal{G}h=U(U^\top f \circ U^\top h)}
-  \]</span> Then represent convolutions in the spectral domain based on the graph Fourier coefficients <span class="math inline">\(\theta_h=\mathrm{U^\top h \in \mathbb{R}^{|\mathcal{V}|}}\)</span>.</p></li>
-<li><p>One way is to learn a nonparametric filter by <strong>directly optimizing <span class="math inline">\(\theta_h\)</span> (spectral filter)</strong> and defining the convolution as <span class="math inline">\(\mathrm{f\star_\mathcal{G}h=U(U^\top f \circ }\theta_h)=(\mathrm{Udiag}(\theta_h)\mathrm{U}^\top)\mathrm{f}\)</span>. But this way has no real dependency on the structure of the graph and may not satisfy many of the properties that we want from a convolution, e.g. locality.</p></li>
-<li><p>To make sure the spectral filter <span class="math inline">\(\theta_h\)</span> is corresponds to a meaningful convolution on the graph, another way is to parameterize <span class="math inline">\(\theta_h\)</span> based on the eigenvalues of the Laplacian, e.g., a degree <span class="math inline">\(N\)</span> polynomial of the eigenvalues of the Laplacian and thus ensure the filtered signal at each node depends on information in its <span class="math inline">\(k\)</span>-hop neighborhood.</p>
-<p><span class="math inline">\(\mathrm{f\star_\mathcal{G}h}=(\mathrm{Up_N}(\Lambda)\mathrm{U}^\top)\mathrm{f}=p_N(\mathrm{L})\mathrm{f}\)</span>.</p></li>
-<li><p>The filter (e.g., Fourier) coefficients cannot be simply interpreted as corresponding to different frequencies.</p>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210527235621190.png" alt="image-20210527235621190" style="zoom:80%;" />
+<p>The Laplace operator ($\Delta$) tells us the average difference between the function value at a point and function values in the neighboring regions surrounding this point. The Laplacian matrix is regarded as a discrete analog of the Laplace operator since it allows to quantity the difference between the value at a node and the values at that node’s neighbors.</p>
+</li>
+<li>
+<p>The eigenfunctions of Laplace operator is corresponds to the complex exponentials, which means the eigenfunctions of $-\Delta e^{2\pi ist}$ are the same complex exponentials that make up the modes of the frequency domain in the Fourier transform, with the corresponding  eigenvalue indicating the frequency.</p>
+</li>
+<li>
+<p>Graph convolution can be represented as polynomials of the Laplacian (or one of its normalized variants).</p>
+</li>
+<li>
+<p>Given the graph Fourier coefficients $\mathrm{U^\top f}$ of a signal $\mathrm{f}$ as well as the graph Fourier coefficients $\mathrm{U^\top h}$  of some filter $\mathrm{h}$, we can compute a graph convolution via element-wise products as<br>
+$$<br>
+\mathrm{f\star_\mathcal{G}h=U(U^\top f \circ U^\top h)}<br>
+$$<br>
+Then represent convolutions in the spectral domain based on the graph Fourier coefficients $\theta_h=\mathrm{U^\top h \in \mathbb{R}^{|\mathcal{V}|}}$.</p>
+</li>
+<li>
+<p>One way is to learn a nonparametric filter by <strong>directly optimizing $\theta_h$ (spectral filter)</strong> and defining the convolution as $\mathrm{f\star_\mathcal{G}h=U(U^\top f \circ }\theta_h)=(\mathrm{Udiag}(\theta_h)\mathrm{U}^\top)\mathrm{f}$.  But this way has no real dependency on the structure of the graph and may not satisfy many of the properties that we want from a convolution, e.g. locality.</p>
+</li>
+<li>
+<p>To make sure the spectral filter $\theta_h$ is corresponds to a meaningful convolution on the graph, another way is to parameterize  $\theta_h$ based on the eigenvalues of the Laplacian, e.g., a degree $N$ polynomial of the eigenvalues of the Laplacian and thus ensure the filtered signal at each node depends on information in its $k$-hop neighborhood.</p>
+<p>$\mathrm{f\star_\mathcal{G}h}=(\mathrm{Up_N}(\Lambda)\mathrm{U}^\top)\mathrm{f}=p_N(\mathrm{L})\mathrm{f}$.</p>
+</li>
+<li>
+<p>The filter (e.g., Fourier) coefficients cannot be simply interpreted as corresponding to different frequencies.</p>
 <ul>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528101813914.png" alt="image-20210528101813914" style="zoom:80%;" /></li>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528101813914.png" alt="image-20210528101813914" style="zoom:80%;" />
+</li>
 <li>The smallest eigenvector of the Laplacian corresponds to a signal that varies from node to node by the least amount on the graph, the second-smallest eigenvector corresponds to a signal that varies the second smallest amount and so on.</li>
 <li>Laplacian eigenvectors can be used to assign nodes to communities so that we minimize the number of edges that go between communities. The <strong>Laplacian eigenvectors define signals that vary in a smooth way across the graph, with the smoothest signals indicating the coarse-gained community structure of the graph.</strong></li>
-</ul></li>
 </ul>
-<h4 id="convolution-inspired-gnns">Convolution inspired GNNs</h4>
+</li>
+</ul>
+<h4 id="Convolution-inspired-GNNs">Convolution inspired GNNs</h4>
 <ul>
-<li><p>Purely convolutional approaches</p>
+<li>
+<p>Purely convolutional approaches</p>
 <ul>
-<li>Directly optimize <span class="math inline">\(\theta_h\)</span> or parameterize it</li>
+<li>Directly optimize $\theta_h$ or parameterize it</li>
 <li>Methods
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1312.6203">Bruna et al.</a> : Nonparametric spectral filter and parametric spectral filter by a cubic spline.</li>
@@ -877,246 +1133,358 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="http://dx.doi.org/10.1109/tsp.2018.2879624">Levie et al.</a>: Cayley polynomials of the Laplacian</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1901.01343">Bianchi et al</a>: ARMA filters.</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1609.02907">GCNs</a> and connections to message passing</p>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1609.02907">GCNs</a> and connections to message passing</p>
 <ul>
-<li><p>A basic GCN layer is defined as <span class="math display">\[
-\mathrm{H}^{(k)}=\sigma (\tilde{\mathrm{A}}\mathrm{H}^{(k-1)}\mathrm{W}^{(k)}),\\
-\tilde{\mathrm{A}}=\mathrm{(D+I)^{-\frac{1}{2}}(I+A)(D+I)^{-\frac{1}{2}}},
-\]</span> where <span class="math inline">\(\mathrm{W}^{(k)}\)</span> is a learnable parameter matrix. The model was initially motivated as a combination of a simple graph convolution (based on the polynomial <span class="math inline">\(\mathrm{I+A}\)</span>), with a learnable weight matrix and a nonlinearity.</p></li>
-<li><p>The notion of message passing can be viewed as corresponding to a simple form of graph convolutions combined with additional trainable weights and nonlinearites.</p></li>
-<li><p>Stacking multiple rounds of message passing in a basic GNN is analogous to applying a low-pass convolutional filter, which produces a smoothed version of the input signal on the graph.</p>
+<li>
+<p>A basic GCN layer is defined as<br>
+$$<br>
+\mathrm{H}^{(k)}=\sigma (\tilde{\mathrm{A}}\mathrm{H}^{(k-1)}\mathrm{W}^{(k)}),\<br>
+\tilde{\mathrm{A}}=\mathrm{(D+I)^{-\frac{1}{2}}(I+A)(D+I)^{-\frac{1}{2}}},<br>
+$$<br>
+where $\mathrm{W}^{(k)}$ is a learnable parameter matrix. The model was initially motivated as a combination of a simple graph convolution (based on the polynomial $\mathrm{I+A}$), with a learnable weight matrix and a nonlinearity.</p>
+</li>
+<li>
+<p>The notion of message passing can be viewed as corresponding to a simple form of graph convolutions combined with additional trainable weights and nonlinearites.</p>
+</li>
+<li>
+<p>Stacking multiple rounds of message passing in a basic GNN is analogous to applying a low-pass convolutional filter, which produces a smoothed version of the input signal on the graph.</p>
 <ul>
-<li>The multiplication <span class="math inline">\(\mathrm{A}^K_{sym}\mathrm{X}\)</span> of the input node features by a high power of the adjacency matrix can be interpreted as convolutional filter based on the lowest-frequency signals of the graph Laplacian. Because multiplying a signal by high powers of <span class="math inline">\(\mathrm{A_{sym}}\)</span> corresponds to a convolutional filter based on the lowest eigenvalues of <span class="math inline">\(\mathrm{L_{sym}}\)</span>, i.e., it produces a low-pass filter.</li>
+<li>The multiplication $\mathrm{A}^K_{sym}\mathrm{X}$ of the input node features by a high power of the adjacency matrix can be interpreted as convolutional filter based on the lowest-frequency signals of the graph Laplacian. Because multiplying a signal by high powers of $\mathrm{A_{sym}}$ corresponds to a convolutional filter based on the lowest eigenvalues of $\mathrm{L_{sym}}$, i.e., it produces a low-pass filter.</li>
 <li>The deeper, the convolution filters are simpler.</li>
-</ul></li>
-</ul></li>
-<li><p>GNNs without message passing</p>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>GNNs without message passing</p>
 <ul>
-<li><p>Simplify GNNs by removing the iterative message passing process. The models are generally defined as <span class="math display">\[
-\mathrm{Z=MLP}_\theta(f(\mathrm{A)MLP_\phi(\mathrm{A})})
-\]</span></p>
+<li>
+<p>Simplify GNNs by removing the iterative message passing process. The models are generally defined as<br>
+$$<br>
+\mathrm{Z=MLP}<em>\theta(f(\mathrm{A)MLP</em>\phi(\mathrm{A})})<br>
+$$</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.07153.pdf">Wu et al.</a> define <span class="math inline">\(f(\mathrm{A})=\mathrm{\tilde{A}}^k\)</span>, with <span class="math inline">\(\tilde{\mathrm{A}}\)</span> is the symmetric normalized adjacency matrix.</p></li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.05997">Klicpera et al.</a> defines <span class="math inline">\(f\)</span> by analogy to the personalized PageRank algorithm as <span class="math display">\[
-f(\mathrm{A})=\alpha(\mathrm{I-(1-\alpha)\tilde{A}})^{-1}=\alpha\sum\limits_{k=0}^{\infin}(\mathrm{I-\alpha\tilde{A}})^k,
-\]</span> cause we often do not need to interleave trainable neural networks with graph convolution layers. We can simply use neural networks to learn feature transformations at the beginning and end of the model and apply a deterministic convolution layer to leverage the graph structure. Like GAT.</p></li>
-</ul></li>
-<li><p>Using the symmetric normalized adjacency matrix with self-loops leads to effective graph convolutions.</p>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.07153.pdf">Wu et al.</a> define $f(\mathrm{A})=\mathrm{\tilde{A}}^k$, with $\tilde{\mathrm{A}}$ is the symmetric normalized adjacency matrix.</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.05997">Klicpera et al.</a> defines $f$ by analogy to the personalized PageRank algorithm as<br>
+$$<br>
+f(\mathrm{A})=\alpha(\mathrm{I-(1-\alpha)\tilde{A}})^{-1}=\alpha\sum\limits_{k=0}^{\infin}(\mathrm{I-\alpha\tilde{A}})^k,<br>
+$$<br>
+cause we often do not need to interleave trainable neural networks with graph convolution layers. We can simply use neural networks to learn feature transformations at the beginning and end of the model and apply a deterministic convolution layer to leverage the graph structure. Like GAT.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Using the symmetric normalized adjacency matrix with self-loops leads to effective graph convolutions.</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.07153.pdf">Wu et al.</a> proves that adding self-loops shrinks the spectrum of corresponding graph Laplacian by reducing the magnitude of the dominant eigenvalue.</li>
 <li>Intuitively, adding self-loops decrease the influence of far-away noes and makes the filtered signal more dependent on local neighborhoods on the graph.</li>
-</ul></li>
-</ul></li>
 </ul>
-<h3 id="gnns-and-probabilistic-graphical-models">GNNs and probabilistic graphical models</h3>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="GNNs-and-probabilistic-graphical-models">GNNs and probabilistic graphical models</h3>
 <p>View the embeddings for each node as latent variables that are inferred.</p>
-<h4 id="hilbert-space-embeddings-of-distributions">Hilbert space embeddings of distributions</h4>
+<h4 id="Hilbert-space-embeddings-of-distributions">Hilbert space embeddings of distributions</h4>
 <ul>
-<li><p>The density <span class="math inline">\(p(\mathrm{x})\)</span> based on its expected value under the feature map <span class="math inline">\(\phi\)</span> is: <span class="math display">\[
-\mu_\mathrm{x}=\int_{\mathbb{R}^m}\phi(\mathrm{x})p(\mathrm{x})d\mathrm{x}
-\]</span> The formula will be injective under the assumption of Hilbert space embeddings of distributions. Then <span class="math inline">\(\mu_\mathrm{x}\)</span> can serve as a sufficient statistics for <span class="math inline">\(p(\mathrm{x})\)</span>. Then any computations we want to perform on <span class="math inline">\(p(\mathrm{x})\)</span> can be equivalently represented as functions of the embedding <span class="math inline">\(\mu_\mathrm{x}\)</span>. One well-known feature map <span class="math inline">\(\phi\)</span> is Gaussian radial basis function.</p></li>
-<li><p>In the context of the connection to GNNs, the takeaway is simply that we can represent distributions <span class="math inline">\(p(\mathrm{x})\)</span> as embeddings <span class="math inline">\(\mu_\mathrm{x}\)</span> in some feature space.</p></li>
+<li>
+<p>The density $p(\mathrm{x})$ based on its expected value under the feature map $\phi$ is:<br>
+$$<br>
+\mu_\mathrm{x}=\int_{\mathbb{R}^m}\phi(\mathrm{x})p(\mathrm{x})d\mathrm{x}<br>
+$$<br>
+The formula will be injective under the assumption of Hilbert space embeddings of distributions. Then $\mu_\mathrm{x}$ can serve as a sufficient statistics for $p(\mathrm{x})$. Then any computations we want to perform on $p(\mathrm{x})$ can be equivalently represented as functions of the embedding $\mu_\mathrm{x}$. One well-known feature map $\phi$ is Gaussian radial basis function.</p>
+</li>
+<li>
+<p>In the context of the connection to GNNs, the takeaway is simply that we can represent distributions $p(\mathrm{x})$ as embeddings $\mu_\mathrm{x}$ in some feature space.</p>
+</li>
 </ul>
-<h4 id="graphs-as-graphical-models">Graphs as graphical models</h4>
+<h4 id="Graphs-as-graphical-models">Graphs as graphical models</h4>
 <ul>
-<li><p>The notion of dependence between nodes is viewed as a formal, probabilistic way.</p></li>
-<li><p>Assume that a graph defines a Markov random field,</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528155046247.png" alt="image-20210528155046247" style="zoom:80%;" /></p>
+<li>
+<p>The notion of dependence between nodes is viewed as a formal, probabilistic way.</p>
+</li>
+<li>
+<p>Assume that a graph defines a Markov random field,</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528155046247.png" alt="image-20210528155046247" style="zoom:80%;" />
 <ul>
-<li>Intuitively, <span class="math inline">\(\Phi(\mathrm{x}_v,\mathrm{z}_v)\)</span> indicates the likelihood of a node feature vector <span class="math inline">\(\mathrm{x}_v\)</span> given its latent node embedding <span class="math inline">\(\mathrm{z}_v\)</span>, while <span class="math inline">\(\Psi\)</span> controls the dependency between connected nodes.</li>
+<li>Intuitively, $\Phi(\mathrm{x}_v,\mathrm{z}_v)$ indicates the likelihood of a node feature vector $\mathrm{x}_v$ given its latent node embedding $\mathrm{z}_v$, while $\Psi$ controls the dependency between connected nodes.</li>
 <li>Assume that node features are determined by their latent embeddings, and the latent embeddings for connected nodes are dependent on each other.</li>
-</ul></li>
-<li><p>GNNs will try to seek to implicitly learn the <span class="math inline">\(\Psi,\Phi\)</span> by leveraging the Hilbert space embedding idea.</p></li>
 </ul>
-<h4 id="embedding-mean-field-inference">Embedding mean-field inference</h4>
+</li>
+<li>
+<p>GNNs will try to seek to implicitly learn the $\Psi,\Phi$ by leveraging the Hilbert space embedding idea.</p>
+</li>
+</ul>
+<h4 id="Embedding-mean-field-inference">Embedding mean-field inference</h4>
 <p>The goal is to infer latent representations for all the nodes in the graph that can explain the dependencies between the observed node features.</p>
 <ul>
-<li><p>The key step is computing the posterior <span class="math inline">\(p(\{\mathrm{z}_v\}|\{\mathrm{x}_v\})\)</span>, i.e., computing the likelihood of a particular set of latent embeddings given the observed features. But the accurate solution is intractable, one way is to approximate it.</p></li>
-<li><p>One way to approximate the posterior is to employ mean-field variational inference, by which the posterior is approximated as <span class="math inline">\(p(\{\mathrm{z}_v\}|\{\mathrm{x}_v\})\approx q(\{\mathrm{z}_v\})=\prod\limits_{v\in\mathcal{V}}q_v(\mathrm{z}_v)\)</span>. The key intuition in mean-field inference is that we assume that the posterior distribution over the latent variables factorizes into <span class="math inline">\(\mathcal{V}\)</span> independent distributions, one per node.</p>
+<li>
+<p>The key step is computing the posterior $p({\mathrm{z}_v}|{\mathrm{x}_v})$, i.e., computing the likelihood of a particular set of latent embeddings given the observed features. But the accurate solution is intractable, one way is to approximate it.</p>
+</li>
+<li>
+<p>One way to approximate the posterior is to employ mean-field variational inference, by which the posterior is approximated as $p({\mathrm{z}_v}|{\mathrm{x}_v})\approx q({\mathrm{z}<em>v})=\prod\limits</em>{v\in\mathcal{V}}q_v(\mathrm{z}_v)$. The key intuition in mean-field inference is that we assume that the posterior distribution over the latent variables factorizes into $\mathcal{V}$ independent distributions, one per node.</p>
 <ul>
-<li><p>The standard approach to solve is to minimize the KL divergence between the approximate posterior and the true posterior. But directly minimize it is impossible cause evaluating the <strong>KL divergence</strong> requires knowledge of the true posterior.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528213649200.png" alt="image-20210528213649200" style="zoom:80%;" /></p>
+<li>
+<p>The standard approach to solve is to minimize the KL divergence between the approximate posterior and the true posterior. But directly minimize it is impossible cause evaluating the <strong>KL divergence</strong> requires knowledge of the true posterior.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528213649200.png" alt="image-20210528213649200" style="zoom:80%;" />
 <ul>
 <li>To minimize the KL divergence easily, one way is to use the techniques from variational inference.</li>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528213729244.png" alt="image-20210528213729244" style="zoom:80%;" /></li>
-<li>The approximate posterior at timestep <span class="math inline">\(t\)</span> for each latent node embedding is a function of the node's feature <span class="math inline">\(\mathrm{z}_x\)</span> and the marginal distributions (marginalized on the node's neighbors.) at previous timestep. Therefore, <strong>using variational inference to infer the posterior is really like message passing.</strong></li>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528213729244.png" alt="image-20210528213729244" style="zoom:80%;" />
+</li>
+<li>The approximate posterior at timestep $t$ for each latent node embedding is a function of the node’s feature $\mathrm{z}_x$ and the marginal distributions (marginalized on the node’s neighbors.) at previous timestep. Therefore, <strong>using variational inference to infer the posterior is really like message passing.</strong></li>
 <li><strong>The key distinction</strong> is that the mean-field message passing equations operate over distributions rather than embeddings (what used in GNN).</li>
-</ul></li>
-</ul></li>
-<li><p>Another way is try to learn embeddings in an end-to-end way, or to say rather than specifying a concrete probabilistic model, one can simply learn embeddings that could correspond to some probabilistic model.</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.05629">Dai et al.</a> define <span class="math inline">\(f\)</span> in an analogous manner to a basic GNN and thus at each iteration the updated Hilbert space embedding for node <span class="math inline">\(v\)</span> is a function of its neighbors' embedding as well as its feature inputs.</li>
-</ul></li>
 </ul>
-<h4 id="gnns-and-pgms-more-generality">GNNs and PGMs more generality</h4>
+</li>
+</ul>
+</li>
+<li>
+<p>Another way is try to learn embeddings in an end-to-end way, or to say rather than specifying a concrete probabilistic model, one can simply learn embeddings that could correspond to some probabilistic model.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.05629">Dai et al.</a> define $f$ in an analogous manner to a basic GNN and thus at each iteration the updated Hilbert space embedding for node $v$ is a function of its neighbors’ embedding as well as its feature inputs.</li>
+</ul>
+</li>
+</ul>
+<h4 id="GNNs-and-PGMs-more-generality">GNNs and PGMs more generality</h4>
 <ul>
 <li>Different variants of message passing can be derived based on different approximate inference algorithms. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.05629">Dai et al.</a></li>
 <li>How GNNs can be integrated more generally into PGM models.
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.06214">Qu et al.</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.02111">Zhang et al.</a></li>
-</ul></li>
 </ul>
-<h3 id="gnns-and-graph-isomorphism">GNNs and graph isomorphism</h3>
+</li>
+</ul>
+<h3 id="GNNs-and-graph-isomorphism">GNNs  and graph isomorphism</h3>
 <p>The motivation of GNNs based on connections to graph isomorphism testing.</p>
-<h4 id="graph-isomorphism-and-representational-capacity">Graph isomorphism and representational capacity</h4>
+<h4 id="Graph-isomorphism-and-representational-capacity">Graph isomorphism and representational capacity</h4>
 <ul>
 <li>Graph isomorphism
 <ul>
 <li>The goal of graph isomorphism is to declare whether or not the given two graphs are isomorphic. If so, the graphs are essentially identical.</li>
-<li>Formally, given adjacency matrix <span class="math inline">\(\mathrm{A}_1,\mathrm{A}_2\)</span> and node features <span class="math inline">\(\mathrm{X}_1,\mathrm{X}_2\)</span>, then two graphs are isomorphic if and only if there exists a permutation matrix <span class="math inline">\(\mathrm{P}\)</span> such that <span class="math inline">\(\mathrm{PA_1P^\top=A_2,PX_1=X_2}\)</span></li>
-</ul></li>
+<li>Formally, given adjacency matrix $\mathrm{A}_1,\mathrm{A}_2$ and node features $\mathrm{X}_1,\mathrm{X}_2$, then two graphs are isomorphic if and only if there exists a permutation matrix $\mathrm{P}$ such that $\mathrm{PA_1P^\top=A_2,PX_1=X_2}$</li>
+</ul>
+</li>
 <li>The challenges of graph isomorphism
 <ul>
 <li>The simple definition</li>
 <li>Testing for graph isomorphism
 <ul>
-<li>A naive approach to test for isomorphism would involve the optimization problem<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528231925373.png" alt="image-20210528231925373" style="zoom:60%;" /> with the computation complexity <span class="math inline">\(\mathcal{O}(|V|!)\)</span>.</li>
+<li>A naive approach to test for isomorphism would involve the optimization problem<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528231925373.png" alt="image-20210528231925373" style="zoom:60%;" /> with the computation complexity $\mathcal{O}(|V|!)$.</li>
 <li>Therefore, this is regarded as NP-indeterminate. No general polynomial time algorithms are known for this problem.</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Graph isomorphism and representational capacity
 <ul>
 <li>Graph isomorphism gives a way to quantify the representational power of different learning approaches. E.g., evaluating the power by asking how useful the representations would be for testing graph isomorphism.</li>
-<li>In practice, no representation learning algorithm is going to be “perfect".</li>
-</ul></li>
+<li>In practice, no representation learning algorithm is going to be “perfect&quot;.</li>
 </ul>
-<h4 id="the-weisfieler-lehman-algorithm">The Weisfieler-Lehman algorithm</h4>
-<ul>
-<li><p>The steps of 1-WL</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528233109761.png" alt="image-20210528233109761" style="zoom:80%;" /></p></li>
-<li><p>The WL algorithm is known to converge in at most <span class="math inline">\(|V|\)</span> iterations and is known to known to successfully test isomorphism for a broad class of graph.</p></li>
-<li><p>WL may fail for some graphs e.g. when the graph consists of multi disconnected subgraphs.</p></li>
+</li>
 </ul>
-<h4 id="gnns-and-the-wl-algorithm">GNNs and the WL algorithm</h4>
+<h4 id="The-Weisfieler-Lehman-algorithm">The Weisfieler-Lehman algorithm</h4>
 <ul>
-<li><p>GNNs aggregate and update node embeddings using NNs while WL aggregates and updates discrete labels.</p></li>
-<li><p>Formally, the relation between GNNs and WL is</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528233713630.png" alt="image-20210528233713630" style="zoom:80%;" /></p>
-<p>It tells that GNNs are no more powerful than the WL algorithm when we have discrete information as node features.</p></li>
-<li><p>If the WL algorithm assigns the same label to two nodes, then any message-passing GNN will also assign the same embedding to these two nodes.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528234128699.png" alt="image-20210528234128699" style="zoom:80%;" /></p></li>
-<li><p>If we define the message passing updates as</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529080919406.png" alt="image-20210529080919406" style="zoom:80%;" /></p>
-<p>then this GNN is sufficient to match the power of the WL algorithm.</p></li>
-<li><p>To make GNN is as powerful as WL, the aggregate and update function need to be injective, which means that they need to map every unique input to a unique output value. But this cannot be satisfied usually if the aggregate functions are using a average of the neighbor embeddings.</p></li>
-<li><p>GIN (graph isomorphism network) has few parameters but is still as powerful as the WL algorithm.</p>
-<ul>
-<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529084928011.png" alt="image-20210529084928011" style="zoom:80%;" /></li>
-</ul></li>
-<li><p>In summary, MP-GNNs (message passing GNNs) are no more powerful than the WL algorithm.</p></li>
+<li>
+<p>The steps of 1-WL</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528233109761.png" alt="image-20210528233109761" style="zoom:80%;" />
+</li>
+<li>
+<p>The WL algorithm is known to converge in at most $|V|$ iterations and is known to known to successfully test isomorphism for a broad class of graph.</p>
+</li>
+<li>
+<p>WL may fail for some graphs e.g. when the graph consists of multi disconnected subgraphs.</p>
+</li>
 </ul>
-<h4 id="beyond-the-wl-algorithm">Beyond the WL algorithm</h4>
+<h4 id="GNNs-and-the-WL-algorithm">GNNs and the WL algorithm</h4>
 <ul>
-<li><p>Relational pooling</p>
+<li>
+<p>GNNs aggregate and update node embeddings using NNs while WL aggregates and updates discrete labels.</p>
+</li>
+<li>
+<p>Formally, the relation between GNNs and WL is</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528233713630.png" alt="image-20210528233713630" style="zoom:80%;" />
+<p>It tells that GNNs are no more powerful than the WL algorithm when we have discrete information as node features.</p>
+</li>
+<li>
+<p>If the WL algorithm assigns the same label to two nodes, then any message-passing GNN will also assign the same embedding to these two nodes.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210528234128699.png" alt="image-20210528234128699" style="zoom:80%;" />
+</li>
+<li>
+<p>If we define the message passing updates as</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529080919406.png" alt="image-20210529080919406" style="zoom:80%;" />
+<p>then this GNN is sufficient to match the power of the WL algorithm.</p>
+</li>
+<li>
+<p>To make GNN is as powerful as WL, the aggregate and update function need to be injective, which means that they need to map every unique input to a unique output value. But this cannot be satisfied usually if the aggregate functions are using a average of the neighbor embeddings.</p>
+</li>
+<li>
+<p>GIN (graph isomorphism network) has few parameters but is still as powerful as the WL algorithm.</p>
+<ul>
+<li>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529084928011.png" alt="image-20210529084928011" style="zoom:80%;" />
+</li>
+</ul>
+</li>
+<li>
+<p>In summary, MP-GNNs (message passing GNNs) are no more powerful than the WL algorithm.</p>
+</li>
+</ul>
+<h4 id="Beyond-the-WL-algorithm">Beyond the WL algorithm</h4>
+<ul>
+<li>
+<p>Relational pooling</p>
 <p>Considering the failure cases of the WL algorithm. Message passing approaches generally fail to identify closed triangles in a graph, which is a critical limitation.</p>
 <ul>
 <li>To address the limitation, Murphy et al. consider MP-GNNs with unique node ID features. They simply add a unique, one-hot indicator feature (node ID) for each node.
 <ul>
-<li>However, this doesn't solve the problem and rather import a new and equally problematic issue that MP-GNNs is no longer permutation equivariant since the adding of node IDs. Specifically, assigning a unique ID to each node fixes a particular node ordering for the graph, which breaks the permutation equivariance.</li>
-</ul></li>
+<li>However, this doesn’t solve the problem and rather import a new and equally problematic issue that MP-GNNs is no longer permutation equivariant since the adding of node IDs. Specifically, assigning a unique ID to each node fixes a particular node ordering for the graph, which breaks the permutation equivariance.</li>
+</ul>
+</li>
 <li>The other way is <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02541">Relational Pooling (PR) approach</a>, which involves marginalizing over all possible node permutations. In practice, it will sum over all possible permutation matrices recovers the permutation invariance.
 <ul>
 <li>The limitation are
 <ul>
 <li>its computation complexity.</li>
 <li>We have no way to characterize how much more powerful that PR-GNNs are.</li>
-</ul></li>
+</ul>
+</li>
 <li>But RP can achieve strong results using various approximation to decrease the computation cost.</li>
-</ul></li>
-</ul></li>
-<li><p>The <span class="math inline">\(k\)</span>-WL test and <span class="math inline">\(k\)</span>-GNNs</p>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The $k$-WL test and $k$-GNNs</p>
 <p>Improving GNNs by adapting generalizations of the WL algorithm.</p>
 <ul>
-<li><span class="math inline">\(k\)</span>-WL works on subgraphs in size <span class="math inline">\(k\)</span>, which can be used to test graph isomorphism by comparing the multi-sets for two graphs.
+<li>$k$-WL works on subgraphs in size $k$, which can be used to test graph isomorphism by comparing the multi-sets for two graphs.
 <ul>
-<li>It introduces a hierarchy of representation capacity. For any <span class="math inline">\(k\ge2\)</span> we have that the <span class="math inline">\((k+1)\)</span>-WL test is strictly more powerful than the <span class="math inline">\(k\)</span>-WL test.</li>
-<li>To intimate this, <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1609/aaai.v33i01.33014602">Morris et al</a> develop a <span class="math inline">\(k\)</span>-GNN that is a differentiable and continuous analog of the <span class="math inline">\(k\)</span>-WL algorithm. They learn embeddings associated with subgraphs, rather than noes, and the message passing occurs according to subgraph neighborhoods.</li>
-</ul></li>
-<li>Graph kernel methods based on the <span class="math inline">\(k\)</span>-WL test.</li>
-</ul></li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.11136">Invariant and Equivariant <span class="math inline">\(k\)</span> -order GNNs</a></p>
+<li>It introduces a hierarchy of representation capacity.  For any $k\ge2$ we have that the $(k+1)$-WL test is strictly more powerful than the $k$-WL test.</li>
+<li>To intimate this, <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1609/aaai.v33i01.33014602">Morris et al</a> develop a $k$-GNN that is a differentiable and continuous analog of the $k$-WL algorithm. They learn embeddings associated with subgraphs, rather than noes, and the message passing occurs according to subgraph neighborhoods.</li>
+</ul>
+</li>
+<li>Graph kernel methods based on the $k$-WL test.</li>
+</ul>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.11136">Invariant and Equivariant $k$ -order GNNs</a></p>
 <ul>
 <li>MP-GNNs are equivariant to node permutations. And permuting the input to an MP-GNNs simply results in the matrix of output node embeddings being permuted in an analogous way.</li>
 <li>MP-GNNs can also be permutation invariant at the graph level. The pooled graph-level embedding does not change when different node orderings are used.</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.11136">Maron et al</a> propose a general form of GNN-like models based on permutation equivariant/invariant tensor operations.
 <ul>
-<li>For a given input, both equivariant and invariant linear operators on this input will correspond to tensors that satisfy the fixed point in <span class="math inline">\(\mathrm{P}\star\mathcal{L}=\mathcal{L},\forall \mathrm{P}\in \mathcal{P}\)</span>, but the number of channels in the tensor will differ depending on whether it is an equivariant or invariant operator.</li>
+<li>For a given input, both equivariant and invariant linear operators on this input will correspond to tensors that satisfy the fixed point in $\mathrm{P}\star\mathcal{L}=\mathcal{L},\forall \mathrm{P}\in \mathcal{P}$, but the number of channels in the tensor will differ depending on whether it is an equivariant or invariant operator.</li>
 <li>The fixed point can be constructed as a linear combination of a set of fixed basis elements.</li>
-<li>The equivariant linear layers involve tensors that have up to <span class="math inline">\(k\)</span> different channels.</li>
-<li>Constructing <span class="math inline">\(k\)</span>-order invariant models for <span class="math inline">\(k&gt;3\)</span> is generally computationally intractable. The built <span class="math inline">\(k\)</span>-order GNNs are equally powerful as the <span class="math inline">\(k\)</span>-WL algorithm.</li>
-</ul></li>
-</ul></li>
+<li>The equivariant linear layers involve tensors that have up to $k$ different channels.</li>
+<li>Constructing $k$-order invariant models for $k&gt;3$ is generally computationally intractable. The built $k$-order GNNs are equally powerful as the $k$-WL algorithm.</li>
 </ul>
-<h1 id="part-iii-generative-graph-models">Part III Generative Graph models</h1>
-<h2 id="chapter-8-traditional-graph-generation-approaches">Chapter 8 Traditional graph generation approaches</h2>
+</li>
+</ul>
+</li>
+</ul>
+<h1>Part III Generative Graph models</h1>
+<h2 id="Chapter-8-Traditional-graph-generation-approaches">Chapter 8 Traditional graph generation approaches</h2>
 <p>The goal of graph generation is to build models that can generate realistic graph structures. The key challenge in graph generation is generating graphs that have certain desirable properties.</p>
 <p>Traditional approaches to graph generation generally involve specifying some kind of generative process, which defines how the edges in a graph are created.</p>
-<p>A more through survey and discussion is <a target="_blank" rel="noopener" href="https://global.oup.com/academic/product/networks-9780198805090?cc=us&amp;lang=en&amp;">Newman's (1,12,13,108,109).</a></p>
-<h3 id="erdos-renyi-model">Erdos-Renyi model</h3>
+<p>A more through survey and discussion is <a target="_blank" rel="noopener" href="https://global.oup.com/academic/product/networks-9780198805090?cc=us&amp;lang=en&amp;">Newman’s  (1,12,13,108,109).</a></p>
+<h3 id="Erdos-Renyi-model">Erdos-Renyi model</h3>
 <ul>
-<li>ER model may be the simplest and most well-known generative model of graphs. It simply assumes that the probability of an edge occurring between any pairs of nodes is equal to <span class="math inline">\(r\)</span>.</li>
-<li>To generate a random ER graph, just simply choose how many nodes we want, set the density parameter <span class="math inline">\(r\)</span> and then use equation to generate the adjacency matrix.</li>
-<li>The downside of the ER model is that it doesn't generate very realistic graphs. The graph properties like degree distribution, existence of community structures, node clustering coefficients and tensors occurrence of structural motifs are not captured.</li>
+<li>ER model may be the simplest and most well-known generative model of graphs. It simply assumes that the probability of an edge occurring between any pairs of nodes is equal to $r$.</li>
+<li>To generate a random ER graph, just simply choose how many nodes we want, set the density parameter $r$ and then use equation to generate the adjacency matrix.</li>
+<li>The downside of the ER model is that it doesn’t generate very realistic graphs. The graph properties like degree distribution, existence of community structures, node clustering coefficients and tensors occurrence of structural motifs are not captured.</li>
 </ul>
-<h3 id="stochastic-block-models">Stochastic block models</h3>
+<h3 id="Stochastic-block-models">Stochastic block models</h3>
 <ul>
 <li>SBMs seek to generate graphs with community structure.</li>
-<li>SBMs are based on blocks, every node has a probability that it belongs to block <span class="math inline">\(i\)</span>, edge probabilities are defined by a block-to-block probability matrix. To generate graph, for each node assign a class (block) by sampling and then sample edges for each pair of nodes.</li>
-<li>By controlling the edge probabilities within and between different blocks, one can generate graphs that exhibit community structure.</li>
-<li>The nodes have a probability <span class="math inline">\(\alpha\)</span> of having an Eden with another node that assigned to the same community and a smaller probability of having an Eden with another node that is assigned to a different community.</li>
+<li>SBMs are based on blocks, every node has a probability that it belongs to block $i$, edge probabilities are defined by a block-to-block probability matrix. To generate graph, for each node assign a class (block) by sampling and then sample edges for each pair of nodes.</li>
+<li>By controlling the  edge probabilities within and between different blocks, one can generate graphs that exhibit community structure.</li>
+<li>The nodes have a probability $\alpha$ of having an Eden with another node that assigned to the same community and a smaller probability of having an Eden with another node that is assigned to a different community.</li>
 <li>The variations including approaches for bipartite graphs, graphs with node features, as well as approaches to infer SBMs parameters from data.</li>
 <li>However, SBMs is limited in that it fails to capture the structural characteristic of individuals nodes that are present in most real-world graphs. In SBMs, the structure of individual communities is relatively homogeneous in that all the nodes have similar structural.</li>
 </ul>
-<h3 id="preferential-attachment">Preferential attachment</h3>
+<h3 id="Preferential-attachment">Preferential attachment</h3>
 <ul>
-<li><p>Preferential attachment (PA) attempts to capture the inhomogeneous of communities (real-world degree distributions). It's built based on the assumption that many real-world graphs exhibit power-law degree distributions.</p></li>
-<li><p>The power law distributions are heavy tailed, which means that a probability distribution goes to zero for extreme values slower than an exponential distribution. It also means that there is a large number of nodes with small degrees but also have a small number of nodes with extremely large degrees.</p></li>
-<li><p>The steps of PA:</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529144054529.png" alt="image-20210529144054529" style="zoom:80%;" /></p></li>
-<li><p>The key idea is that the PA model connects new nodes to existing nodes with a probability that is proportional to the existing nodes' degrees.</p></li>
-<li><p>The generation process of PA is autoregressive, the edge probabilities are defined on an iterative approach.</p></li>
+<li>
+<p>Preferential attachment (PA) attempts to capture the inhomogeneous of communities (real-world degree distributions). It’s built based on the assumption that many real-world graphs exhibit power-law degree distributions.</p>
+</li>
+<li>
+<p>The power law distributions are heavy tailed, which means that a probability distribution goes to zero for extreme values slower than an exponential distribution. It also means that there is a large number of nodes with small degrees but also have a small number of nodes with extremely large degrees.</p>
+</li>
+<li>
+<p>The steps of PA:</p>
+ <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529144054529.png" alt="image-20210529144054529" style="zoom:80%;" />
+</li>
+<li>
+<p>The key idea is that the PA model connects new nodes to existing nodes with a probability that is proportional to the existing nodes’ degrees.</p>
+</li>
+<li>
+<p>The generation process of PA is autoregressive, the edge probabilities are defined on an iterative approach.</p>
+</li>
 </ul>
-<h3 id="traditional-applications">Traditional applications</h3>
+<h3 id="Traditional-applications">Traditional applications</h3>
 <p>Historically, the methods introduced above have been used in two key applications:</p>
 <ul>
 <li>Generating synthetic data for benchmarking and analysis tasks</li>
 <li>Creating Null models
 <ul>
 <li>We can investigate the extent to which different graph characteristics are probable under different generative models.</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>The traditional approaches can generate graphs, but they lack the ability to learn a generative model from data.</p>
-<h2 id="chapter-9-deep-generative-models">Chapter 9 Deep generative models</h2>
+<h2 id="Chapter-9-Deep-generative-models">Chapter 9 Deep generative models</h2>
 <p>Focus on the simple and general variants of VAEs, GANs and autoregressive models. All below will only focus on generating graph structure.</p>
-<h3 id="variational-autoencoder-approaches">Variational autoencoder approaches</h3>
+<h3 id="Variational-autoencoder-approaches">Variational autoencoder approaches</h3>
 <ul>
-<li><p>Under VAEs, the key idea behind can be summarized as : the goal is to train a probabilistic decoder model from which one can sample realistic graphs by conditioning on a latent variable. Or to say, the goal is to learn a conditional distribution over adjacency matrices.</p></li>
-<li><p>The target is the decoder that generate graph from latent variable, but encoder and decoder are trained together.</p></li>
-<li><p>The components that required:</p>
+<li>
+<p>Under VAEs, the key idea behind can be summarized as : the goal is to train a probabilistic decoder model from which one can sample realistic graphs by conditioning on a latent variable. Or to say, the goal is to learn a conditional distribution over adjacency matrices.</p>
+</li>
+<li>
+<p>The target is the decoder that generate graph from latent variable, but encoder and decoder are trained together.</p>
+</li>
+<li>
+<p>The components that required:</p>
 <ul>
-<li><p>A probabilistic encoder model <span class="math inline">\(q_\phi\)</span></p>
-<p>It takes a graph as input. Generally , in VAEs the representation trick with Gaussian random variables is used to design this function.</p></li>
-<li><p>A probabilistic decoder model <span class="math inline">\(p_\theta\)</span></p>
-<p>The decoder takes a latent representation as input and uses this input to specify a conditional distribution over graphs. Specifically, it defines a conditional distribution over the entries of the adjacency matrix.</p></li>
-<li><p>A prior distribution over the latent space</p>
-<p>Usually a standard Gaussian prior is used.</p></li>
-</ul></li>
-<li><p>With these components, the loss is minimizing the evidence likelihood lower bound (ELBO)</p>
+<li>
+<p>A probabilistic encoder model $q_\phi$</p>
+<p>It takes a graph as input. Generally , in VAEs the representation trick with Gaussian random variables is used to design this function.</p>
+</li>
+<li>
+<p>A probabilistic decoder model $p_\theta$</p>
+<p>The decoder takes a latent representation as input and uses this input to specify a conditional distribution over graphs. Specifically, it defines a conditional distribution over the entries of the adjacency matrix.</p>
+</li>
+<li>
+<p>A prior distribution over the latent space</p>
+<p>Usually a standard Gaussian prior is used.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>With these components, the loss is minimizing the evidence likelihood lower bound (ELBO)</p>
 <p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210529181330038.png" alt="image-20210529181330038" style="zoom:80%;" />, with the basic idea that seek to maximize the reconstruction ability of the decoder.</p>
 <ul>
 <li>The motivation behind the ELBO is rooted in the theory of variational inference.</li>
 <li>The goals will be satisfied under this optimization method
 <ul>
 <li>The sampled latent representations encode enough information to allow our decoder to reconstruct the input.</li>
-<li>The latent distribution is as close as possible to the prior. It's important if one wants to generate new graphs after training : they can generate new graphs by sampling from the prior and feeding these latent embeddings to the decoder.</li>
-</ul></li>
-</ul></li>
+<li>The latent distribution is as close as possible to the prior. It’s important if one wants to generate new graphs after training : they can generate new graphs by sampling from the prior and feeding these latent embeddings to the decoder.</li>
 </ul>
-<h4 id="node-level-latent">Node-level latent</h4>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Node-level-latent">Node-level latent</h4>
 <p>Encoding and decoding graphs based on node embeddings. The key idea is that the encoder generates latent representations for each node in the graph.</p>
 <p>As a generative model, the node-level method is limited.</p>
 <ul>
@@ -1125,26 +1493,29 @@ f(\mathrm{A})=\alpha(\mathrm{I-(1-\alpha)\tilde{A}})^{-1}=\alpha\sum\limits_{k=0
 <li>Encoder model: can be based on any of the GNN architectures. In particular, two GNNs are used to generate mean (for each node in the input graph) and variance parameters separately. Once they are computed, tensors set of latent node embeddings can be sampled.</li>
 <li>Decoder model: predict the likelihood of all the edges in the graph, given a matrix of sampled node embeddings. In VGAE, thy use a dot-product decoder.</li>
 <li>The reconstruction error is a binary cross-entropy over the edge probabilities.</li>
-</ul></li>
-<li>Limitations: It's limited especially when a dot-product decoder is used. The decoder has no parameters, so the model is not able to generate non-trivial graph structures without a training graph as input.</li>
+</ul>
+</li>
+<li>Limitations: It’s limited especially when a dot-product decoder is used. The decoder has no parameters, so the model is not able to generate non-trivial graph structures without a training graph as input.</li>
 <li><a target="_blank" rel="noopener" href="http://proceedings.mlr.press/v97/grover19a.html">Grover et al.</a> propose to augment the decoder with an iterative GNN based decoder.</li>
 </ul>
-<h4 id="graph-level-latent">Graph-level latent</h4>
+<h4 id="Graph-level-latent">Graph-level latent</h4>
 <p>The encoder and decoder functions are modified to work with graph-level latent representations.</p>
 <ul>
 <li>Encoder model: It can be an arbitrary GNN model augmented with a pooling layer. Again there are two separate GNNs to parameterize the mean and variance of a posterior normal distribution over latent variables.</li>
-<li>Decoder model: One original Graph-VAE model proposed to combine a basic MLP with a Bernoulli distributional assumption. Simply independent Bernoulli distribution for each edge, and the overall log-likelihood objective is equivalent to set of independent binary cross-entropy loss function on each edge.
+<li>Decoder model: One original Graph-VAE model proposed to combine a basic MLP with a Bernoulli distributional assumption. Simply independent Bernoulli distribution for each edge, and the overall  log-likelihood objective is equivalent to set of independent binary cross-entropy loss function on each edge.
 <ul>
 <li>The challenges while implementing with MLP:
 <ul>
 <li>Have to assume a fixed number of nodes</li>
-<li>We don't know the correct ordering of the rows and columns in <span class="math inline">\(\tilde{A}\)</span> when we are computing the reconstruction loss.</li>
-</ul></li>
-</ul></li>
+<li>We don’t know the correct ordering of the  rows and columns in $\tilde{A}$ when we are computing the reconstruction loss.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Limitations: using graph-level latent representations introduces the issue of specifying node orderings. And with MLP, currently limits the application of the basic graph-level VAE to small graphs with hundred of nodes or less.</li>
 </ul>
-<h3 id="adversarial-approaches">Adversarial approaches</h3>
-<p>VAE suffers from serious limitations--such as the tendency for VAEs to produce blurry outputs in the image domain.</p>
+<h3 id="Adversarial-approaches">Adversarial approaches</h3>
+<p>VAE suffers from serious limitations–such as the tendency for VAEs to produce blurry outputs in the image domain.</p>
 <ul>
 <li>Some works
 <ul>
@@ -1153,58 +1524,66 @@ f(\mathrm{A})=\alpha(\mathrm{I-(1-\alpha)\tilde{A}})^{-1}=\alpha\sum\limits_{k=0
 <li>The generator is a MLP that generates a matrix of edge probabilities given a seed vector.</li>
 <li>The discrete adjacency matrix is generated by sampling independent Bernoulli variables for each edge.</li>
 <li>The discriminator employ any GNN-based graph classification model.</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>Benefits: GAN-based methods remove the complication of specifying a node ordering in the loss computation as long as the discriminator model is permutation invariant.</li>
-<li>Limitations : GAN-based approaches to graph generation have so far received less attention and success than their variational counterparts.</li>
+<li>Limitations :  GAN-based approaches to graph generation have so far received less attention and success than their variational counterparts.</li>
 </ul>
-<h3 id="autoregressive-methods">Autoregressive methods</h3>
+<h3 id="Autoregressive-methods">Autoregressive methods</h3>
 <p>Both VAE-based approaches and basic GANs that discussed before use simple MLPs to generate adjacency matrices. Autoregressive methods can decode graph structures from latent representations, they will combine GANs and VAEs.</p>
-<h4 id="modeling-edge-dependencies">Modeling edge dependencies</h4>
-<p>Previous it's assumed that the edges are independent for convenience, but this is not true in real world.</p>
+<h4 id="Modeling-edge-dependencies">Modeling edge dependencies</h4>
+<p>Previous it’s assumed that the edges are independent for convenience, but this is not true in real world.</p>
 <ul>
-<li><p>In autoregressive model, it's assumed that edges are generated sequentially and that the likelihood of each edge can be conditioned on the edges that have been previously generated.</p></li>
-<li><p>Assume the lower-triangular portion of the adjacency matrix <span class="math inline">\(\mathrm{A}\)</span> is denoted as <span class="math inline">\(\mathrm{L}\)</span>.</p>
-<p><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210530073545690.png" alt="image-20210530073545690" style="zoom:80%;" /></p></li>
+<li>
+<p>In autoregressive model, it’s assumed that edges are generated sequentially and that the likelihood of each edge can be conditioned on the edges that have been previously generated.</p>
+</li>
+<li>
+<p>Assume the lower-triangular portion of the adjacency matrix $\mathrm{A}$ is denoted as $\mathrm{L}$.</p>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20210530073545690.png" alt="image-20210530073545690" style="zoom:80%;" />
+</li>
 </ul>
-<h4 id="recurrent-models-for-graph-generation">Recurrent models for graph generation</h4>
+<h4 id="Recurrent-models-for-graph-generation">Recurrent models for graph generation</h4>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.08773">GraphRNN</a> : use a hierarchical RNN to model the edge dependencies.
 <ul>
-<li>The 1st RNN in this model is a graph-level RNN that is used to model the state of the graph that has been generated so far. It involves a stochastic sampling process to generate the discrete edges. In this way, the graph RNN is able to generate diverse samples of graphs even when a fixed initial embedding is used.</li>
-<li>The 2nd RNN, termed a the node-level RNN, generates the entries of <span class="math inline">\(\mathrm{L}\)</span> lower triangular adjacency matrix in an autoregressive manner. It will take the graph-level hidden state as its input and then sequentially generate the binary values of <span class="math inline">\(\mathrm{L}\)</span>, assuming a conditional Bernoulli distribution for each entry.</li>
+<li>The 1st RNN in this model is a graph-level RNN  that is used to model the state of the graph that has been generated so far. It involves a stochastic sampling process to generate the discrete edges. In this way, the graph RNN is able to generate diverse samples of graphs even when a fixed initial embedding is used.</li>
+<li>The 2nd RNN, termed a the node-level RNN, generates the entries of $\mathrm{L}$ lower triangular adjacency matrix in an autoregressive manner. It will take the graph-level hidden state as its input and then sequentially generate the binary values of $\mathrm{L}$, assuming a conditional Bernoulli distribution for each entry.</li>
 <li>The node level RNN is initialized at each time-step with the current hidden state of the graph-level RNN.</li>
-<li>Both RNNs can be optimized to maximize the likelihood of the training graphs using the teaching forcing strategy, meaning that the ground truth of <span class="math inline">\(\mathrm{L}\)</span> are always used to update the RNNs during training. But computing the likelihood requires the assumption that a particular a ordering over the generated nodes.</li>
-<li>It's more capable of generating grid-like structures, compared to the basic graph-level VAE.</li>
+<li>Both RNNs can be optimized to maximize the likelihood of the training graphs using the teaching forcing strategy, meaning that the ground truth of $\mathrm{L}$ are always used to update the RNNs during training. But computing the likelihood requires the assumption that a particular a ordering over the generated nodes.</li>
+<li>It’s more capable of generating grid-like structures, compared to the basic graph-level VAE.</li>
 <li>Limitations: It still generates unrealistic artifacts (e.g. long chains) when trained on samples of grids. It can be difficult to train and scale to large graphs due to the need to backpropagate through many steps of RNN recurrence.</li>
-</ul></li>
+</ul>
+</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.00760">GRAN</a>: generate graphs by using a GNN to condition on the adjacency matrix that has been generated so far. GRAN models dependencies between edges. It maintains the autoregressive decomposition of the generation process.
 <ul>
 <li>It uses GNNs to model the autoregressive generation process.</li>
 <li>One can model the conditional distribution of each row of the adjacency matrix by running a GNN on the graph that has been generated so far.</li>
-<li>Since there are no node attributes associated with the generated nodes, the input feature matrix <span class="math inline">\(\tilde{\mathrm{X}}\)</span> to the GNN can simply contain randomly sampled vectors.</li>
+<li>Since there are no node attributes associated with the generated nodes, the input feature matrix $\tilde{\mathrm{X}}$ to the GNN can simply contain randomly sampled vectors.</li>
 <li>The key benefit of GRAN compared with GraphRNN is that it does not need to maintain a long and complex history in a graph-level RNN.</li>
 <li>To use GRAN on large graphs, one improvement is that multiple nodes can be added simultaneously in a single block rather than adding nodes one at a time.</li>
-</ul></li>
 </ul>
-<h3 id="evaluating-graph-generation">Evaluating graph generation</h3>
+</li>
+</ul>
+<h3 id="Evaluating-graph-generation">Evaluating graph generation</h3>
 <p>Quantitatively compare the different models introduced previouly?</p>
 <ul>
 <li>Currently is to analyze different statistics of the generated graphs and to compare the distribution of statistics for the generated graphs to a test set.</li>
-<li>Compute the distance between the statistic's distribution on the test graph and generated graph using a distributional measure, such as the total variation distance.</li>
+<li>Compute the distance between the statistic’s distribution on the test graph and generated graph using a distributional measure, such as the total variation distance.</li>
 <li>The statistics that are used including degree distributions, graphlets counts, and spectral features with distributional distances computed using variants of the total variation score and the 1st Wassertein distance.</li>
 </ul>
-<h3 id="molecule-generation">Molecule generation</h3>
+<h3 id="Molecule-generation">Molecule generation</h3>
 <ul>
 <li>The goal of molecule generation is to generate molecular graph structures that are both valid (e.g., chemically stable) and ideally have some desirable properties (e.g., medicinal properties or solubility).</li>
 <li>Domain-specific knowledge for both model design and evaluation.</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="Conclusion">Conclusion</h2>
 <ul>
 <li>Building models that can infer latent graph structures beyond the input graph that we are given is a critical direction for pushing forward graph representation learning.</li>
 <li>Message-passing GNNs are inherently bounded by the WL isomorphism test. They suffer from over-smoothing, being limited to simple convolutional filters, and being restricted to tree-structured computation graphs.</li>
 </ul>
-<h3 id="section"></h3>
+<h3 id=""></h3>
 
       
 
@@ -1290,7 +1669,7 @@ f(\mathrm{A})=\alpha(\mathrm{I-(1-\alpha)\tilde{A}})^{-1}=\alpha\sum\limits_{k=0
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-1-introduction"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1: Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#graphs"><span class="toc-number">1.1.</span> <span class="toc-text">Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-2-background-traditional-approaches"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2: Background &amp; Traditional Approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#graph-statistics-and-kernel-methods"><span class="toc-number">2.1.</span> <span class="toc-text">Graph statistics and kernel methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#node-level-statistics"><span class="toc-number">2.1.1.</span> <span class="toc-text">Node-level statistics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-level-features-and-graph-kernels"><span class="toc-number">2.1.2.</span> <span class="toc-text">Graph-level features and graph kernels</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#neighborhood-overlap-detection"><span class="toc-number">2.2.</span> <span class="toc-text">Neighborhood overlap detection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#local-overlap-measures"><span class="toc-number">2.2.1.</span> <span class="toc-text">Local overlap measures</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#global-overlap-measures"><span class="toc-number">2.2.2.</span> <span class="toc-text">Global overlap measures</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#graph-laplacians-and-spectral-methods"><span class="toc-number">2.3.</span> <span class="toc-text">Graph Laplacians and spectral methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-laplacians"><span class="toc-number">2.3.1.</span> <span class="toc-text">Graph Laplacians</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-cuts-and-clustering"><span class="toc-number">2.3.2.</span> <span class="toc-text">Graph cuts and clustering</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-i-node-embeddings"><span class="toc-number"></span> <span class="toc-text">Part I: Node Embeddings</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-3-neighborhood-reconstruction-methods"><span class="toc-number">1.</span> <span class="toc-text">Chapter 3 Neighborhood Reconstruction Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#an-encoder-decoder-perspective"><span class="toc-number">1.1.</span> <span class="toc-text">An encoder-decoder perspective</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#the-encoder"><span class="toc-number">1.1.1.</span> <span class="toc-text">The encoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#the-decoder"><span class="toc-number">1.1.2.</span> <span class="toc-text">The decoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#optimizing-an-encoder-decoder-model"><span class="toc-number">1.1.3.</span> <span class="toc-text">Optimizing an encoder-decoder model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#typical-encoder-decoder-methods"><span class="toc-number">1.1.4.</span> <span class="toc-text">Typical encoder-decoder methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#factorization-based-approaches"><span class="toc-number">1.2.</span> <span class="toc-text">Factorization-based approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#laplacian-eigenmaps-le"><span class="toc-number">1.2.1.</span> <span class="toc-text">Laplacian eigenmaps (LE)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inner-product-methods"><span class="toc-number">1.2.2.</span> <span class="toc-text">Inner-product methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-walk-embedding"><span class="toc-number">1.3.</span> <span class="toc-text">Random walk embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#deepwalk-and-node2vec"><span class="toc-number">1.3.1.</span> <span class="toc-text">Deepwalk and node2vec</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#line"><span class="toc-number">1.3.2.</span> <span class="toc-text">LINE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#additional-variants-of-the-random-walk"><span class="toc-number">1.3.3.</span> <span class="toc-text">Additional variants of the random-walk</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random-walk-and-matrix-factorization"><span class="toc-number">1.4.</span> <span class="toc-text">Random walk and matrix factorization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-4-multi-relational-data-and-knowledge-graphs"><span class="toc-number">2.</span> <span class="toc-text">Chapter 4: Multi-relational data and knowledge graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reconstruction-multi-relational-data"><span class="toc-number">2.1.</span> <span class="toc-text">Reconstruction multi-relational data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loss-functions"><span class="toc-number">2.2.</span> <span class="toc-text">Loss functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cross-entropy-with-negative-sampling"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cross-entropy with negative sampling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#max-margin-loss"><span class="toc-number">2.2.2.</span> <span class="toc-text">Max-Margin loss</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#multi-relational-decoders"><span class="toc-number">2.3.</span> <span class="toc-text">Multi-relational decoders</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#methods"><span class="toc-number">2.3.1.</span> <span class="toc-text">Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#representational-abilities"><span class="toc-number">2.3.2.</span> <span class="toc-text">Representational abilities</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-ii-gnns"><span class="toc-number"></span> <span class="toc-text">Part II: GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-5-the-gnn-model"><span class="toc-number">1.</span> <span class="toc-text">Chapter 5 The GNN model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#neural-message-passing"><span class="toc-number">1.1.</span> <span class="toc-text">Neural message passing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#the-basic-gnn"><span class="toc-number">1.1.1.</span> <span class="toc-text">The basic GNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#with-self-loop"><span class="toc-number">1.1.2.</span> <span class="toc-text">With self-loop</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generalized-neighborhood-aggregation"><span class="toc-number">1.2.</span> <span class="toc-text">Generalized neighborhood aggregation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#neighborhood-normalization"><span class="toc-number">1.2.1.</span> <span class="toc-text">Neighborhood normalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-aggregation"><span class="toc-number">1.2.2.</span> <span class="toc-text">Set aggregation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#neighborhood-attention"><span class="toc-number">1.2.3.</span> <span class="toc-text">Neighborhood attention</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generalized-update-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Generalized update methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#concatenation-and-skip-connections"><span class="toc-number">1.3.1.</span> <span class="toc-text">Concatenation and skip-connections</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gated-updates"><span class="toc-number">1.3.2.</span> <span class="toc-text">Gated updates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jumping-knowledge-connection"><span class="toc-number">1.3.3.</span> <span class="toc-text">Jumping knowledge connection</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#edge-features-and-multi-relational-gnns"><span class="toc-number">1.4.</span> <span class="toc-text">Edge features and Multi-relational GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#relational-gnns"><span class="toc-number">1.4.1.</span> <span class="toc-text">Relational GNNs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#attention-and-feature-concatenation"><span class="toc-number">1.4.2.</span> <span class="toc-text">Attention and feature concatenation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#graph-pooling"><span class="toc-number">1.5.</span> <span class="toc-text">Graph pooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generalized-message-passing"><span class="toc-number">1.6.</span> <span class="toc-text">Generalized message passing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-6-gnns-in-practice"><span class="toc-number">2.</span> <span class="toc-text">Chapter 6 GNNs in practice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#applications-and-loss-functions"><span class="toc-number">2.1.</span> <span class="toc-text">Applications and loss functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#efficiency-concerns-and-node-sampling"><span class="toc-number">2.2.</span> <span class="toc-text">Efficiency concerns and node sampling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parameter-sharing-and-regularization"><span class="toc-number">2.3.</span> <span class="toc-text">Parameter sharing and regularization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-7-theoretical-motivations"><span class="toc-number">3.</span> <span class="toc-text">Chapter 7 Theoretical motivations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnns-and-graph-convolutions"><span class="toc-number">3.1.</span> <span class="toc-text">GNNs and graph convolutions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#convolutions-and-the-fourier-transform"><span class="toc-number">3.1.1.</span> <span class="toc-text">Convolutions and the Fourier transform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#from-time-signals-to-graph-signals"><span class="toc-number">3.1.2.</span> <span class="toc-text">From time signals to graph signals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spectral-graph-convolutions"><span class="toc-number">3.1.3.</span> <span class="toc-text">Spectral graph convolutions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#convolution-inspired-gnns"><span class="toc-number">3.1.4.</span> <span class="toc-text">Convolution inspired GNNs</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gnns-and-probabilistic-graphical-models"><span class="toc-number">3.2.</span> <span class="toc-text">GNNs and probabilistic graphical models</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hilbert-space-embeddings-of-distributions"><span class="toc-number">3.2.1.</span> <span class="toc-text">Hilbert space embeddings of distributions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#graphs-as-graphical-models"><span class="toc-number">3.2.2.</span> <span class="toc-text">Graphs as graphical models</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#embedding-mean-field-inference"><span class="toc-number">3.2.3.</span> <span class="toc-text">Embedding mean-field inference</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gnns-and-pgms-more-generality"><span class="toc-number">3.2.4.</span> <span class="toc-text">GNNs and PGMs more generality</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gnns-and-graph-isomorphism"><span class="toc-number">3.3.</span> <span class="toc-text">GNNs and graph isomorphism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-isomorphism-and-representational-capacity"><span class="toc-number">3.3.1.</span> <span class="toc-text">Graph isomorphism and representational capacity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#the-weisfieler-lehman-algorithm"><span class="toc-number">3.3.2.</span> <span class="toc-text">The Weisfieler-Lehman algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gnns-and-the-wl-algorithm"><span class="toc-number">3.3.3.</span> <span class="toc-text">GNNs and the WL algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beyond-the-wl-algorithm"><span class="toc-number">3.3.4.</span> <span class="toc-text">Beyond the WL algorithm</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#part-iii-generative-graph-models"><span class="toc-number"></span> <span class="toc-text">Part III Generative Graph models</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-8-traditional-graph-generation-approaches"><span class="toc-number">1.</span> <span class="toc-text">Chapter 8 Traditional graph generation approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#erdos-renyi-model"><span class="toc-number">1.1.</span> <span class="toc-text">Erdos-Renyi model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stochastic-block-models"><span class="toc-number">1.2.</span> <span class="toc-text">Stochastic block models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preferential-attachment"><span class="toc-number">1.3.</span> <span class="toc-text">Preferential attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#traditional-applications"><span class="toc-number">1.4.</span> <span class="toc-text">Traditional applications</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chapter-9-deep-generative-models"><span class="toc-number">2.</span> <span class="toc-text">Chapter 9 Deep generative models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#variational-autoencoder-approaches"><span class="toc-number">2.1.</span> <span class="toc-text">Variational autoencoder approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#node-level-latent"><span class="toc-number">2.1.1.</span> <span class="toc-text">Node-level latent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#graph-level-latent"><span class="toc-number">2.1.2.</span> <span class="toc-text">Graph-level latent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adversarial-approaches"><span class="toc-number">2.2.</span> <span class="toc-text">Adversarial approaches</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#autoregressive-methods"><span class="toc-number">2.3.</span> <span class="toc-text">Autoregressive methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#modeling-edge-dependencies"><span class="toc-number">2.3.1.</span> <span class="toc-text">Modeling edge dependencies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#recurrent-models-for-graph-generation"><span class="toc-number">2.3.2.</span> <span class="toc-text">Recurrent models for graph generation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluating-graph-generation"><span class="toc-number">2.4.</span> <span class="toc-text">Evaluating graph generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#molecule-generation"><span class="toc-number">2.5.</span> <span class="toc-text">Molecule generation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#section"><span class="toc-number">3.1.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-1-Introduction"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1: Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Graphs"><span class="toc-number">1.1.</span> <span class="toc-text">Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-2-Background-Traditional-Approaches"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2: Background &amp; Traditional Approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-statistics-and-kernel-methods"><span class="toc-number">2.1.</span> <span class="toc-text">Graph statistics and kernel methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-level-statistics"><span class="toc-number">2.1.1.</span> <span class="toc-text">Node-level statistics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-level-features-and-graph-kernels"><span class="toc-number">2.1.2.</span> <span class="toc-text">Graph-level features and graph kernels</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neighborhood-overlap-detection"><span class="toc-number">2.2.</span> <span class="toc-text">Neighborhood overlap detection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Local-overlap-measures"><span class="toc-number">2.2.1.</span> <span class="toc-text">Local overlap measures</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Global-overlap-measures"><span class="toc-number">2.2.2.</span> <span class="toc-text">Global overlap measures</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-Laplacians-and-spectral-methods"><span class="toc-number">2.3.</span> <span class="toc-text">Graph Laplacians and spectral methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-Laplacians"><span class="toc-number">2.3.1.</span> <span class="toc-text">Graph Laplacians</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-cuts-and-clustering"><span class="toc-number">2.3.2.</span> <span class="toc-text">Graph cuts and clustering</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">Part I: Node Embeddings</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-3-Neighborhood-Reconstruction-Methods"><span class="toc-number">1.</span> <span class="toc-text">Chapter 3 Neighborhood Reconstruction Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#An-encoder-decoder-perspective"><span class="toc-number">1.1.</span> <span class="toc-text">An encoder-decoder perspective</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-encoder"><span class="toc-number">1.1.1.</span> <span class="toc-text">The encoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-decoder"><span class="toc-number">1.1.2.</span> <span class="toc-text">The decoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Optimizing-an-encoder-decoder-model"><span class="toc-number">1.1.3.</span> <span class="toc-text">Optimizing an encoder-decoder model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Typical-encoder-decoder-methods"><span class="toc-number">1.1.4.</span> <span class="toc-text">Typical encoder-decoder methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Factorization-based-approaches"><span class="toc-number">1.2.</span> <span class="toc-text">Factorization-based approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Laplacian-eigenmaps-LE"><span class="toc-number">1.2.1.</span> <span class="toc-text">Laplacian eigenmaps (LE)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Inner-product-methods"><span class="toc-number">1.2.2.</span> <span class="toc-text">Inner-product methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-walk-embedding"><span class="toc-number">1.3.</span> <span class="toc-text">Random walk embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Deepwalk-and-node2vec"><span class="toc-number">1.3.1.</span> <span class="toc-text">Deepwalk and node2vec</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LINE"><span class="toc-number">1.3.2.</span> <span class="toc-text">LINE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Additional-variants-of-the-random-walk"><span class="toc-number">1.3.3.</span> <span class="toc-text">Additional variants of the random-walk</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-walk-and-matrix-factorization"><span class="toc-number">1.4.</span> <span class="toc-text">Random walk and matrix factorization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-4-Multi-relational-data-and-knowledge-graphs"><span class="toc-number">2.</span> <span class="toc-text">Chapter 4: Multi-relational data and knowledge graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reconstruction-multi-relational-data"><span class="toc-number">2.1.</span> <span class="toc-text">Reconstruction multi-relational data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loss-functions"><span class="toc-number">2.2.</span> <span class="toc-text">Loss functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cross-entropy-with-negative-sampling"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cross-entropy with negative sampling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Max-Margin-loss"><span class="toc-number">2.2.2.</span> <span class="toc-text">Max-Margin loss</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-relational-decoders"><span class="toc-number">2.3.</span> <span class="toc-text">Multi-relational decoders</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Methods"><span class="toc-number">2.3.1.</span> <span class="toc-text">Methods</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Representational-abilities"><span class="toc-number">2.3.2.</span> <span class="toc-text">Representational abilities</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">Part II: GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-5-The-GNN-model"><span class="toc-number">1.</span> <span class="toc-text">Chapter 5 The GNN model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Neural-message-passing"><span class="toc-number">1.1.</span> <span class="toc-text">Neural message passing</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-basic-GNN"><span class="toc-number">1.1.1.</span> <span class="toc-text">The basic GNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#With-self-loop"><span class="toc-number">1.1.2.</span> <span class="toc-text">With self-loop</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalized-neighborhood-aggregation"><span class="toc-number">1.2.</span> <span class="toc-text">Generalized neighborhood aggregation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Neighborhood-normalization"><span class="toc-number">1.2.1.</span> <span class="toc-text">Neighborhood normalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set-aggregation"><span class="toc-number">1.2.2.</span> <span class="toc-text">Set aggregation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neighborhood-attention"><span class="toc-number">1.2.3.</span> <span class="toc-text">Neighborhood attention</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalized-update-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Generalized update methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Concatenation-and-skip-connections"><span class="toc-number">1.3.1.</span> <span class="toc-text">Concatenation and skip-connections</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gated-updates"><span class="toc-number">1.3.2.</span> <span class="toc-text">Gated updates</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Jumping-knowledge-connection"><span class="toc-number">1.3.3.</span> <span class="toc-text">Jumping knowledge connection</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Edge-features-and-Multi-relational-GNNs"><span class="toc-number">1.4.</span> <span class="toc-text">Edge features and Multi-relational GNNs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Relational-GNNs"><span class="toc-number">1.4.1.</span> <span class="toc-text">Relational GNNs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention-and-feature-concatenation"><span class="toc-number">1.4.2.</span> <span class="toc-text">Attention and feature concatenation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graph-pooling"><span class="toc-number">1.5.</span> <span class="toc-text">Graph pooling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generalized-message-passing"><span class="toc-number">1.6.</span> <span class="toc-text">Generalized message passing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-6-GNNs-in-practice"><span class="toc-number">2.</span> <span class="toc-text">Chapter 6 GNNs in practice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Applications-and-loss-functions"><span class="toc-number">2.1.</span> <span class="toc-text">Applications and loss functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Efficiency-concerns-and-node-sampling"><span class="toc-number">2.2.</span> <span class="toc-text">Efficiency concerns and node sampling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parameter-sharing-and-regularization"><span class="toc-number">2.3.</span> <span class="toc-text">Parameter sharing and regularization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-7-Theoretical-motivations"><span class="toc-number">3.</span> <span class="toc-text">Chapter 7 Theoretical motivations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GNNs-and-graph-convolutions"><span class="toc-number">3.1.</span> <span class="toc-text">GNNs and graph convolutions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutions-and-the-Fourier-transform"><span class="toc-number">3.1.1.</span> <span class="toc-text">Convolutions and the Fourier transform</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#From-time-signals-to-graph-signals"><span class="toc-number">3.1.2.</span> <span class="toc-text">From time signals to graph signals</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spectral-graph-convolutions"><span class="toc-number">3.1.3.</span> <span class="toc-text">Spectral graph convolutions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolution-inspired-GNNs"><span class="toc-number">3.1.4.</span> <span class="toc-text">Convolution inspired GNNs</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNNs-and-probabilistic-graphical-models"><span class="toc-number">3.2.</span> <span class="toc-text">GNNs and probabilistic graphical models</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hilbert-space-embeddings-of-distributions"><span class="toc-number">3.2.1.</span> <span class="toc-text">Hilbert space embeddings of distributions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graphs-as-graphical-models"><span class="toc-number">3.2.2.</span> <span class="toc-text">Graphs as graphical models</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Embedding-mean-field-inference"><span class="toc-number">3.2.3.</span> <span class="toc-text">Embedding mean-field inference</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GNNs-and-PGMs-more-generality"><span class="toc-number">3.2.4.</span> <span class="toc-text">GNNs and PGMs more generality</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNNs-and-graph-isomorphism"><span class="toc-number">3.3.</span> <span class="toc-text">GNNs  and graph isomorphism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-isomorphism-and-representational-capacity"><span class="toc-number">3.3.1.</span> <span class="toc-text">Graph isomorphism and representational capacity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-Weisfieler-Lehman-algorithm"><span class="toc-number">3.3.2.</span> <span class="toc-text">The Weisfieler-Lehman algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GNNs-and-the-WL-algorithm"><span class="toc-number">3.3.3.</span> <span class="toc-text">GNNs and the WL algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beyond-the-WL-algorithm"><span class="toc-number">3.3.4.</span> <span class="toc-text">Beyond the WL algorithm</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">Part III Generative Graph models</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-8-Traditional-graph-generation-approaches"><span class="toc-number">1.</span> <span class="toc-text">Chapter 8 Traditional graph generation approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Erdos-Renyi-model"><span class="toc-number">1.1.</span> <span class="toc-text">Erdos-Renyi model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stochastic-block-models"><span class="toc-number">1.2.</span> <span class="toc-text">Stochastic block models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Preferential-attachment"><span class="toc-number">1.3.</span> <span class="toc-text">Preferential attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traditional-applications"><span class="toc-number">1.4.</span> <span class="toc-text">Traditional applications</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chapter-9-Deep-generative-models"><span class="toc-number">2.</span> <span class="toc-text">Chapter 9 Deep generative models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Variational-autoencoder-approaches"><span class="toc-number">2.1.</span> <span class="toc-text">Variational autoencoder approaches</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-level-latent"><span class="toc-number">2.1.1.</span> <span class="toc-text">Node-level latent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-level-latent"><span class="toc-number">2.1.2.</span> <span class="toc-text">Graph-level latent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adversarial-approaches"><span class="toc-number">2.2.</span> <span class="toc-text">Adversarial approaches</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autoregressive-methods"><span class="toc-number">2.3.</span> <span class="toc-text">Autoregressive methods</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Modeling-edge-dependencies"><span class="toc-number">2.3.1.</span> <span class="toc-text">Modeling edge dependencies</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Recurrent-models-for-graph-generation"><span class="toc-number">2.3.2.</span> <span class="toc-text">Recurrent models for graph generation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Evaluating-graph-generation"><span class="toc-number">2.4.</span> <span class="toc-text">Evaluating graph generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Molecule-generation"><span class="toc-number">2.5.</span> <span class="toc-text">Molecule generation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text"></span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1460,14 +1839,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1481,6 +1852,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hyperspectral</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">summer school</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mathematics</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,19 +1895,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1548,11 +1927,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
+                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
+                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1724,6 +2103,22 @@ MathJax.Hub.Queue(function() {
     </div>
 
 </div>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
