@@ -193,150 +193,133 @@
       
         <p>Paper <a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Doersch_Unsupervised_Visual_Representation_ICCV_2015_paper.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></p>
 <a id="more"></a>
-<h2 id="Why">Why?</h2>
-<h3 id="Previous-work">Previous work</h3>
+<h2 id="why">Why?</h2>
+<h3 id="previous-work">Previous work</h3>
 <p>How to get <strong>a good image representation</strong></p>
 <ul>
-<li>The latent variables of an appropriate generative model.  --&gt; generative models
+<li>The latent variables of an appropriate generative model. --&gt; generative models
 <ul>
 <li>But given an image, inferring the latent structure is <strong>intractable</strong> for even relatively simple models --&gt; to fix, use <strong>sampling</strong> to perform approximate inference.</li>
-</ul>
-</li>
-<li>An embedding that can discriminate the semantics in images by distances of them. – create a supervised “pretext” task. But hard to tell whether the predictions themselves are correct.
+</ul></li>
+<li>An embedding that can discriminate the semantics in images by distances of them. -- create a supervised "pretext" task. But hard to tell whether the predictions themselves are correct.
 <ul>
-<li>Reconstruction-based:  E.g., denoising autoencoders (reconstruction ), sparse autoencoders (reconstruction + sparsity penalty )</li>
-<li>Context prediction: “skip-gram” to “filling the blank” task, and convert the prediction task to discriminate task like discriminating between real images vs. images where one patch has been replaced by a random patch from elsewhere in the dataset. But not hard enough for high-level representations</li>
+<li>Reconstruction-based: E.g., denoising autoencoders (reconstruction ), sparse autoencoders (reconstruction + sparsity penalty )</li>
+<li>Context prediction: "skip-gram" to "filling the blank" task, and convert the prediction task to discriminate task like discriminating between real images vs. images where one patch has been replaced by a random patch from elsewhere in the dataset. But not hard enough for high-level representations</li>
 <li>Discover object categories using hand-crafted features and various forms of clustering. But they will lose shape information. To keep more shape information, some take contour extraction or defining similarity metrics.</li>
 <li>Video-based: since the identity of objects remains unchanged -</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Summary">Summary</h3>
+<h3 id="summary">Summary</h3>
 <ul>
 <li>Observations
 <ul>
 <li>the difficulties for generalizing CNNs models on Internet -scale datasets</li>
-<li>context has proven to be a powerful source of automatic supervisory signal for learning representations --&gt; context can be regarded as a ‘pretext’ task to force the model to learn a good word embedding</li>
+<li>context has proven to be a powerful source of automatic supervisory signal for learning representations --&gt; context can be regarded as a 'pretext' task to force the model to learn a good word embedding</li>
 <li>current reconstruction-based algorithms struggle with low-level phenomena, like stochastic textures, making it hard to even measure whether a model is generating well.</li>
-</ul>
-</li>
+</ul></li>
 <li>Limitations:
 <ul>
-<li>generative models are rather efficiently on smaller datasets but burden on high-resolution  natural images</li>
+<li>generative models are rather efficiently on smaller datasets but burden on high-resolution natural images</li>
 <li>Some are too simple for extracting high-level representations</li>
 <li>Hard to tell whether the model has obtained good representations.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Goals">Goals</h2>
-<p>Provide a “self-supervised” formulation for image data, a supervised task involving predicting the context for a patch.</p>
-<h2 id="How">How?</h2>
-<h3 id="Idea">Idea</h3>
+<h2 id="goals">Goals</h2>
+<p>Provide a "self-supervised" formulation for image data, a supervised task involving predicting the context for a patch.</p>
+<h2 id="how">How?</h2>
+<h3 id="idea">Idea</h3>
 <ul>
-<li>Hypothesis: Doing well on predicting patches’ positions requires understanding scenes and objects–&gt; a good visual representation</li>
+<li>Hypothesis: Doing well on predicting patches' positions requires understanding scenes and objects--&gt; a good visual representation</li>
 <li>Concretely, sample random pairs of patches in one of eight spatial configurations, and present each pair to a machine learner. The algorithm must then guess the position of one patch relative to the other.</li>
 </ul>
-<h3 id="Implementation">Implementation</h3>
-<h4 id="Data-preparation">Data preparation</h4>
+<h3 id="implementation">Implementation</h3>
+<h4 id="data-preparation">Data preparation</h4>
 <ul>
-<li>
-<p>Two patches are fed into network</p>
-</li>
-<li>
-<p>Given an image, one patch will be sampled uniformly, then according to the position of this sampled patch, then 2nd patch will be sampled randomly from the eight possible neighboring locations.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png" alt="image-20210108181757911" style="zoom:33%;" />
-</li>
-<li>
-<p>including a gap between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</p>
-</li>
-<li>
-<p>For some images ( chromatic aberration), after solving the relative location task (like by detecting the separation between green and magenta (red + blue). ), this problem will be relaxed.</p>
+<li><p>Two patches are fed into network</p></li>
+<li><p>Given an image, one patch will be sampled uniformly, then according to the position of this sampled patch, then 2nd patch will be sampled randomly from the eight possible neighboring locations.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108181759.png" alt="image-20210108181757911" style="zoom:33%;" /></p></li>
+<li><p>including a gap between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</p></li>
+<li><p>For some images ( chromatic aberration), after solving the relative location task (like by detecting the separation between green and magenta (red + blue). ), this problem will be relaxed.</p>
 <ul>
 <li>Shift green and magenta toward gray</li>
 <li>Color dropping : randomly drop 2 of the 3 color channels from each patch and replace them by gaussian noise.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Learning-algorithm">Learning algorithm</h4>
+<h4 id="learning-algorithm">Learning algorithm</h4>
 <ul>
-<li>
-<p>Siamese network based on AlexNet. But not all layers share weights, LRN (local response normalization ) layers won’t.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png" alt="image-20210108183110662" style="zoom:33%;" />
-</li>
-<li>
-<p><strong>Why does it works?</strong></p>
+<li><p>Siamese network based on AlexNet. But not all layers share weights, LRN (local response normalization ) layers won't.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210108183110.png" alt="image-20210108183110662" style="zoom:33%;" /></p></li>
+<li><p><strong>Why does it works?</strong></p>
 <ul>
-<li>Avoid ‘trivial’ shortcuts (like boundary patterns or textures continuing between patches)–&gt; including a gap (up to 48 pixels) between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</li>
-<li>Enhancing performance on images with  chromatic aberration.</li>
+<li>Avoid 'trivial' shortcuts (like boundary patterns or textures continuing between patches)--&gt; including a gap (up to 48 pixels) between patches (patches are not aligned side by side ), also randomly jitter each patch location by up to 7 pixels</li>
+<li>Enhancing performance on images with chromatic aberration.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Experiments">Experiments</h2>
+<h2 id="experiments">Experiments</h2>
 <p>Pre-Training: SGD+BN+high momentum, 4 weeks on K40 GPU.</p>
 <table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 28%" />
+<col style="width: 63%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Datasets</th>
-<th style="text-align:center">Resizing</th>
+<th style="text-align: center;">Resizing</th>
 <th>Preprocess</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>ImageNet</td>
-<td style="text-align:center">$150K\sim450K$ total pixels</td>
-<td>1. sample patches at resolution $96\times 96$<br />2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td>
+<td style="text-align: center;"><span class="math inline">\(150K\sim450K\)</span> total pixels</td>
+<td>1. sample patches at resolution <span class="math inline">\(96\times 96\)</span><br />2. mean subtraction, projecting or dropping colors, and randomly downsampling some patches to as little as 100 total pixels, and then upsampling it.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="Ability-on-semantic">Ability on semantic</h3>
+<h3 id="ability-on-semantic">Ability on semantic</h3>
 <p>Does it get similar representations for patches with similar semantics?</p>
 <ul>
-<li>
-<p>check nearest neighbors by normalized correlation of $fc6$'s output. Compared with results from  random initialized model and ImageNet AlexNet.</p>
-</li>
-<li>
-<p>Summary</p>
+<li><p>check nearest neighbors by normalized correlation of <span class="math inline">\(fc6\)</span>'s output. Compared with results from random initialized model and ImageNet AlexNet.</p></li>
+<li><p>Summary</p>
 <ul>
 <li>in a few cases, random (untrained) ConvNet also does reasonably well</li>
 <li>the representations from proposed model often capture the semantic information</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Learnability-of-Chromatic-Aberration">Learnability of Chromatic Aberration</h3>
+<h3 id="learnability-of-chromatic-aberration">Learnability of Chromatic Aberration</h3>
 <ul>
 <li>Patches displayed similar aberration tend to be predicted at the same location.</li>
-<li>The effect of  color projection operation is canceled for this kind of images.</li>
+<li>The effect of color projection operation is canceled for this kind of images.</li>
 </ul>
-<h3 id="Object-detection">Object detection</h3>
+<h3 id="object-detection">Object detection</h3>
 <ul>
 <li>Dataset : VOC 2007</li>
 <li>Train: fine-tune the pretrained model (model is slight different with the previous one considering the image size in VOC) on VOC 2007.</li>
-<li>Test: output from $fc7$ is taken.</li>
+<li>Test: output from <span class="math inline">\(fc7\)</span> is taken.</li>
 <li>Summary
 <ul>
 <li>Pre-trained model outperforms the one trained from scratch</li>
 <li>Obtained the best result on VOC 2007 without using labels</li>
 <li>Robustness of the representations for one object in different datasets: acceptable</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Visual-data-mining">Visual data mining</h3>
+<h3 id="visual-data-mining">Visual data mining</h3>
 <ul>
 <li>Task : aims to use a large image collection to discover image fragments which happen to depict the same semantic objects</li>
 <li>Specification for this task: sample a constellation of four adjacent patches from an image, after finding the top 100 images which have the strongest matches for all four patches, then use a type of geometric verification to filter away the images where the four matches are not geometrically consistent. Finally, rank the different constellations by counting the number of times the top 100 matches geometrically verify.</li>
-<li>To define the geometric verification: first compute the best-fitting square $S$ to the patch centers (via least-squares), while constraining that side of $S$ be between 2/3 and 4/3 of the average side of the patches. Then compute the squared error of the patch centers relative to $S$ (normalized by dividing the sum-of-squared-errors by the square of the side of $S$). The patch is geometrically verified if this normalized squared error is less than 1.</li>
+<li>To define the geometric verification: first compute the best-fitting square <span class="math inline">\(S\)</span> to the patch centers (via least-squares), while constraining that side of <span class="math inline">\(S\)</span> be between 2/3 and 4/3 of the average side of the patches. Then compute the squared error of the patch centers relative to <span class="math inline">\(S\)</span> (normalized by dividing the sum-of-squared-errors by the square of the side of <span class="math inline">\(S\)</span>). The patch is geometrically verified if this normalized squared error is less than 1.</li>
 <li>Test: VOC 2011, Street View images from Paris</li>
 <li>Summary
 <ul>
 <li>The discovery of birds and torsos is good</li>
 <li>The gains in terms of coverage, suggesting increased invariance for learned features</li>
-<li>The pretext task is difficult:  for a large fraction of patches within each image, the task is almost impossible</li>
+<li>The pretext task is difficult: for a large fraction of patches within each image, the task is almost impossible</li>
 <li>Limitations: some loss of purity, and cannot currently determine an object mask automatically (although one could imagine dynamically adding more sub-patches to each proposed object).</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>instance-level supervision appears to improve performance on category-level tasks</li>
 <li>The proposed model is sensitive to objects and the layout of the rest of the image</li>
@@ -426,7 +409,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Learnability-of-Chromatic-Aberration"><span class="toc-number">4.2.</span> <span class="toc-text">Learnability of Chromatic Aberration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-detection"><span class="toc-number">4.3.</span> <span class="toc-text">Object detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visual-data-mining"><span class="toc-number">4.4.</span> <span class="toc-text">Visual data mining</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#previous-work"><span class="toc-number">1.1.</span> <span class="toc-text">Previous work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">1.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how"><span class="toc-number">3.</span> <span class="toc-text">How?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idea"><span class="toc-number">3.1.</span> <span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementation"><span class="toc-number">3.2.</span> <span class="toc-text">Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-preparation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data preparation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#learning-algorithm"><span class="toc-number">3.2.2.</span> <span class="toc-text">Learning algorithm</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experiments"><span class="toc-number">4.</span> <span class="toc-text">Experiments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ability-on-semantic"><span class="toc-number">4.1.</span> <span class="toc-text">Ability on semantic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#learnability-of-chromatic-aberration"><span class="toc-number">4.2.</span> <span class="toc-text">Learnability of Chromatic Aberration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object-detection"><span class="toc-number">4.3.</span> <span class="toc-text">Object detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#visual-data-mining"><span class="toc-number">4.4.</span> <span class="toc-text">Visual data mining</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -652,19 +635,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,19 +695,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
             
             <div class="clearfix"></div>

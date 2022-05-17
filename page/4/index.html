@@ -188,7 +188,7 @@
       
         <p>This project distinguishes cloudy fields of view (IFOVs) from clear IFOVs. As the brightness values released by target objects are mixed with what clouds release, and they exist in more than 90% IFOVs, cloudy IFOVs have to be kicked off in order to get clean data.</p>
 <p>Therefore, a new feature construction method is proposed for infrared hyperspectral data, such as what IASI releases. Concretely, four channels of IASI are picked, namely channel 921, channel 386, channel 306 and channel 241. They are picked because of physical characteristics. And then, cloudy IFOVs are detected by logistic regression.</p>
-<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land’s IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
+<p>The recall, auc and accuracy of this new method carried on IASI data was more than 0.95 when detecting IFOVs of sea, while the result of land's IFOVs was less than it. After adding surface emissivity features, the auc of it increased by aroud 5%, and recall of it grew by 10% approximately.</p>
 <p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/cloud">here</a>.</p>
 
       
@@ -280,7 +280,7 @@
       
         <p>This project compresses and reconstructs infrared hyperspectral data. The network proposed is named HCR, aka hyperspectral compression and reconstruction. The numerous infrared hyperspectral data are overloaden for computing resources currently. Taking IASI, an atmosphere detector on satellite Metop launched by European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), as an example, it has 8461 channels, which can detect atmosphere vertically in details. To process these data more efficiently, compressing them and then reconstructing is required.</p>
 <p>Considering their high correlation in spectral and spatial dimension, a new compressing and reconstructing network HCR is proposed. Concretely, the radiation brightness values are gridded so that one value at specific location is recongnized as a color value at this pixel. After normalizing by batch normalization, HCR compresses by convolution and reconstructs by deconvlution.</p>
-<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels’ weights for likewise data are similar.</p>
+<p>Carrying on IASI data, the RMSE of this new method was decreased by 5% at least compared with the result of principle component analysis (PCA) in the same compression ratio. The compression kernels encode tempetature information and reconstruct it. In reconstruction, the kernels' weights for likewise data are similar.</p>
 <p>Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/hyp">here</a>.</p>
 
       
@@ -374,7 +374,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven’t learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p>
+        <p>This talk explained what is AI, and the relationship between AI, ML, Data Mining, Knowledge Graph etc. The audiences are students in my lab, and most of them haven't learn much about AI. The talk would like to show them what can AI do these days, and help them figure out what else can AI do in data assimilation.</p>
 <p>Slides are avaliable <a href="/assets/slides/mlDo/mlUtility.pdf">here</a>.</p>
 
       
@@ -465,7 +465,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>This summit invited many professors, including Yoshua Bengio, Bishop, Lenore etc. Ageda is <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/event/computing-in-the-21st-century-conference-asia-faculty-summit-on-msras-20th-anniversary/#!agenda">here</a>.</p>
-<p>Babysitting AI and computational neuroscience impressed me a lot.</p>
+<p>Babysitting AI and computational neuroscience impressed me a lot.
         
           <a class="article-more-a" href="/posts/meetings/2018-11-23-microsoft.html#more">more >></a>
         
@@ -558,7 +558,7 @@
 <li>high spatial correlation,</li>
 <li>and sparsity,</li>
 </ul>
-<p>and they casue a trouble during processing.</p>
+<p>and they casue a trouble during processing.
         
           <a class="article-more-a" href="/posts/talks/2018-06-05-talk-hyp.html#more">more >></a>
         
@@ -650,10 +650,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>This project aims at interpolating wind fields. The main idea of it is multi-scale anisotropy kernel, which can extract multi-scale dependencies of weather processes. Weather processes with and without cyclones are discussed, and two interpolation methods are proposed. Check <a target="_blank" rel="noopener" href="http://www.mdpi.com/2073-4433/9/5/194/pdf">paper</a> for more information. Codes are available <a target="_blank" rel="noopener" href="https://github.com/skaudrey/gpml">here</a>.</p>
-<h1>Reference</h1>
-<pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.
-</code></pre>
-<h1>Acknowledgement</h1>
+<h1 id="reference">Reference</h1>
+<pre><code>Carl Edward Rasmussen. Gaussian process for Machine Learning.</code></pre>
+<h1 id="acknowledgement">Acknowledgement</h1>
 <pre><code>Thanks for the opening source toolbox GAUSSIAN PROCESS REGRESSION AND CLASSIFICATION Toolbox version 4.0, programmed by Carl et al.</code></pre>
 
       
@@ -735,7 +734,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html">projects’ introduction </a> and <a target="_blank" rel="noopener" href="https://github.com/skaudrey/gpml/">github</a> for more details.</p>
+        <p>This talk showed the multivariate interpolation models for wind fields, which are designed based on Gaussian Process Regression. Check the <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/projects/2018-11-11-gpr.html">projects' introduction</a> and <a target="_blank" rel="noopener" href="https://github.com/skaudrey/gpml/">github</a> for more details.</p>
 <p>Slides are avaliable <a href="/assets/slides/gpr/windInterpolation.pdf">here</a>.</p>
 
       
@@ -907,7 +906,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin’s summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning.</p>
+        <p>Data assimilation is popular in numerical weather forecasting, hydrological forecasting etc. Utilizing a dynamical model distinguishes it from other forms of machine learning, image analysis, and statistical methods. This talk discussed the basic ideas of machine leaning, and compared it with machine learning. It is given after I came back from Harbin's summer school in Agust, 2017. After this talk, I began to throw myself into studying machine learning.</p>
 <p>Check <a href="/assets/slides/D.A/pres.pdf">slide</a> for more details.</p>
 
       
@@ -993,7 +992,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a target="_blank" rel="noopener" href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do">here</a> for more info. I gave a talk to the students in my lab after returning, <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.</p>
+        <p>I went to classes given by the summer school held in Harbin Industrial University from July to August, 2017. They invited some professors. Check <a target="_blank" rel="noopener" href="http://mss2017.hit.edu.cn/showSubjectDominWebSite.do">here</a> for more info. I gave a talk to the students in my lab after returning, <a target="_blank" rel="noopener" href="https://skaudrey.github.io/posts/talks/2018-11-12-da+talk.html">here</a> are the slides. The main goal of this talk is to show the difference of machine learning and data assimilation.
         
           <a class="article-more-a" href="/posts/meetings/2017-08-22-harbin.html#more">more >></a>
         
@@ -1251,19 +1250,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1311,19 +1310,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">compression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">compression</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">reconstruction</a>
               </li>
             
             <div class="clearfix"></div>
