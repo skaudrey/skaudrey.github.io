@@ -82,8 +82,14 @@
 <meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220517162948011.png">
 <meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220517163454672.png">
 <meta property="og:image" content="c:/Users/Skaud/AppData/Roaming/Typora/typora-user-images/image-20220517164044255.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220518155552625.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220518161528661.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519130518491.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519134302563.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519134915317.png">
+<meta property="og:image" content="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519145227280.png">
 <meta property="article:published_time" content="2022-04-24T16:02:00.000Z">
-<meta property="article:modified_time" content="2022-05-18T16:38:37.656Z">
+<meta property="article:modified_time" content="2022-05-19T21:37:54.344Z">
 <meta property="article:author" content="Mia Feng">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="SSL">
@@ -1668,20 +1674,142 @@
 <p>https://colab.research.google.com/github/tensorflow/hub/blob/master/examples/colab/bigbigan_with_tf_hub.ipynb</p>
 <h3 id="previous-16">Previous</h3>
 <ul>
-<li></li>
+<li>BiGAN behaves like an autoencoder minimizing <span class="math inline">\(\ell_0\)</span> reconstruction costs; however, the shape of the reconstruction error surface is dictated by a parametric discriminator, as opposed to simple pixel-level measures like the <span class="math inline">\(\ell_2\)</span> error.==&gt; it will induce an error surface which emphasizes “semantic” errors in reconstructions, rather than low-level details.</li>
+<li>BiGAN used a DCGAN style generator, incapable of producing high-quality images on this dataset, so the semantics the encoder could model were in turn quite limited.</li>
 </ul>
 <h3 id="what-15">What</h3>
 <ul>
 <li>Based on BiGAN, adding an encoder and modifying the discriminator</li>
 <li>demonstrating that these generation-based models achieve the state of the art in unsupervised representation learning on ImageNet, as well as in unconditional image generation</li>
+<li>The contributions
+<ul>
+<li>We show that BigBiGAN (BiGAN with BigGAN generator) matches the state of the art in unsupervised representation learning on ImageNet.</li>
+<li>We propose a more stable version of the joint discriminator for BigBiGAN.</li>
+<li>We perform a thorough empirical analysis and ablation study of model design choices.</li>
+<li>We show that the representation learning objective also improves unconditional image generation, and demonstrate state-of-the-art results in unconditional ImageNet generation.</li>
+<li>We open source pretrained BigBiGAN models on TensorFlow Hub.</li>
+</ul></li>
 </ul>
 <h3 id="how-16">How</h3>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220518155552625.png" alt="image-20220518155552625" /><figcaption aria-hidden="true">image-20220518155552625</figcaption>
+</figure>
+<ul>
+<li>Modifications of BiGAN:
+<ul>
+<li>a joint discriminator D, which takes as input data-latent pairs <span class="math inline">\((x, z)\)</span> (rather than just data <span class="math inline">\(x\)</span> as in a standard GAN)</li>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220518161528661.png" alt="image-20220518161528661" /> where <span class="math inline">\(h(t)=\max (0,1-t)\)</span> is a hinge used to regularize the discriminator.</li>
+<li>F is a convNet, H is an MLP, and J is the function of the outputs of F and H.</li>
+<li>The discriminator loss <span class="math inline">\(\mathcal{L}_D\)</span> intuitively trains the discriminator to distinguish between the two joint data-latent distributions from the encoder and the generator, pushing it to predict positive values for encoder input pairs <span class="math inline">\((x, E(x))\)</span> and negative values for generator input pairs <span class="math inline">\((G(z), z)\)</span>.</li>
+</ul></li>
+<li>train a BigBiGAN on unlabeled ImageNet, freeze its learned representation, and then train a linear classifier on its outputs, fully supervised using all of the training set labels</li>
+</ul>
 <h3 id="experiments-16">Experiments</h3>
+<ul>
+<li>components of D – H and J – are 8-layer MLPs with ResNet-style skip connections (four residual blocks with two layers each) and size 2048 hidden layers</li>
+<li>Ablation
+<ul>
+<li>latent distribution <span class="math inline">\(P_z\)</span> and stochastic <span class="math inline">\(\mathcal{E}\)</span>: the non-deterministic <span class="math inline">\(\mathcal{E}\)</span> model achieves significantly better classification performance (at no cost to generation)</li>
+<li>Unary loss terms <span class="math inline">\(s_x,s_z\)</span>: The requirement of invertibility in a (Big)BiGAN could be encouraging the generator to produce distinguishable outputs across the entire latent space, rather than “collapsing” large volumes of latent space to a single mode of the data distribution. With the Base and x Unary Only rows having significantly better IS and FID than the z Unary Only and No Unaries rows.</li>
+<li>G capacity: vary the capacity of G (with E and D fixed) in the Small G rows. A powerful image generator (with enough capacity, aka deep and wide) is indeed important for learning good representations via the encoder.</li>
+<li>Standard GAN: to estimate the necessary of using the encoder <span class="math inline">\(\mathcal{E}\)</span> and <span class="math inline">\(F\)</span> convnet together. While the standard GAN achieves a marginally better IS, the BigBiGAN FID is about the same, indicating that the addition of the BigBiGAN <span class="math inline">\(\mathcal{E}\)</span> and joint <span class="math inline">\(D\)</span> does not compromise generation with the newly proposed unary loss terms. <span class="math inline">\(s_z\)</span> unary loss term leads to worse IS</li>
+<li>High resolution <span class="math inline">\(\mathcal{E}\)</span> with varying resolution <span class="math inline">\(G\)</span>: as raising the resolution of <span class="math inline">\(G\)</span> to match the increased <span class="math inline">\(\mathcal{E}\)</span> input resolution, BigBiGAN achieves better representation learning results.</li>
+<li><span class="math inline">\(\mathcal{E}\)</span> architecture: We find that the base ResNet-50 model (row High Res E (256)) outperforms RevNet-50 (row RevNet), but as the network widths are expanded, we begin to see improvements from RevNet-50, with double-width RevNet outperforming a ResNet of the same capacity (rows RevNet ×2 and ResNet ×2).</li>
+<li>Decoupled E/G optimization: <strong>simply using a 10× higher learning rate for E dramatically accelerates training and improves final representation learning results.</strong></li>
+</ul></li>
+<li>Comparison with SOTA: models are selected with early stopping based on highest accuracy on our <span class="math inline">\(train_{val}\)</span> subset of 10K training set images
+<ul>
+<li>representation learning: The lighter augmentation from [27] results in better image generation performance under the IS and FID metrics. Due in part to the fact that this augmentation, on average, crops larger portions of the image, thus yielding generators that typically produce images encompassing most or all of a given object.</li>
+<li>BigBiGAN significantly improves both IS and FID over the baseline unconditional BigGAN generation results with the same (unsupervised) “labels”</li>
+<li>We see further improvements using a high resolution E (row BigBiGAN High Res E + SL), surpassing the previous unsupervised state of the art (row BigGAN + Clustering) under both IS and FID</li>
+</ul></li>
+<li>Reconstruction: These reconstructions are far from pixel-perfect, likely due in part to the fact that no reconstruction cost is explicitly enforced by the objective – reconstructions are not even computed at training time.</li>
+<li>Found it helpful to monitor representation learning progress during BigBiGAN training by periodically rerunning this linear classification evaluation from scratch given the current E weights, resetting the classifier weights to 0 before each evaluation</li>
+<li>Examining the convolutional filters of the input layer can serve as a diagnostic for undertrained models.</li>
+</ul>
 <h2 id="paper-18-generative-pretraining-from-pixels-igpt-icml-2020">Paper 18: <a target="_blank" rel="noopener" href="https://www.google.com/url?q=https%3A%2F%2Fopenai.com%2Fblog%2Fimage-gpt%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2hhRvO-SL2S08MmJ1VjBfw">Generative Pretraining from Pixels</a> (iGPT) ICML 2020</h2>
 <h3 id="previous-17">Previous</h3>
+<ul>
+<li>the state of the art increasingly relied on directly encoding prior structure into the model and utilizing abundant supervised data to directly learn representations</li>
+<li>inspired by the success of generative pre-training methods developed for Natural Language Processing</li>
+</ul>
 <h3 id="what-16">What</h3>
+<ul>
+<li>examine whether similar models can learn useful representations for images</li>
+<li>train a sequence Transformer to auto-regressively predict pixels, without incorporating knowledge of the 2D input structure</li>
+<li>Their encoder does not encode the 2D spatial structure of images</li>
+</ul>
 <h3 id="how-17">How</h3>
+<figure>
+<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519130518491.png" alt="image-20220519130518491" /><figcaption aria-hidden="true">image-20220519130518491</figcaption>
+</figure>
+<ul>
+<li><p>Pre-training can be viewed as a favorable initialization or as a regularizer when used in combination with early stopping</p></li>
+<li><p>consists of a pre-training stage followed by a fine-tuning stage.</p>
+<ul>
+<li>Pretraining: BERT+auto regressive , use the sequence transformer to predict pixels</li>
+<li>Fine-tuning: small classification head, or using the pretrained model as a feature extractor.</li>
+</ul></li>
+<li><p>Pre-training</p>
+<ul>
+<li><p>Auto-regressive</p>
+<p>pick a permutation π of the set [1, n] and model the density $p(x) $ auto-regressively as follows:<img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519134302563.png" alt="image-20220519134302563" style="zoom:67%;" />, <span class="math inline">\(L_{AR}=\mathbb{E}_{x\sim X}[-\log p(x)]\)</span>.</p></li>
+<li><p>BERT: sample a sub-sequence M ⊂ <span class="math inline">\([1, n]\)</span> such that each index <span class="math inline">\(i\)</span> independently has probability <span class="math inline">\(0.15\)</span> of appearing in <span class="math inline">\(M\)</span> (BERT mask). The minimize the negative log-likelihood of the masked elements <span class="math inline">\(x_M\)</span> conditioned on the unmasked ones <span class="math inline">\(x_{[1,n]\backslash M}\)</span>: <img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519134915317.png" alt="image-20220519134915317" /></p></li>
+<li><p>In pretraining, pick one of <span class="math inline">\(L_{AR}\)</span> or <span class="math inline">\(L_{BERT}\)</span> and minimize the loss over our pretraining dataset.</p></li>
+</ul></li>
+<li><p>Architecture: the transformer head</p>
+<ul>
+<li><img src="https://miao-picbed-1305768714.cos.ap-shanghai.myqcloud.com/img/image-20220519145227280.png" alt="image-20220519145227280" style="zoom:50%;" /></li>
+<li>The only mixing across sequence elements occurs in the attention operation, and to ensure proper conditioning when training the AR objective, we apply the standard upper triangular mask to the n×n matrix of attention logits.</li>
+<li>In the final transformer layer, apply a layer norm <span class="math inline">\(n^L = layer\_norm (h^L)\)</span></li>
+<li>learn a projection from <span class="math inline">\(n^L\)</span> to logits parameterizing the conditional distributions at each sequence element</li>
+<li>When training BERT, we simply ignore the logits at unmasked positions</li>
+</ul></li>
+<li><p>Fine-tuning</p>
+<ul>
+<li>average pool <span class="math inline">\(n^L\)</span> across the sequence dimension to extract a <span class="math inline">\(d\)</span>-dimensional vector of features per example.</li>
+<li>Then learn a projection from the features to class logits, and used for minimizing a cross-entropy loss.</li>
+<li>They found empirically that the joint objective <span class="math inline">\(L_{GEN}+L_{CLF}\)</span> works even better.</li>
+</ul></li>
+<li><p>Linear probing</p>
+<ul>
+<li>The average pooling is not always at the final layer.</li>
+<li>In the experiments section that the best features often lie in the <strong>middle</strong> of the network.</li>
+</ul></li>
+<li><p>Final method</p>
+<ul>
+<li>using ImageNet as a proxy for a large unlabeled corpus, and small classic labeled datasets (CIFAR-10, CIFAR-100, STL-10) as proxies for downstream tasks</li>
+<li>Rescale the image to decrease the context length
+<ul>
+<li>we first resize our image to a lower resolution, called as input resolution .</li>
+<li>Further reduce context size by a factor of 3 by clustering (R, G, B) pixel values using k-means with k = 512. This breaks permutation invariance of the color channels, but keeps the model spatially invariant. Now the length is called as model resolution (MR).</li>
+<li>Use VQ-VAE with a latent grid size to downsample images and stay at a MR.</li>
+<li>we initialize weights in the layer-dependent fashion as in Sparse Transformer (Child et al., 2019) and zero-initialize all projections producing logits</li>
+</ul></li>
+<li>not employ a cosine schedule, and early stop once we reach the maximum validation accuracy. Again, no dropout is used.</li>
+<li>While doing linear probe, start with a large learning rate (30) and train for 1000000 iterations with a cosine learning rate schedule</li>
+</ul></li>
+</ul>
 <h3 id="experiments-17">Experiments</h3>
+<ul>
+<li>What Representation Works Best in a Generative Model Without Latent Variables: the best representations for these generative models lie in the middle of the network</li>
+<li>Better generative models learn better representations: with higher capacity models achieving better validation losses.</li>
+<li>fine-tuning should allow models trained at high IR to adjust to low resolution input.</li>
+<li>Linear Probes on ImageNet
+<ul>
+<li>If using the concatenation from 11 layers centered at the best single layer, iGPT has a competitive performance</li>
+<li>And if using larger IR, with VQ-VAE to preprocess the input, model finally get the best classification by the concatenation from 11 layers centered at the best single layer.</li>
+<li>We also suspect that features from wider models will outperform concatenated layerwise features, <em>which tend to be correlated in residual networks</em></li>
+</ul></li>
+<li>Full fine-tuning: the pre-trained model is much quicker to fine-tune. the optimal learning rate on the joint training objective is often an order of magnitude smaller than that for pre-training</li>
+<li>BERT: auto-regressive models produce much better features than BERT models after pre-training, but BERT models catch up after fine-tuning.</li>
+<li>Although we have established that large models are necessary for producing good representations, large models are also difficult to fine-tune in the ultra-low data regime</li>
+<li>Training skills
+<ul>
+<li>As we increase model size, the irrecoverable loss spike occurs at even lower learning rates. This motivates our procedure of sequentially searching learning rates from large to small and explains why <strong>larger models use lower learning rates than smaller models at fixed input resolution</strong>.</li>
+<li>training an auto-regressive objective gives us this capability to generate high quality samples. L1 loss tends to produce slightly more diffuse images.</li>
+</ul></li>
+</ul>
 
       
 
@@ -1936,14 +2064,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cnn</a>
               </li>
              
@@ -1960,15 +2080,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">applications</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tendency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">logistic</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1984,19 +2112,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2016,11 +2144,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
+                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">skeleton</a>
+                <a href="javascript:void(0)" class="js-tag color3">anomaly</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2040,10 +2168,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compression</a>
               </li>
              
@@ -2057,6 +2181,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Data assimilation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">interpolation</a>
               </li>
             
             <div class="clearfix"></div>
