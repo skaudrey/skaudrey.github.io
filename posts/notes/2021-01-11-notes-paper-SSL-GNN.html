@@ -10,12 +10,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions | Mia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
+  <meta name="description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Paper--Self-supervised Learning on Graphs, Deep Insights and New Directions">
 <meta property="og:url" content="http://yoursite.com/posts/notes/2021-01-11-notes-paper-SSL-GNN.html">
 <meta property="og:site_name" content="Mia&#39;s Blog">
-<meta property="og:description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
+<meta property="og:description" content="Paper Self-supervised Learning on Graphs: Deep Insights and New Directions Codes">
 <meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233255.png">
@@ -203,7 +203,7 @@
         <p>Paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2006.10141.pdf">Self-supervised Learning on Graphs: Deep Insights and New Directions</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ChandlerBang/SelfTask-GNN">Codes</a></p>
 <a id="more"></a>
-<h2 id="Why">Why?</h2>
+<h2 id="why">Why?</h2>
 <ul>
 <li>Nodes in graphs present unique structure information and they are inherently linked indicating not independent and identically distributed (or i.i.d.).</li>
 <li>(SSL) has been introduced in both the image and text domains to alleviate the need of large labeled data by deriving labels for the significantly more unlabeled data.</li>
@@ -213,259 +213,177 @@
 <li>graphs are not restricted to these rigid structures.</li>
 <li>each node in a graph is an individual instance and has its own associated attributes and topological structures</li>
 <li>instances (or nodes) are inherently linked and dependent of each other.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Goals">Goals</h2>
+<h2 id="goals">Goals</h2>
 <ul>
-<li>
-<p>Focus on advancing GNNs for node classification where GNNs leverage both labeled and unlabeled nodes on a graph to jointly learn node representations and a classifier that can predict the labels of unlabeled nodes on the graph. Aims at gain insights on when and why SSL works for GNNs and which strategy can better integrate SSL for GNNs.</p>
-</li>
-<li>
-<p><em><strong>Focus on semi-supervised node classification task</strong></em></p>
-<p>$\min\limits_{\theta}\mathcal{L}<em>{task}(\theta,\mathrm{A,X},\mathcal{D}<em>L)=\sum\limits</em>{(v_i,y_i)\in\mathcal{D}<em>L}\ell(f</em>{\theta}(\mathcal{G})</em>{v_i},y_i)$</p>
-</li>
+<li><p>Focus on advancing GNNs for node classification where GNNs leverage both labeled and unlabeled nodes on a graph to jointly learn node representations and a classifier that can predict the labels of unlabeled nodes on the graph. Aims at gain insights on when and why SSL works for GNNs and which strategy can better integrate SSL for GNNs.</p></li>
+<li><p><strong><em>Focus on semi-supervised node classification task</em></strong></p>
+<p><span class="math inline">\(\min\limits_{\theta}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)=\sum\limits_{(v_i,y_i)\in\mathcal{D}_L}\ell(f_{\theta}(\mathcal{G})_{v_i},y_i)\)</span></p></li>
 </ul>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png" alt="image-20210121192249653" style="zoom:40%;" />
-<h2 id="Previous-work">Previous work</h2>
-<h3 id="Examples">Examples</h3>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210121192249.png" alt="image-20210121192249653" style="zoom:40%;" /></p>
+<h2 id="previous-work">Previous work</h2>
+<h3 id="examples">Examples</h3>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1902.11038">Multi-stage self-supervised learning for graph convolutional networks on graphs with few labels</a> utilize the clustering assignments of node embeddings as guidance to update the graph neural networks.</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.01604">Self-supervised graph representation learning via global context prediction</a> proposed to use the global context of nodes as the supervisory signals to learn node embeddings.</li>
 </ul>
-<h3 id="Basic-pretext-task-on-graphs">Basic pretext task on graphs</h3>
-<h4 id="Structure-information-Adjacency-matrix-mathrm-A">Structure information  (Adjacency matrix $\mathrm{A}$)</h4>
+<h3 id="basic-pretext-task-on-graphs">Basic pretext task on graphs</h3>
+<h4 id="structure-information-adjacency-matrix-mathrma">Structure information (Adjacency matrix <span class="math inline">\(\mathrm{A}\)</span>)</h4>
 <p>Construct self-supervision information for the unlabeled nodes based on their local structure information, or how they relate to the rest of the graph</p>
-<h5 id="Local-structure-information"><strong>Local structure information</strong></h5>
+<h5 id="local-structure-information"><strong>Local structure information</strong></h5>
 <ul>
-<li>
-<p>Node property</p>
+<li><p>Node property</p>
 <ul>
-<li>
-<p>use node degree as a representative local node property for self-supervision while leaving other node properties (or the combination) as one future work</p>
-</li>
-<li>
-<p>Formally, let $d_i=\sum\limits_{j=1}^{N}\mathrm{A}_{ij}$ denote the degree of $v_i$ and construct the associated loss of the SSL pretext task as</p>
-<p>$\mathcal{L}_{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}(f</em>{\theta’}(\mathcal{G})</em>{v_i}-d_i)^2$, where $\mathcal{D}_U$ denote the set of unlabeled nodes and associated pretext task labels in the graph.</p>
-</li>
-<li>
-<p>Assumption: The node property information is related to the specific task of interest.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>EdgeMask</strong></p>
+<li><p>use node degree as a representative local node property for self-supervision while leaving other node properties (or the combination) as one future work</p></li>
+<li><p>Formally, let <span class="math inline">\(d_i=\sum\limits_{j=1}^{N}\mathrm{A}_{ij}\)</span> denote the degree of <span class="math inline">\(v_i\)</span> and construct the associated loss of the SSL pretext task as</p>
+<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}(f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i)^2\)</span>, where <span class="math inline">\(\mathcal{D}_U\)</span> denote the set of unlabeled nodes and associated pretext task labels in the graph.</p></li>
+<li><p>Assumption: The node property information is related to the specific task of interest.</p></li>
+</ul></li>
+<li><p><strong>EdgeMask</strong></p>
 <ul>
-<li>
-<p>Build pretext task based on the connections between two nodes in the graph. Specifically, <strong>one can first randomly mask some edges and then the model is asked to reconstruct the masked edges</strong>.</p>
-</li>
-<li>
-<p>Formally, first mask $m_e$ edges denotes as the set $\mathcal{M}_e\subset\varepsilon$ and also sample the set $\bar{\mathcal{M}_e}={(v_i,v_j)|v_i,v_j\in\mathcal{V},(v_i,v_j)\notin\varepsilon}$, $|\bar{\mathcal{M}_e}|=|\mathcal{M}_e|=m_e$ . Then the SSL pretext task is to predict whether there exist a link between a given node pair.</p>
-<p>$\mathcal{L}<em>{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\\frac{1}{|\mathcal{M}<em>e|}\sum\limits</em>{(v_i,v_j)\in\mathcal{M}<em>e}\ell(f_w(|f</em>{\theta’}(\mathcal{G})</em>{v_i}-f</em>{\theta’}(\mathcal{G})<em>{v_j}|),1)+\frac{1}{|\bar{\mathcal{M}<em>e}|}\sum\limits</em>{(v_i,v_j)\in\bar{\mathcal{M}<em>e}}\ell(f_w(|f</em>{\theta’}(\mathcal{G})</em>{v_i}-f_{\theta’}(\mathcal{G})_{v_j}|),0)$, where $\ell(\cdot,\cdot)$ is the cross entropy loss, $f_w$ linearly maps to 1-dimension.</p>
-</li>
-<li>
-<p>Expecting to help GNN learn information about local connectivity.</p>
-</li>
+<li><p>Build pretext task based on the connections between two nodes in the graph. Specifically, <strong>one can first randomly mask some edges and then the model is asked to reconstruct the masked edges</strong>.</p></li>
+<li><p>Formally, first mask <span class="math inline">\(m_e\)</span> edges denotes as the set <span class="math inline">\(\mathcal{M}_e\subset\varepsilon\)</span> and also sample the set <span class="math inline">\(\bar{\mathcal{M}_e}=\{(v_i,v_j)|v_i,v_j\in\mathcal{V},(v_i,v_j)\notin\varepsilon\}\)</span>, <span class="math inline">\(|\bar{\mathcal{M}_e}|=|\mathcal{M}_e|=m_e\)</span> . Then the SSL pretext task is to predict whether there exist a link between a given node pair.</p>
+<p><span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\\\frac{1}{|\mathcal{M}_e|}\sum\limits_{(v_i,v_j)\in\mathcal{M}_e}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),1)+\frac{1}{|\bar{\mathcal{M}_e}|}\sum\limits_{(v_i,v_j)\in\bar{\mathcal{M}_e}}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),0)\)</span>, where <span class="math inline">\(\ell(\cdot,\cdot)\)</span> is the cross entropy loss, <span class="math inline">\(f_w\)</span> linearly maps to 1-dimension.</p></li>
+<li><p>Expecting to help GNN learn information about local connectivity.</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="Global-structure-information"><strong>Global structure information</strong></h5>
+<h5 id="global-structure-information"><strong>Global structure information</strong></h5>
 <p>Not only based on the node itself or limited to its immediate local neighborhood, but also considering the position of the node in the graph.</p>
 <ul>
 <li>PairwiseDistance
 <ul>
 <li>Maintain global topology information through a pairwise comparison. Or to say, pretext task will be able to distinguish/predict the distance between different node pairs.</li>
 <li>The measurements of distance vary.</li>
-<li>If use the shortest path length $p_{ij}$ as a measure of the distance, then for all node pairs ${(v_i,v_j)|v_i,v_j\in\mathcal{V}}$, they are grouped into four categories: $p_{ij}={1,2,3,\ge4}$, $4$ is because of the computing price and accuracy (the more neighbors , the more unrelated noises are included.) Practically, randomly sample a certain amount of node pairs $S$ used for SSL during epoch. Then the SSL loss is $\mathcal{L}<em>{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|S|}\sum\limits</em>{(v_i,v_j)\in S}\ell(f_w(|f</em>{\theta’}(\mathcal{G})<em>{v_i}-f</em>{\theta’}(\mathcal{G})<em>{v_j}|),C</em>{p_{ij}})$, where $C_{p_{ij}}$ is the corresponding distance category of $p_{ij}$.</li>
-</ul>
-</li>
-<li><em><strong>Distance2Clusters</strong></em>
+<li>If use the shortest path length <span class="math inline">\(p_{ij}\)</span> as a measure of the distance, then for all node pairs <span class="math inline">\(\{(v_i,v_j)|v_i,v_j\in\mathcal{V}\}\)</span>, they are grouped into four categories: <span class="math inline">\(p_{ij}=\{1,2,3,\ge4\}\)</span>, <span class="math inline">\(4\)</span> is because of the computing price and accuracy (the more neighbors , the more unrelated noises are included.) Practically, randomly sample a certain amount of node pairs <span class="math inline">\(S\)</span> used for SSL during epoch. Then the SSL loss is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|S|}\sum\limits_{(v_i,v_j)\in S}\ell(f_w(|f_{\theta&#39;}(\mathcal{G})_{v_i}-f_{\theta&#39;}(\mathcal{G})_{v_j}|),C_{p_{ij}})\)</span>, where <span class="math inline">\(C_{p_{ij}}\)</span> is the corresponding distance category of <span class="math inline">\(p_{ij}\)</span>.</li>
+</ul></li>
+<li><strong><em>Distance2Clusters</em></strong>
 <ul>
 <li>Predicting the distance from the unlabeled nodes to predefined graph clusters. Thus enforce the representations to learn a global positioning vector of each of the nodes.</li>
-<li>First partitioning the graph to get $k$ clusters ${C_1,C_2,\cdots,C_k}$ by METIS graph partitioning methods. Denote the node with highest degree as center node $c_j$ in each cluster.</li>
-<li>Formally, the SSL will optimize $\mathcal{L}_{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-d_i|^2$, where $\mathrm{d}_i$ is the distance vector between node $v_i$ and each center.</li>
+<li>First partitioning the graph to get <span class="math inline">\(k\)</span> clusters <span class="math inline">\(\{C_1,C_2,\cdots,C_k\}\)</span> by METIS graph partitioning methods. Denote the node with highest degree as center node <span class="math inline">\(c_j\)</span> in each cluster.</li>
+<li>Formally, the SSL will optimize <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i\|^2\)</span>, where <span class="math inline">\(\mathrm{d}_i\)</span> is the distance vector between node <span class="math inline">\(v_i\)</span> and each center.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Attribute-information-Nodes-matrix-mathrm-X">Attribute information (Nodes matrix $\mathrm{X}$)</h4>
+<h4 id="attribute-information-nodes-matrix-mathrmx">Attribute information (Nodes matrix <span class="math inline">\(\mathrm{X}\)</span>)</h4>
 <p>Guide the GNN to ensure certain aspects of node/neighborhood attribute information is encoded in the node embeddings after a SSL attribute-based pretext.</p>
 <ul>
-<li>
-<p>AttributeMask</p>
+<li><p>AttributeMask</p>
 <ul>
 <li>Let GNN learn attribute information via pretext</li>
-<li>Randomly mask (e.g. set to zero ) the features of $m_a$ nodes $\mathcal{M}_a\subset\mathcal{V}, |\mathcal{M}<em>a|=m_a$, then SSL will try to construct these features. Formally , $\mathcal{L}</em>{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|\mathcal{M}<em>a|}\sum\limits</em>{v_i\in\mathcal{M}<em>a}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-\mathrm{x}_i|^2$, where $\mathrm{x}_i$ is the dense features after PCA.</li>
-</ul>
-</li>
-<li>
-<p>PairewiseAttrSim</p>
+<li>Randomly mask (e.g. set to zero ) the features of <span class="math inline">\(m_a\)</span> nodes <span class="math inline">\(\mathcal{M}_a\subset\mathcal{V}, |\mathcal{M}_a|=m_a\)</span>, then SSL will try to construct these features. Formally , <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{M}_a|}\sum\limits_{v_i\in\mathcal{M}_a}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\mathrm{x}_i\|^2\)</span>, where <span class="math inline">\(\mathrm{x}_i\)</span> is the dense features after PCA.</li>
+</ul></li>
+<li><p>PairewiseAttrSim</p>
 <ul>
-<li>
-<p>The similarity two nodes have in the input feature space is not guaranteed in the learned representations due to the GNN aggregating features from the two nodes local neighborhoods.</p>
-</li>
-<li>
-<p>Specifically,</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233255.png" alt="image-20210122233252928" style="zoom:50%;" />
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233404.png" alt="image-20210122233403875" style="zoom:50%;" />
-</li>
-<li>
-<p>Only constrain the intra-class distance</p>
-</li>
+<li><p>The similarity two nodes have in the input feature space is not guaranteed in the learned representations due to the GNN aggregating features from the two nodes local neighborhoods.</p></li>
+<li><p>Specifically,</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233255.png" alt="image-20210122233252928" style="zoom:50%;" /></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210122233404.png" alt="image-20210122233403875" style="zoom:50%;" /></p></li>
+<li><p>Only constrain the intra-class distance</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Merge-pretext-task-on-Graphs">Merge pretext task on Graphs</h3>
+<h3 id="merge-pretext-task-on-graphs">Merge pretext task on Graphs</h3>
 <ul>
-<li>
-<p>Joint Training</p>
+<li><p>Joint Training</p>
 <ul>
-<li>
-<p>Optimize the SSL loss (i.e., $\mathcal{L}<em>{self}$) and supervised loss (i.e., $\mathcal{L}</em>{task}$)   simultaneously.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123174253.png" alt="image-20210123174253225" style="zoom:50%;" />
-</li>
-<li>
-<p>The overall objective is $\min\limits_{\theta,\theta’}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)+\lambda(\theta’,\mathrm{A,X},\mathcal{D}_U)$, where $\lambda$ is the hyperparameter to control the distribution of self-supervision.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Two-stage training</p>
+<li><p>Optimize the SSL loss (i.e., <span class="math inline">\(\mathcal{L}_{self}\)</span>) and supervised loss (i.e., <span class="math inline">\(\mathcal{L}_{task}\)</span>) simultaneously.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123174253.png" alt="image-20210123174253225" style="zoom:50%;" /></p></li>
+<li><p>The overall objective is <span class="math inline">\(\min\limits_{\theta,\theta&#39;}\mathcal{L}_{task}(\theta,\mathrm{A,X},\mathcal{D}_L)+\lambda(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)\)</span>, where <span class="math inline">\(\lambda\)</span> is the hyperparameter to control the distribution of self-supervision.</p></li>
+</ul></li>
+<li><p>Two-stage training</p>
 <p>Fine tuning the model which is pretrained on pretext task on downstream dataset.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123181120.png" alt="image-20210123181120517" style="zoom:50%;" />
-</li>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123181120.png" alt="image-20210123181120517" style="zoom:50%;" /></p></li>
 </ul>
-<h2 id="Analysis">Analysis</h2>
+<h2 id="analysis">Analysis</h2>
 <ul>
-<li>
-<p>Targets: Understand what SSL information works for GNNs, which strategies can better integrate SSL for GNNs, and further analyze why SSL is able to improve GNNs</p>
-</li>
-<li>
-<p>Datasets: Cora, Citeseer, Pubmed</p>
-</li>
-<li>
-<p>Training: Adam, learning rate $0.01$, $L_2$ regularization $5e-4$, dropout rate $0.5$, $128$ hidden units across all self-supervised information and GCN, top-K=bottom-K=$3$. $\lambda$ in range ${0,0.001,0.01,0.1,1,5,10,50,100,500,1000}$, $m_e,m_a$ in ${10%,20%}$ the size of $|V|$.</p>
-</li>
-<li>
-<p><strong>Two-stage training</strong></p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123200058.png" alt="image-20210123200058736" style="zoom:50%;" />
+<li><p>Targets: Understand what SSL information works for GNNs, which strategies can better integrate SSL for GNNs, and further analyze why SSL is able to improve GNNs</p></li>
+<li><p>Datasets: Cora, Citeseer, Pubmed</p></li>
+<li><p>Training: Adam, learning rate <span class="math inline">\(0.01\)</span>, <span class="math inline">\(L_2\)</span> regularization <span class="math inline">\(5e-4\)</span>, dropout rate <span class="math inline">\(0.5\)</span>, <span class="math inline">\(128\)</span> hidden units across all self-supervised information and GCN, top-K=bottom-K=<span class="math inline">\(3\)</span>. <span class="math inline">\(\lambda\)</span> in range <span class="math inline">\(\{0,0.001,0.01,0.1,1,5,10,50,100,500,1000\}\)</span>, <span class="math inline">\(m_e,m_a\)</span> in <span class="math inline">\(\{10\%,20\%\}\)</span> the size of <span class="math inline">\(|V|\)</span>.</p></li>
+<li><p><strong>Two-stage training</strong></p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123200058.png" alt="image-20210123200058736" style="zoom:50%;" /></p>
 <ul>
 <li>the configuration of one graph convolutional layer for feature extraction, one graph convolutional layer for the adaptation of node classification and one linear layer for the adaptation of pretext task works very well for all three strategies</li>
-<li>In most cases, the strategy of “Tune all&quot; achieves the best performance–&gt; fine tune for downstream task is necessary.</li>
-</ul>
-</li>
-<li>
-<p><strong>SSL for GNNs</strong></p>
+<li>In most cases, the strategy of “Tune all" achieves the best performance--&gt; fine tune for downstream task is necessary.</li>
+</ul></li>
+<li><p><strong>SSL for GNNs</strong></p>
 <ul>
-<li>
-<p><em>Joint training vs. Two-stage Training</em></p>
-<p><em><strong>Joint training outperforms the Two-stage training in most settings.</strong></em></p>
-</li>
-<li>
-<p><em>What SSL works for GNNs</em></p>
+<li><p><em>Joint training vs. Two-stage Training</em></p>
+<p><strong><em>Joint training outperforms the Two-stage training in most settings.</em></strong></p></li>
+<li><p><em>What SSL works for GNNs</em></p>
 <p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202214.png" alt="image-20210123202214101" style="zoom:28%;" /> <img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210123202231.png" alt="image-20210123202231858" style="zoom:30%;" /></p>
 <ul>
 <li>SSL for GNNs will improve the accuracy for downstream task</li>
 <li>Across all datasets , the best performing method is a pretext task developed from <em>global structure information.</em></li>
 <li>self-supervised information from both the structure and attributes have potentials</li>
 <li>For the structure information, the global pretext tasks are likely to provide much more significant improvements compared to the local ones.</li>
-</ul>
-</li>
-<li>
-<p><em>Why SSL Works for GNNs</em></p>
+</ul></li>
+<li><p><em>Why SSL Works for GNNs</em></p>
 <ul>
 <li>GCN for node classification is naturally semi-supervised that has explored the unlabeled nodes, those (SSL pretext) failed to improve GCNs is argued resulted in GCN has already learned that information.</li>
 <li>GCN is unable to naturally learn the global structure information and employing pairwise node distance prediction as the SSL task can help boost its performance for the downstream task.</li>
-</ul>
-</li>
-<li>
-<p>The capability of pretext representations maintaining similarity</p>
+</ul></li>
+<li><p>The capability of pretext representations maintaining similarity</p>
 <p>The most popular similarity for graph is structural equivalence and regular equivalence (规则的等效节点是那些不一定具有相同邻居但具有自身相似的邻居的节点).</p>
 <ul>
 <li>Authors argue pretext task can maintain these two similarities by changing the definition of task (like nodes attribute task or distance between a pair of nodes can maintain structure similarity and regular equivalence.</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Advanced-pretext-task-on-graphs">Advanced pretext task on graphs</h2>
+<h2 id="advanced-pretext-task-on-graphs">Advanced pretext task on graphs</h2>
 <p>Pretext tasks are built with the intuition of adapting the notion of regular equivalence to having neighbors with similar node labels (or regular task equivalence). Specifically, <strong>if every node constructs a pretext vector based on information in regards to the labels from their neighborhood, then two nodes having similar (or dissimilar) vectors will be encouraged to be similar (or dissimilar) in the embedding space.</strong></p>
-<h3 id="Proposed-Tasks">Proposed Tasks</h3>
-<h4 id="Distance2Labeled">Distance2Labeled</h4>
+<h3 id="proposed-tasks">Proposed Tasks</h3>
+<h4 id="distance2labeled">Distance2Labeled</h4>
 <ul>
-<li>Modify Distance2Cluster. Propose to predict the distance vector from each node to the labeled nodes (i.e., $\mathcal{V}_L$) as the pretext task. <em>For class $c_j\in{1，\cdots,K}$ and unlabeled node $v_i\in\mathcal{V}_U$, the distance vector $\mathrm{d}_i$ for node  $v_i$ is defined as  three shortest path length (average, minimum, maximum) from $v_i$ to all labeled nodes in class $c_i$.</em></li>
-<li>Formally, the objective is $\mathcal{L}_{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-d_i|^2$.</li>
+<li>Modify Distance2Cluster. Propose to predict the distance vector from each node to the labeled nodes (i.e., <span class="math inline">\(\mathcal{V}_L\)</span>) as the pretext task. <em>For class <span class="math inline">\(c_j\in\{1，\cdots,K\}\)</span> and unlabeled node <span class="math inline">\(v_i\in\mathcal{V}_U\)</span>, the distance vector <span class="math inline">\(\mathrm{d}_i\)</span> for node <span class="math inline">\(v_i\)</span> is defined as three shortest path length (average, minimum, maximum) from <span class="math inline">\(v_i\)</span> to all labeled nodes in class <span class="math inline">\(c_i\)</span>.</em><br />
+</li>
+<li>Formally, the objective is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-d_i\|^2\)</span>.</li>
 </ul>
-<h4 id="ContextLabel">ContextLabel</h4>
+<h4 id="contextlabel">ContextLabel</h4>
 <ul>
-<li>Considering the sparsity of labels, use similarity based function which utilize structure , attributes , and the current labeled nodes to <strong>construct a neighbor label distribution context vector $\bar{\mathrm{y}}_i$</strong> for each nodes as follows: $f_s({\mathrm{A,X},\mathcal{D}_L,\mathcal{V}_U})\rightarrow{\bar{\mathrm{y}}<em>i|v_i\in\mathcal{V}<em>U}$. Specifically , the $c$-th item of $\bar{\mathrm{y}}$ is: $\bar{\mathrm{y}}</em>{ic}=\frac{|\mathcal{N}</em>{\mathcal{V}<em>L}(v_i,c)|+|\mathcal{N}</em>{\mathcal{V}<em>U}(v_i,c)|}{|\mathcal{N}</em>{\mathcal{V}<em>L}(v_i)|+|\mathcal{N}</em>{\mathcal{V}_U}(v_i)|},c=1,\cdots,K$. (For the neighbors of node $v_i$ (including unlabeled and labeled neighbors), the ratio of neighbors in class $c$)</li>
-<li>Formally, the objective is $\mathcal{L}_{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U)=\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-\mathrm{y}_i|^2$</li>
-<li>The labels of nodes (aka $f_s$) can be generated by LP (Label propagation ) or ICA (Iterative Classification Algorithm). But these  will import weak  labels that are too noisy.</li>
+<li>Considering the sparsity of labels, use similarity based function which utilize structure , attributes , and the current labeled nodes to <strong>construct a neighbor label distribution context vector <span class="math inline">\(\bar{\mathrm{y}}_i\)</span></strong> for each nodes as follows: <span class="math inline">\(f_s({\mathrm{A,X},\mathcal{D}_L,\mathcal{V}_U})\rightarrow\{\bar{\mathrm{y}}_i|v_i\in\mathcal{V}_U\}\)</span>. Specifically , the <span class="math inline">\(c\)</span>-th item of <span class="math inline">\(\bar{\mathrm{y}}\)</span> is: <span class="math inline">\(\bar{\mathrm{y}}_{ic}=\frac{|\mathcal{N}_{\mathcal{V}_L}(v_i,c)|+|\mathcal{N}_{\mathcal{V}_U}(v_i,c)|}{|\mathcal{N}_{\mathcal{V}_L}(v_i)|+|\mathcal{N}_{\mathcal{V}_U}(v_i)|},c=1,\cdots,K\)</span>. (For the neighbors of node <span class="math inline">\(v_i\)</span> (including unlabeled and labeled neighbors), the ratio of neighbors in class <span class="math inline">\(c\)</span>)</li>
+<li>Formally, the objective is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U)=\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\mathrm{y}_i\|^2\)</span></li>
+<li>The labels of nodes (aka <span class="math inline">\(f_s\)</span>) can be generated by LP (Label propagation ) or ICA (Iterative Classification Algorithm). But these will import weak labels that are too noisy.</li>
 </ul>
-<h4 id="EnsembleLabel">EnsembleLabel</h4>
+<h4 id="ensemblelabel">EnsembleLabel</h4>
 <ul>
-<li>Ensemble various functions $f_s$. $\bar{y}<em>i=\arg\max_c\sigma</em>{LP}(v_i)+\sigma_{ICA}(v_i),c=1,\cdots,K$</li>
+<li>Ensemble various functions <span class="math inline">\(f_s\)</span>. <span class="math inline">\(\bar{y}_i=\arg\max_c\sigma_{LP}(v_i)+\sigma_{ICA}(v_i),c=1,\cdots,K\)</span></li>
 <li>The objective is the same as ContextLabel method.</li>
 </ul>
-<h4 id="CorrectedLabel">CorrectedLabel</h4>
+<h4 id="correctedlabel">CorrectedLabel</h4>
 <ul>
-<li>Enhance ContextLabel by iteratively improving the context vectors. GNN $f_{\theta}$ is trained on both the original (e.g., $\bar{\mathrm{y}}_i$) and corrected (e.g., $\hat{\mathrm{y}}_i$) context distributions.</li>
-<li>Formally, the loss is $\mathcal{L}<em>{self}(\theta’,\mathrm{A,X},\mathcal{D}<em>U,\hat{\mathcal{D}}<em>U)=\\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-\bar{\mathrm{y}}<em>i|^2+\alpha(\frac{1}{|\mathcal{D}<em>U|}\sum\limits</em>{v_i\in\mathcal{D}<em>U}|f</em>{\theta’}(\mathcal{G})</em>{v_i}-\hat{\mathrm{y}}<em>i|^2)$, where the 1st and second terms are to fit the original and corrected context distributions respectively, and $\alpha$ controls the contribution from the corrected context distribution. $\hat{y}<em>i=\arg\max_c\frac{1}{p}\sum\limits</em>{l=1}^p\cos(f</em>{\theta’}(\mathcal{G})</em>{v_i},\mathrm{z}</em>{cl}),c=1,\cdots,K$. Where $p$ indicates the prototype nodes in top-$p$ largest $\rho$ values, indicating <strong>the nodes if the measurements ($\rho$) of their neighbors’ label similarity is in top-$p$.</strong>. Concretely, the similarity of labels’ similarity is defined as $\rho_i=\sum\limits_{j=1}^m\mathrm{sign}(\mathrm{S}<em>{ij}-S_c)$, where $\mathrm{S}</em>{ij}$ is the  cosine similarity between two nodes based on their embeddings, $S_c$ indicating a constant value (which is selected as the value rank in top $40%$ in $\mathrm{S}$).</li>
-<li>In other words, the average similarity between $v_i$ and $p$ prototypes is used to represent the similarity between $v_i$ and the corresponding class, and then assign the class $c$ having the largest similarity to $v_i$.</li>
+<li>Enhance ContextLabel by iteratively improving the context vectors. GNN <span class="math inline">\(f_{\theta}\)</span> is trained on both the original (e.g., <span class="math inline">\(\bar{\mathrm{y}}_i\)</span>) and corrected (e.g., <span class="math inline">\(\hat{\mathrm{y}}_i\)</span>) context distributions.</li>
+<li>Formally, the loss is <span class="math inline">\(\mathcal{L}_{self}(\theta&#39;,\mathrm{A,X},\mathcal{D}_U,\hat{\mathcal{D}}_U)=\\\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\bar{\mathrm{y}}_i\|^2+\alpha(\frac{1}{|\mathcal{D}_U|}\sum\limits_{v_i\in\mathcal{D}_U}\|f_{\theta&#39;}(\mathcal{G})_{v_i}-\hat{\mathrm{y}}_i\|^2)\)</span>, where the 1st and second terms are to fit the original and corrected context distributions respectively, and <span class="math inline">\(\alpha\)</span> controls the contribution from the corrected context distribution. <span class="math inline">\(\hat{y}_i=\arg\max_c\frac{1}{p}\sum\limits_{l=1}^p\cos(f_{\theta&#39;}(\mathcal{G})_{v_i},\mathrm{z}_{cl}),c=1,\cdots,K\)</span>. Where <span class="math inline">\(p\)</span> indicates the prototype nodes in top-<span class="math inline">\(p\)</span> largest <span class="math inline">\(\rho\)</span> values, indicating <strong>the nodes if the measurements (<span class="math inline">\(\rho\)</span>) of their neighbors' label similarity is in top-<span class="math inline">\(p\)</span>.</strong>. Concretely, the similarity of labels' similarity is defined as <span class="math inline">\(\rho_i=\sum\limits_{j=1}^m\mathrm{sign}(\mathrm{S}_{ij}-S_c)\)</span>, where <span class="math inline">\(\mathrm{S}_{ij}\)</span> is the cosine similarity between two nodes based on their embeddings, <span class="math inline">\(S_c\)</span> indicating a constant value (which is selected as the value rank in top <span class="math inline">\(40\%\)</span> in <span class="math inline">\(\mathrm{S}\)</span>).</li>
+<li>In other words, the average similarity between <span class="math inline">\(v_i\)</span> and <span class="math inline">\(p\)</span> prototypes is used to represent the similarity between <span class="math inline">\(v_i\)</span> and the corresponding class, and then assign the class <span class="math inline">\(c\)</span> having the largest similarity to <span class="math inline">\(v_i\)</span>.</li>
 </ul>
-<h3 id="Experiments-for-evaluating">Experiments for evaluating</h3>
+<h3 id="experiments-for-evaluating">Experiments for evaluating</h3>
 <ul>
-<li>
-<p>Experiment settings</p>
+<li><p>Experiment settings</p>
 <ul>
 <li>Datasets: Cora, Citeseer, Pubmed and Reddit</li>
-<li>Model:  2-layer GCN as the backbone, with hidden units of 128, $L_2$ regularization $5e−4$, dropout rate $0.5$ and learning rate $0.01$. For the SSL loss, the hidden representations from the first layer of GCN are fed through a linear layer to solve SSL pretext task. Jointly train SSL and GCNs. $\lambda$ ranges in ${1, 5, 10, 50, 100, 500}$. $\alpha$ ranges in ${0.5, 0.8, 1, 1.2, 1.5}$.</li>
+<li>Model: 2-layer GCN as the backbone, with hidden units of 128, <span class="math inline">\(L_2\)</span> regularization <span class="math inline">\(5e−4\)</span>, dropout rate <span class="math inline">\(0.5\)</span> and learning rate <span class="math inline">\(0.01\)</span>. For the SSL loss, the hidden representations from the first layer of GCN are fed through a linear layer to solve SSL pretext task. Jointly train SSL and GCNs. <span class="math inline">\(\lambda\)</span> ranges in <span class="math inline">\(\{1, 5, 10, 50, 100, 500\}\)</span>. <span class="math inline">\(\alpha\)</span> ranges in <span class="math inline">\(\{0.5, 0.8, 1, 1.2, 1.5\}\)</span>.</li>
 <li>Measurements: the average accuracy with standard deviation.</li>
-</ul>
-</li>
-<li>
-<p>Analysis</p>
+</ul></li>
+<li><p>Analysis</p>
 <ul>
-<li>
-<p>Performance comparison: Though they argue the performance exist, but seems not that significant. They summarize: <strong>label correction can better</strong> extend label information to unlabeled nodes than ensemble, but it’s much less inefficient. A tradeoff must be taken in.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124113911.png" alt="image-20210124113911642" style="zoom:50%;" />
-</li>
-<li>
-<p>Fewer Labeled Samples</p>
+<li><p>Performance comparison: Though they argue the performance exist, but seems not that significant. They summarize: <strong>label correction can better</strong> extend label information to unlabeled nodes than ensemble, but it's much less inefficient. A tradeoff must be taken in.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124113911.png" alt="image-20210124113911642" style="zoom:50%;" /></p></li>
+<li><p>Fewer Labeled Samples</p>
 <ul>
-<li>
-<p>By randomly sampling 5 or 10 nodes per class for training and the same number of nodes for validation.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114147.png" alt="image-20210124114147761" style="zoom:50%;" />
-</li>
-<li>
-<p><strong>SelfTask achieves even greater improvement when the labeled samples are fewer and consistently outperforms the state-of-the-art baselines.</strong></p>
-</li>
-<li>
-<p><font color='red'>Why with fewer samples per class SelfTask can be even better?</font></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Parameter Analysis</p>
+<li><p>By randomly sampling 5 or 10 nodes per class for training and the same number of nodes for validation.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114147.png" alt="image-20210124114147761" style="zoom:50%;" /></p></li>
+<li><p><strong>SelfTask achieves even greater improvement when the labeled samples are fewer and consistently outperforms the state-of-the-art baselines.</strong></p></li>
+<li><p><font color='red'>Why with fewer samples per class SelfTask can be even better?</font></p></li>
+</ul></li>
+<li><p>Parameter Analysis</p>
 <ul>
-<li>
-<p>Only the sensitivity of the best model <em>SelfTaskCorrectedLabel-ICA</em> is evaluated. Vary $\lambda$ in the range of ${0, 0.1, 0.5, 1, 5, 10, 50, 100}$ and $\alpha$ from 0 to 2.5 with an interval of 0.25.</p>
-<img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114646.png" alt="image-20210124114646842" style="zoom:50%;" />
-</li>
-<li>
-<p>The performance of this model first increases with the increase of $\lambda$, which controls the contribution of SSL pretext task.</p>
-</li>
-<li>
-<p>The using of correction is confirmed.</p>
-</li>
-<li>
-<p>They don’t report sensitivity on other datasets, which should have been in supplementary.</p>
-</li>
+<li><p>Only the sensitivity of the best model <em>SelfTaskCorrectedLabel-ICA</em> is evaluated. Vary <span class="math inline">\(\lambda\)</span> in the range of <span class="math inline">\(\{0, 0.1, 0.5, 1, 5, 10, 50, 100\}\)</span> and <span class="math inline">\(\alpha\)</span> from 0 to 2.5 with an interval of 0.25.</p>
+<p><img src="https://raw.githubusercontent.com/skaudrey/picBed/master/img/20210124114646.png" alt="image-20210124114646842" style="zoom:50%;" /></p></li>
+<li><p>The performance of this model first increases with the increase of <span class="math inline">\(\lambda\)</span>, which controls the contribution of SSL pretext task.</p></li>
+<li><p>The using of correction is confirmed.</p></li>
+<li><p>They don't report sensitivity on other datasets, which should have been in supplementary.</p></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Conclusion">Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>Present detailed empirical study to understand when and why SSL works for GNNs and which strategy can better work with GNNs.</li>
 <li>Propose a new direction SelfTask to build advanced pretext tasks which further exploit task-specific self-supervised information, and demonstrate that our advanced method achieves state-of-the-art performance.</li>
@@ -555,7 +473,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Previous-work"><span class="toc-number">3.</span> <span class="toc-text">Previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Examples"><span class="toc-number">3.1.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-pretext-task-on-graphs"><span class="toc-number">3.2.</span> <span class="toc-text">Basic pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Structure-information-Adjacency-matrix-mathrm-A"><span class="toc-number">3.2.1.</span> <span class="toc-text">Structure information  (Adjacency matrix $\mathrm{A}$)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Local-structure-information"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">Local structure information</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Global-structure-information"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">Global structure information</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attribute-information-Nodes-matrix-mathrm-X"><span class="toc-number">3.2.2.</span> <span class="toc-text">Attribute information (Nodes matrix $\mathrm{X}$)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Merge-pretext-task-on-Graphs"><span class="toc-number">3.3.</span> <span class="toc-text">Merge pretext task on Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Analysis"><span class="toc-number">4.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-pretext-task-on-graphs"><span class="toc-number">5.</span> <span class="toc-text">Advanced pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proposed-Tasks"><span class="toc-number">5.1.</span> <span class="toc-text">Proposed Tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Distance2Labeled"><span class="toc-number">5.1.1.</span> <span class="toc-text">Distance2Labeled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ContextLabel"><span class="toc-number">5.1.2.</span> <span class="toc-text">ContextLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EnsembleLabel"><span class="toc-number">5.1.3.</span> <span class="toc-text">EnsembleLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CorrectedLabel"><span class="toc-number">5.1.4.</span> <span class="toc-text">CorrectedLabel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Experiments-for-evaluating"><span class="toc-number">5.2.</span> <span class="toc-text">Experiments for evaluating</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#why"><span class="toc-number">1.</span> <span class="toc-text">Why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#goals"><span class="toc-number">2.</span> <span class="toc-text">Goals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#previous-work"><span class="toc-number">3.</span> <span class="toc-text">Previous work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#examples"><span class="toc-number">3.1.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-pretext-task-on-graphs"><span class="toc-number">3.2.</span> <span class="toc-text">Basic pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#structure-information-adjacency-matrix-mathrma"><span class="toc-number">3.2.1.</span> <span class="toc-text">Structure information (Adjacency matrix \(\mathrm{A}\))</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#local-structure-information"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">Local structure information</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#global-structure-information"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">Global structure information</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#attribute-information-nodes-matrix-mathrmx"><span class="toc-number">3.2.2.</span> <span class="toc-text">Attribute information (Nodes matrix \(\mathrm{X}\))</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-pretext-task-on-graphs"><span class="toc-number">3.3.</span> <span class="toc-text">Merge pretext task on Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#analysis"><span class="toc-number">4.</span> <span class="toc-text">Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-pretext-task-on-graphs"><span class="toc-number">5.</span> <span class="toc-text">Advanced pretext task on graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proposed-tasks"><span class="toc-number">5.1.</span> <span class="toc-text">Proposed Tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#distance2labeled"><span class="toc-number">5.1.1.</span> <span class="toc-text">Distance2Labeled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#contextlabel"><span class="toc-number">5.1.2.</span> <span class="toc-text">ContextLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ensemblelabel"><span class="toc-number">5.1.3.</span> <span class="toc-text">EnsembleLabel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#correctedlabel"><span class="toc-number">5.1.4.</span> <span class="toc-text">CorrectedLabel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#experiments-for-evaluating"><span class="toc-number">5.2.</span> <span class="toc-text">Experiments for evaluating</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -789,15 +707,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">data assimilation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
