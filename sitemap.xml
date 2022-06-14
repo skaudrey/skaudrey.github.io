@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/posts/uncategorized/2021-11-20-tmp-cat.html</loc>
-    
-    <lastmod>2021-11-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/posts/notes/2021-08-23-notes-paper-SSL-survey.html</loc>
     
     <lastmod>2021-08-24</lastmod>
@@ -326,6 +319,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/tags/summer-school/</loc>
+    <lastmod>2022-06-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/mathematics/</loc>
+    <lastmod>2022-06-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/cnn/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
@@ -354,14 +361,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/summer-school/</loc>
-    <lastmod>2022-06-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/mathematics/</loc>
+    <loc>http://yoursite.com/tags/logistic/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -376,13 +376,6 @@
   
   <url>
     <loc>http://yoursite.com/tags/blog/</loc>
-    <lastmod>2022-06-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/logistic/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,20 +417,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/book/</loc>
-    <lastmod>2022-06-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/gcn/</loc>
-    <lastmod>2022-06-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/data-assimilation/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
@@ -446,6 +425,20 @@
   
   <url>
     <loc>http://yoursite.com/tags/machine-learning/</loc>
+    <lastmod>2022-06-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/book/</loc>
+    <lastmod>2022-06-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/gcn/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -480,14 +473,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/anomaly/</loc>
+    <loc>http://yoursite.com/tags/skeleton/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/skeleton/</loc>
+    <loc>http://yoursite.com/tags/anomaly/</loc>
     <lastmod>2022-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
